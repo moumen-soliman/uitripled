@@ -2,7 +2,7 @@
 
 Production-ready UI components and blocks powered by shadcn/ui and Framer Motion.
 
-![OG Image](./public/og-image.png)
+![OG Image](./public/readme.png)
 
 ## Features
 
