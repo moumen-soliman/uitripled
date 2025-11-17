@@ -22,11 +22,6 @@
   <a href="https://github.com/moumen-soliman/uitripled/issues"><img src="https://img.shields.io/github/issues/moumen-soliman/uitripled" alt="Issues" /></a>
 </p>
 
-<p>
-Production-ready UI components and blocks powered by shadcn/ui
-and Framer Motion.
-</p>
-
 <img width="2800" height="2044" alt="UI TripleD" src="./public/readme.png" />
 
 ## Features
