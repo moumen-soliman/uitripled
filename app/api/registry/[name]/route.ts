@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import registryIndex from "@/registry.json";
@@ -17,12 +17,15 @@ type RegistryItem = {
  * following the shadcn registry item schema.
  */
 export async function GET(
-  request: Request,
-  { params }: { params: { name: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ name: string }> }
 ) {
   try {
+    // Await params as it's now a Promise in Next.js 15+
+    const { name } = await params;
+
     // Remove .json extension if present
-    const componentName = params.name.replace(/\.json$/, "");
+    const componentName = name.replace(/\.json$/, "");
 
     // Support both legacy object-based indexes and new array-based indexes
     const registryItems: RegistryItem[] = Array.isArray(registryIndex.items)
@@ -45,29 +48,15 @@ export async function GET(
     const filesWithContent = componentData.files.map(
       (file: { path: string; type: string }) => {
         try {
-          // Map the registry path to actual file location
-          // Handle multiple path formats:
-          // 1. registry/ui/{name}.tsx or registry/new-york/ui/{name}.tsx (shadcn format)
-          // 2. components/**/*.tsx (project component paths)
-          let filePath: string;
-          if (file.path.startsWith("components/")) {
-            // Path starts with components/, use directly from project root
-            filePath = join(process.cwd(), file.path);
-          } else if (file.path.includes("new-york/ui/")) {
-            // Path already includes new-york, use as-is
-            filePath = join(process.cwd(), file.path);
-          } else {
-            // Extract filename from path (handles both ui/{name}.tsx and registry/ui/{name}.tsx)
-            const fileName = file.path.replace(
-              /^(registry\/)?(new-york\/)?ui\//,
-              ""
-            );
-            filePath = join(process.cwd(), "registry", "ui", fileName);
-          }
+          // Use the path directly from registry.json and resolve from project root
+          // All paths in registry.json are relative to the project root
+          const filePath = join(process.cwd(), file.path);
 
           // Check if file exists
           if (!existsSync(filePath)) {
-            console.error(`File not found: ${filePath}`);
+            console.error(
+              `File not found: ${filePath} (from registry path: ${file.path})`
+            );
             throw new Error(`File not found: ${file.path}`);
           }
 
