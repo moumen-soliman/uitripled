@@ -224,49 +224,50 @@ function ChartCard({
                 >
                   <stop
                     offset="5%"
-                    stopColor="hsl(var(--primary))"
+                    stopColor="var(--primary)"
                     stopOpacity={0.5}
                   />
                   <stop
                     offset="95%"
-                    stopColor="hsl(var(--primary))"
+                    stopColor="var(--primary)"
                     stopOpacity={0.05}
                   />
                 </linearGradient>
               </defs>
               <CartesianGrid
                 strokeDasharray="3 3"
-                stroke="hsl(var(--border))"
+                stroke="var(--border)"
                 opacity={0.3}
                 vertical={false}
               />
               <XAxis
                 dataKey="name"
-                stroke="hsl(var(--foreground))"
+                stroke="var(--foreground)"
                 opacity={0.6}
                 style={{ fontSize: "11px" }}
               />
               <YAxis
-                stroke="hsl(var(--foreground))"
+                stroke="var(--foreground)"
                 opacity={0.6}
                 style={{ fontSize: "11px" }}
                 width={35}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "hsl(var(--background) / 0.8)",
-                  border: `1px solid hsl(var(--border))`,
+                  backgroundColor: "var(--background)",
+                  opacity: 0.95,
+                  border: `1px solid var(--border)`,
                   borderRadius: "8px",
                   backdropFilter: "blur(12px)",
                   padding: "8px 12px",
                 }}
-                labelStyle={{ color: "hsl(var(--foreground))" }}
-                cursor={{ stroke: "hsl(var(--primary) / 0.2)" }}
+                labelStyle={{ color: "var(--foreground)" }}
+                cursor={{ stroke: "var(--primary)", strokeOpacity: 0.2 }}
               />
               <Line
                 type="natural"
                 dataKey={dataKey}
-                stroke="hsl(var(--primary))"
+                stroke="var(--primary)"
                 strokeWidth={2.5}
                 dot={false}
                 activeDot={{ r: 6 }}
