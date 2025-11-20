@@ -5,12 +5,14 @@
   "scripts": {
     "sync-registry": "node scripts/sync-registry.js",
     "generate-llms-txt": "node scripts/generate-llms-txt.js",
-    "dev": "npm run sync-registry && next dev",
+    "generate-registry-scripts": "node scripts/generate-registry-files",
+    "dev": "npm run generate-scripts && next dev --port 3001",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "generate-scripts": "npm run sync-registry && npm run generate-llms-txt && npm run generate-registry-scripts"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.20.0",
