@@ -196,253 +196,268 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                   </motion.div>
                 )} */}
               </div>
-
-              <div className="md:max-w-2xl">
-                <div className="mb-3 flex items-center justify-between">
-                  <h2 className="text-lg font-semibold">Install</h2>
-                </div>
+              {showLongCodeNote && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="mb-6"
+                  transition={{ delay: 0.05 }}
+                  className="mb-3 flex gap-3 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-3 text-yellow-700/80 dark:text-yellow-200"
                 >
-                  <Tabs defaultValue="npx" className="w-full">
-                    <TabsList className="grid w-full grid-cols-4">
-                      <TabsTrigger value="npx">npx</TabsTrigger>
-                      <TabsTrigger value="npm">npm</TabsTrigger>
-                      <TabsTrigger value="yarn">yarn</TabsTrigger>
-                      <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="npx" className="mt-4">
-                      <div className="relative rounded-lg border border-border bg-card">
-                        <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-                          <span className="text-xs font-medium text-muted-foreground">
-                            Terminal
-                          </span>
-                          <button
-                            onClick={() =>
-                              handleCopyInstall(
-                                `npx shadcn@latest add @uitripled/${component.id}`,
-                                "npx"
-                              )
-                            }
-                            className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
-                          >
-                            <AnimatePresence mode="wait">
-                              {copiedInstall === "npx" ? (
-                                <motion.div
-                                  key="check"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Check className="h-3 w-3" />
-                                  Copied
-                                </motion.div>
-                              ) : (
-                                <motion.div
-                                  key="copy"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Copy className="h-3 w-3" />
-                                  Copy
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </button>
-                        </div>
-                        <div className="overflow-x-auto bg-card p-4">
-                          <code className="text-sm text-foreground">
-                            npx shadcn@latest add @uitripled/{component.id}
-                          </code>
-                        </div>
-                      </div>
-                    </TabsContent>
-                    <TabsContent value="npm" className="mt-4">
-                      <div className="relative rounded-lg border border-border bg-card">
-                        <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-                          <span className="text-xs font-medium text-muted-foreground">
-                            Terminal
-                          </span>
-                          <button
-                            onClick={() =>
-                              handleCopyInstall(
-                                `npx shadcn@latest add @uitripled/${component.id}`,
-                                "npm"
-                              )
-                            }
-                            className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
-                          >
-                            <AnimatePresence mode="wait">
-                              {copiedInstall === "npm" ? (
-                                <motion.div
-                                  key="check"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Check className="h-3 w-3" />
-                                  Copied
-                                </motion.div>
-                              ) : (
-                                <motion.div
-                                  key="copy"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Copy className="h-3 w-3" />
-                                  Copy
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </button>
-                        </div>
-                        <div className="overflow-x-auto bg-card p-4">
-                          <code className="text-sm text-foreground">
-                            npx shadcn@latest add @uitripled/{component.id}
-                          </code>
-                        </div>
-                      </div>
-                    </TabsContent>
-                    <TabsContent value="yarn" className="mt-4">
-                      <div className="relative rounded-lg border border-border bg-card">
-                        <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-                          <span className="text-xs font-medium text-muted-foreground">
-                            Terminal
-                          </span>
-                          <button
-                            onClick={() =>
-                              handleCopyInstall(
-                                `npx shadcn@latest add @uitripled/${component.id}`,
-                                "yarn"
-                              )
-                            }
-                            className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
-                          >
-                            <AnimatePresence mode="wait">
-                              {copiedInstall === "yarn" ? (
-                                <motion.div
-                                  key="check"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Check className="h-3 w-3" />
-                                  Copied
-                                </motion.div>
-                              ) : (
-                                <motion.div
-                                  key="copy"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Copy className="h-3 w-3" />
-                                  Copy
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </button>
-                        </div>
-                        <div className="overflow-x-auto bg-card p-4">
-                          <code className="text-sm text-foreground">
-                            npx shadcn@latest add @uitripled/{component.id}
-                          </code>
-                        </div>
-                      </div>
-                    </TabsContent>
-                    <TabsContent value="pnpm" className="mt-4">
-                      <div className="relative rounded-lg border border-border bg-card">
-                        <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-                          <span className="text-xs font-medium text-muted-foreground">
-                            Terminal
-                          </span>
-                          <button
-                            onClick={() =>
-                              handleCopyInstall(
-                                `npx shadcn@latest add @uitripled/${component.id}`,
-                                "pnpm"
-                              )
-                            }
-                            className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
-                          >
-                            <AnimatePresence mode="wait">
-                              {copiedInstall === "pnpm" ? (
-                                <motion.div
-                                  key="check"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Check className="h-3 w-3" />
-                                  Copied
-                                </motion.div>
-                              ) : (
-                                <motion.div
-                                  key="copy"
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
-                                  exit={{ scale: 0 }}
-                                  className="flex items-center gap-1.5"
-                                >
-                                  <Copy className="h-3 w-3" />
-                                  Copy
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </button>
-                        </div>
-                        <div className="overflow-x-auto bg-card p-4">
-                          <code className="text-sm text-foreground">
-                            npx shadcn@latest add @uitripled/{component.id}
-                          </code>
-                        </div>
-                      </div>
-                    </TabsContent>
-                  </Tabs>
+                  <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-yellow-600 dark:text-yellow-300" />
+                  <div className="space-y-1 text-xs sm:text-sm">
+                    <p className="font-semibold text-yellow-700 dark:text-yellow-200">
+                      Heads up - this component is long ({codeLineCount} lines)
+                    </p>
+                    <p>
+                      We include everything in one file for easy copy-paste
+                      (including dummy data), but keep in mind you should split
+                      your logic when integrating it (e.g., move data fetching
+                      to loaders, hooks, or API utilities).
+                    </p>
+                  </div>
                 </motion.div>
-              </div>
+              )}
 
-              <div>
-                <div className="mb-3 flex items-center justify-between">
-                  <h2 className="text-lg font-semibold">Code</h2>
+              <div className="mt-8">
+                <div className="mb-4 flex items-center justify-between">
+                  <h2 className="text-lg font-semibold">Installation</h2>
                 </div>
-                <>
-                  {showLongCodeNote && (
+
+                <Tabs defaultValue="cli" className="w-full">
+                  <TabsList className="w-full justify-start border-b rounded-none bg-transparent p-0 h-auto">
+                    <TabsTrigger
+                      value="cli"
+                      className="rounded-none border-b-2 border-transparent cursor-pointer data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2"
+                    >
+                      CLI
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="manual"
+                      className="rounded-none border-b-2 border-transparent cursor-pointer data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-2"
+                    >
+                      Manual
+                    </TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="cli" className="mt-6 md:max-w-2xl">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.05 }}
-                      className="mb-3 flex gap-3 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-3 text-yellow-700/80 dark:text-yellow-200"
+                      transition={{ delay: 0.1 }}
                     >
-                      <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-yellow-600 dark:text-yellow-300" />
-                      <div className="space-y-1 text-xs sm:text-sm">
-                        <p className="font-semibold text-yellow-700 dark:text-yellow-200">
-                          Heads up - this component is long ({codeLineCount}{" "}
-                          lines)
-                        </p>
-                        <p>
-                          We include everything in one file for easy copy-paste
-                          (including dummy data), but keep in mind you should
-                          split your logic when integrating it (e.g., move data
-                          fetching to loaders, hooks, or API utilities).
-                        </p>
-                      </div>
+                      <Tabs defaultValue="npx" className="w-full">
+                        <TabsList className="grid w-full grid-cols-4">
+                          <TabsTrigger value="npx">npx</TabsTrigger>
+                          <TabsTrigger value="npm">npm</TabsTrigger>
+                          <TabsTrigger value="yarn">yarn</TabsTrigger>
+                          <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="npx" className="mt-4">
+                          <div className="relative rounded-lg border border-border bg-card">
+                            <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
+                              <span className="text-xs font-medium text-muted-foreground">
+                                Terminal
+                              </span>
+                              <button
+                                onClick={() =>
+                                  handleCopyInstall(
+                                    `npx shadcn@latest add @uitripled/${component.id}`,
+                                    "npx"
+                                  )
+                                }
+                                className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
+                              >
+                                <AnimatePresence mode="wait">
+                                  {copiedInstall === "npx" ? (
+                                    <motion.div
+                                      key="check"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Check className="h-3 w-3" />
+                                      Copied
+                                    </motion.div>
+                                  ) : (
+                                    <motion.div
+                                      key="copy"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Copy className="h-3 w-3" />
+                                      Copy
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </button>
+                            </div>
+                            <div className="overflow-x-auto bg-card p-4">
+                              <code className="text-sm text-foreground">
+                                npx shadcn@latest add @uitripled/{component.id}
+                              </code>
+                            </div>
+                          </div>
+                        </TabsContent>
+                        <TabsContent value="npm" className="mt-4">
+                          <div className="relative rounded-lg border border-border bg-card">
+                            <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
+                              <span className="text-xs font-medium text-muted-foreground">
+                                Terminal
+                              </span>
+                              <button
+                                onClick={() =>
+                                  handleCopyInstall(
+                                    `npx shadcn@latest add @uitripled/${component.id}`,
+                                    "npm"
+                                  )
+                                }
+                                className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
+                              >
+                                <AnimatePresence mode="wait">
+                                  {copiedInstall === "npm" ? (
+                                    <motion.div
+                                      key="check"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Check className="h-3 w-3" />
+                                      Copied
+                                    </motion.div>
+                                  ) : (
+                                    <motion.div
+                                      key="copy"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Copy className="h-3 w-3" />
+                                      Copy
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </button>
+                            </div>
+                            <div className="overflow-x-auto bg-card p-4">
+                              <code className="text-sm text-foreground">
+                                npx shadcn@latest add @uitripled/{component.id}
+                              </code>
+                            </div>
+                          </div>
+                        </TabsContent>
+                        <TabsContent value="yarn" className="mt-4">
+                          <div className="relative rounded-lg border border-border bg-card">
+                            <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
+                              <span className="text-xs font-medium text-muted-foreground">
+                                Terminal
+                              </span>
+                              <button
+                                onClick={() =>
+                                  handleCopyInstall(
+                                    `npx shadcn@latest add @uitripled/${component.id}`,
+                                    "yarn"
+                                  )
+                                }
+                                className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
+                              >
+                                <AnimatePresence mode="wait">
+                                  {copiedInstall === "yarn" ? (
+                                    <motion.div
+                                      key="check"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Check className="h-3 w-3" />
+                                      Copied
+                                    </motion.div>
+                                  ) : (
+                                    <motion.div
+                                      key="copy"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Copy className="h-3 w-3" />
+                                      Copy
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </button>
+                            </div>
+                            <div className="overflow-x-auto bg-card p-4">
+                              <code className="text-sm text-foreground">
+                                npx shadcn@latest add @uitripled/{component.id}
+                              </code>
+                            </div>
+                          </div>
+                        </TabsContent>
+                        <TabsContent value="pnpm" className="mt-4">
+                          <div className="relative rounded-lg border border-border bg-card">
+                            <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
+                              <span className="text-xs font-medium text-muted-foreground">
+                                Terminal
+                              </span>
+                              <button
+                                onClick={() =>
+                                  handleCopyInstall(
+                                    `npx shadcn@latest add @uitripled/${component.id}`,
+                                    "pnpm"
+                                  )
+                                }
+                                className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
+                              >
+                                <AnimatePresence mode="wait">
+                                  {copiedInstall === "pnpm" ? (
+                                    <motion.div
+                                      key="check"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Check className="h-3 w-3" />
+                                      Copied
+                                    </motion.div>
+                                  ) : (
+                                    <motion.div
+                                      key="copy"
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      exit={{ scale: 0 }}
+                                      className="flex items-center gap-1.5"
+                                    >
+                                      <Copy className="h-3 w-3" />
+                                      Copy
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </button>
+                            </div>
+                            <div className="overflow-x-auto bg-card p-4">
+                              <code className="text-sm text-foreground">
+                                npx shadcn@latest add @uitripled/{component.id}
+                              </code>
+                            </div>
+                          </div>
+                        </TabsContent>
+                      </Tabs>
                     </motion.div>
-                  )}
-                  <CodeBlock code={code} />
-                </>
+                  </TabsContent>
+
+                  <TabsContent value="manual" className="mt-6">
+                    <>
+                      <CodeBlock code={code} />
+                    </>
+                  </TabsContent>
+                </Tabs>
               </div>
             </TabsContent>
 
