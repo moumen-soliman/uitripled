@@ -246,9 +246,8 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                       transition={{ delay: 0.1 }}
                     >
                       <Tabs defaultValue="npx" className="w-full">
-                        <TabsList className="grid w-full grid-cols-4">
+                        <TabsList className="grid w-full grid-cols-3">
                           <TabsTrigger value="npx">npx</TabsTrigger>
-                          <TabsTrigger value="npm">npm</TabsTrigger>
                           <TabsTrigger value="yarn">yarn</TabsTrigger>
                           <TabsTrigger value="pnpm">pnpm</TabsTrigger>
                         </TabsList>
@@ -301,55 +300,6 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                             </div>
                           </div>
                         </TabsContent>
-                        <TabsContent value="npm" className="mt-4">
-                          <div className="relative rounded-lg border border-border bg-card">
-                            <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-                              <span className="text-xs font-medium text-muted-foreground">
-                                Terminal
-                              </span>
-                              <button
-                                onClick={() =>
-                                  handleCopyInstall(
-                                    `npx shadcn@latest add @uitripled/${component.id}`,
-                                    "npm"
-                                  )
-                                }
-                                className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
-                              >
-                                <AnimatePresence mode="wait">
-                                  {copiedInstall === "npm" ? (
-                                    <motion.div
-                                      key="check"
-                                      initial={{ scale: 0 }}
-                                      animate={{ scale: 1 }}
-                                      exit={{ scale: 0 }}
-                                      className="flex items-center gap-1.5"
-                                    >
-                                      <Check className="h-3 w-3" />
-                                      Copied
-                                    </motion.div>
-                                  ) : (
-                                    <motion.div
-                                      key="copy"
-                                      initial={{ scale: 0 }}
-                                      animate={{ scale: 1 }}
-                                      exit={{ scale: 0 }}
-                                      className="flex items-center gap-1.5"
-                                    >
-                                      <Copy className="h-3 w-3" />
-                                      Copy
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
-                              </button>
-                            </div>
-                            <div className="overflow-x-auto bg-card p-4">
-                              <code className="text-sm text-foreground">
-                                npx shadcn@latest add @uitripled/{component.id}
-                              </code>
-                            </div>
-                          </div>
-                        </TabsContent>
                         <TabsContent value="yarn" className="mt-4">
                           <div className="relative rounded-lg border border-border bg-card">
                             <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
@@ -359,7 +309,7 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                               <button
                                 onClick={() =>
                                   handleCopyInstall(
-                                    `npx shadcn@latest add @uitripled/${component.id}`,
+                                    `yarn add @uitripled/${component.id}`,
                                     "yarn"
                                   )
                                 }
@@ -394,7 +344,7 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                             </div>
                             <div className="overflow-x-auto bg-card p-4">
                               <code className="text-sm text-foreground">
-                                npx shadcn@latest add @uitripled/{component.id}
+                                yarn add @uitripled/{component.id}
                               </code>
                             </div>
                           </div>
@@ -408,7 +358,7 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                               <button
                                 onClick={() =>
                                   handleCopyInstall(
-                                    `npx shadcn@latest add @uitripled/${component.id}`,
+                                    `pnpm add @uitripled/${component.id}`,
                                     "pnpm"
                                   )
                                 }
@@ -443,7 +393,7 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                             </div>
                             <div className="overflow-x-auto bg-card p-4">
                               <code className="text-sm text-foreground">
-                                npx shadcn@latest add @uitripled/{component.id}
+                                pnpm add @uitripled/{component.id}
                               </code>
                             </div>
                           </div>
@@ -491,38 +441,6 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
               </div>
             </TabsContent>
           </Tabs>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mt-8 rounded-lg border border-border bg-card p-6"
-          >
-            <h2 className="mb-4 text-lg font-semibold">How to Use</h2>
-            <ol className="space-y-2.5 text-sm text-muted-foreground">
-              <li className="flex gap-3">
-                <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-primary bg-primary text-xs font-medium text-primary-foreground">
-                  1
-                </span>
-                <span>
-                  Install Framer Motion:{" "}
-                  <code className="rounded border border-border bg-muted px-1.5 py-0.5 text-xs">
-                    npm install framer-motion
-                  </code>
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border border-primary bg-primary text-xs font-medium text-primary-foreground">
-                  2
-                </span>
-                <span>
-                  Colors are customizable via Tailwind CSS classes. The default
-                  theme uses dark mode colors defined in your <b>globals.css</b>{" "}
-                  file
-                </span>
-              </li>
-            </ol>
-          </motion.div>
         </div>
       </ScrollArea>
     </main>

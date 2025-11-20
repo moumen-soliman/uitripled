@@ -6,7 +6,7 @@
     "sync-registry": "node scripts/sync-registry.js",
     "generate-llms-txt": "node scripts/generate-llms-txt.js",
     "generate-registry-scripts": "node scripts/generate-registry-files",
-    "dev": "npm run generate-scripts && next dev --port 3001",
+    "dev": "npm run generate-scripts && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
