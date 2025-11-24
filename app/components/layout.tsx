@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { useQueryState, parseAsString } from "nuqs";
 import {
   getComponentById,
   componentsRegistry,
@@ -15,6 +16,7 @@ import {
   DialogClose,
   DialogContent,
   DialogTrigger,
+  DialogTitle,
 } from "@/components/ui/dialog";
 
 export default function ComponentsLayout({
@@ -26,7 +28,28 @@ export default function ComponentsLayout({
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [target, setTarget] = useQueryState("target", parseAsString);
+
+  // Sync mobile sidebar with URL parameter
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+
+  // Open dialog when target parameter is present, but only on mobile
+  useEffect(() => {
+    if (target && window.innerWidth < 768) {
+      setMobileSidebarOpen(true);
+    }
+  }, [target]);
+
+  // Clear target parameter when dialog is closed
+  const handleMobileSidebarChange = useCallback(
+    (open: boolean) => {
+      setMobileSidebarOpen(open);
+      if (!open) {
+        setTarget(null);
+      }
+    },
+    [setTarget]
+  );
 
   // Get selected animation if we're on a detail page
   const selectedAnimation =
@@ -137,6 +160,7 @@ export default function ComponentsLayout({
               <AnimationsSidebar
                 selectedComponent={selectedAnimation}
                 useLinks={true}
+                target={target}
               />
             </div>
           </motion.aside>
@@ -199,7 +223,10 @@ export default function ComponentsLayout({
 
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Mobile Header */}
-        <Dialog open={mobileSidebarOpen} onOpenChange={setMobileSidebarOpen}>
+        <Dialog
+          open={mobileSidebarOpen}
+          onOpenChange={handleMobileSidebarChange}
+        >
           <div className="flex items-center justify-between border-b border-border bg-background px-4 py-3 md:hidden">
             <div className="min-w-0">
               <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
@@ -217,6 +244,7 @@ export default function ComponentsLayout({
             </DialogTrigger>
           </div>
           <DialogContent className="md:hidden inset-x-0 bottom-0 left-0 right-0 top-auto flex h-[calc(100vh-5rem)] max-w-none translate-x-0 translate-y-0 flex-col rounded-t-3xl border border-border bg-background p-0 pb-4 shadow-xl data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom sm:rounded-t-3xl">
+            <DialogTitle className="sr-only">Mobile Navigation</DialogTitle>
             <div className="flex items-center justify-between border-b border-border px-4 py-3">
               <div>
                 <p className="text-sm font-semibold">
@@ -232,6 +260,7 @@ export default function ComponentsLayout({
                 onSelectComponent={(component) =>
                   handleMobileSelect(component.id)
                 }
+                target={target}
               />
             </div>
           </DialogContent>

@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ThemeProvider, THEME_STORAGE_KEY } from "@/components/theme-provider";
 import { baseMetadata, siteConfig } from "@/lib/seo";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -109,9 +110,11 @@ export default function RootLayout({
           </>
         )}
         <ThemeProvider>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <NuqsAdapter>
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </NuqsAdapter>
         </ThemeProvider>
       </body>
     </html>

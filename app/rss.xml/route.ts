@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   const rssXml = await generateRegistryRssFeed({
     baseUrl,
     componentsUrl: "components",
-    blocksUrl: "blocks",
+    blocksUrl: "components?target=blocks",
     rss: {
       title: "UITripleD Components and Blocks",
       description:

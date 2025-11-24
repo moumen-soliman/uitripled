@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -13,17 +13,48 @@ type AnimationsSidebarProps = {
   selectedComponent: Component | null;
   onSelectComponent?: (component: Component) => void;
   useLinks?: boolean;
+  target?: string | null;
 };
 
 export function AnimationsSidebar({
   selectedComponent,
   onSelectComponent,
   useLinks = false,
+  target,
 }: AnimationsSidebarProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<
     Set<ComponentCategory | "all">
   >(new Set(["all"]));
+
+  // Effect to control expanded categories based on target parameter
+  useEffect(() => {
+    if (target) {
+      const normalizedTarget = target.toLowerCase();
+
+      // Check if target is a valid category
+      const validCategories: Array<string> = [
+        "all",
+        "blocks",
+        "microinteractions",
+        "components",
+        "page",
+        "data",
+        "decorative",
+      ];
+
+      if (validCategories.includes(normalizedTarget)) {
+        // Close all categories and open only the target
+        setExpandedCategories(new Set([normalizedTarget as ComponentCategory | "all"]));
+      } else {
+        // Target not found, open "all" by default
+        setExpandedCategories(new Set(["all"]));
+      }
+    } else {
+      // No target, open "all" by default
+      setExpandedCategories(new Set(["all"]));
+    }
+  }, [target]);
 
   const categories: Array<ComponentCategory | "all"> = [
     "all",
