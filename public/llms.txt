@@ -2,13 +2,13 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2025-11-24T20:02:27.876Z
+**Last Updated:** 2025-11-25T07:46:17.421Z
 
 ## Table of Contents
 
 - Components (55 items)
 - Blocks (39 items)
-- Pages (16 items)
+- Pages (14 items)
 - UI Elements (26 items)
 
 ### Components

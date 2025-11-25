@@ -10,6 +10,7 @@ import {
   AlertTriangle,
   Copy,
   Check,
+  FileText,
 } from "lucide-react";
 import { useParams } from "next/navigation";
 import { getComponentById } from "@/lib/components-registry";
@@ -27,6 +28,7 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
   const [refreshKey, setRefreshKey] = React.useState(0);
   const [activeTab, setActiveTab] = React.useState("view");
   const [copiedInstall, setCopiedInstall] = React.useState<string | null>(null);
+  const [copiedMarkdown, setCopiedMarkdown] = React.useState(false);
 
   if (!component) {
     notFound();
@@ -45,6 +47,22 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
     await navigator.clipboard.writeText(command);
     setCopiedInstall(type);
     setTimeout(() => setCopiedInstall(null), 2000);
+  };
+
+  const handleCopyMarkdown = async () => {
+    try {
+      const response = await fetch(`/md/${component.id}.md`);
+      if (response.ok) {
+        const markdownContent = await response.text();
+        await navigator.clipboard.writeText(markdownContent);
+        setCopiedMarkdown(true);
+        setTimeout(() => setCopiedMarkdown(false), 2000);
+      } else {
+        console.error("Failed to fetch markdown file");
+      }
+    } catch (error) {
+      console.error("Error copying markdown:", error);
+    }
   };
 
   // Reset to "view" tab when a new animation is selected
@@ -77,12 +95,34 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                 </span>
               )}
             </div>
-            <h1 className="mb-2 text-3xl font-semibold sm:text-4xl">
-              {component.name}
-            </h1>
-            <p className="mb-4 text-sm text-muted-foreground sm:text-base">
-              {component.description}
-            </p>
+            <div className="mb-2 flex items-start justify-between gap-4">
+              <div className="flex-1">
+                <h1 className="mb-2 text-3xl font-semibold sm:text-4xl">
+                  {component.name}
+                </h1>
+                <p className="mb-4 text-sm text-muted-foreground sm:text-base">
+                  {component.description}
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleCopyMarkdown}
+                className="gap-2"
+              >
+                {copiedMarkdown ? (
+                  <>
+                    <Check className="h-4 w-4" />
+                    Copied .md
+                  </>
+                ) : (
+                  <>
+                    <FileText className="h-4 w-4" />
+                    Copy .md
+                  </>
+                )}
+              </Button>
+            </div>
             <div className="flex flex-wrap gap-1.5">
               {component.tags.map((tag) => (
                 <span

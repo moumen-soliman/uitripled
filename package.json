@@ -6,13 +6,14 @@
     "sync-registry": "node scripts/sync-registry.js",
     "generate-llms-txt": "node scripts/generate-llms-txt.js",
     "generate-registry-scripts": "node scripts/generate-registry-files",
+    "generate-component-markdown": "node scripts/generate-component-markdown.js",
     "dev": "npm run generate-scripts && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "generate-scripts": "npm run sync-registry && npm run generate-llms-txt && npm run generate-registry-scripts"
+    "generate-scripts": "npm run sync-registry && npm run generate-llms-txt && npm run generate-registry-scripts && npm run generate-component-markdown"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.20.0",
