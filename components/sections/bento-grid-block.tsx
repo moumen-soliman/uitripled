@@ -200,7 +200,7 @@ export function BentoGridBlock() {
                 </h3>
                 <p className="text-sm text-foreground/70 md:text-base">
                   We choreograph micro-interactions and depth cues that elevate
-                  usability across every product surface—without sacrificing
+                  usability across every product surface-without sacrificing
                   performance or accessibility.
                 </p>
               </div>
@@ -307,7 +307,7 @@ export function BentoGridBlock() {
               </h3>
               <p className="max-w-sm text-sm text-foreground/70 md:text-base">
                 Layered light, shadow, and depth cues help teams experience the
-                product as it will ship—well before the first line of production
+                product as it will ship-well before the first line of production
                 code.
               </p>
               <div className="flex flex-wrap gap-2 pt-2">

@@ -16,6 +16,125 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 
+const RESUME_DATA = {
+  personalInfo: {
+    name: "John Doe",
+    title: "Senior Full Stack Developer",
+    summary:
+      "Passionate developer with 8+ years of experience building scalable web applications. Specializing in React, Node.js, and cloud architecture.",
+    location: "San Francisco, CA",
+    email: "john.doe@example.com",
+    phone: "+1 (555) 123-4567",
+    avatarUrl: "https://github.com/shadcn.png",
+    initials: "JD",
+    socials: [
+      { name: "GitHub", icon: Github, url: "#" },
+      { name: "LinkedIn", icon: Linkedin, url: "#" },
+      { name: "Portfolio", icon: Globe, url: "#" },
+    ],
+  },
+  experience: [
+    {
+      role: "Senior Full Stack Developer",
+      company: "Tech Corp Inc.",
+      period: "2021 - Present",
+      location: "San Francisco, CA",
+      achievements: [
+        "Led the frontend team in rebuilding the core product using Next.js 14 and React, improving performance by 40%",
+        "Architected and implemented a microservices-based backend using Node.js and GraphQL",
+        "Mentored 5 junior developers and conducted weekly code review sessions",
+      ],
+    },
+    {
+      role: "Full Stack Developer",
+      company: "StartUp Ltd.",
+      period: "2019 - 2021",
+      location: "Remote",
+      achievements: [
+        "Developed and maintained multiple client-facing applications with 99.9% uptime",
+        "Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 60%",
+        "Built a real-time analytics dashboard using React and WebSockets",
+      ],
+    },
+    {
+      role: "Junior Developer",
+      company: "Digital Agency",
+      period: "2017 - 2019",
+      location: "New York, NY",
+      achievements: [
+        "Contributed to 20+ client projects using React, Vue.js, and WordPress",
+        "Optimized web applications for SEO and accessibility (WCAG 2.1 AA)",
+      ],
+    },
+  ],
+  projects: [
+    {
+      name: "E-commerce Platform",
+      tech: ["Next.js", "Stripe", "Prisma"],
+      desc: "A full-featured online store with real-time inventory management and payment processing.",
+      stars: "2.3k",
+    },
+    {
+      name: "Task Management App",
+      tech: ["React", "Firebase", "Tailwind"],
+      desc: "Collaborative task manager with drag-and-drop interface and real-time updates.",
+      stars: "1.8k",
+    },
+    {
+      name: "Analytics Dashboard",
+      tech: ["Vue.js", "D3.js", "Node.js"],
+      desc: "Real-time data visualization platform with custom chart components.",
+      stars: "1.2k",
+    },
+    {
+      name: "Social Media API",
+      tech: ["GraphQL", "PostgreSQL", "Redis"],
+      desc: "Scalable REST and GraphQL API serving 100k+ daily requests.",
+      stars: "890",
+    },
+  ],
+  skills: [
+    {
+      category: "Frontend",
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"],
+    },
+    {
+      category: "Backend",
+      skills: ["Node.js", "Express", "GraphQL", "PostgreSQL", "MongoDB"],
+    },
+    {
+      category: "DevOps & Tools",
+      skills: ["Docker", "AWS", "CI/CD", "Git", "Vercel"],
+    },
+  ],
+  education: [
+    {
+      degree: "BS Computer Science",
+      institution: "University of Technology",
+      period: "2015 - 2019",
+      extra: "GPA: 3.8/4.0",
+    },
+    {
+      degree: "Full Stack Web Development",
+      institution: "Code Academy Bootcamp",
+      period: "2019",
+      extra: "Certificate",
+    },
+    {
+      degree: "AWS Certified Solutions Architect",
+      institution: "Amazon Web Services",
+      period: "2022",
+      extra: null,
+    },
+  ],
+  languages: [
+    { lang: "English", level: "Native", percentage: 100 },
+    { lang: "Spanish", level: "Professional", percentage: 75 },
+    { lang: "French", level: "Intermediate", percentage: 50 },
+    { lang: "Mandarin", level: "Basic", percentage: 30 },
+  ],
+};
+
 export function ResumeCard() {
   const container = {
     hidden: { opacity: 0 },
@@ -49,57 +168,56 @@ export function ResumeCard() {
             >
               <Avatar className="w-24 h-24 md:w-28 md:h-28">
                 <AvatarImage
-                  src="https://github.com/shadcn.png"
+                  src={RESUME_DATA.personalInfo.avatarUrl}
                   alt="Profile"
                 />
-                <AvatarFallback>JD</AvatarFallback>
+                <AvatarFallback>
+                  {RESUME_DATA.personalInfo.initials}
+                </AvatarFallback>
               </Avatar>
             </motion.div>
 
             <div className="flex-1 text-center md:text-left space-y-3">
               <div>
                 <h1 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-                  John Doe
+                  {RESUME_DATA.personalInfo.name}
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium mt-1">
-                  Senior Full Stack Developer
+                  {RESUME_DATA.personalInfo.title}
                 </p>
               </div>
 
               <p className="text-sm text-muted-foreground max-w-2xl leading-relaxed">
-                Passionate developer with 8+ years of experience building
-                scalable web applications. Specializing in React, Node.js, and
-                cloud architecture.
+                {RESUME_DATA.personalInfo.summary}
               </p>
 
               <div className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm text-muted-foreground pt-2">
                 <div className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4" />
-                  <span>San Francisco, CA</span>
+                  <span>{RESUME_DATA.personalInfo.location}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Mail className="w-4 h-4" />
-                  <span>john.doe@example.com</span>
+                  <span>{RESUME_DATA.personalInfo.email}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Phone className="w-4 h-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>{RESUME_DATA.personalInfo.phone}</span>
                 </div>
               </div>
 
               <div className="flex flex-wrap justify-center md:justify-start gap-2 pt-2">
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Github className="w-4 h-4" />
-                  GitHub
-                </Button>
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </Button>
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Globe className="w-4 h-4" />
-                  Portfolio
-                </Button>
+                {RESUME_DATA.personalInfo.socials.map((social, index) => (
+                  <Button
+                    key={index}
+                    variant="outline"
+                    size="sm"
+                    className="gap-2"
+                  >
+                    <social.icon className="w-4 h-4" />
+                    {social.name}
+                  </Button>
+                ))}
                 <Button size="sm" className="gap-2">
                   <Download className="w-4 h-4" />
                   Download PDF
@@ -118,40 +236,7 @@ export function ResumeCard() {
           </h2>
 
           <div className="space-y-8">
-            {[
-              {
-                role: "Senior Full Stack Developer",
-                company: "Tech Corp Inc.",
-                period: "2021 - Present",
-                location: "San Francisco, CA",
-                achievements: [
-                  "Led the frontend team in rebuilding the core product using Next.js 14 and React, improving performance by 40%",
-                  "Architected and implemented a microservices-based backend using Node.js and GraphQL",
-                  "Mentored 5 junior developers and conducted weekly code review sessions",
-                ],
-              },
-              {
-                role: "Full Stack Developer",
-                company: "StartUp Ltd.",
-                period: "2019 - 2021",
-                location: "Remote",
-                achievements: [
-                  "Developed and maintained multiple client-facing applications with 99.9% uptime",
-                  "Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 60%",
-                  "Built a real-time analytics dashboard using React and WebSockets",
-                ],
-              },
-              {
-                role: "Junior Developer",
-                company: "Digital Agency",
-                period: "2017 - 2019",
-                location: "New York, NY",
-                achievements: [
-                  "Contributed to 20+ client projects using React, Vue.js, and WordPress",
-                  "Optimized web applications for SEO and accessibility (WCAG 2.1 AA)",
-                ],
-              },
-            ].map((job, index) => (
+            {RESUME_DATA.experience.map((job, index) => (
               <div key={index} className="space-y-3">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                   <div>
@@ -175,7 +260,9 @@ export function ResumeCard() {
                     </li>
                   ))}
                 </ul>
-                {index < 2 && <Separator className="mt-6" />}
+                {index < RESUME_DATA.experience.length - 1 && (
+                  <Separator className="mt-6" />
+                )}
               </div>
             ))}
           </div>
@@ -190,32 +277,7 @@ export function ResumeCard() {
           </h2>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            {[
-              {
-                name: "E-commerce Platform",
-                tech: ["Next.js", "Stripe", "Prisma"],
-                desc: "A full-featured online store with real-time inventory management and payment processing.",
-                stars: "2.3k",
-              },
-              {
-                name: "Task Management App",
-                tech: ["React", "Firebase", "Tailwind"],
-                desc: "Collaborative task manager with drag-and-drop interface and real-time updates.",
-                stars: "1.8k",
-              },
-              {
-                name: "Analytics Dashboard",
-                tech: ["Vue.js", "D3.js", "Node.js"],
-                desc: "Real-time data visualization platform with custom chart components.",
-                stars: "1.2k",
-              },
-              {
-                name: "Social Media API",
-                tech: ["GraphQL", "PostgreSQL", "Redis"],
-                desc: "Scalable REST and GraphQL API serving 100k+ daily requests.",
-                stars: "890",
-              },
-            ].map((project, index) => (
+            {RESUME_DATA.projects.map((project, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -4 }}
@@ -248,37 +310,10 @@ export function ResumeCard() {
 
         {/* Skills */}
         <motion.div variants={item} className="space-y-6">
-          <h2 className="text-2xl font-bold flex items-center gap-2">
-            Skills
-          </h2>
+          <h2 className="text-2xl font-bold flex items-center gap-2">Skills</h2>
 
           <div className="space-y-5">
-            {[
-              {
-                category: "Frontend",
-                skills: [
-                  "React",
-                  "Next.js",
-                  "TypeScript",
-                  "Tailwind CSS",
-                  "Vue.js",
-                ],
-              },
-              {
-                category: "Backend",
-                skills: [
-                  "Node.js",
-                  "Express",
-                  "GraphQL",
-                  "PostgreSQL",
-                  "MongoDB",
-                ],
-              },
-              {
-                category: "DevOps & Tools",
-                skills: ["Docker", "AWS", "CI/CD", "Git", "Vercel"],
-              },
-            ].map((group, index) => (
+            {RESUME_DATA.skills.map((group, index) => (
               <div key={index}>
                 <h4 className="text-sm font-semibold text-muted-foreground mb-3">
                   {group.category}
@@ -308,26 +343,7 @@ export function ResumeCard() {
           </h2>
 
           <div className="space-y-5">
-            {[
-              {
-                degree: "BS Computer Science",
-                institution: "University of Technology",
-                period: "2015 - 2019",
-                extra: "GPA: 3.8/4.0",
-              },
-              {
-                degree: "Full Stack Web Development",
-                institution: "Code Academy Bootcamp",
-                period: "2019",
-                extra: "Certificate",
-              },
-              {
-                degree: "AWS Certified Solutions Architect",
-                institution: "Amazon Web Services",
-                period: "2022",
-                extra: null,
-              },
-            ].map((edu, index) => (
+            {RESUME_DATA.education.map((edu, index) => (
               <div key={index}>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                   <div>
@@ -361,12 +377,7 @@ export function ResumeCard() {
           </h2>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            {[
-              { lang: "English", level: "Native", percentage: 100 },
-              { lang: "Spanish", level: "Professional", percentage: 75 },
-              { lang: "French", level: "Intermediate", percentage: 50 },
-              { lang: "Mandarin", level: "Basic", percentage: 30 },
-            ].map((language, index) => (
+            {RESUME_DATA.languages.map((language, index) => (
               <div key={index} className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-foreground">

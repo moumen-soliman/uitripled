@@ -296,7 +296,11 @@ export function KanbanBoard() {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <Button variant="outline" size="icon" className="bg-background/60 border-border/50 backdrop-blur-md hover:bg-background/80">
+          <Button
+            variant="outline"
+            size="icon"
+            className="bg-background/60 border-border/50 backdrop-blur-md hover:bg-background/80"
+          >
             <Filter className="h-4 w-4 text-foreground/70" />
           </Button>
           <Button className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20">
@@ -315,7 +319,10 @@ export function KanbanBoard() {
         onDragEnd={onDragEnd}
       >
         <div className="flex h-full gap-6 overflow-x-auto pb-4">
-          <SortableContext items={columnsId} strategy={horizontalListSortingStrategy}>
+          <SortableContext
+            items={columnsId}
+            strategy={horizontalListSortingStrategy}
+          >
             {columns.map((col) => (
               <BoardColumn
                 key={col.id}
@@ -378,7 +385,8 @@ function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
       className={cn(
         "group/column relative flex h-full w-[350px] min-w-[350px] flex-col overflow-hidden rounded-2xl border border-border/40 bg-background/50 backdrop-blur-xl shadow-lg",
         isDragging && "opacity-50",
-        isOverlay && "rotate-2 scale-105 shadow-2xl cursor-grabbing bg-background/70"
+        isOverlay &&
+          "rotate-2 scale-105 shadow-2xl cursor-grabbing bg-background/70"
       )}
     >
       {/* Gradient overlay for column */}
@@ -396,14 +404,21 @@ function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
           </div>
           <h3 className="font-semibold text-foreground">{column.title}</h3>
         </div>
-        <Button variant="ghost" size="icon" className="h-8 w-8 text-foreground/40 hover:text-foreground hover:bg-background/50">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-8 w-8 text-foreground/40 hover:text-foreground hover:bg-background/50"
+        >
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </div>
 
       {/* Column Content */}
       <div className="relative z-10 flex flex-1 flex-col gap-3 p-3">
-        <SortableContext items={tasksIds} strategy={verticalListSortingStrategy}>
+        <SortableContext
+          items={tasksIds}
+          strategy={verticalListSortingStrategy}
+        >
           {tasks.map((task) => (
             <TaskCard key={task.id} task={task} />
           ))}
@@ -448,7 +463,8 @@ function TaskCard({ task, isOverlay }: TaskCardProps) {
 
   const priorityColors = {
     low: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
-    medium: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    medium:
+      "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
     high: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
   };
 
@@ -461,7 +477,8 @@ function TaskCard({ task, isOverlay }: TaskCardProps) {
       className={cn(
         "group relative flex cursor-grab flex-col gap-3 overflow-hidden rounded-xl border border-border/40 bg-background/70 p-4 shadow-lg backdrop-blur-xl transition-all hover:border-border/60 hover:shadow-xl hover:-translate-y-1 active:cursor-grabbing",
         isDragging && "opacity-30",
-        isOverlay && "rotate-2 scale-105 shadow-2xl cursor-grabbing opacity-100 bg-background/90 backdrop-blur-xl z-50"
+        isOverlay &&
+          "rotate-2 scale-105 shadow-2xl cursor-grabbing opacity-100 bg-background/90 backdrop-blur-xl z-50"
       )}
     >
       {/* Gradient overlay for card */}
@@ -472,7 +489,10 @@ function TaskCard({ task, isOverlay }: TaskCardProps) {
         <div className="flex flex-wrap gap-1.5">
           <Badge
             variant="outline"
-            className={cn("border px-1.5 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm", priorityColors[task.priority])}
+            className={cn(
+              "border px-1.5 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm",
+              priorityColors[task.priority]
+            )}
           >
             {task.priority}
           </Badge>
@@ -504,7 +524,12 @@ function TaskCard({ task, isOverlay }: TaskCardProps) {
       <div className="relative z-10 flex items-center justify-between pt-1">
         <div className="flex items-center gap-3 text-xs text-foreground/50">
           {task.dueDate && (
-            <div className={cn("flex items-center gap-1", task.priority === 'high' && "text-red-500/80")}>
+            <div
+              className={cn(
+                "flex items-center gap-1",
+                task.priority === "high" && "text-red-500/80"
+              )}
+            >
               <Clock className="h-3 w-3" />
               <span>{task.dueDate}</span>
             </div>

@@ -174,7 +174,10 @@ export default function BuilderPage() {
       const animation = componentsRegistry.find(
         (item) => item.id === animationId
       );
-      if (!animation || (animation.category !== "blocks" && animation.category !== "resumes")) {
+      if (
+        !animation ||
+        (animation.category !== "blocks" && animation.category !== "resumes")
+      ) {
         return;
       }
 
@@ -264,7 +267,11 @@ export default function BuilderPage() {
     const animation = componentsRegistry.find((a) => a.id === activeId);
 
     // Only allow blocks category components
-    if (animation && (animation.category !== "blocks" && animation.category !== "resumes")) {
+    if (
+      animation &&
+      animation.category !== "blocks" &&
+      animation.category !== "resumes"
+    ) {
       setActiveId(null);
       return;
     }

@@ -253,7 +253,7 @@ export function GlassmorphismListenAppBlock() {
                   <iframe
                     className="h-[152px] w-full"
                     src={activeTrack.embedUrl}
-                    title={`${activeTrack.title} — Spotify`}
+                    title={`${activeTrack.title} - Spotify`}
                     width="100%"
                     height="100%"
                     frameBorder="0"

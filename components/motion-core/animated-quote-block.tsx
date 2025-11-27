@@ -78,7 +78,7 @@ export function AnimatedQuoteBlock({
         </div>
 
         <div className="mt-4 text-right text-sm text-muted-foreground">
-          — {author}
+          - {author}
         </div>
       </motion.div>
     </div>

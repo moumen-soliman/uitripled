@@ -203,7 +203,7 @@ export function StatsCounterBlock() {
               "These numbers represent real people, real businesses, and real
               success stories. We're just getting started."
             </p>
-            <footer className="text-sm font-semibold">— Our CEO</footer>
+            <footer className="text-sm font-semibold">- Our CEO</footer>
           </blockquote>
         </motion.div>
       </div>

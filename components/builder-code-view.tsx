@@ -300,7 +300,7 @@ import type { ReactNode } from 'react'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '${brandLabel} — Generated Experience',
+  title: '${brandLabel} - Generated Experience',
   description: 'Generated with the UI Motion Builder',
 }
 

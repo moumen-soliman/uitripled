@@ -2,7 +2,7 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2025-11-27T06:37:29.698Z
+**Last Updated:** 2025-11-27T07:00:53.107Z
 
 ## Table of Contents
 

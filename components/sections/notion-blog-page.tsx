@@ -27,7 +27,7 @@ const toggleSections = [
     title: "Publishing without panic",
     summary: "Make the final review a celebration, not a scramble.",
     content: [
-      "Read the draft out loud once. Mark sentences that trip you up—they are almost always too long.",
+      "Read the draft out loud once. Mark sentences that trip you up-they are almost always too long.",
       "Paste the introduction into a new page. If it still makes sense, you’re ready. If not, keep tightening.",
       "Ship with a note to yourself about what felt easy. Capture it inside your writing playbook.",
     ],
@@ -48,9 +48,9 @@ const miniGallery = [
 ];
 
 const readingList = [
-  "On Writing Well — William Zinsser",
-  "The Art of Slow Productivity — Cal Newport",
-  "Working in Public — Nadia Eghbal",
+  "On Writing Well - William Zinsser",
+  "The Art of Slow Productivity - Cal Newport",
+  "Working in Public - Nadia Eghbal",
 ];
 
 const cadence = [
@@ -125,7 +125,7 @@ export function NotionBlogPage() {
               Slow Publishing: A Notion Workflow for Thoughtful Blogs
             </h1>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Creative focus doesn’t arrive by accident—it is the product of
+              Creative focus doesn’t arrive by accident-it is the product of
               small rituals, generous constraints, and a system that remembers
               what works. This Notion-style page captures the cadence our team
               uses to ship a thoughtful story every Friday without burning out.
@@ -323,7 +323,7 @@ export function NotionBlogPage() {
             </ul>
             <p>
               Iterate on the process, not just the prose. The page you are
-              reading is a living document—duplicate it, remix the blocks, and
+              reading is a living document-duplicate it, remix the blocks, and
               keep the parts that help you publish with calm confidence.
             </p>
           </motion.footer>

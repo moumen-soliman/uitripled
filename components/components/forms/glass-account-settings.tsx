@@ -114,7 +114,7 @@ export function GlassAccountSettingsCard() {
                   Current plan
                 </h2>
                 <p className="text-xs text-muted-foreground">
-                  Workspace Pro — billed yearly
+                  Workspace Pro - billed yearly
                 </p>
               </div>
               <div className="text-right">

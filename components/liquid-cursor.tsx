@@ -80,12 +80,16 @@ export const LiquidCursor = () => {
         // Interpolate points for smooth lines
         if (dist > 0) {
           const steps = Math.min(dist, 20); // Limit steps to avoid lag
-          for (let i = 0; i < steps; i+=2) {
-             const t = i / steps;
-             const x = mouseRef.current.lastX + (mouseRef.current.x - mouseRef.current.lastX) * t;
-             const y = mouseRef.current.lastY + (mouseRef.current.y - mouseRef.current.lastY) * t;
-             // Only add points occasionally to avoid overcrowding
-             if (Math.random() > 0.5) addPoint(x, y);
+          for (let i = 0; i < steps; i += 2) {
+            const t = i / steps;
+            const x =
+              mouseRef.current.lastX +
+              (mouseRef.current.x - mouseRef.current.lastX) * t;
+            const y =
+              mouseRef.current.lastY +
+              (mouseRef.current.y - mouseRef.current.lastY) * t;
+            // Only add points occasionally to avoid overcrowding
+            if (Math.random() > 0.5) addPoint(x, y);
           }
         }
 
@@ -93,9 +97,9 @@ export const LiquidCursor = () => {
         mouseRef.current.lastY = mouseRef.current.y;
         mouseRef.current.moved = false; // Reset moved flag until next event
       } else {
-         // If mouse stopped, we update last position to current to be safe
-         mouseRef.current.lastX = mouseRef.current.x;
-         mouseRef.current.lastY = mouseRef.current.y;
+        // If mouse stopped, we update last position to current to be safe
+        mouseRef.current.lastX = mouseRef.current.x;
+        mouseRef.current.lastY = mouseRef.current.y;
       }
 
       // Update and draw points
@@ -139,7 +143,11 @@ export const LiquidCursor = () => {
       <svg className="hidden">
         <defs>
           <filter id="liquid-cursor-filter">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
             <feColorMatrix
               in="blur"
               mode="matrix"

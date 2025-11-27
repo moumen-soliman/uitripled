@@ -433,7 +433,8 @@ export default function AnimationDetailPageClient({ code }: { code: string }) {
                             </div>
                             <div className="overflow-x-auto bg-card p-4">
                               <code className="text-sm text-foreground">
-                                pnpm dlx shadcn@latest add @uitripled/{component.id}
+                                pnpm dlx shadcn@latest add @uitripled/
+                                {component.id}
                               </code>
                             </div>
                           </div>

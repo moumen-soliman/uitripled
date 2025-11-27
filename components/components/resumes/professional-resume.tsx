@@ -4,7 +4,57 @@ import { motion, Variants } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Globe, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
+
+const RESUME_DATA = {
+  personalInfo: {
+    name: "Alex Morgan",
+    title: "Senior Software Engineer",
+    summary:
+      "Results-oriented Senior Software Engineer with over 8 years of experience in designing, developing, and deploying scalable web applications. Proven track record of leadership, mentoring junior developers, and driving technical innovation. Expert in full-stack development with a focus on React, Node.js, and cloud architecture.",
+    email: "alex.morgan@example.com",
+    phone: "(555) 123-4567",
+    location: "New York, NY",
+    linkedin: "linkedin.com/in/alexmorgan",
+    website: "alexmorgan.dev",
+  },
+  experience: [
+    {
+      company: "TechCorp Solutions",
+      role: "Senior Software Engineer",
+      period: "2020 - Present",
+      description: [
+        "Architected and led the development of a microservices-based e-commerce platform, handling over 100k daily active users.",
+        "Reduced server costs by 40% through optimization of AWS infrastructure and implementation of serverless functions.",
+        "Mentored a team of 5 junior developers, conducting code reviews and facilitating technical workshops.",
+      ],
+    },
+    {
+      company: "Innovate Inc.",
+      role: "Software Engineer",
+      period: "2017 - 2020",
+      description: [
+        "Developed key features for the company's flagship SaaS product using React and Redux.",
+        "Implemented a real-time notification system using WebSockets, improving user engagement by 25%.",
+        "Collaborated with product managers and designers to define requirements and deliver high-quality user experiences.",
+      ],
+    },
+  ],
+  skills: {
+    languages:
+      "JavaScript (ES6+), TypeScript, Python, React, Next.js, Node.js, Express, Django",
+    tools:
+      "AWS (EC2, Lambda, S3), Docker, Kubernetes, Git, CI/CD (GitHub Actions), PostgreSQL, MongoDB",
+  },
+  education: {
+    school: "University of Technology",
+    degree: "Bachelor of Science in Computer Science",
+    period: "2013 - 2017",
+  },
+  certifications: [
+    "AWS Certified Solutions Architect – Associate",
+    "Meta Front-End Developer Professional Certificate",
+  ],
+};
 
 export function ProfessionalResume() {
   const fadeIn: Variants = {
@@ -33,32 +83,32 @@ export function ProfessionalResume() {
         {/* Header */}
         <motion.div variants={fadeIn} className="text-center space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-            Alex Morgan
+            {RESUME_DATA.personalInfo.name}
           </h1>
           <p className="text-lg text-muted-foreground font-sans uppercase tracking-widest text-sm">
-            Senior Software Engineer
+            {RESUME_DATA.personalInfo.title}
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground font-sans pt-2">
             <div className="flex items-center gap-1.5">
               <Mail className="h-4 w-4" />
-              <span>alex.morgan@example.com</span>
+              <span>{RESUME_DATA.personalInfo.email}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Phone className="h-4 w-4" />
-              <span>(555) 123-4567</span>
+              <span>{RESUME_DATA.personalInfo.phone}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <MapPin className="h-4 w-4" />
-              <span>New York, NY</span>
+              <span>{RESUME_DATA.personalInfo.location}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Linkedin className="h-4 w-4" />
-              <span>linkedin.com/in/alexmorgan</span>
+              <span>{RESUME_DATA.personalInfo.linkedin}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Globe className="h-4 w-4" />
-              <span>alexmorgan.dev</span>
+              <span>{RESUME_DATA.personalInfo.website}</span>
             </div>
           </div>
         </motion.div>
@@ -71,11 +121,7 @@ export function ProfessionalResume() {
             Professional Summary
           </h2>
           <p className="text-card-foreground leading-relaxed font-sans text-sm md:text-base">
-            Results-oriented Senior Software Engineer with over 8 years of
-            experience in designing, developing, and deploying scalable web
-            applications. Proven track record of leadership, mentoring junior
-            developers, and driving technical innovation. Expert in full-stack
-            development with a focus on React, Node.js, and cloud architecture.
+            {RESUME_DATA.personalInfo.summary}
           </p>
         </motion.div>
 
@@ -86,61 +132,26 @@ export function ProfessionalResume() {
           </h2>
 
           <div className="space-y-6">
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-lg font-bold text-foreground">
-                  TechCorp Solutions
-                </h3>
-                <span className="text-sm font-sans text-muted-foreground">
-                  2020 — Present
-                </span>
+            {RESUME_DATA.experience.map((job, index) => (
+              <div key={index}>
+                <div className="flex justify-between items-baseline mb-1">
+                  <h3 className="text-lg font-bold text-foreground">
+                    {job.company}
+                  </h3>
+                  <span className="text-sm font-sans text-muted-foreground">
+                    {job.period}
+                  </span>
+                </div>
+                <p className="text-card-foreground font-medium italic mb-2">
+                  {job.role}
+                </p>
+                <ul className="list-disc list-outside ml-5 space-y-1 text-card-foreground font-sans text-sm">
+                  {job.description.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-card-foreground font-medium italic mb-2">
-                Senior Software Engineer
-              </p>
-              <ul className="list-disc list-outside ml-5 space-y-1 text-card-foreground font-sans text-sm">
-                <li>
-                  Architected and led the development of a microservices-based
-                  e-commerce platform, handling over 100k daily active users.
-                </li>
-                <li>
-                  Reduced server costs by 40% through optimization of AWS
-                  infrastructure and implementation of serverless functions.
-                </li>
-                <li>
-                  Mentored a team of 5 junior developers, conducting code
-                  reviews and facilitating technical workshops.
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-lg font-bold text-foreground">
-                  Innovate Inc.
-                </h3>
-                <span className="text-sm font-sans text-muted-foreground">
-                  2017 — 2020
-                </span>
-              </div>
-              <p className="text-card-foreground font-medium italic mb-2">
-                Software Engineer
-              </p>
-              <ul className="list-disc list-outside ml-5 space-y-1 text-card-foreground font-sans text-sm">
-                <li>
-                  Developed key features for the company's flagship SaaS product
-                  using React and Redux.
-                </li>
-                <li>
-                  Implemented a real-time notification system using WebSockets,
-                  improving user engagement by 25%.
-                </li>
-                <li>
-                  Collaborated with product managers and designers to define
-                  requirements and deliver high-quality user experiences.
-                </li>
-              </ul>
-            </div>
+            ))}
           </div>
         </motion.div>
 
@@ -155,18 +166,14 @@ export function ProfessionalResume() {
                 Languages & Frameworks:
               </span>
               <p className="text-card-foreground">
-                JavaScript (ES6+), TypeScript, Python, React, Next.js, Node.js,
-                Express, Django
+                {RESUME_DATA.skills.languages}
               </p>
             </div>
             <div>
               <span className="font-bold text-foreground block mb-1">
                 Tools & Platforms:
               </span>
-              <p className="text-card-foreground">
-                AWS (EC2, Lambda, S3), Docker, Kubernetes, Git, CI/CD (GitHub
-                Actions), PostgreSQL, MongoDB
-              </p>
+              <p className="text-card-foreground">{RESUME_DATA.skills.tools}</p>
             </div>
           </div>
         </motion.div>
@@ -179,14 +186,14 @@ export function ProfessionalResume() {
           <div>
             <div className="flex justify-between items-baseline">
               <h3 className="text-lg font-bold text-foreground">
-                University of Technology
+                {RESUME_DATA.education.school}
               </h3>
               <span className="text-sm font-sans text-muted-foreground">
-                2013 — 2017
+                {RESUME_DATA.education.period}
               </span>
             </div>
             <p className="text-card-foreground font-sans">
-              Bachelor of Science in Computer Science
+              {RESUME_DATA.education.degree}
             </p>
           </div>
         </motion.div>
@@ -197,8 +204,9 @@ export function ProfessionalResume() {
             Certifications
           </h2>
           <ul className="list-disc list-outside ml-5 space-y-1 text-card-foreground font-sans text-sm">
-            <li>AWS Certified Solutions Architect – Associate</li>
-            <li>Meta Front-End Developer Professional Certificate</li>
+            {RESUME_DATA.certifications.map((cert, index) => (
+              <li key={index}>{cert}</li>
+            ))}
           </ul>
         </motion.div>
 
