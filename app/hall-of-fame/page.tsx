@@ -12,7 +12,7 @@ async function getStargazers() {
     const res = await fetch(
       "https://api.github.com/repos/moumen-soliman/uitripled/stargazers?per_page=100",
       {
-        next: { revalidate: 3600 }, // Cache for 1 hour
+        next: { revalidate: false }, // Don't cache
       }
     );
 
