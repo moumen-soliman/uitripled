@@ -82,7 +82,7 @@ export function HallOfFameHero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto font-light"
         >
-          Celebrating the first <span className="text-sidebar-primary font-medium">100 stargazers</span> who believed in us.
+          Celebrating the first <span className="text-foreground font-medium">100 stargazers</span> who believed in us.
         </motion.p>
 
         <motion.div
