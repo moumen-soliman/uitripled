@@ -59,6 +59,12 @@ export function Header() {
                 Builder
               </Link>
               <Link
+                href="/hall-of-fame"
+                className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Hall of Fame
+              </Link>
+              <Link
                 href="https://x.com/moumensoliman"
                 target="_blank"
                 rel="noopener noreferrer"
