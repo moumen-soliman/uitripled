@@ -3,7 +3,7 @@ import { HallOfFameHero } from "@/components/hall-of-fame-hero";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hall of Fame | uitripled",
+  title: "Hall of Fame",
   description: "The first 100 stargazers of the uitripled repository.",
 };
 

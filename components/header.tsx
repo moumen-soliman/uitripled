@@ -62,7 +62,7 @@ export function Header() {
                 href="/hall-of-fame"
                 className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Hall of Fame
+                Github Supporters
               </Link>
               <Link
                 href="https://x.com/moumensoliman"
