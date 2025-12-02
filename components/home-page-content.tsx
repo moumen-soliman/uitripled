@@ -23,6 +23,7 @@ import GradientOverlay from "@/components/gradiant-overlay";
 import { GithubStarButton } from "@/components/github-star-button";
 import { Star } from "lucide-react";
 import { ColorThemePicker } from "@/components/color-theme-picker";
+import { TweetsSlider } from "@/components/sections/tweets-slider";
 
 function StarButtonFallback() {
   return (
@@ -38,7 +39,7 @@ export default function HomePageContent() {
     <div className="min-h-screen bg-background">
       {/* Top centered actions */}
       <section className="bg-background/80">
-        <div className="container relative mx-auto flex flex-col items-center gap-4 px-4 py-32">
+        <div className="container relative mx-auto flex flex-col items-center gap-4 px-4 pt-32 pb-24">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/20 blur-[160px]"
@@ -105,6 +106,36 @@ export default function HomePageContent() {
           </motion.div>
         </div>
       </section>
+
+      <Suspense
+        fallback={
+          <div className="w-full overflow-hidden bg-background py-12">
+            <div className="flex gap-6">
+              {[...Array(3)].map((_, index) => (
+                <div
+                  key={index}
+                  className="w-[350px] shrink-0 overflow-hidden rounded-2xl border border-border/40 bg-background/60 p-6 backdrop-blur"
+                >
+                  <div className="flex flex-row items-start gap-4 pb-2">
+                    <div className="h-10 w-10 rounded-full bg-muted animate-pulse" />
+                    <div className="flex flex-col gap-0.5 flex-1">
+                      <div className="h-4 w-24 rounded bg-muted animate-pulse" />
+                      <div className="h-3 w-16 rounded bg-muted animate-pulse" />
+                    </div>
+                  </div>
+                  <div className="pt-2 space-y-2">
+                    <div className="h-3 w-full rounded bg-muted animate-pulse" />
+                    <div className="h-3 w-full rounded bg-muted animate-pulse" />
+                    <div className="h-3 w-3/4 rounded bg-muted animate-pulse" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        }
+      >
+        <TweetsSlider />
+      </Suspense>
 
       {/* Components gallery in a bento-style grid */}
       <section className="container-fluid md:max-w-[95rem] px-6 mx-auto">
