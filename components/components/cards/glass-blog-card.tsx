@@ -28,7 +28,7 @@ const defaultPost = {
   image:
     "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
   author: {
-    name: "Sarah Chen",
+    name: "Moumen Soliman",
     avatar: "https://github.com/shadcn.png",
   },
   date: "Dec 2, 2025",

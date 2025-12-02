@@ -2,11 +2,11 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2025-12-02T12:46:22.662Z
+**Last Updated:** 2025-12-02T19:40:41.160Z
 
 ## Table of Contents
 
-- Components (72 items)
+- Components (75 items)
 - Blocks (38 items)
 - Pages (15 items)
 - UI Elements (26 items)
@@ -15,6 +15,8 @@
 
 - [Accessible Image Slider Card](https://ui.tripled.work/components/image-slider-card): Image carousel card with keyboard support, reduced motion handling, and screen reader-friendly labels
 - [Animated Card Stack](https://ui.tripled.work/components/animated-card-stack): Stacked cards that expand on hover
+- [Cinema Ticket](https://ui.tripled.work/components/cinema-ticket): Cinematic theater ticket with rip effect and barcode
+- [Conference Ticket](https://ui.tripled.work/components/conference-ticket): Animated conference ticket with glassmorphism effects and holographic details
 - [Credit Card](https://ui.tripled.work/components/credit-card): 3D animated credit card with flip animation to show CVV
 - [Detail Task Card](https://ui.tripled.work/components/detail-task-card): Task management detail panel with animated assignee chips and editor controls
 - [Ecommerce Highlight Card](https://ui.tripled.work/components/ecommerce-highlight-card): Product spotlight card with blurred border, bundle selector, and fulfillment details
@@ -23,6 +25,7 @@
 - [Glass Order Summary](https://ui.tripled.work/components/glass-order-summary): Glassmorphism order summary card with item list and checkout button
 - [Glass Wallet Card](https://ui.tripled.work/components/glass-wallet-card): Glassmorphism crypto wallet card with balance, trend, and action buttons
 - [Hover Expand Card](https://ui.tripled.work/components/hover-expand-card): Card that lifts and expands on hover
+- [Theater Ticket](https://ui.tripled.work/components/theater-ticket): Cinematic theater ticket with rip effect and barcode
 
 #### Components
 

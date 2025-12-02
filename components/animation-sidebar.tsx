@@ -76,14 +76,14 @@ export function AnimationsSidebar({
 
   const categories: Array<ComponentCategory | "all"> = [
     "blocks",
-    "microinteractions",
+    "cards",
     "components",
     "page",
     "data",
-    "decorative",
     "resumes",
+    "decorative",
     "forms",
-    "cards",
+    "microinteractions",
   ];
 
   const filteredAnimations = useMemo(() => {

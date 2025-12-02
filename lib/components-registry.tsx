@@ -113,6 +113,9 @@ import { GlassmorphismProductUpdateBlock } from "@/components/sections/glassmorp
 import { InteractiveLogsTable } from "@/components/sections/interactive-logs-table";
 import { CurrencyConverterCard } from "@/components/sections/currency-converter-card";
 import { N8nWorkflowBlock } from "@/components/sections/n8n-workflow-block";
+import { ConferenceTicket } from "@/components/sections/conference-ticket";
+import { TheaterTicket } from "@/components/sections/theater-ticket";
+import { CinemaTicket } from "@/components/sections/cinema-ticket";
 import { ResumeCard } from "@/components/components/resumes/resume-card";
 import { ProfessionalResume } from "@/components/components/resumes/professional-resume";
 import { MinimalResume } from "@/components/components/resumes/minimal-resume";
@@ -160,6 +163,45 @@ import { SmartTabsDemo } from "@/components/components/tabs/smart-tabs";
 import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget";
 
 export const componentsRegistry: Component[] = [
+  {
+    id: "conference-ticket",
+    name: "Conference Ticket",
+    description:
+      "Animated conference ticket with glassmorphism effects and holographic details",
+    category: "cards",
+    tags: ["ticket", "glassmorphism", "animation", "3d", "event"],
+    component: ConferenceTicket,
+    codePath: "@/components/sections/conference-ticket.tsx",
+    duration: "800ms",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "theater-ticket",
+    name: "Theater Ticket",
+    description:
+      "Cinematic theater ticket with rip effect and barcode",
+    category: "cards",
+    tags: ["ticket", "theater", "cinema", "movie", "event"],
+    component: TheaterTicket,
+    codePath: "@/components/sections/theater-ticket.tsx",
+    duration: "600ms",
+    easing: "easeOut",
+    display: true,
+  },
+  {
+    id: "cinema-ticket",
+    name: "Cinema Ticket",
+    description:
+      "Cinematic theater ticket with rip effect and barcode",
+    category: "cards",
+    tags: ["ticket", "theater", "cinema", "movie", "event"],
+    component: CinemaTicket,
+    codePath: "@/components/sections/cinema-ticket.tsx",
+    duration: "600ms",
+    easing: "easeOut",
+    display: true,
+  },
   {
     id: "glass-wallet-card",
     name: "Glass Wallet Card",
