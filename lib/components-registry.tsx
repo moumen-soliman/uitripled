@@ -152,8 +152,23 @@ import { ProfilePage } from "@/components/components/profile/profile-page";
 import { WebPerformancePage } from "@/components/web-performance/web-performance-page";
 import { CourseContentPage } from "@/components/components/course-content/course-content-page";
 import { BlogTypography } from "@/components/components/blog/blog-typography";
+import { SmartTabsDemo } from "@/components/components/tabs/smart-tabs";
+import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget";
 
 export const componentsRegistry: Component[] = [
+  {
+    id: "smart-tabs",
+    name: "Smart Tabs",
+    description:
+      "Animated tabs with sliding pill indicator and smooth content transitions",
+    category: "components",
+    tags: ["tabs", "navigation", "animated", "framer-motion", "glassmorphism"],
+    component: SmartTabsDemo,
+    codePath: "@/components/components/tabs/smart-tabs.tsx",
+    duration: "300ms",
+    easing: "spring",
+    display: true,
+  },
   {
     id: "scale-hover-button",
     name: "Scale Hover Button",
@@ -768,7 +783,6 @@ export const componentsRegistry: Component[] = [
     easing: "easeOut",
     display: true,
   },
-  // NEW: 20 Additional Components
   {
     id: "password-input",
     name: "Password Input",
@@ -2101,6 +2115,19 @@ export const componentsRegistry: Component[] = [
     component: KanbanBoard,
     codePath: "@/components/components/kanban/kanban-board.tsx",
     duration: "N/A",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "floating-chat-widget",
+    name: "Floating Chat Widget",
+    description:
+      "Floating chat widget with AI agent selection dropdown and animations",
+    category: "components",
+    tags: ["chat", "widget", "floating", "ai", "dropdown", "animated"],
+    component: FloatingChatWidget,
+    codePath: "@/components/components/chat/floating-chat-widget.tsx",
+    duration: "300ms",
     easing: "spring",
     display: true,
   },

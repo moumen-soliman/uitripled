@@ -2,11 +2,11 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2025-11-29T04:51:42.285Z
+**Last Updated:** 2025-12-02T09:21:47.719Z
 
 ## Table of Contents
 
-- Components (66 items)
+- Components (68 items)
 - Blocks (38 items)
 - Pages (15 items)
 - UI Elements (26 items)
@@ -28,6 +28,7 @@
 
 - [AI Chat Interface](https://ui.tripled.work/components/ai-chat-interface): Chat input with attachments, model selector, and accessible controls
 - [Chat App](https://ui.tripled.work/components/chat-app): Fully functional chat interface with animated messages
+- [Floating Chat Widget](https://ui.tripled.work/components/floating-chat-widget): Floating chat widget with AI agent selection dropdown and animations
 - [Messenger](https://ui.tripled.work/components/messenger): Glassmorphism messenger workspace with accessible motion and quick replies
 
 - [AI Loading Skeleton](https://ui.tripled.work/components/ai-loading-skeleton): Loading state with diagonal shimmer gradient and opacity wave
@@ -103,6 +104,7 @@
 ##### Tabs
 
 - [Animated Tabs](https://ui.tripled.work/components/animated-tabs): Tabs with sliding indicator animation
+- [Smart Tabs](https://ui.tripled.work/components/smart-tabs): Animated tabs with sliding pill indicator and smooth content transitions
 
 - [Wizard Form](https://ui.tripled.work/components/wizard-form): Multi-step wizard form with animated transitions, validation, and progress tracking
 
