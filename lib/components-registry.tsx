@@ -17,6 +17,10 @@ import { AnimatedCardStack } from "@/components/components/cards/animated-card-s
 import { CreditCard } from "@/components/components/cards/credit-card";
 import { ImageSliderCard } from "@/components/components/cards/image-slider-card";
 import { DetailTaskCard } from "@/components/components/cards/detail-task";
+import { GlassWalletCard } from "@/components/components/cards/glass-wallet-card";
+import { GlassBlogCard } from "@/components/components/cards/glass-blog-card";
+import { GlassOrderSummary } from "@/components/components/cards/glass-order-summary";
+import { GlassCheckoutCard } from "@/components/components/cards/glass-checkout-card";
 import { EcommerceHighlightCard } from "@/components/components/cards/ecommerce-highlight-card";
 import { FloatingLabelInput } from "@/components/components/inputs/floating-label-input";
 import { AnimatedTabs } from "@/components/components/tabs/animated-tabs";
@@ -157,6 +161,58 @@ import { FloatingChatWidget } from "@/components/components/chat/floating-chat-w
 
 export const componentsRegistry: Component[] = [
   {
+    id: "glass-wallet-card",
+    name: "Glass Wallet Card",
+    description:
+      "Glassmorphism crypto wallet card with balance, trend, and action buttons",
+    category: "cards",
+    tags: ["wallet", "card", "finance", "glassmorphism", "crypto", "shadcn"],
+    component: GlassWalletCard,
+    codePath: "@/components/components/cards/glass-wallet-card.tsx",
+    duration: "400ms",
+    easing: "easeOut",
+    display: true,
+  },
+  {
+    id: "glass-blog-card",
+    name: "Glass Blog Card",
+    description:
+      "Glassmorphism blog card with image zoom, author info, and read action",
+    category: "cards",
+    tags: ["blog", "card", "content", "glassmorphism", "article", "shadcn"],
+    component: GlassBlogCard,
+    codePath: "@/components/components/cards/glass-blog-card.tsx",
+    duration: "400ms",
+    easing: "easeOut",
+    display: true,
+  },
+  {
+    id: "glass-order-summary",
+    name: "Glass Order Summary",
+    description:
+      "Glassmorphism order summary card with item list and checkout button",
+    category: "cards",
+    tags: ["ecommerce", "card", "summary", "glassmorphism", "cart", "shadcn"],
+    component: GlassOrderSummary,
+    codePath: "@/components/components/cards/glass-order-summary.tsx",
+    duration: "400ms",
+    easing: "easeOut",
+    display: true,
+  },
+  {
+    id: "glass-checkout-card",
+    name: "Glass Checkout Card",
+    description:
+      "Glassmorphism checkout card with payment method selector and input fields",
+    category: "cards",
+    tags: ["checkout", "card", "payment", "glassmorphism", "form", "shadcn"],
+    component: GlassCheckoutCard,
+    codePath: "@/components/components/cards/glass-checkout-card.tsx",
+    duration: "400ms",
+    easing: "easeOut",
+    display: true,
+  },
+  {
     id: "smart-tabs",
     name: "Smart Tabs",
     description:
@@ -270,7 +326,7 @@ export const componentsRegistry: Component[] = [
     id: "hover-expand-card",
     name: "Hover Expand Card",
     description: "Card that lifts and expands on hover",
-    category: "components",
+    category: "cards",
     tags: ["card", "hover", "lift"],
     component: HoverExpandCard,
     codePath: "@/components/components/cards/hover-expand.tsx",
@@ -283,7 +339,7 @@ export const componentsRegistry: Component[] = [
     name: "Detail Task Card",
     description:
       "Task management detail panel with animated assignee chips and editor controls",
-    category: "components",
+    category: "cards",
     tags: ["task", "management", "form", "card", "dashboard"],
     component: DetailTaskCard,
     codePath: "@/components/components/cards/detail-task.tsx",
@@ -296,7 +352,7 @@ export const componentsRegistry: Component[] = [
     name: "Ecommerce Highlight Card",
     description:
       "Product spotlight card with blurred border, bundle selector, and fulfillment details",
-    category: "components",
+    category: "cards",
     tags: ["card", "product", "ecommerce", "bundle"],
     component: EcommerceHighlightCard,
     codePath: "@/components/components/cards/ecommerce-highlight-card.tsx",
@@ -494,7 +550,7 @@ export const componentsRegistry: Component[] = [
     id: "animated-card-stack",
     name: "Animated Card Stack",
     description: "Stacked cards that expand on hover",
-    category: "components",
+    category: "cards",
     tags: ["card", "stack", "hover", "shadcn"],
     component: AnimatedCardStack,
     codePath: "@/components/components/cards/animated-card-stack.tsx",
@@ -506,7 +562,7 @@ export const componentsRegistry: Component[] = [
     id: "credit-card",
     name: "Credit Card",
     description: "3D animated credit card with flip animation to show CVV",
-    category: "components",
+    category: "cards",
     tags: ["card", "3d", "flip", "payment", "credit"],
     component: CreditCard,
     codePath: "@/components/components/cards/credit-card.tsx",
@@ -519,7 +575,7 @@ export const componentsRegistry: Component[] = [
     name: "Accessible Image Slider Card",
     description:
       "Image carousel card with keyboard support, reduced motion handling, and screen reader-friendly labels",
-    category: "components",
+    category: "cards",
     tags: ["carousel", "image", "card", "accessibility", "keyboard"],
     component: ImageSliderCard,
     codePath: "@/components/components/cards/image-slider-card.tsx",

@@ -43,6 +43,8 @@ npx shadcn@latest add @uitripled/floating-chat-widget
 The `Floating Chat Widget` component uses the following components. Make sure you have them installed in your project.
 
 - button
+- select
+- avatar
 
 <Step>Copy and paste the following code into your project.</Step>
 
@@ -79,6 +81,8 @@ import { FloatingChatWidget } from "@/components/components/chat/floating-chat-w
 
 **UI Components**:
 - button
+- select
+- avatar
 
 This component uses **Framer Motion** for animations and motion effects.
 
@@ -133,3 +137,5 @@ This component is part of the UI TripleD component library, a collection of prod
 ## Related Components
 
 - [button](/docs/components/button)
+- [select](/docs/components/select)
+- [avatar](/docs/components/avatar)

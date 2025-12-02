@@ -160,7 +160,7 @@ export function FloatingChatWidget() {
 
             {/* Agent Selector */}
             <div className="border-b border-border/40 p-3">
-              <Select value={selectedAgent} className="" onValueChange={setSelectedAgent}>
+              <Select value={selectedAgent} onValueChange={setSelectedAgent}>
                 <SelectTrigger className="w-full border-none bg-transparent shadow-none focus:ring-0 focus:ring-offset-0 text-lg font-medium h-auto hover:bg-transparent px-2 py-6 cursor-pointer">
                   <SelectValue placeholder="Select an agent" />
                 </SelectTrigger>

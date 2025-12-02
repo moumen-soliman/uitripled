@@ -7,7 +7,7 @@
     "generate-llms-txt": "node scripts/generate-llms-txt.js",
     "generate-registry-scripts": "node scripts/generate-registry-files",
     "generate-component-markdown": "node scripts/generate-component-markdown.js",
-    "dev": "npm run generate-scripts && next dev",
+    "dev": "npm run generate-scripts && next dev --port 3001",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
