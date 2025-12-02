@@ -690,6 +690,25 @@
       "subcategory": "chat"
     },
     {
+      "name": "cinema-ticket",
+      "type": "registry:component",
+      "title": "Cinema Ticket",
+      "description": "Cinematic theater ticket with rip effect and barcode",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/sections/cinema-ticket.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "cards",
+      "subcategory": null
+    },
+    {
       "name": "command-palette",
       "type": "registry:component",
       "title": "Command Palette",
@@ -730,6 +749,25 @@
         }
       ],
       "category": "components",
+      "subcategory": null
+    },
+    {
+      "name": "conference-ticket",
+      "type": "registry:component",
+      "title": "Conference Ticket",
+      "description": "Animated conference ticket with glassmorphism effects and holographic details",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/sections/conference-ticket.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "cards",
       "subcategory": null
     },
     {
@@ -3130,6 +3168,25 @@
         }
       ],
       "category": "sections",
+      "subcategory": null
+    },
+    {
+      "name": "theater-ticket",
+      "type": "registry:component",
+      "title": "Theater Ticket",
+      "description": "Cinematic theater ticket with rip effect and barcode",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/sections/theater-ticket.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "cards",
       "subcategory": null
     },
     {
