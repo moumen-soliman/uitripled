@@ -161,6 +161,8 @@ import { CourseContentPage } from "@/components/components/course-content/course
 import { BlogTypography } from "@/components/components/blog/blog-typography";
 import { SmartTabsDemo } from "@/components/components/tabs/smart-tabs";
 import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget";
+import { VolumeComponent } from "@/components/components/sliders/volume-component";
+import { CardsSlider } from "@/components/components/sliders/cards-slider";
 
 export const componentsRegistry: Component[] = [
   {
@@ -2226,6 +2228,32 @@ export const componentsRegistry: Component[] = [
     component: FloatingChatWidget,
     codePath: "@/components/components/chat/floating-chat-widget.tsx",
     duration: "300ms",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "volume-component",
+    name: "Volume Component",
+    description:
+      "A smooth, draggable volume slider component with framer-motion animations and shadcn styling.",
+    category: "components",
+    tags: ["volume", "slider", "input", "framer-motion", "shadcn", "draggable"],
+    component: VolumeComponent,
+    codePath: "@/components/components/sliders/volume-component.tsx",
+    duration: "N/A",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "cards-slider",
+    name: "Cards Slider",
+    description:
+      "Liquid smooth draggable cards slider with shadcn/ui styling and framer-motion animations",
+    category: "cards",
+    tags: ["slider", "cards", "carousel", "framer-motion", "shadcn", "draggable"],
+    component: CardsSlider,
+    codePath: "@/components/components/sliders/cards-slider.tsx",
+    duration: "500ms",
     easing: "spring",
     display: true,
   },

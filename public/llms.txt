@@ -2,11 +2,11 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2025-12-03T11:01:04.650Z
+**Last Updated:** 2025-12-03T21:44:00.808Z
 
 ## Table of Contents
 
-- Components (75 items)
+- Components (77 items)
 - Blocks (38 items)
 - Pages (15 items)
 - UI Elements (26 items)
@@ -15,6 +15,7 @@
 
 - [Accessible Image Slider Card](https://ui.tripled.work/components/image-slider-card): Image carousel card with keyboard support, reduced motion handling, and screen reader-friendly labels
 - [Animated Card Stack](https://ui.tripled.work/components/animated-card-stack): Stacked cards that expand on hover
+- [Cards Slider](https://ui.tripled.work/components/cards-slider): Liquid smooth draggable cards slider with shadcn/ui styling and framer-motion animations
 - [Cinema Ticket](https://ui.tripled.work/components/cinema-ticket): Cinematic theater ticket with rip effect and barcode
 - [Conference Ticket](https://ui.tripled.work/components/conference-ticket): Animated conference ticket with glassmorphism effects and holographic details
 - [Credit Card](https://ui.tripled.work/components/credit-card): 3D animated credit card with flip animation to show CVV
@@ -64,6 +65,7 @@
 - [Projects Block](https://ui.tripled.work/components/projects-block): Animated project card with hover effects, image zoom, and link buttons
 - [Smart Hover Card](https://ui.tripled.work/components/smart-hover-card): Card that detects cursor direction and reveals content from that side
 - [Stacked Card Carousel](https://ui.tripled.work/components/stacked-card-carousel): Three stacked cards that shift and tilt dynamically on hover
+- [Volume Component](https://ui.tripled.work/components/volume-component): A smooth, draggable volume slider component with framer-motion animations and shadcn styling.
 - [Weather Dashboard](https://ui.tripled.work/components/weather-dashboard): Immersive weather dashboard with hourly charting, weekly outlook, and live air-quality alerts
 - [Web Performance Page](https://ui.tripled.work/components/web-performance-page): Real-time analysis of web vitals and performance metrics
 

@@ -646,6 +646,25 @@
       "subcategory": null
     },
     {
+      "name": "cards-slider",
+      "type": "registry:component",
+      "title": "Cards Slider",
+      "description": "Liquid smooth draggable cards slider with shadcn/ui styling and framer-motion animations",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/components/sliders/cards-slider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "cards",
+      "subcategory": null
+    },
+    {
       "name": "cash-flow-chart",
       "type": "registry:ui",
       "title": "Accessible Cash Flow Chart",
@@ -3252,6 +3271,27 @@
       ],
       "category": "decorative",
       "subcategory": "text"
+    },
+    {
+      "name": "volume-component",
+      "type": "registry:component",
+      "title": "Volume Component",
+      "description": "A smooth, draggable volume slider component with framer-motion animations and shadcn styling.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/components/sliders/volume-component.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "components",
+      "subcategory": null
     },
     {
       "name": "weather-dashboard",
