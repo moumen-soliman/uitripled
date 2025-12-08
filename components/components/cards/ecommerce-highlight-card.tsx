@@ -66,7 +66,7 @@ export function EcommerceHighlightCard() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div>
+    <div className="w-full">
       <motion.div
         initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
         animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
