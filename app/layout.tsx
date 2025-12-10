@@ -109,6 +109,12 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <Script
+          src="https://cdn.databuddy.cc/databuddy.js"
+          data-client-id={process.env.NEXT_PUBLIC_DATABUDDY_CLIENT_ID}
+          crossOrigin="anonymous"
+          async
+        />
         <ThemeProvider>
           <NuqsAdapter>
             <Header />
