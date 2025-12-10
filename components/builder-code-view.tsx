@@ -151,7 +151,7 @@ const buildPageCode = async (
 
     const lines = codeWithOverrides.split("\n");
 
-    let componentLines: string[] = [];
+    const componentLines: string[] = [];
     let inImportSection = true;
     let inMultilineImport = false;
     let multilineImportBuffer: string[] = [];

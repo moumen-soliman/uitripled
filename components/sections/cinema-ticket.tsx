@@ -32,22 +32,25 @@ export function CinemaTicket() {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-             <motion.div
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-             >
-                <h2 className="text-3xl font-bold text-white mb-2">INTERSTELLAR</h2>
-                <div className="flex items-center gap-2 text-white/80 text-sm">
-                  <span className="flex items-center gap-1">
-                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" /> 8.9
-                  </span>
-                  <span>•</span>
-                  <span>Sci-Fi / Adventure</span>
-                  <span>•</span>
-                  <span>2h 49m</span>
-                </div>
-             </motion.div>
+            >
+              <h2 className="text-3xl font-bold text-white mb-2">
+                INTERSTELLAR
+              </h2>
+              <div className="flex items-center gap-2 text-white/80 text-sm">
+                <span className="flex items-center gap-1">
+                  <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />{" "}
+                  8.9
+                </span>
+                <span>•</span>
+                <span>Sci-Fi / Adventure</span>
+                <span>•</span>
+                <span>2h 49m</span>
+              </div>
+            </motion.div>
           </div>
         </div>
 
@@ -56,28 +59,36 @@ export function CinemaTicket() {
           <div className="flex-1">
             <div className="mt-2 grid grid-cols-2 gap-6">
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Date</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                  Date
+                </p>
                 <div className="flex items-center gap-2 font-medium text-card-foreground">
                   <Calendar className="w-4 h-4 text-primary" />
                   <span>Nov 14, 2025</span>
                 </div>
               </div>
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Time</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                  Time
+                </p>
                 <div className="flex items-center gap-2 font-medium text-card-foreground">
                   <Clock className="w-4 h-4 text-primary" />
                   <span>20:00</span>
                 </div>
               </div>
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Cinema</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                  Cinema
+                </p>
                 <div className="flex items-center gap-2 font-medium text-card-foreground">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span>Odeon Luxe</span>
                 </div>
               </div>
               <div className="space-y-1">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Seat</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                  Seat
+                </p>
                 <div className="flex items-center gap-2 font-medium text-card-foreground">
                   <Film className="w-4 h-4 text-primary" />
                   <span>Row H, Seat 12</span>
@@ -88,15 +99,19 @@ export function CinemaTicket() {
 
           {/* Rip Line */}
           <div className="relative flex items-center justify-center my-6">
-             <div className="absolute -left-6 h-12 w-12 rounded-full bg-transparent z-20" />
-             <div className="w-full border-t-2 border-dashed border-border/50" />
-             <div className="absolute -right-6 h-12 w-12 rounded-full bg-transparent z-20" />
+            <div className="absolute -left-6 h-12 w-12 rounded-full bg-transparent z-20" />
+            <div className="w-full border-t-2 border-dashed border-border/50" />
+            <div className="absolute -right-6 h-12 w-12 rounded-full bg-transparent z-20" />
           </div>
 
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider">Ticket ID</p>
-              <p className="font-mono text-lg font-bold text-card-foreground">#9938421</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                Ticket ID
+              </p>
+              <p className="font-mono text-lg font-bold text-card-foreground">
+                #9938421
+              </p>
             </div>
             <div className="bg-white p-2 rounded-lg" aria-label="QR Code">
               <QrCode className="w-12 h-12 text-black" aria-hidden="true" />

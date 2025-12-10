@@ -26,7 +26,10 @@ export function TheaterTicket() {
 
           <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
             <div className="flex justify-between items-start">
-              <Badge variant="outline" className="border-primary/50 text-primary bg-primary/10">
+              <Badge
+                variant="outline"
+                className="border-primary/50 text-primary bg-primary/10"
+              >
                 <Star className="w-3 h-3 mr-1 fill-current" /> PREMIERE
               </Badge>
               <Ticket className="w-6 h-6 text-muted-foreground" />
@@ -39,7 +42,8 @@ export function TheaterTicket() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                THE PHANTOM<br />
+                THE PHANTOM
+                <br />
                 <span className="text-primary">OF THE OPERA</span>
               </motion.h2>
               <p className="text-muted-foreground text-sm tracking-widest uppercase">
@@ -49,21 +53,27 @@ export function TheaterTicket() {
 
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
               <div>
-                <p className="text-xs text-muted-foreground uppercase mb-1">Date</p>
+                <p className="text-xs text-muted-foreground uppercase mb-1">
+                  Date
+                </p>
                 <p className="text-card-foreground font-medium flex items-center">
                   <Calendar className="w-3 h-3 mr-2 text-primary" />
                   Dec 12
                 </p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground uppercase mb-1">Time</p>
+                <p className="text-xs text-muted-foreground uppercase mb-1">
+                  Time
+                </p>
                 <p className="text-card-foreground font-medium flex items-center">
                   <Clock className="w-3 h-3 mr-2 text-primary" />
                   19:30
                 </p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground uppercase mb-1">Seat</p>
+                <p className="text-xs text-muted-foreground uppercase mb-1">
+                  Seat
+                </p>
                 <p className="text-card-foreground font-medium flex items-center">
                   <MapPin className="w-3 h-3 mr-2 text-primary" />
                   A-24
@@ -93,19 +103,23 @@ export function TheaterTicket() {
           whileHover={{ x: 5 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-           {/* Barcode Lines */}
-           <div className="flex md:flex-col justify-center space-x-1 md:space-x-0 md:space-y-1 h-12 md:h-24 w-full opacity-70" role="img" aria-label="Barcode">
+          {/* Barcode Lines */}
+          <div
+            className="flex md:flex-col justify-center space-x-1 md:space-x-0 md:space-y-1 h-12 md:h-24 w-full opacity-70"
+            role="img"
+            aria-label="Barcode"
+          >
             {[...Array(12)].map((_, i) => (
               <div
                 key={i}
-                className={`bg-foreground ${Math.random() > 0.5 ? 'w-1 h-full md:w-full md:h-1' : 'w-2 h-full md:w-full md:h-2'}`}
+                className={`bg-foreground ${Math.random() > 0.5 ? "w-1 h-full md:w-full md:h-1" : "w-2 h-full md:w-full md:h-2"}`}
               />
             ))}
           </div>
           <div className="mt-4 text-center">
-             <p className="text-xs text-muted-foreground md:rotate-90 origin-center whitespace-nowrap mt-2 md:mt-8">
-               ADMIT ONE
-             </p>
+            <p className="text-xs text-muted-foreground md:rotate-90 origin-center whitespace-nowrap mt-2 md:mt-8">
+              ADMIT ONE
+            </p>
           </div>
         </motion.div>
       </motion.div>

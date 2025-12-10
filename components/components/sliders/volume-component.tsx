@@ -77,7 +77,7 @@ export function VolumeComponent({
       animate(x, clickX, {
         type: "spring",
         stiffness: 300,
-        damping: 30
+        damping: 30,
       });
     }
   };
@@ -89,7 +89,9 @@ export function VolumeComponent({
   return (
     <div className={cn("w-full max-w-md p-6", className)}>
       <div className="flex justify-between items-center mb-4">
-        <label className="text-sm font-medium text-foreground/80">{label}</label>
+        <label className="text-sm font-medium text-foreground/80">
+          {label}
+        </label>
         <span className="text-sm font-mono text-muted-foreground bg-muted px-2 py-1 rounded-md">
           {value}
         </span>
@@ -124,7 +126,9 @@ export function VolumeComponent({
           <motion.div
             className={cn(
               "w-6 h-6 rounded-full bg-background border-2 border-primary shadow-lg flex items-center justify-center transition-colors",
-              isDragging ? "scale-110 border-primary" : "group-hover:border-primary/80"
+              isDragging
+                ? "scale-110 border-primary"
+                : "group-hover:border-primary/80"
             )}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}

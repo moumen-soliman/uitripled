@@ -59,6 +59,12 @@ export function Header() {
                 Builder
               </Link>
               <Link
+                href="/grid-generator"
+                className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Grid Generator
+              </Link>
+              <Link
                 href="/hall-of-fame"
                 className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
               >

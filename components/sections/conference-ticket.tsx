@@ -104,12 +104,19 @@ export function ConferenceTicket() {
             {/* Attendee Info */}
             <div className="flex items-center gap-4 rounded-2xl border border-border/50 bg-card/30 p-4 backdrop-blur-md">
               <Avatar className="h-12 w-12 border-2 border-primary/20">
-                <AvatarImage src="https://github.com/shadcn.png" alt="Moumen Soliman" />
+                <AvatarImage
+                  src="https://github.com/shadcn.png"
+                  alt="Moumen Soliman"
+                />
                 <AvatarFallback>MS</AvatarFallback>
               </Avatar>
               <div>
-                <p className="text-sm font-medium text-foreground">Moumen Soliman</p>
-                <p className="text-xs text-muted-foreground">Senior Product Designer</p>
+                <p className="text-sm font-medium text-foreground">
+                  Moumen Soliman
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Senior Product Designer
+                </p>
               </div>
             </div>
           </div>
@@ -120,12 +127,15 @@ export function ConferenceTicket() {
           whileHover={{
             x: 15,
             rotate: 5,
-            transition: { type: "spring", stiffness: 300, damping: 20 }
+            transition: { type: "spring", stiffness: 300, damping: 20 },
           }}
           className="relative flex w-full flex-col items-center justify-center p-8 backdrop-blur-md md:w-64 rounded-3xl md:rounded-l-none md:rounded-r-3xl border border-border/50 border-t-0 md:border-t md:border-l-0 bg-card/10"
         >
           <div className="space-y-6 text-center">
-            <div className="rounded-xl bg-white p-4 shadow-lg" aria-label="QR Code">
+            <div
+              className="rounded-xl bg-white p-4 shadow-lg"
+              aria-label="QR Code"
+            >
               <QrCode className="h-32 w-32 text-black" aria-hidden="true" />
             </div>
             <div className="space-y-1">

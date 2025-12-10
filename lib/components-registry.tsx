@@ -182,8 +182,7 @@ export const componentsRegistry: Component[] = [
   {
     id: "theater-ticket",
     name: "Theater Ticket",
-    description:
-      "Cinematic theater ticket with rip effect and barcode",
+    description: "Cinematic theater ticket with rip effect and barcode",
     category: "cards",
     tags: ["ticket", "theater", "cinema", "movie", "event"],
     component: TheaterTicket,
@@ -195,8 +194,7 @@ export const componentsRegistry: Component[] = [
   {
     id: "cinema-ticket",
     name: "Cinema Ticket",
-    description:
-      "Cinematic theater ticket with rip effect and barcode",
+    description: "Cinematic theater ticket with rip effect and barcode",
     category: "cards",
     tags: ["ticket", "theater", "cinema", "movie", "event"],
     component: CinemaTicket,
@@ -2272,7 +2270,14 @@ export const componentsRegistry: Component[] = [
     description:
       "Liquid smooth draggable cards slider with shadcn/ui styling and framer-motion animations",
     category: "cards",
-    tags: ["slider", "cards", "carousel", "framer-motion", "shadcn", "draggable"],
+    tags: [
+      "slider",
+      "cards",
+      "carousel",
+      "framer-motion",
+      "shadcn",
+      "draggable",
+    ],
     component: CardsSlider,
     codePath: "@/components/components/sliders/cards-slider.tsx",
     duration: "500ms",
