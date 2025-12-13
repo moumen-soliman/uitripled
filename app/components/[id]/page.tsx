@@ -5,6 +5,7 @@ import {
   componentsRegistry,
   loadComponentCode,
 } from "@/lib/components-registry";
+import { Component } from "@/types";
 import { notFound } from "next/navigation";
 
 type PageParams = {
@@ -62,8 +63,33 @@ export default async function AnimationDetailPage({ params }: PageParams) {
     notFound();
   }
 
-  // Load code on the server
   const code = await loadComponentCode(component);
+  const relatedComponents = component.variants;
 
-  return <AnimationDetailPageClient code={code} />;
+  // Load code for each variant
+  const variantCodes: Record<string, string> = {};
+  if (relatedComponents) {
+    await Promise.all(
+      relatedComponents.map(async (variant) => {
+        if (variant.code) {
+          variantCodes[variant.id] = variant.code;
+        } else {
+          const variantComponent = getComponentById(variant.id);
+          if (variantComponent) {
+            variantCodes[variant.id] =
+              await loadComponentCode(variantComponent);
+          }
+        }
+      })
+    );
+  }
+
+  return (
+    <AnimationDetailPageClient
+      code={code}
+      relatedComponents={relatedComponents}
+      variantCodes={variantCodes}
+      baseId={component.id}
+    />
+  );
 }

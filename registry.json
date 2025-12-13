@@ -618,8 +618,8 @@
           "type": "registry:component"
         }
       ],
-      "category": "components",
-      "subcategory": "modal"
+      "category": "native",
+      "subcategory": null
     },
     {
       "name": "browse-folder",
@@ -2450,6 +2450,215 @@
       "subcategory": null
     },
     {
+      "name": "native-badge",
+      "type": "registry:component",
+      "title": "Native Badge",
+      "description": "Animated badge component with glass, glow, and outline variants for native feel.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-badge.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-button",
+      "type": "registry:component",
+      "title": "Native Button",
+      "description": "Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-counter-up",
+      "type": "registry:component",
+      "title": "Native Counter Up",
+      "description": "Animated number counter with smooth easing and accessibility support.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-counter-up.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-dialog",
+      "type": "registry:component",
+      "title": "Native Dialog",
+      "description": "A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-flip-text",
+      "type": "registry:component",
+      "title": "Native Flip Text",
+      "description": "Text that flips through words with a 3D blur transition.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-flip-text.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-magnetic",
+      "type": "registry:component",
+      "title": "Native Magnetic",
+      "description": "Magnetic wrapper that applies a cursor-following effect to any content.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-magnetic.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-morphing-button",
+      "type": "registry:component",
+      "title": "Native Morphing Button",
+      "description": "Floating action button that morphs into a menu of actions.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-morphing-button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-notification-bell",
+      "type": "registry:component",
+      "title": "Native Notification Bell",
+      "description": "Animated notification bell with badge and ringing effect.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-notification-bell.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-tabs",
+      "type": "registry:component",
+      "title": "Native Tabs",
+      "description": "A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-tooltip",
+      "type": "registry:component",
+      "title": "Native Tooltip",
+      "description": "A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-tooltip.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-typewriter",
+      "type": "registry:component",
+      "title": "Native Typewriter",
+      "description": "Typewriter effect with speed control, looping, and blinking cursor.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/native-typewriter.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
       "name": "new-hero-section",
       "type": "registry:block",
       "title": "New Hero Section",
@@ -2951,6 +3160,25 @@
       ],
       "category": "components",
       "subcategory": "tabs"
+    },
+    {
+      "name": "social-login-button",
+      "type": "registry:component",
+      "title": "Social Login Button",
+      "description": "A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/social-login-button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
     },
     {
       "name": "spotlight-section",

@@ -14,7 +14,7 @@
   "files": [
     {
       "path": "components/micro/buttons/magnetic-button.tsx",
-      "content": "\"use client\";\n\nimport { motion, useMotionValue, useSpring } from \"framer-motion\";\nimport { useRef } from \"react\";\nimport { Button } from \"@/components/ui/button\";\n\nexport function MagneticButton() {\n  const ref = useRef<HTMLButtonElement>(null);\n  const x = useMotionValue(0);\n  const y = useMotionValue(0);\n\n  const springX = useSpring(x, { stiffness: 300, damping: 20 });\n  const springY = useSpring(y, { stiffness: 300, damping: 20 });\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {\n    if (!ref.current) return;\n    const rect = ref.current.getBoundingClientRect();\n    const centerX = rect.left + rect.width / 2;\n    const centerY = rect.top + rect.height / 2;\n    x.set((e.clientX - centerX) * 0.3);\n    y.set((e.clientY - centerY) * 0.3);\n  };\n\n  const handleMouseLeave = () => {\n    x.set(0);\n    y.set(0);\n  };\n\n  return (\n    <div className=\"flex items-center justify-center p-12\">\n      <motion.div style={{ x: springX, y: springY }}>\n        <Button\n          ref={ref}\n          onMouseMove={handleMouseMove}\n          onMouseLeave={handleMouseLeave}\n          onFocus={handleMouseLeave}\n          className=\"cursor-pointer\"\n        >\n          Magnetic Button\n        </Button>\n      </motion.div>\n    </div>\n  );\n}\n",
+      "content": "// Error: Could not read file components/micro/buttons/magnetic-button.tsx\n// File not found: components/micro/buttons/magnetic-button.tsx",
       "type": "registry:ui",
       "target": "components/micro/buttons/magnetic-button"
     }

@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { MagneticButton } from "@/components/micro/buttons/magnetic-button.tsx"
+import { MagneticButton } from "@/components/native/native-counter-up.tsx"
 
 export function MagneticButtonDemo() {
   return (
@@ -46,7 +46,7 @@ The `Magnetic Button` component uses the following components. Make sure you hav
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="magnetic-button" title="@/components/micro/buttons/magnetic-button.tsx" />
+<ComponentSource name="magnetic-button" title="@/components/native/native-counter-up.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Magnetic Button` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { MagneticButton } from "@/components/micro/buttons/magnetic-button.tsx"
+import { MagneticButton } from "@/components/native/native-counter-up.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -110,7 +110,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { MagneticButton } from "@/components/micro/buttons/magnetic-button.tsx"
+import { MagneticButton } from "@/components/native/native-counter-up.tsx"
 
 export function BasicExample() {
   return (

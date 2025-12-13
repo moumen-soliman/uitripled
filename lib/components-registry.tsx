@@ -4,12 +4,10 @@ import { getComponentCode } from "./file-reader";
 // Import all animation components
 import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover";
 import { RippleClickButton } from "@/components/micro/buttons/ripple-click";
-import { MagneticButton } from "@/components/micro/buttons/magnetic-button";
 import { ShimmerButton } from "@/components/micro/buttons/shimmer-button";
 import { PreviewDetailsCard } from "@/components/micro/links/preview-details-card";
 import { ElasticSwitch } from "@/components/micro/toggles/elastic-switch";
 import { HeartFavorite } from "@/components/micro/icons/heart-favorite";
-import { AnimatedBadge } from "@/components/micro/badges/animated-badge";
 import { FadeSlideModal } from "@/components/components/modal/fade-slide";
 import { StaggeredDropdown } from "@/components/components/dropdown/staggered-items";
 import { HoverExpandCard } from "@/components/components/cards/hover-expand";
@@ -34,10 +32,8 @@ import { WeatherDashboard } from "@/components/components/weather/weather-dashbo
 import { StaggeredHero } from "@/components/page/hero/staggered-text";
 import { AboutUsPage } from "@/components/page/about/about-us-page";
 import { ToastNotification } from "@/components/page/notifications/toast-notification";
-import { CounterUp } from "@/components/data/progress/counter-up";
 import { AnimatedProgress } from "@/components/data/progress/animated-progress";
 import { CashFlowChart } from "@/components/data/charts/cash-flow-chart";
-import { TypewriterText } from "@/components/decorative/text/typewriter";
 import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-animation";
 
 // NEW: 20 Additional Components
@@ -122,9 +118,7 @@ import { MinimalResume } from "@/components/components/resumes/minimal-resume";
 import { StandardResume } from "@/components/components/resumes/standard-resume";
 
 // UI-TripleD Components
-import { MorphingActionButton } from "@/components/motion-core/morphing-action-button";
 import { SmartHoverCard } from "@/components/motion-core/smart-hover-card";
-import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-link";
 import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-tracker";
 import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carousel";
 import { SpotlightSection } from "@/components/motion-core/spotlight-section";
@@ -135,7 +129,6 @@ import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton"
 import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-block";
 import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble";
 import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-group";
-import { NotificationBell } from "@/components/motion-core/notification-bell";
 import { DragToConfirmSlider } from "@/components/motion-core/drag-to-confirm-slider";
 import { ExpandingSearchDock } from "@/components/motion-core/expanding-search-dock";
 import { MoodGradientButton } from "@/components/motion-core/mood-gradient-button";
@@ -160,12 +153,266 @@ import { ProfilePage } from "@/components/components/profile/profile-page";
 import { WebPerformancePage } from "@/components/web-performance/web-performance-page";
 import { CourseContentPage } from "@/components/components/course-content/course-content-page";
 import { BlogTypography } from "@/components/components/blog/blog-typography";
-import { SmartTabsDemo } from "@/components/components/tabs/smart-tabs";
+import { NativeTabs } from "@/components/native/native-tabs";
+import { NativeTabsDemo } from "@/components/native/demo/native-tabs-demo";
 import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget";
 import { VolumeComponent } from "@/components/components/sliders/volume-component";
 import { CardsSlider } from "@/components/components/sliders/cards-slider";
+import { NativeButton } from "@/components/native/native-button";
+import {
+  NativeButtonDefault,
+  NativeButtonOutline,
+  NativeButtonLoading,
+  NativeButtonDisabled,
+  NativeButtonGlow,
+} from "@/components/native/demo/native-button-demo";
+import {
+  SocialButtonsScale,
+  SocialButtonsShine,
+  SocialButtonsSlide,
+  SocialButtonsGlow,
+} from "@/components/native/demo/social-login-demo";
+import { SocialLoginButton } from "@/components/native/social-login-button";
+import { NativeDialog } from "@/components/native/native-dialog";
+import { NativeDialogDemo } from "@/components/native/demo/native-dialog-demo";
+import {
+  NativeTooltipBlur,
+  NativeTooltipScale,
+} from "@/components/native/demo/native-tooltip-demo";
+import { NativeTooltip } from "@/components/native/native-tooltip";
+import {
+  NativeTypewriterDefault,
+  NativeTypewriterMultiline,
+  NativeTypewriterLoop,
+} from "@/components/native/demo/native-typewriter-demo";
+import { NativeTypewriter } from "@/components/native/native-typewriter";
+import {
+  NativeFlipTextDefault,
+  NativeFlipTextColored,
+} from "@/components/native/demo/native-flip-text-demo";
+import { NativeFlipText } from "@/components/native/native-flip-text";
+import {
+  NativeBadgeDefault,
+  NativeBadgeNeutral,
+  NativeBadgeOutline,
+  NativeBadgeGlass,
+  NativeBadgeGlow,
+  NativeBadgeAnimated,
+} from "@/components/native/demo/native-badge-demo";
+import { NativeBadge } from "@/components/native/native-badge";
+import {
+  NativeCounterUpDefault,
+  NativeCounterUpCurrency,
+  NativeCounterUpPercentage,
+} from "@/components/native/demo/native-counter-up-demo";
+import { NativeCounterUp } from "@/components/native/native-counter-up";
+import {
+  NativeMagneticDefault,
+  NativeMagneticLink,
+  NativeMagneticStrong,
+} from "@/components/native/demo/native-magnetic-demo";
+import { NativeMagnetic } from "@/components/native/native-magnetic";
+import {
+  NativeNotificationBellDefault,
+  NativeNotificationBellEmpty,
+  NativeNotificationBellCustomIcon,
+} from "@/components/native/demo/native-notification-bell-demo";
+import { NativeNotificationBell } from "@/components/native/native-notification-bell";
+import {
+  NativeMorphingButtonDefault,
+  NativeMorphingButtonCustomIcon,
+} from "@/components/native/demo/native-morphing-button-demo";
+import { NativeMorphingButton } from "@/components/native/native-morphing-button";
 
 export const componentsRegistry: Component[] = [
+  {
+    id: "native-tooltip",
+    name: "Native Tooltip",
+    description:
+      "A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.",
+    category: "native",
+    tags: ["tooltip", "native", "glassmorphism", "overlay", "radix", "popup"],
+    component: NativeTooltip,
+    variants: [
+      {
+        id: "blur",
+        name: "Blur Animation",
+        description: "Subtle blur and fade animation (Default)",
+        component: NativeTooltipBlur,
+        code: `<NativeTooltipProvider>
+  <NativeTooltip content="This is a smooth tooltip">
+    <NativeButton variant="outline">Default (Blur)</NativeButton>
+  </NativeTooltip>
+</NativeTooltipProvider>`,
+      },
+      {
+        id: "scale",
+        name: "Scale Animation",
+        description: "Playful pop and scale animation",
+        component: NativeTooltipScale,
+        code: `<NativeTooltipProvider>
+  <NativeTooltip content="This pops!" animation="scale">
+    <NativeButton variant="outline">Scale Animation</NativeButton>
+  </NativeTooltip>
+</NativeTooltipProvider>`,
+      },
+    ],
+    codePath: "@/components/native/native-tooltip.tsx",
+    duration: "200ms",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "native-dialog",
+    name: "Native Dialog",
+    description:
+      "A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.",
+    category: "native",
+    tags: ["dialog", "modal", "native", "glassmorphism", "overlay", "radix"],
+    component: NativeDialog, // Use the demo as the main preview component
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard usage of Native Dialog",
+        component: NativeDialogDemo,
+        code: `<NativeDialog>
+  <NativeDialogTrigger asChild>
+    <NativeButton>Open Dialog</NativeButton>
+  </NativeDialogTrigger>
+  <NativeDialogContent className="sm:max-w-[425px]">
+    <NativeDialogHeader>
+      <NativeDialogTitle>Edit Profile</NativeDialogTitle>
+      <NativeDialogDescription>
+        Make changes to your profile here. Click save when you're done.
+      </NativeDialogDescription>
+    </NativeDialogHeader>
+    <div className="grid gap-4 py-4">
+      <div className="grid grid-cols-4 items-center gap-4">
+        <span className="text-right text-sm font-medium">Name</span>
+        <input className="..." defaultValue="Pedro Duarte" />
+      </div>
+      <div className="grid grid-cols-4 items-center gap-4">
+        <span className="text-right text-sm font-medium">Username</span>
+        <input className="..." defaultValue="@peduarte" />
+      </div>
+    </div>
+    <NativeDialogFooter>
+      <NativeButton glow>Save changes</NativeButton>
+    </NativeDialogFooter>
+  </NativeDialogContent>
+</NativeDialog>`,
+      },
+    ],
+    codePath: "@/components/native/native-dialog.tsx",
+    duration: "200ms",
+    easing: "ease-out",
+    display: true,
+  },
+  {
+    id: "social-login-button",
+    name: "Social Login Button",
+    description:
+      "A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.",
+    category: "native",
+    tags: ["button", "social", "login", "auth", "oauth", "animation"],
+    component: SocialLoginButton,
+    variants: [
+      {
+        id: "slide",
+        name: "Slide Animation",
+        description: "Icon slides in on hover",
+        component: SocialButtonsSlide,
+        code: `<SocialLoginButton provider="github" animation="slide" />`,
+      },
+      {
+        id: "scale",
+        name: "Scale Animation",
+        description: "Button scales up on hover",
+        component: SocialButtonsScale,
+        code: `<SocialLoginButton provider="x" animation="scale" />`,
+      },
+      {
+        id: "glow",
+        name: "Glow Animation",
+        description: "Outer glow effect on hover",
+        component: SocialButtonsGlow,
+        code: `<SocialLoginButton provider="linkedin" animation="glow" />`,
+      },
+      {
+        id: "shine",
+        name: "Shine Animation",
+        description: "Shine effect swipes across on hover",
+        component: SocialButtonsShine,
+        code: `<SocialLoginButton provider="google" animation="shine" />`,
+      },
+    ],
+    codePath: "@/components/native/social-login-button.tsx",
+    duration: "200ms",
+    easing: "ease-out",
+    display: true,
+  },
+  {
+    id: "native-button",
+    name: "Native Button",
+    description:
+      "Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling",
+    category: "native",
+    tags: [
+      "button",
+      "native",
+      "glassmorphism",
+      "ui",
+      "interactive",
+      "animation",
+    ],
+    component: NativeButton,
+    variants: [
+      {
+        id: "default",
+        name: "Default Button",
+        description:
+          "Primary action button with solid background and prominent styling",
+        component: NativeButtonDefault,
+        code: `<NativeButton>
+  Get Started <ChevronRight className="w-4 h-4 ml-1" />
+</NativeButton>`,
+      },
+      {
+        id: "glow",
+        name: "Glow Button",
+        description: "Button with an outer glow effect for emphasis",
+        component: NativeButtonGlow,
+        code: `<NativeButton glow>Glow Effect</NativeButton>`,
+      },
+      {
+        id: "outline",
+        name: "Outline Button",
+        description:
+          "Secondary action button with transparent background and border",
+        component: NativeButtonOutline,
+        code: `<NativeButton variant="outline">Learn More</NativeButton>`,
+      },
+      {
+        id: "loading",
+        name: "Loading State",
+        description: "Button with loading spinner for async operations",
+        component: NativeButtonLoading,
+        code: `<NativeButton loading>Loading</NativeButton>`,
+      },
+      {
+        id: "disabled",
+        name: "Disabled State",
+        description: "Button in disabled state preventing user interaction",
+        component: NativeButtonDisabled,
+        code: `<NativeButton disabled>Disabled</NativeButton>`,
+      },
+    ],
+    codePath: "@/components/native/native-button.tsx",
+    duration: "200ms",
+    easing: "spring",
+    display: true,
+  },
   {
     id: "conference-ticket",
     name: "Conference Ticket",
@@ -256,15 +503,57 @@ export const componentsRegistry: Component[] = [
     display: true,
   },
   {
-    id: "smart-tabs",
-    name: "Smart Tabs",
+    id: "native-tabs",
+    name: "Native Tabs",
     description:
-      "Animated tabs with sliding pill indicator and smooth content transitions",
-    category: "components",
-    tags: ["tabs", "navigation", "animated", "framer-motion", "glassmorphism"],
-    component: SmartTabsDemo,
-    codePath: "@/components/components/tabs/smart-tabs.tsx",
-    duration: "300ms",
+      "A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.",
+    category: "native",
+    tags: ["tabs", "navigation", "native", "framer-motion", "slide", "pill"],
+    component: NativeTabs,
+    codePath: "@/components/native/native-tabs.tsx",
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard usage of Native Tabs",
+        component: NativeTabsDemo,
+        code: `<NativeTabs
+  items={[
+    {
+      id: "account",
+      label: "Account",
+      content: (
+        <div className="flex flex-col gap-4">
+          <h3 className="text-lg font-semibold">Account Settings</h3>
+          <p className="text-muted-foreground">Manage your account credentials and preferences here.</p>
+        </div>
+      ),
+    },
+    {
+      id: "notifications",
+      label: "Notifications",
+      content: (
+        <div className="flex flex-col gap-4">
+          <h3 className="text-lg font-semibold">Notification Preferences</h3>
+          <p className="text-muted-foreground">Choose what updates you want to receive via email or push.</p>
+        </div>
+      ),
+    },
+    {
+      id: "billing",
+      label: "Billing",
+      content: (
+        <div className="flex flex-col gap-4">
+          <h3 className="text-lg font-semibold">Billing Information</h3>
+          <p className="text-muted-foreground">View your invoices and manage payment methods.</p>
+        </div>
+      ),
+    },
+  ]}
+/>`,
+      },
+    ],
+    duration: "400ms",
     easing: "spring",
     display: true,
   },
@@ -492,38 +781,309 @@ export const componentsRegistry: Component[] = [
     display: true,
   },
   {
-    id: "counter-up",
-    name: "Animated Counter",
-    description: "Number counter that animates up from zero",
-    category: "data",
-    tags: ["counter", "number", "progress"],
-    component: CounterUp,
-    codePath: "@/components/data/progress/counter-up.tsx",
-    duration: "2000ms",
-    easing: "easeOut",
-    display: true,
-  },
-  {
-    id: "typewriter-text",
-    name: "Typewriter Effect",
-    description: "Text that types out character by character",
-    category: "decorative",
-    tags: ["text", "typewriter", "reveal"],
-    component: TypewriterText,
-    codePath: "@/components/decorative/text/typewriter.tsx",
+    id: "native-typewriter",
+    name: "Native Typewriter",
+    description:
+      "Typewriter effect with speed control, looping, and blinking cursor.",
+    category: "native",
+    tags: ["text", "typewriter", "reveal", "native", "animation"],
+    component: NativeTypewriter,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard typing effect",
+        component: NativeTypewriterDefault,
+        code: `<NativeTypewriter content="Hello, I am a native typewriter." />`,
+      },
+      {
+        id: "multiline",
+        name: "Multiline",
+        description: "Typing multiple lines in sequence",
+        component: NativeTypewriterMultiline,
+        code: `<NativeTypewriter
+  content={[
+    "I can type multiple lines...",
+    "One after another.",
+    "Perfect for storytelling!",
+  ]}
+  speed="fast"
+/>`,
+      },
+      {
+        id: "loop",
+        name: "Looping",
+        description: "Continuous typing loop",
+        component: NativeTypewriterLoop,
+        code: `<NativeTypewriter
+  content={["Design.", "Develop.", "Ship.", "Repeat."]}
+  loop
+  speed={80}
+  cursor={false}
+/>`,
+      },
+    ],
+    codePath: "@/components/native/native-typewriter.tsx",
     duration: "variable",
     easing: "linear",
     display: true,
   },
   {
-    id: "magnetic-button",
-    name: "Magnetic Button",
-    description: "Button that magnetically follows your cursor",
-    category: "microinteractions",
-    tags: ["button", "magnetic", "interactive", "shadcn"],
-    component: MagneticButton,
-    codePath: "@/components/micro/buttons/magnetic-button.tsx",
-    duration: "200ms",
+    id: "native-flip-text",
+    name: "Native Flip Text",
+    description: "Text that flips through words with a 3D blur transition.",
+    category: "native",
+    tags: ["text", "flip", "blur", "morph", "animation", "native"],
+    component: NativeFlipText,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard flip text usage",
+        component: NativeFlipTextDefault,
+        code: `<NativeFlipText
+  words={["Design", "Develop", "Ship", "Deploy"]}
+  className="text-2xl font-bold"
+/>`,
+      },
+      {
+        id: "colored",
+        name: "Colored Inline",
+        description: "Inline usage with custom colors",
+        component: NativeFlipTextColored,
+        code: `<div className="text-xl font-medium text-muted-foreground flex items-center gap-2">
+  <span>We build</span>
+  <NativeFlipText
+    words={["beautiful", "modern", "fast", "accessible"]}
+    className="text-primary font-bold"
+    duration={1500}
+  />
+  <span>user interfaces.</span>
+</div>`,
+      },
+    ],
+    codePath: "@/components/native/native-flip-text.tsx", // Main component source
+    duration: "2000ms",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "native-badge",
+    name: "Native Badge",
+    description:
+      "Animated badge component with glass, glow, and outline variants for native feel.",
+    category: "native",
+    tags: ["badge", "tag", "label", "status", "native", "glassmorphism"],
+    component: NativeBadge,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Primary brand badge",
+        component: NativeBadgeDefault,
+        code: `<NativeBadge>New Feature</NativeBadge>`,
+      },
+      {
+        id: "neutral",
+        name: "Neutral",
+        description: "Secondary subtle badge",
+        component: NativeBadgeNeutral,
+        code: `<NativeBadge variant="neutral">Coming Soon</NativeBadge>`,
+      },
+      {
+        id: "outline",
+        name: "Outline",
+        description: "Outline variant",
+        component: NativeBadgeOutline,
+        code: `<NativeBadge variant="outline">Experimental</NativeBadge>`,
+      },
+      {
+        id: "glass",
+        name: "Glass",
+        description: "Glassmorphism style badge",
+        component: NativeBadgeGlass,
+        code: `<div className="relative overflow-hidden bg-black p-4 rounded-lg">
+  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent" />
+  <NativeBadge variant="glass" className="relative">Glassmorphism</NativeBadge>
+</div>`,
+      },
+      {
+        id: "glow",
+        name: "Glow",
+        description: "Glowing accent badge",
+        component: NativeBadgeGlow,
+        code: `<NativeBadge variant="glow">
+  <Sparkles className="w-3 h-3 mr-1" />
+  AI Powered
+</NativeBadge>`,
+      },
+      {
+        id: "animated",
+        name: "Animated",
+        description: "Badge with rotating icon and hover effect",
+        component: NativeBadgeAnimated,
+        code: `<NativeBadge variant="animated">Feature</NativeBadge>
+
+// With custom tag:
+<NativeBadge variant="animated" tag="beta">Coming Soon</NativeBadge>
+
+// With custom icon:
+<NativeBadge variant="animated" icon={<Zap className="h-3 w-3 text-primary" />}>Fast</NativeBadge>`,
+      },
+    ],
+    codePath: "@/components/native/native-badge.tsx",
+    duration: "n/a",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "native-counter-up",
+    name: "Native Counter Up",
+    description:
+      "Animated number counter with smooth easing and accessibility support.",
+    category: "native",
+    tags: ["counter", "number", "animation", "stats", "native"],
+    component: NativeCounterUp,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Simple counter",
+        component: NativeCounterUpDefault,
+        code: `<NativeCounterUp value={1000} className="text-4xl" />`,
+      },
+      {
+        id: "currency",
+        name: "Currency",
+        description: "Counter with prefix and decimals",
+        component: NativeCounterUpCurrency,
+        code: `<NativeCounterUp value={9999.99} prefix="$" decimals={2} />`,
+      },
+      {
+        id: "percentage",
+        name: "Percentage",
+        description: "Counter with suffix",
+        component: NativeCounterUpPercentage,
+        code: `<NativeCounterUp value={87} suffix="%" duration={1.5} />`,
+      },
+    ],
+    codePath: "@/components/native/native-counter-up.tsx",
+    duration: "2000ms",
+    easing: "expo-out",
+    display: true,
+  },
+  {
+    id: "native-magnetic",
+    name: "Native Magnetic",
+    description:
+      "Magnetic wrapper that applies a cursor-following effect to any content.",
+    category: "native",
+    tags: ["magnetic", "cursor", "interactive", "button", "link", "native"],
+    component: NativeMagnetic,
+    variants: [
+      {
+        id: "default",
+        name: "Button",
+        description: "Magnetic effect on a button",
+        component: NativeMagneticDefault,
+        code: `<NativeMagnetic>
+  <Button>Magnetic Button</Button>
+</NativeMagnetic>`,
+      },
+      {
+        id: "link",
+        name: "Link",
+        description: "Magnetic effect on a link",
+        component: NativeMagneticLink,
+        code: `<NativeMagnetic as="a" href="/about">
+  About Us
+</NativeMagnetic>`,
+      },
+      {
+        id: "strong",
+        name: "Strong Pull",
+        description: "Increased magnetic strength",
+        component: NativeMagneticStrong,
+        code: `<NativeMagnetic strength={0.6}>
+  <div className="px-6 py-3 bg-primary text-primary-foreground rounded-lg">
+    Strong Pull
+  </div>
+</NativeMagnetic>`,
+      },
+    ],
+    codePath: "@/components/native/native-magnetic.tsx",
+    duration: "spring",
+    easing: "spring",
+    display: true,
+  },
+  {
+    id: "native-notification-bell",
+    name: "Native Notification Bell",
+    description: "Animated notification bell with badge and ringing effect.",
+    category: "native",
+    tags: ["notification", "bell", "badge", "animation", "native"],
+    component: NativeNotificationBell,
+    variants: [
+      {
+        id: "default",
+        name: "With Count",
+        description: "Bell with notification count",
+        component: NativeNotificationBellDefault,
+        code: `<NativeNotificationBell count={3} />`,
+      },
+      {
+        id: "empty",
+        name: "Empty",
+        description: "Bell without notifications",
+        component: NativeNotificationBellEmpty,
+        code: `<NativeNotificationBell count={0} />`,
+      },
+      {
+        id: "custom-icon",
+        name: "Custom Icon",
+        description: "Bell with custom icon",
+        component: NativeNotificationBellCustomIcon,
+        code: `<NativeNotificationBell count={5} icon={<MessageSquare className="h-5 w-5" />} />`,
+      },
+    ],
+    codePath: "@/components/native/native-notification-bell.tsx",
+    duration: "600ms",
+    easing: "easeInOut",
+    display: true,
+  },
+  {
+    id: "native-morphing-button",
+    name: "Native Morphing Button",
+    description: "Floating action button that morphs into a menu of actions.",
+    category: "native",
+    tags: ["fab", "morphing", "menu", "actions", "native"],
+    component: NativeMorphingButton,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "FAB with action menu",
+        component: NativeMorphingButtonDefault,
+        code: `<NativeMorphingButton
+  actions={[
+    { label: "New Task", icon: <Plus className="h-4 w-4" />, onClick: () => {} },
+    { label: "New Project", icon: <FolderPlus className="h-4 w-4" />, onClick: () => {} },
+  ]}
+/>`,
+      },
+      {
+        id: "custom-icon",
+        name: "Custom Icon",
+        description: "FAB with custom icon",
+        component: NativeMorphingButtonCustomIcon,
+        code: `<NativeMorphingButton
+  icon={<FileText className="h-5 w-5" />}
+  actions={[...]}
+/>`,
+      },
+    ],
+    codePath: "@/components/native/native-morphing-button.tsx",
+    duration: "300ms",
     easing: "spring",
     display: true,
   },
@@ -575,18 +1135,6 @@ export const componentsRegistry: Component[] = [
     codePath: "@/components/micro/links/preview-details-card.tsx",
     duration: "280ms",
     easing: "easeInOut",
-    display: true,
-  },
-  {
-    id: "animated-badge",
-    name: "Animated Badge",
-    description: "Badge with scale and spin animation",
-    category: "microinteractions",
-    tags: ["badge", "icon", "spin", "shadcn"],
-    component: AnimatedBadge,
-    codePath: "@/components/micro/badges/animated-badge.tsx",
-    duration: "300ms",
-    easing: "spring",
     display: true,
   },
   {
@@ -672,7 +1220,7 @@ export const componentsRegistry: Component[] = [
     codePath: "@/components/components/chat/chat-app.tsx",
     duration: "300ms",
     easing: "spring",
-    display: true,
+    display: false,
   },
   {
     id: "messenger",
@@ -904,16 +1452,25 @@ export const componentsRegistry: Component[] = [
     codePath: "@/components/modals/animated-dialog.tsx",
     duration: "300ms",
     easing: "spring",
-    display: true,
+    display: false,
   },
   {
     id: "bottom-modal",
     name: "Bottom Modal",
     description:
       "Cute bottom-centered modal with smooth slide-up animation and glassmorphism design",
-    category: "components",
+    category: "native",
     tags: ["modal", "bottom", "slide", "overlay", "glassmorphism"],
     component: BottomModal,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard usage of Bottom Modal",
+        component: BottomModal,
+        code: `<BottomModal />`,
+      },
+    ],
     codePath: "@/components/modals/bottom-modal.tsx",
     duration: "300ms",
     easing: "spring",
@@ -1396,7 +1953,7 @@ export const componentsRegistry: Component[] = [
     codePath: "@/components/sections/blog-block.tsx",
     duration: "500ms",
     easing: "spring",
-    display: true,
+    display: false,
   },
   {
     id: "contact-block",
@@ -1465,19 +2022,6 @@ export const componentsRegistry: Component[] = [
   },
   // UI-TripleD Components
   {
-    id: "morphing-action-button",
-    name: "Morphing Action Button",
-    description:
-      "A circular FAB that morphs into a rectangular action panel using layoutId",
-    category: "microinteractions",
-    tags: ["fab", "morph", "layout", "button", "action"],
-    component: MorphingActionButton,
-    codePath: "@/components/motion-core/morphing-action-button.tsx",
-    duration: "300ms",
-    easing: "spring",
-    display: true,
-  },
-  {
     id: "smart-hover-card",
     name: "Smart Hover Card",
     description:
@@ -1489,19 +2033,6 @@ export const componentsRegistry: Component[] = [
     duration: "300ms",
     easing: "spring",
     display: false,
-  },
-  {
-    id: "magnetic-cursor-link",
-    name: "Magnetic Cursor Link",
-    description:
-      "Link that slightly follows mouse cursor within boundary and snaps back",
-    category: "microinteractions",
-    tags: ["magnetic", "cursor", "link", "interactive"],
-    component: MagneticCursorLink,
-    codePath: "@/components/motion-core/magnetic-cursor-link.tsx",
-    duration: "200ms",
-    easing: "spring",
-    display: true,
   },
   {
     id: "scroll-progress-tracker",
@@ -1629,18 +2160,6 @@ export const componentsRegistry: Component[] = [
     duration: "300ms",
     easing: "spring",
     display: false, // need fixes
-  },
-  {
-    id: "notification-bell",
-    name: "Notification Bell",
-    description: "Bell icon that gently swings when new notification appears",
-    category: "microinteractions",
-    tags: ["notification", "bell", "swing", "oscillation"],
-    component: NotificationBell,
-    codePath: "@/components/motion-core/notification-bell.tsx",
-    duration: "500ms",
-    easing: "spring",
-    display: true,
   },
   {
     id: "drag-to-confirm-slider",

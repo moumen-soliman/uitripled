@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "components/data/progress/counter-up.tsx",
-      "content": "\"use client\";\n\nimport {\n  motion,\n  useMotionValue,\n  useTransform,\n  animate,\n  useMotionValueEvent,\n} from \"framer-motion\";\nimport { useEffect, useState } from \"react\";\n\nexport function CounterUp() {\n  const count = useMotionValue(0);\n  const rounded = useTransform(count, Math.round);\n  const [displayValue, setDisplayValue] = useState(0);\n\n  useEffect(() => {\n    const animation = animate(count, 1000, {\n      duration: 2,\n      ease: \"easeOut\",\n    });\n\n    return animation.stop;\n  }, [count]);\n\n  useMotionValueEvent(rounded, \"change\", (latest) => {\n    setDisplayValue(latest);\n  });\n\n  return (\n    <div className=\"\">\n      <div className=\"text-center\">\n        <motion.div\n          className=\"mb-2 text-6xl font-bold text-[var(--muted-foreground)]/80\"\n          role=\"status\"\n          aria-live=\"polite\"\n          aria-atomic=\"true\"\n        >\n          {displayValue.toLocaleString()}\n          <span className=\"sr-only\">\n            {displayValue.toLocaleString()} active users\n          </span>\n        </motion.div>\n        <p className=\"text-sm text-[var(--foreground)]/70\">Active users</p>\n      </div>\n    </div>\n  );\n}\n",
+      "content": "// Error: Could not read file components/data/progress/counter-up.tsx\n// File not found: components/data/progress/counter-up.tsx",
       "type": "registry:ui",
       "target": "components/data/progress/counter-up"
     }

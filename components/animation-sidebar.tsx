@@ -43,6 +43,7 @@ export function AnimationsSidebar({
         "resumes",
         "forms",
         "cards",
+        "native",
       ];
 
       if (validCategories.includes(normalizedTarget)) {
@@ -75,6 +76,7 @@ export function AnimationsSidebar({
   }, [target, selectedComponent]);
 
   const categories: Array<ComponentCategory | "all"> = [
+    "native",
     "blocks",
     "cards",
     "components",
@@ -115,6 +117,7 @@ export function AnimationsSidebar({
       resumes: [],
       forms: [],
       cards: [],
+      native: [],
     };
 
     filteredAnimations.forEach((anim) => {

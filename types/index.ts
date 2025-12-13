@@ -7,7 +7,8 @@ export type ComponentCategory =
   | "blocks"
   | "resumes"
   | "forms"
-  | "cards";
+  | "cards"
+  | "native";
 
 export type Component = {
   id: string;
@@ -16,6 +17,13 @@ export type Component = {
   category: ComponentCategory;
   tags: string[];
   component: React.ComponentType<any>;
+  variants?: Array<{
+    id: string;
+    name: string;
+    description: string;
+    component: React.ComponentType<any>;
+    code?: string;
+  }>;
   code?: string; // Optional - loaded on demand
   codePath: string; // Path to the component file
   duration?: string;
@@ -34,6 +42,7 @@ export const categoryNames: Record<ComponentCategory, string> = {
   resumes: "Resumes",
   forms: "Forms",
   cards: "Cards",
+  native: "Native Components",
 };
 
 export const categoryDescriptions: Record<ComponentCategory, string> = {
@@ -47,4 +56,6 @@ export const categoryDescriptions: Record<ComponentCategory, string> = {
   resumes: "Professional resume templates with interactive elements",
   forms: "Form components with validation, animations, and modern UX",
   cards: "Cards with different styles and layouts",
+  native:
+    "Native-inspired UI components with clean designs and smooth animations",
 };

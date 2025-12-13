@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { BottomModal } from "@/components/modals/bottom-modal.tsx"
+import { BottomModal } from "components/modals/bottom-modal.tsx"
 
 export function BottomModalDemo() {
   return (
@@ -46,7 +46,7 @@ The `Bottom Modal` component uses the following components. Make sure you have t
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="bottom-modal" title="@/components/modals/bottom-modal.tsx" />
+<ComponentSource name="bottom-modal" title="components/modals/bottom-modal.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Bottom Modal` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { BottomModal } from "@/components/modals/bottom-modal.tsx"
+import { BottomModal } from "components/modals/bottom-modal.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -68,7 +68,7 @@ import { BottomModal } from "@/components/modals/bottom-modal.tsx"
 
 ## Component Details
 
-- **Category**: components
+- **Category**: native
 - **Tags**: modal, bottom, slide, overlay, glassmorphism
 
 ### Technical Specifications
@@ -111,7 +111,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { BottomModal } from "@/components/modals/bottom-modal.tsx"
+import { BottomModal } from "components/modals/bottom-modal.tsx"
 
 export function BasicExample() {
   return (

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "components/decorative/text/typewriter.tsx",
-      "content": "\"use client\";\n\nimport { motion, useReducedMotion } from \"framer-motion\";\n\nconst text = \"Welcome to UI-TripleD...\";\n\nexport function TypewriterText() {\n  const shouldReduceMotion = useReducedMotion();\n\n  if (shouldReduceMotion) {\n    return (\n      <div className=\"flex items-center justify-center p-12\">\n        <h2 className=\"text-3xl font-bold\">{text}</h2>\n      </div>\n    );\n  }\n\n  const container = {\n    hidden: { opacity: 0 },\n    visible: {\n      opacity: 1,\n      transition: {\n        staggerChildren: 0.05,\n      },\n    },\n  };\n\n  const child = {\n    hidden: { opacity: 0 },\n    visible: { opacity: 1 },\n  };\n\n  return (\n    <div className=\"flex items-center justify-center p-12\">\n      <motion.h2\n        variants={container}\n        initial=\"hidden\"\n        animate=\"visible\"\n        className=\"text-3xl font-bold\"\n        aria-label={text}\n      >\n        {text.split(\"\").map((char, index) => (\n          <motion.span key={index} variants={child} aria-hidden=\"true\">\n            {char}\n          </motion.span>\n        ))}\n        <span className=\"sr-only\">{text}</span>\n      </motion.h2>\n    </div>\n  );\n}\n",
+      "content": "// Error: Could not read file components/decorative/text/typewriter.tsx\n// File not found: components/decorative/text/typewriter.tsx",
       "type": "registry:ui",
       "target": "components/decorative/text/typewriter"
     }

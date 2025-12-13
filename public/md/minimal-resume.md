@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { MinimalResume } from "@/components/components/resumes/minimal-resume.tsx"
+import { MinimalResume } from "@/components/native/native-morphing-button.tsx"
 
 export function MinimalResumeDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/minimal-resume
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="minimal-resume" title="@/components/components/resumes/minimal-resume.tsx" />
+<ComponentSource name="minimal-resume" title="@/components/native/native-morphing-button.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/minimal-resume
 ## Usage
 
 ```tsx showLineNumbers
-import { MinimalResume } from "@/components/components/resumes/minimal-resume.tsx"
+import { MinimalResume } from "@/components/native/native-morphing-button.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -72,8 +72,6 @@ import { MinimalResume } from "@/components/components/resumes/minimal-resume.ts
 - `react`
 
 This component uses **Framer Motion** for animations and motion effects.
-
-This component is built on top of **shadcn/ui** component primitives.
 
 ## Customization
 
@@ -101,7 +99,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { MinimalResume } from "@/components/components/resumes/minimal-resume.tsx"
+import { MinimalResume } from "@/components/native/native-morphing-button.tsx"
 
 export function BasicExample() {
   return (

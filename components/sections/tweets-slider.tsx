@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TweetCard } from "@/components/components/cards/tweet-card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Linkedin } from "lucide-react";
 
 const TweetsLinks = [
   "https://x.com/orcdev/status/1995207833906983243?s=20",
@@ -15,6 +17,23 @@ const TweetsLinks = [
   "https://x.com/ajaypatel_aj/status/1994751849480790247?s=20",
   "https://x.com/gillarohith/status/1995534816029409714?s=20",
   "https://x.com/kapish_dima/status/1997930667414626743?s=20",
+  "https://x.com/BendikMatej/status/1999630168160399391?s=20",
+];
+
+const LinkedInMessages: LinkedInMessage[] = [
+  {
+    id: "linkedin-1",
+    type: "linkedin",
+    url: "https://www.linkedin.com/in/yangshun/",
+    author: {
+      name: "Yangshun Tay",
+      username: "yangshun",
+      avatar:
+        "https://media.licdn.com/dms/image/v2/D5603AQFB72zuIqxYrQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684230919345?e=1767225600&v=beta&t=DgtsXMYRsA4pLMIrwm8jER4XYW4ApcbY9rMDB48Qi5s",
+    },
+    content:
+      "This is such a great spin on UI component libraries, animations make for a good nice differentiating factor in the age of modern UI",
+  },
 ];
 
 // List of verified users
@@ -27,6 +46,7 @@ const VERIFIED_USERS = [
   "motiondotdev",
   "gillarohith",
   "kapish_dima",
+  "BendikMatej",
 ];
 
 interface Tweet {
@@ -40,6 +60,20 @@ interface Tweet {
   };
   content: string;
 }
+
+interface LinkedInMessage {
+  id: string;
+  type: "linkedin";
+  url: string;
+  author: {
+    name: string;
+    username: string;
+    avatar: string;
+  };
+  content: string;
+}
+
+type ContentItem = Tweet | LinkedInMessage;
 
 /**
  * Extracts tweet ID from X.com URL
@@ -87,10 +121,10 @@ async function fetchTweetData(url: string): Promise<Tweet | null> {
       const pMatch = content.match(/<p[^>]*>([\s\S]*?)<\/p>/);
       if (pMatch) {
         content = pMatch[1];
-      } else {
-        // Fallback: remove all HTML tags
-        content = content.replace(/<[^>]*>/g, "");
       }
+
+      // Always remove all remaining HTML tags
+      content = content.replace(/<[^>]*>/g, "");
 
       // Decode HTML entities
       content = content
@@ -215,13 +249,65 @@ function TweetSkeleton() {
   );
 }
 
+/**
+ * LinkedIn message card component
+ */
+function LinkedInMessageCard({ message }: { message: LinkedInMessage }) {
+  const handleLinkedInClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (message.url) {
+      window.open(message.url, "_blank", "noopener,noreferrer");
+    }
+  };
+
+  return (
+    <div className="group relative w-[350px] shrink-0 overflow-hidden rounded-2xl border border-border/40 bg-background/60 p-6 backdrop-blur transition-all hover:border-border/60 hover:shadow-lg">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-blue-950/20 -z-10" />
+
+      <div className="flex flex-row items-start gap-4 pb-2">
+        <Avatar className="h-10 w-10 border border-border/50">
+          <AvatarImage src={message.author.avatar} alt={message.author.name} />
+          <AvatarFallback>{message.author.name[0]}</AvatarFallback>
+        </Avatar>
+        <div className="flex flex-col gap-0.5 flex-1">
+          <div className="flex flex-col items-start gap-0.5">
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm font-semibold leading-none text-foreground">
+                {message.author.name}
+              </span>
+            </div>
+            <span className="text-sm text-muted-foreground">
+              @{message.author.username}
+            </span>
+          </div>
+        </div>
+        {message.url && (
+          <button
+            onClick={handleLinkedInClick}
+            className="ml-auto p-1.5 cursor-pointer rounded-lg hover:bg-foreground/5 transition-colors group/linkedin-icon"
+            aria-label="Open LinkedIn profile"
+          >
+            <Linkedin className="h-4 w-4 text-blue-600 opacity-60 group-hover/linkedin-icon:opacity-100 transition-opacity" />
+          </button>
+        )}
+      </div>
+
+      <div className="pt-2">
+        <p className="whitespace-pre-wrap text-sm leading-relaxed text-foreground/90">
+          {message.content}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function TweetsSlider() {
   const [isPaused, setIsPaused] = useState(false);
-  const [tweets, setTweets] = useState<Tweet[]>([]);
+  const [content, setContent] = useState<ContentItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchTweets() {
+    async function fetchContent() {
       try {
         // Fetch all tweets in parallel
         const tweetPromises = TweetsLinks.map((url) => fetchTweetData(url));
@@ -232,17 +318,23 @@ export function TweetsSlider() {
           (tweet): tweet is Tweet => tweet !== null
         );
 
-        setTweets(validTweets);
+        // Combine tweets and LinkedIn messages
+        const allContent: ContentItem[] = [...LinkedInMessages, ...validTweets];
+
+        // Shuffle the array to mix tweets and LinkedIn messages
+        const shuffledContent = allContent.sort(() => Math.random() - 0.5);
+
+        setContent(shuffledContent);
       } catch (error) {
-        console.error("Error fetching tweets:", error);
-        // Fallback to empty array on error
-        setTweets([]);
+        console.error("Error fetching content:", error);
+        // Fallback to LinkedIn messages only
+        setContent(LinkedInMessages);
       } finally {
         setIsLoading(false);
       }
     }
 
-    fetchTweets();
+    fetchContent();
   }, []);
 
   return (
@@ -298,17 +390,29 @@ export function TweetsSlider() {
                   </motion.div>
                 ))}
               </>
-            ) : tweets.length > 0 ? (
+            ) : content.length > 0 ? (
               <>
-                {/* Duplicate tweets 3 times for seamless loop */}
-                {[...tweets, ...tweets, ...tweets].map((tweet, index) => (
-                  <TweetCard
-                    key={`${tweet.id}-${index}`}
-                    author={tweet.author}
-                    content={tweet.content}
-                    url={tweet.url}
-                  />
-                ))}
+                {/* Duplicate content 3 times for seamless loop */}
+                {[...content, ...content, ...content].map((item, index) => {
+                  if ("type" in item && item.type === "linkedin") {
+                    return (
+                      <LinkedInMessageCard
+                        key={`${item.id}-${index}`}
+                        message={item}
+                      />
+                    );
+                  } else {
+                    const tweet = item as Tweet;
+                    return (
+                      <TweetCard
+                        key={`${tweet.id}-${index}`}
+                        author={tweet.author}
+                        content={tweet.content}
+                        url={tweet.url}
+                      />
+                    );
+                  }
+                })}
               </>
             ) : (
               <div className="flex items-center justify-center w-full py-12">
