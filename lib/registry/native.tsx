@@ -501,6 +501,7 @@ export const nativeComponents: Component[] = [
     duration: "2000ms",
     easing: "spring",
     display: true,
+    availableIn: ["shadcnui", "carbon", "baseui"],
   },
   {
     id: "native-badge",

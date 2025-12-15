@@ -42,29 +42,31 @@ const NativeTooltipContent = React.forwardRef<
 
     return (
       <Tooltip.Portal>
-        <Tooltip.Popup
-          ref={ref}
-          // @ts-ignore
-          offset={sideOffset}
-          className={cn("z-50 overflow-visible bg-transparent", className)}
-          {...props}
-          render={(popupProps, state) => (
-            <motion.div
-              {...(popupProps as any)}
-              initial={selectedAnimation.initial}
-              animate={
-                state.open
-                  ? selectedAnimation.animate
-                  : selectedAnimation.initial
-              }
-              exit={selectedAnimation.initial}
-              transition={selectedAnimation.transition}
-              className="rounded-md border border-white/10 bg-black/80 dark:bg-white/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-white dark:text-black shadow-lg"
-            >
-              {children}
-            </motion.div>
-          )}
-        />
+        <Tooltip.Positioner>
+          <Tooltip.Popup
+            ref={ref}
+            // @ts-ignore
+            offset={sideOffset}
+            className={cn("z-50 overflow-visible bg-transparent", className)}
+            {...props}
+            render={(popupProps, state) => (
+              <motion.div
+                {...(popupProps as any)}
+                initial={selectedAnimation.initial}
+                animate={
+                  state.open
+                    ? selectedAnimation.animate
+                    : selectedAnimation.initial
+                }
+                exit={selectedAnimation.initial}
+                transition={selectedAnimation.transition}
+                className="rounded-md border border-white/10 bg-black/80 dark:bg-white/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-white dark:text-black shadow-lg"
+              >
+                {children}
+              </motion.div>
+            )}
+          />
+        </Tooltip.Positioner>
       </Tooltip.Portal>
     );
   }
