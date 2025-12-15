@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { ProfessionalResume } from "@/components/components/resumes/professional-resume.tsx"
+import { ProfessionalResume } from "@/components/components/resumes/shadcnui/professional-resume.tsx"
 
 export function ProfessionalResumeDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/professional-resume
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="professional-resume" title="@/components/components/resumes/professional-resume.tsx" />
+<ComponentSource name="professional-resume" title="@/components/components/resumes/shadcnui/professional-resume.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/professional-resume
 ## Usage
 
 ```tsx showLineNumbers
-import { ProfessionalResume } from "@/components/components/resumes/professional-resume.tsx"
+import { ProfessionalResume } from "@/components/components/resumes/shadcnui/professional-resume.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -101,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { ProfessionalResume } from "@/components/components/resumes/professional-resume.tsx"
+import { ProfessionalResume } from "@/components/components/resumes/shadcnui/professional-resume.tsx"
 
 export function BasicExample() {
   return (

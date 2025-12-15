@@ -8,7 +8,7 @@ export function NativeHoverCardDefault() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="John Doe"
         username="johndoe"
@@ -23,7 +23,7 @@ export function NativeHoverCardGlass() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Jane Smith"
         username="janesmith"
@@ -39,7 +39,7 @@ export function NativeHoverCardBordered() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Alex Johnson"
         username="alexjohnson"
@@ -55,7 +55,7 @@ export function NativeHoverCardSmall() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Sarah Williams"
         username="sarahw"
@@ -71,7 +71,7 @@ export function NativeHoverCardLarge() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Michael Chen"
         username="michaelchen"
@@ -87,7 +87,7 @@ export function NativeHoverCardExtraLarge() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Emily Davis"
         username="emilydavis"
@@ -103,7 +103,7 @@ export function NativeHoverCardNoUsername() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="David Brown"
         description="Entrepreneur and startup founder focused on building innovative solutions."
@@ -117,7 +117,7 @@ export function NativeHoverCardNoDescription() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Lisa Anderson"
         username="lisaanderson"
@@ -131,7 +131,7 @@ export function NativeHoverCardCustomButton() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Robert Taylor"
         username="roberttaylor"
@@ -157,7 +157,7 @@ export function NativeHoverCardCustomButtonText() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="Olivia Martinez"
         username="oliviamartinez"
@@ -173,7 +173,7 @@ export function NativeHoverCardMinimal() {
   return (
     <div className="flex items-center justify-center p-8 min-h-[300px]">
       <NativeHoverCard
-        imageSrc="https://github.com/shadcn.png"
+        imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         imageAlt="Profile"
         name="James Wilson"
         buttonContent={null}

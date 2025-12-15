@@ -100,7 +100,7 @@ export function ConferenceTicketBaseui() {
             <div className="flex items-center gap-4 rounded-2xl border border-border/50 bg-card/30 p-4 backdrop-blur-md">
               <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-primary/20">
                 <img
-                  src="https://github.com/shadcn.png"
+                  src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
                   alt="Moumen Soliman"
                   className="h-full w-full object-cover"
                 />

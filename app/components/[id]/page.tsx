@@ -161,23 +161,32 @@ export default async function AnimationDetailPage({ params }: PageParams) {
     }
   }
 
-  // Load baseui code for section components if available
+  // Load baseui code for non-native components if available
   if (
     component.category !== "native" &&
     component.availableIn &&
     component.availableIn.includes("baseui")
   ) {
-    const baseuiPath = `@/components/sections/baseui/${component.id}-baseui.tsx`;
-    try {
-      const loadedBaseuiCode = await loadComponentCode({
-        ...component,
-        codePath: baseuiPath,
-      });
-      if (loadedBaseuiCode) {
-        baseuiCode = loadedBaseuiCode;
+    // Try different paths based on component category
+    const possiblePaths = [
+      `@/components/sections/baseui/${component.id}-baseui.tsx`,
+      `@/components/components/resumes/baseui/${component.id}-baseui.tsx`,
+      `@/components/components/cards/baseui/${component.id}-baseui.tsx`,
+    ];
+
+    for (const baseuiPath of possiblePaths) {
+      try {
+        const loadedBaseuiCode = await loadComponentCode({
+          ...component,
+          codePath: baseuiPath,
+        });
+        if (loadedBaseuiCode) {
+          baseuiCode = loadedBaseuiCode;
+          break;
+        }
+      } catch (error) {
+        // Path doesn't exist, try next one
       }
-    } catch (error) {
-      // Ignore if not found
     }
 
     // Ensure shadcnuiCode is set to the default code if not already set

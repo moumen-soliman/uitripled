@@ -78,7 +78,7 @@ const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
       "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
       variantStyles[variant],
       sizeStyles[size],
-      "cursor-pointer h-12 rounded-md px-7 text-sm uppercase tracking-[0.2em] relative overflow-hidden",
+      "cursor-pointer h-12 rounded-md text-sm relative overflow-hidden",
       !glow && "shadow-md hover:shadow-lg",
       glow &&
         "shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300",

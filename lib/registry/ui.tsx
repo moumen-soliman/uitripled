@@ -57,10 +57,14 @@ import { GlassSignInCard } from "@/components/components/forms/glass-sign-in";
 import { GlassSignUpCard } from "@/components/components/forms/glass-sign-up";
 import { GlassVerificationCodeCard } from "@/components/components/forms/glass-verification-code";
 import { DraggableList } from "@/components/components/lists/draggable-list";
-import { MinimalResume } from "@/components/components/resumes/minimal-resume";
-import { ProfessionalResume } from "@/components/components/resumes/professional-resume";
-import { ResumeCard } from "@/components/components/resumes/resume-card";
-import { StandardResume } from "@/components/components/resumes/standard-resume";
+import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-resume";
+import { MinimalResumeBaseUI } from "@/components/components/resumes/baseui/minimal-resume-baseui";
+import { ProfessionalResume } from "@/components/components/resumes/shadcnui/professional-resume";
+import { ProfessionalResumeBaseUI } from "@/components/components/resumes/baseui/professional-resume-baseui";
+import { ResumeCard } from "@/components/components/resumes/shadcnui/resume-card";
+import { ResumeCardBaseUI } from "@/components/components/resumes/baseui/resume-card-baseui";
+import { StandardResume } from "@/components/components/resumes/shadcnui/standard-resume";
+import { StandardResumeBaseUI } from "@/components/components/resumes/baseui/standard-resume-baseui";
 import { FloatingGradient } from "@/components/decorative/background/floating-gradient";
 import { AnimatedAccordion } from "@/components/disclosure/animated-accordion";
 import { AnimatedCheckbox } from "@/components/forms/animated-checkbox";
@@ -316,10 +320,12 @@ export const uiComponents: Component[] = [
     category: "resumes",
     tags: ["resume", "cv", "profile", "card", "animated"],
     component: ResumeCard,
-    codePath: "@/components/components/resumes/resume-card.tsx",
+    baseuiComponent: ResumeCardBaseUI,
+    codePath: "@/components/components/resumes/shadcnui/resume-card.tsx",
     duration: "800ms",
     easing: "easeOut",
     display: true,
+    availableIn: ["shadcnui", "baseui"],
   },
   {
     id: "ripple-click-button",
@@ -472,10 +478,12 @@ export const uiComponents: Component[] = [
     category: "resumes",
     tags: ["resume", "cv", "professional", "formal", "clean"],
     component: ProfessionalResume,
-    codePath: "@/components/components/resumes/professional-resume.tsx",
+    baseuiComponent: ProfessionalResumeBaseUI,
+    codePath: "@/components/components/resumes/shadcnui/professional-resume.tsx",
     duration: "500ms",
     easing: "easeOut",
     display: true,
+    availableIn: ["shadcnui", "baseui"],
   },
   {
     id: "browse-folder",
@@ -523,10 +531,12 @@ export const uiComponents: Component[] = [
     category: "resumes",
     tags: ["resume", "cv", "minimal", "clean", "vercel", "grid"],
     component: MinimalResume,
-    codePath: "@/components/components/resumes/minimal-resume.tsx",
+    baseuiComponent: MinimalResumeBaseUI,
+    codePath: "@/components/components/resumes/shadcnui/minimal-resume.tsx",
     duration: "400ms",
     easing: "easeOut",
     display: true,
+    availableIn: ["shadcnui", "baseui"],
   },
   {
     id: "standard-resume",
@@ -536,10 +546,12 @@ export const uiComponents: Component[] = [
     category: "resumes",
     tags: ["resume", "cv", "standard", "classic", "sidebar"],
     component: StandardResume,
-    codePath: "@/components/components/resumes/standard-resume.tsx",
+    baseuiComponent: StandardResumeBaseUI,
+    codePath: "@/components/components/resumes/shadcnui/standard-resume.tsx",
     duration: "500ms",
     easing: "easeOut",
     display: true,
+    availableIn: ["shadcnui", "baseui"],
   },
   {
     id: "shimmer-button",

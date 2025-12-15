@@ -2479,7 +2479,7 @@
       ],
       "files": [
         {
-          "path": "components/components/resumes/minimal-resume.tsx",
+          "path": "components/components/resumes/shadcnui/minimal-resume.tsx",
           "type": "registry:component"
         }
       ],
@@ -3888,7 +3888,7 @@
       ],
       "files": [
         {
-          "path": "components/components/resumes/professional-resume.tsx",
+          "path": "components/components/resumes/shadcnui/professional-resume.tsx",
           "type": "registry:component"
         }
       ],
@@ -4007,7 +4007,7 @@
       ],
       "files": [
         {
-          "path": "components/components/resumes/resume-card.tsx",
+          "path": "components/components/resumes/shadcnui/resume-card.tsx",
           "type": "registry:component"
         }
       ],
@@ -4348,7 +4348,7 @@
       ],
       "files": [
         {
-          "path": "components/components/resumes/standard-resume.tsx",
+          "path": "components/components/resumes/shadcnui/standard-resume.tsx",
           "type": "registry:component"
         }
       ],

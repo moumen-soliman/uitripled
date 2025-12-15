@@ -83,21 +83,20 @@ export default function AnimationDetailPageClient({
 
   // Check if component is available in selected library
   const isAvailableInSelectedLibrary = React.useMemo(() => {
-    if (component.category !== "native") return true;
-    if (!component.availableIn || component.availableIn.length === 0) {
-      // Default to shadcnui if availableIn not specified
-      return selectedLibrary === "shadcnui";
+    // If component has availableIn defined, check it regardless of category
+    if (component.availableIn && component.availableIn.length > 0) {
+      // Carbon = pure React, compatible with shadcnui and baseui
+      if (component.availableIn.includes("carbon")) {
+        return selectedLibrary === "shadcnui" || selectedLibrary === "baseui";
+      }
+      return component.availableIn.includes(selectedLibrary);
     }
-    // Carbon = pure React, compatible with shadcnui and baseui
-    if (component.availableIn.includes("carbon")) {
-      return selectedLibrary === "shadcnui" || selectedLibrary === "baseui";
-    }
-    return component.availableIn.includes(selectedLibrary);
+    // Default to shadcnui only if availableIn not specified
+    return selectedLibrary === "shadcnui";
   }, [component, selectedLibrary]);
 
   // Get the list of libraries this component is available in
   const availableLibraries = React.useMemo((): UILibrary[] => {
-    if (component.category !== "native") return [];
     return component.availableIn || ["shadcnui"];
   }, [component]);
 
@@ -528,7 +527,18 @@ export default function AnimationDetailPageClient({
     relatedComponents,
   ]);
 
-  const ActiveComponent = dynamicComponent || Component;
+  // Determine the active component based on selected library
+  // For non-native components with baseuiComponent defined, use it directly
+  const ActiveComponent = React.useMemo(() => {
+    if (dynamicComponent) {
+      return dynamicComponent;
+    }
+    // If selectedLibrary is baseui and component has baseuiComponent, use it
+    if (selectedLibrary === "baseui" && component.baseuiComponent) {
+      return component.baseuiComponent;
+    }
+    return Component;
+  }, [dynamicComponent, selectedLibrary, component.baseuiComponent, Component]);
   // Use the appropriate code based on selected library
   const displayCode = React.useMemo(() => {
     if (

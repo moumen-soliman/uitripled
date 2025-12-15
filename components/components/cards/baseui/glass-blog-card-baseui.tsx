@@ -28,7 +28,7 @@ const defaultPost = {
     "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
   author: {
     name: "Moumen Soliman",
-    avatar: "https://github.com/shadcn.png",
+    avatar: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8",
   },
   date: "Dec 2, 2025",
   readTime: "5 min read",

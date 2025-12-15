@@ -5,7 +5,7 @@ import { NativeAvatarExpand } from "@/components/native/shadcnui/native-avatar-e
 export function NativeAvatarExpandDefault() {
   return (
     <div className="flex items-center justify-center p-4">
-      <NativeAvatarExpand src="https://github.com/shadcn.png" name="John Doe" />
+      <NativeAvatarExpand src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8" name="John Doe" />
     </div>
   );
 }
@@ -14,7 +14,7 @@ export function NativeAvatarExpandSmall() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarExpand
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Jane Smith"
         size="sm"
       />
@@ -26,7 +26,7 @@ export function NativeAvatarExpandLarge() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarExpand
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Alex Johnson"
         size="lg"
       />
@@ -38,7 +38,7 @@ export function NativeAvatarExpandExtraLarge() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarExpand
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Sarah Williams"
         size="xl"
       />

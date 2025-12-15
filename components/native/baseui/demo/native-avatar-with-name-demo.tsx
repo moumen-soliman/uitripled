@@ -6,7 +6,7 @@ export function NativeAvatarWithNameDefault() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarWithName
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="John Doe"
       />
     </div>
@@ -17,7 +17,7 @@ export function NativeAvatarWithNameTop() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarWithName
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Jane Smith"
         direction="top"
       />
@@ -29,7 +29,7 @@ export function NativeAvatarWithNameLeft() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarWithName
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Alex Johnson"
         direction="left"
       />
@@ -41,7 +41,7 @@ export function NativeAvatarWithNameRight() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarWithName
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Sarah Williams"
         direction="right"
       />
@@ -53,7 +53,7 @@ export function NativeAvatarWithNameSmall() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarWithName
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Small Avatar"
         size="sm"
       />
@@ -65,7 +65,7 @@ export function NativeAvatarWithNameLarge() {
   return (
     <div className="flex items-center justify-center p-4">
       <NativeAvatarWithName
-        src="https://github.com/shadcn.png"
+        src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
         name="Large Avatar"
         size="lg"
       />

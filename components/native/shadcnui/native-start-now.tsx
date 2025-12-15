@@ -1,6 +1,6 @@
 "use client";
 
-import { NativeButton } from "@/components/native/shadcnui/native-button";
+import { NativeButton } from "@/components/native/shadcnui/native-button-shadcnui";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Loader2, Sparkles } from "lucide-react";
