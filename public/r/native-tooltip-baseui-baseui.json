@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-tooltip-baseui-baseui",
+  "type": "registry:component",
+  "title": "Native Tooltip",
+  "description": "A glassmorphism-styled tooltip with smooth spring animations using Framer Motion. (Base UI)",
+  "registryDependencies": [
+    "button"
+  ],
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/native/baseui/native-tooltip-baseui.tsx",
+      "content": "\"use client\";\n\nimport { Tooltip } from \"@base-ui/react/tooltip\";\nimport { motion } from \"framer-motion\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst NativeTooltipProvider = ({ children }: { children: React.ReactNode }) => (\n  <>{children}</>\n);\n\nconst NativeTooltipRoot = Tooltip.Root;\n\nconst NativeTooltipTrigger = Tooltip.Trigger;\n\nconst NativeTooltipContent = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof Tooltip.Popup> & {\n    animation?: \"blur\" | \"scale\";\n    sideOffset?: number;\n  }\n>(\n  (\n    { className, sideOffset = 8, children, animation = \"blur\", ...props },\n    ref\n  ) => {\n    const animations = {\n      blur: {\n        initial: { opacity: 0, scale: 0.9, filter: \"blur(4px)\" },\n        animate: { opacity: 1, scale: 1, filter: \"blur(0px)\" },\n        transition: { type: \"spring\", duration: 0.4, bounce: 0 } as any,\n      },\n      scale: {\n        initial: { opacity: 0, scale: 0.5, y: 10 },\n        animate: { opacity: 1, scale: 1, y: 0 },\n        transition: { type: \"spring\", duration: 0.4, bounce: 0.4 } as any,\n      },\n    };\n\n    const selectedAnimation = animations[animation];\n\n    return (\n      <Tooltip.Portal>\n        <Tooltip.Positioner>\n          <Tooltip.Popup\n            ref={ref}\n            // @ts-ignore\n            offset={sideOffset}\n            className={cn(\"z-50 overflow-visible bg-transparent\", className)}\n            {...props}\n            render={(popupProps, state) => (\n              <motion.div\n                {...(popupProps as any)}\n                initial={selectedAnimation.initial}\n                animate={\n                  state.open\n                    ? selectedAnimation.animate\n                    : selectedAnimation.initial\n                }\n                exit={selectedAnimation.initial}\n                transition={selectedAnimation.transition}\n                className=\"rounded-md border border-white/10 bg-black/80 dark:bg-white/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-white dark:text-black shadow-lg\"\n              >\n                {children}\n              </motion.div>\n            )}\n          />\n        </Tooltip.Positioner>\n      </Tooltip.Portal>\n    );\n  }\n);\nNativeTooltipContent.displayName = \"NativeTooltipContent\";\n\nconst NativeTooltip = ({\n  content,\n  children,\n  animation,\n  openDelay = 100,\n  ...props\n}: React.ComponentProps<typeof Tooltip.Root> & {\n  content?: React.ReactNode;\n  animation?: \"blur\" | \"scale\";\n  openDelay?: number;\n}) => {\n  if (content) {\n    return (\n      // @ts-ignore\n      <NativeTooltipRoot openDelay={openDelay} {...props}>\n        <NativeTooltipTrigger\n          render={(triggerProps, state) => (\n            <div {...triggerProps} className=\"inline-block\">\n              {children as React.ReactNode}\n            </div>\n          )}\n        />\n        <NativeTooltipContent animation={animation}>\n          {content}\n        </NativeTooltipContent>\n      </NativeTooltipRoot>\n    );\n  }\n\n  return (\n    // @ts-ignore\n    <NativeTooltipRoot openDelay={openDelay} {...props}>\n      {children}\n    </NativeTooltipRoot>\n  );\n};\n\nexport {\n  NativeTooltip,\n  NativeTooltipContent,\n  NativeTooltipProvider,\n  NativeTooltipTrigger,\n};\n",
+      "type": "registry:component",
+      "target": "components/uitripled/native-tooltip-baseui-baseui"
+    }
+  ]
+}

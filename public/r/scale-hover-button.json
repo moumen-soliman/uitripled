@@ -12,7 +12,7 @@
       "path": "components/micro/buttons/scale-hover.tsx",
       "content": "\"use client\";\n\nimport { motion } from \"framer-motion\";\n\nexport function ScaleHoverButton() {\n  return (\n    <div className=\"flex items-center justify-center p-12\">\n      <motion.button\n        whileHover={{ scale: 1.05 }}\n        whileTap={{ scale: 0.95 }}\n        transition={{ type: \"spring\", stiffness: 400, damping: 17 }}\n        className=\"rounded-lg bg-accent px-8 py-3 font-semibold text-[var(--muted-foreground)] shadow-lg\"\n      >\n        Hover Me\n      </motion.button>\n    </div>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/micro/buttons/scale-hover"
+      "target": "components/uitripled/scale-hover-button"
     }
   ]
 }

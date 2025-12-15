@@ -13,7 +13,7 @@
       "path": "components/data/progress/counter-up.tsx",
       "content": "// Error: Could not read file components/data/progress/counter-up.tsx\n// File not found: components/data/progress/counter-up.tsx",
       "type": "registry:ui",
-      "target": "components/data/progress/counter-up"
+      "target": "components/uitripled/counter-up"
     }
   ]
 }

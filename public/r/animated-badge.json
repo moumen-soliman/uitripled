@@ -16,7 +16,7 @@
       "path": "components/micro/badges/animated-badge.tsx",
       "content": "// Error: Could not read file components/micro/badges/animated-badge.tsx\n// File not found: components/micro/badges/animated-badge.tsx",
       "type": "registry:ui",
-      "target": "components/micro/badges/animated-badge"
+      "target": "components/uitripled/animated-badge"
     }
   ]
 }

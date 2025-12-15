@@ -16,7 +16,7 @@
       "path": "components/sections/baseui/tweets-slider.tsx",
       "content": "// Error: Could not read file components/sections/baseui/tweets-slider.tsx\n// File not found: components/sections/baseui/tweets-slider.tsx",
       "type": "registry:component",
-      "target": "components/sections/baseui/tweets-slider"
+      "target": "components/uitripled/tweets-slider"
     }
   ]
 }

@@ -13,7 +13,7 @@
       "path": "components/motion-core/magnetic-cursor-link.tsx",
       "content": "// Error: Could not read file components/motion-core/magnetic-cursor-link.tsx\n// File not found: components/motion-core/magnetic-cursor-link.tsx",
       "type": "registry:ui",
-      "target": "components/motion-core/magnetic-cursor-link"
+      "target": "components/uitripled/magnetic-cursor-link"
     }
   ]
 }

@@ -13,7 +13,8 @@
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix .",
     "format:check": "prettier --check .",
-    "generate-scripts": "npm run sync-registry && npm run generate-llms-txt && npm run generate-registry-scripts && npm run generate-component-markdown"
+    "generate-scripts": "npm run sync-registry && npm run generate-llms-txt && npm run generate-registry-scripts && npm run generate-component-markdown",
+    "publish:uitripled": "cd package && npm version patch && npm publish --access ${NPM_PUBLISH_ACCESS:-public}"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",

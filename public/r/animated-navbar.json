@@ -16,7 +16,7 @@
       "path": "components/navigation/animated-navbar.tsx",
       "content": "\"use client\";\n\nimport { motion } from \"framer-motion\";\nimport { useState } from \"react\";\n\nconst navItems = [\"Home\", \"About\", \"Services\", \"Contact\"];\n\nexport function AnimatedNavbar() {\n  const [activeIndex, setActiveIndex] = useState(0);\n\n  return (\n    <nav className=\"rounded-2xl border  bg-[var(--card-bg)] p-2\">\n      <ul className=\"flex gap-1\">\n        {navItems.map((item, index) => (\n          <li key={item} className=\"relative\">\n            <motion.button\n              onClick={() => setActiveIndex(index)}\n              className=\"relative z-10 px-4 py-2 text-sm font-medium transition-colors\"\n              style={{\n                color: activeIndex === index ? \"white\" : \"var(--foreground)\",\n              }}\n              whileHover={{ scale: 1.05 }}\n              whileTap={{ scale: 0.95 }}\n            >\n              {item}\n            </motion.button>\n            {activeIndex === index && (\n              <motion.div\n                layoutId=\"navbar-indicator\"\n                className=\"absolute inset-0 rounded-lg bg-accent\"\n                transition={{\n                  type: \"spring\",\n                  stiffness: 380,\n                  damping: 30,\n                }}\n              />\n            )}\n          </li>\n        ))}\n      </ul>\n    </nav>\n  );\n}\n",
       "type": "registry:component",
-      "target": "components/navigation/animated-navbar"
+      "target": "components/uitripled/animated-navbar"
     }
   ]
 }

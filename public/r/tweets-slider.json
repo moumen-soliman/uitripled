@@ -16,7 +16,7 @@
       "path": "components/sections/shadcnui/tweets-slider.tsx",
       "content": "// Error: Could not read file components/sections/shadcnui/tweets-slider.tsx\n// File not found: components/sections/shadcnui/tweets-slider.tsx",
       "type": "registry:component",
-      "target": "components/sections/shadcnui/tweets-slider"
+      "target": "components/uitripled/tweets-slider"
     }
   ]
 }

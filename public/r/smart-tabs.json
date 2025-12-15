@@ -16,7 +16,7 @@
       "path": "components/components/tabs/smart-tabs.tsx",
       "content": "// Error: Could not read file components/components/tabs/smart-tabs.tsx\n// File not found: components/components/tabs/smart-tabs.tsx",
       "type": "registry:component",
-      "target": "components/components/tabs/smart-tabs"
+      "target": "components/uitripled/smart-tabs"
     }
   ]
 }
