@@ -56,7 +56,7 @@ export default function HomePageContent() {
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-center md:flex items-center justify-center gap-2"
+            className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-center md:flex items-center justify-center gap-2 space-y-2"
           >
             When Framer Motion meets <HeroFlip />
           </motion.p>
@@ -216,16 +216,12 @@ function HeroFlip() {
       <AnimatePresence mode="wait">
         <motion.div
           key={current.name}
-          initial={{ rotateX: -90, opacity: 0, filter: "blur(6px)" }}
-          animate={{ rotateX: 0, opacity: 1, filter: "blur(0px)" }}
-          exit={{ rotateX: 90, opacity: 0, filter: "blur(6px)" }}
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
           transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
-            opacity: { duration: 0.3 },
-            filter: { duration: 0.3 },
-            rotateX: { duration: 0.4 },
+            duration: 0.25,
+            ease: "easeOut",
           }}
           className="flex items-center gap-2 justify-center w-[110px]"
         >
