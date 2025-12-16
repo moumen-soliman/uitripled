@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-counter-up-carbon",
+  "type": "registry:component",
+  "title": "Native Counter Up",
+  "description": "Animated number counter with smooth easing and accessibility support.",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/native/carbon/native-counter-up-carbon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport { animate, motion, useReducedMotion } from \"framer-motion\";\nimport { useEffect, useState } from \"react\";\n\nexport interface NativeCounterUpProps {\n  /**\n   * The target number to count up to.\n   */\n  value: number;\n  /**\n   * Duration of the animation in seconds.\n   * Default: 2\n   */\n  duration?: number;\n  /**\n   * Text to display before the number (e.g., \"$\").\n   */\n  prefix?: string;\n  /**\n   * Text to display after the number (e.g., \"+\", \"%\").\n   */\n  suffix?: string;\n  /**\n   * Number of decimal places to show.\n   * Default: 0\n   */\n  decimals?: number;\n  /**\n   * Accessible label describing what the counter represents.\n   */\n  label?: string;\n  /**\n   * Whether to start the animation on mount.\n   * Default: true\n   */\n  autoStart?: boolean;\n  className?: string;\n}\n\nexport function NativeCounterUp({\n  value,\n  duration = 2,\n  prefix = \"\",\n  suffix = \"\",\n  decimals = 0,\n  label,\n  autoStart = true,\n  className,\n}: NativeCounterUpProps) {\n  const shouldReduceMotion = useReducedMotion();\n  const [displayValue, setDisplayValue] = useState(0);\n\n  useEffect(() => {\n    if (!autoStart) return;\n\n    // If reduced motion, just set the value immediately\n    if (shouldReduceMotion) {\n      setDisplayValue(value);\n      return;\n    }\n\n    // Animate from current value to target value\n    const controls = animate(0, value, {\n      duration,\n      ease: [0.16, 1, 0.3, 1], // Smooth expo-out easing\n      onUpdate: (latest) => {\n        setDisplayValue(\n          decimals > 0 ? Number(latest.toFixed(decimals)) : Math.round(latest)\n        );\n      },\n    });\n\n    return () => controls.stop();\n  }, [value, duration, autoStart, shouldReduceMotion, decimals]);\n\n  const formattedValue = displayValue.toLocaleString(undefined, {\n    minimumFractionDigits: decimals,\n    maximumFractionDigits: decimals,\n  });\n\n  return (\n    <motion.span\n      initial={{ opacity: 0, y: 10 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ type: \"spring\", stiffness: 300, damping: 30 }}\n      className={cn(\"tabular-nums font-bold\", className)}\n      role=\"status\"\n      aria-live=\"polite\"\n      aria-atomic=\"true\"\n    >\n      {prefix}\n      {formattedValue}\n      {suffix}\n      {label && <span className=\"sr-only\">{label}</span>}\n    </motion.span>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/native/carbon/native-counter-up-carbon"
+    }
+  ]
+}

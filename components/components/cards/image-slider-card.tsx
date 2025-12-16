@@ -1,6 +1,5 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
 import {
   AnimatePresence,
   motion,
@@ -8,6 +7,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useId, useMemo, useState } from "react";
 
 interface Slide {
   id: number;

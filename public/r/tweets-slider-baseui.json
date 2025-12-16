@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tweets-slider-baseui",
+  "type": "registry:component",
+  "title": "Tweets Slider",
+  "description": "Animated slider displaying tweets and social messages (Base UI)",
+  "registryDependencies": [
+    "button"
+  ],
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/sections/baseui/tweets-slider.tsx",
+      "content": "// Error: Could not read file components/sections/baseui/tweets-slider.tsx\n// File not found: components/sections/baseui/tweets-slider.tsx",
+      "type": "registry:component",
+      "target": "components/uitripled/tweets-slider"
+    }
+  ]
+}

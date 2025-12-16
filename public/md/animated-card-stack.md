@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { AnimatedCardStack } from "@/components/components/cards/animated-card-stack.tsx"
+import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx"
 
 export function AnimatedCardStackDemo() {
   return (
@@ -46,7 +46,7 @@ The `Animated Card Stack` component uses the following components. Make sure you
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="animated-card-stack" title="@/components/components/cards/animated-card-stack.tsx" />
+<ComponentSource name="animated-card-stack" title="@/components/components/cards/shadcnui/animated-card-stack.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Animated Card Stack` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedCardStack } from "@/components/components/cards/animated-card-stack.tsx"
+import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -109,7 +109,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { AnimatedCardStack } from "@/components/components/cards/animated-card-stack.tsx"
+import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx"
 
 export function BasicExample() {
   return (

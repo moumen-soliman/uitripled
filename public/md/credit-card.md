@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { CreditCard } from "@/components/components/cards/credit-card.tsx"
+import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx"
 
 export function CreditCardDemo() {
   return (
@@ -46,7 +46,7 @@ The `Credit Card` component uses the following components. Make sure you have th
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="credit-card" title="@/components/components/cards/credit-card.tsx" />
+<ComponentSource name="credit-card" title="@/components/components/cards/shadcnui/credit-card.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Credit Card` component uses the following components. Make sure you have th
 ## Usage
 
 ```tsx showLineNumbers
-import { CreditCard } from "@/components/components/cards/credit-card.tsx"
+import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -111,7 +111,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { CreditCard } from "@/components/components/cards/credit-card.tsx"
+import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx"
 
 export function BasicExample() {
   return (

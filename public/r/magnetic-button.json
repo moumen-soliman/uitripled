@@ -16,7 +16,7 @@
       "path": "components/micro/buttons/magnetic-button.tsx",
       "content": "// Error: Could not read file components/micro/buttons/magnetic-button.tsx\n// File not found: components/micro/buttons/magnetic-button.tsx",
       "type": "registry:ui",
-      "target": "components/micro/buttons/magnetic-button"
+      "target": "components/uitripled/magnetic-button"
     }
   ]
 }

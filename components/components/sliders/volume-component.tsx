@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 
 interface SliderProps {
   min?: number;

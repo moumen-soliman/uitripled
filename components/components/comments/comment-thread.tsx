@@ -1,29 +1,28 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  MessageCircle,
-  Heart,
-  Share2,
-  MoreHorizontal,
-  CornerDownRight,
-  Send,
-  Smile,
-  Image as ImageIcon,
-  Paperclip,
-  X,
-} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  CornerDownRight,
+  Heart,
+  Image as ImageIcon,
+  MessageCircle,
+  MoreHorizontal,
+  Paperclip,
+  Send,
+  Share2,
+  Smile,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 // ============================================================================
 // TYPES

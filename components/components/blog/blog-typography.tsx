@@ -1,9 +1,9 @@
 "use client";
 
-import type React from "react";
 import { motion, type Variants } from "framer-motion";
-import { ExternalLink, Quote, Code, Image as ImageIcon } from "lucide-react";
+import { Code, ExternalLink, Quote } from "lucide-react";
 import Image from "next/image";
+import type React from "react";
 
 // ============================================================================
 // TYPES & INTERFACES

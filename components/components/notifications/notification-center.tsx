@@ -1,6 +1,8 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   AlertCircle,
@@ -11,9 +13,7 @@ import {
   LucideIcon,
   X,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { useCallback, useState } from "react";
 
 type NotificationType = "success" | "error" | "warning" | "info";
 

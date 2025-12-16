@@ -2,10 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const REGISTRY_JSON_PATH = path.join(__dirname, "../registry.json");
-const COMPONENTS_REGISTRY_PATH = path.join(
-  __dirname,
-  "../lib/components-registry.tsx"
-);
+const REGISTRY_DIR = path.join(__dirname, "../lib/registry");
 const PUBLIC_MD_DIR = path.join(__dirname, "../public/md");
 
 /**
@@ -30,47 +27,54 @@ function generateComponentMarkdown() {
     // Also read components-registry.tsx to get additional metadata like tags
     let componentMetadataMap = new Map();
 
-    if (fs.existsSync(COMPONENTS_REGISTRY_PATH)) {
-      const componentsRegistryContent = fs.readFileSync(
-        COMPONENTS_REGISTRY_PATH,
-        "utf-8"
-      );
+    if (fs.existsSync(REGISTRY_DIR)) {
+      const files = fs
+        .readdirSync(REGISTRY_DIR)
+        .filter((file) => file.endsWith(".tsx") && file !== "index.tsx");
 
-      // Extract component objects more reliably
-      const componentBlockRegex = /\{[\s\S]*?id:\s*["']([^"']+)["'][\s\S]*?\}/g;
-
-      let match;
-      while (
-        (match = componentBlockRegex.exec(componentsRegistryContent)) !== null
-      ) {
-        const block = match[0];
-        const id = match[1];
-
-        // Extract individual fields from the block
-        const nameMatch = block.match(/name:\s*["']([^"']+)["']/);
-        const descMatch = block.match(
-          /description:\s*["']((?:[^"'\\]|\\.)*)["']/
+      for (const file of files) {
+        const componentsRegistryContent = fs.readFileSync(
+          path.join(REGISTRY_DIR, file),
+          "utf-8"
         );
-        const categoryMatch = block.match(/category:\s*["']([^"']+)["']/);
-        const codePathMatch = block.match(/codePath:\s*["']([^"']+)["']/);
 
-        // Extract tags array
-        const tagsMatch = block.match(/tags:\s*\[(.*?)\]/s);
-        let tags = [];
-        if (tagsMatch) {
-          tags = tagsMatch[1]
-            .split(",")
-            .map((t) => t.trim().replace(/["']/g, ""))
-            .filter((t) => t);
+        // Extract component objects more reliably
+        const componentBlockRegex =
+          /\{[\s\S]*?id:\s*["']([^"']+)["'][\s\S]*?\}/g;
+
+        let match;
+        while (
+          (match = componentBlockRegex.exec(componentsRegistryContent)) !== null
+        ) {
+          const block = match[0];
+          const id = match[1];
+
+          // Extract individual fields from the block
+          const nameMatch = block.match(/name:\s*["']([^"']+)["']/);
+          const descMatch = block.match(
+            /description:\s*["']((?:[^"'\\]|\\.)*)["']/
+          );
+          const categoryMatch = block.match(/category:\s*["']([^"']+)["']/);
+          const codePathMatch = block.match(/codePath:\s*["']([^"']+)["']/);
+
+          // Extract tags array
+          const tagsMatch = block.match(/tags:\s*\[(.*?)\]/s);
+          let tags = [];
+          if (tagsMatch) {
+            tags = tagsMatch[1]
+              .split(",")
+              .map((t) => t.trim().replace(/["']/g, ""))
+              .filter((t) => t);
+          }
+
+          componentMetadataMap.set(id, {
+            name: nameMatch ? nameMatch[1] : id,
+            description: descMatch ? descMatch[1].replace(/\\"/g, '"') : "",
+            category: categoryMatch ? categoryMatch[1] : "",
+            tags: tags,
+            codePath: codePathMatch ? codePathMatch[1] : "",
+          });
         }
-
-        componentMetadataMap.set(id, {
-          name: nameMatch ? nameMatch[1] : id,
-          description: descMatch ? descMatch[1].replace(/\\"/g, '"') : "",
-          category: categoryMatch ? categoryMatch[1] : "",
-          tags: tags,
-          codePath: codePathMatch ? codePathMatch[1] : "",
-        });
       }
     }
 

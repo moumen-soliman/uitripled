@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useState } from "react";
 
 const planFeatures = [
   "Unlimited projects",

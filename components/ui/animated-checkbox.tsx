@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useState } from "react";
 
 export function AnimatedCheckbox() {
   const [isChecked, setIsChecked] = useState(false);

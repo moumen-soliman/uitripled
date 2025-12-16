@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NativeMagnetic } from "@/components/native/native-counter-up.tsx"
+import { NativeMagnetic } from "@/components/native/carbon/native-counter-up-carbon.tsx"
 
 export function NativeMagneticDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-magnetic
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-magnetic" title="@/components/native/native-counter-up.tsx" />
+<ComponentSource name="native-magnetic" title="@/components/native/carbon/native-counter-up-carbon.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/native-magnetic
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeMagnetic } from "@/components/native/native-counter-up.tsx"
+import { NativeMagnetic } from "@/components/native/carbon/native-counter-up-carbon.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -99,7 +99,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeMagnetic } from "@/components/native/native-counter-up.tsx"
+import { NativeMagnetic } from "@/components/native/carbon/native-counter-up-carbon.tsx"
 
 export function BasicExample() {
   return (

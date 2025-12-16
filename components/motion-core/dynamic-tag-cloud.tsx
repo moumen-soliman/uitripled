@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 type Tag = {
   id: string;

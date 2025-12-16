@@ -1,17 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, type Variants } from "framer-motion";
+import { CodeOutput } from "@/components/grid/code-output";
+import { GridPreview } from "@/components/grid/grid-preview";
+import { PresetsPanel } from "@/components/grid/presets-panel";
+import { SettingsPanel } from "@/components/grid/settings-panel";
 import {
   generateGridCode,
   getCellKey,
   initializeCells,
   type GridCell,
 } from "@/lib/grid-utils";
-import { SettingsPanel } from "@/components/grid/settings-panel";
-import { PresetsPanel } from "@/components/grid/presets-panel";
-import { CodeOutput } from "@/components/grid/code-output";
-import { GridPreview } from "@/components/grid/grid-preview";
+import { motion, type Variants } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 // Animation variants
 const containerVariants: Variants = {

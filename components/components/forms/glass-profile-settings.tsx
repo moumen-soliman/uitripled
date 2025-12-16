@@ -1,15 +1,15 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { Avatar } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { Avatar } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
+import { motion, useReducedMotion } from "framer-motion";
 import { UploadCloud } from "lucide-react";
+import { FormEvent, useState } from "react";
 
 export function GlassProfileSettingsCard() {
   const shouldReduceMotion = useReducedMotion();

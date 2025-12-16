@@ -1,8 +1,8 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { FileText, Home, Menu, Settings, Users, X } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, Settings, Users, FileText } from "lucide-react";
 
 const menuItems = [
   { icon: Home, label: "Dashboard" },

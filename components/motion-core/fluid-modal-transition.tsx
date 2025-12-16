@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import React, { useEffect, useState } from "react";
 
 type FluidModalTransitionProps = {
   trigger?: React.ReactNode;

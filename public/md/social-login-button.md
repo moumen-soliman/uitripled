@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { SocialLoginButton } from "components/native/social-login-button.tsx"
+import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx"
 
 export function SocialLoginButtonDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/social-login-button
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="social-login-button" title="components/native/social-login-button.tsx" />
+<ComponentSource name="social-login-button" title="components/native/shadcnui/social-login-button-shadcnui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/social-login-button
 ## Usage
 
 ```tsx showLineNumbers
-import { SocialLoginButton } from "components/native/social-login-button.tsx"
+import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -101,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { SocialLoginButton } from "components/native/social-login-button.tsx"
+import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx"
 
 export function BasicExample() {
   return (

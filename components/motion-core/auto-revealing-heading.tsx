@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
+import { useRef } from "react";
 
 type AutoRevealingHeadingProps = {
   text: string;

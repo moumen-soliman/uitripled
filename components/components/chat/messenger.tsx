@@ -1,13 +1,12 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   CheckCheck,
   MoreVertical,
@@ -17,6 +16,7 @@ import {
   Send,
   Video,
 } from "lucide-react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 type Message = {
   id: string;

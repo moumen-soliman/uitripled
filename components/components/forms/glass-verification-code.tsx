@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useState, FormEvent } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { motion, useReducedMotion } from "framer-motion";
+import { FormEvent, useMemo, useState } from "react";
 
 const CODE_LENGTH = 6;
 

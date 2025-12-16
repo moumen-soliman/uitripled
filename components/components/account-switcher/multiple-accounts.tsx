@@ -1,8 +1,8 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Check, ChevronDown, LogOut } from "lucide-react";
+import { useId, useMemo, useState } from "react";
 
 type Account = {
   id: string;

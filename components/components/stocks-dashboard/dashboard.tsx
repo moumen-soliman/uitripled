@@ -2,34 +2,34 @@
 
 import type React from "react";
 
-import { motion, type Variants } from "framer-motion";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { motion, type Variants } from "framer-motion";
 import {
-  Download,
-  Settings,
-  BarChart3,
   Activity,
-  Users,
-  TrendingUp,
-  Clock,
-  Menu,
+  BarChart3,
   ChevronRight,
-  TrendingDown,
+  Clock,
   DollarSign,
+  Download,
+  Menu,
   Percent,
+  Settings,
+  TrendingDown,
+  TrendingUp,
+  Users,
   Zap,
 } from "lucide-react";
 import { useState } from "react";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 // ============================================================================
 // TYPES & INTERFACES

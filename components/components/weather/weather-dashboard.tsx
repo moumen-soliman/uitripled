@@ -2,18 +2,9 @@
 
 import type React from "react";
 
-import { useMemo } from "react";
-import { motion, type Variants } from "framer-motion";
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-} from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { motion, type Variants } from "framer-motion";
 import {
   CalendarDays,
   Cloud,
@@ -27,10 +18,18 @@ import {
   Sun,
   Sunrise,
   Sunset,
-  Thermometer,
   Umbrella,
   Wind,
 } from "lucide-react";
+import { useMemo } from "react";
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+} from "recharts";
 
 type WeatherCondition = "sunny" | "rain" | "cloudy" | "storm";
 
@@ -688,8 +687,8 @@ export function WeatherDashboard(): React.ReactElement {
                         color: "hsl(var(--foreground))",
                         fontWeight: 600,
                       }}
-                      formatter={(value: number, key: string) => [
-                        value.toString() + "°",
+                      formatter={(value: any, key: any) => [
+                        value?.toString() + "°",
                         key === "feelsLike" ? "Feels like" : "Temperature",
                       ]}
                     />

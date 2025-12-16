@@ -1,29 +1,29 @@
 "use client";
 
-import Link from "next/link";
-import { Suspense } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { EcommerceHighlightCard } from "@/components/components/cards/ecommerce-highlight-card";
-import { BrowseFolder } from "@/components/sections/browse-folder";
-import { ImageSliderCard } from "@/components/components/cards/image-slider-card";
-import { ProjectsBlock } from "@/components/sections/projects-block";
-import { CurrencyConverterCard } from "@/components/sections/currency-converter-card";
-import { HoverExpandCard } from "@/components/components/cards/hover-expand";
-import { BottomModal } from "@/components/modals/bottom-modal";
-import { CashFlowChart } from "@/components/data/charts/cash-flow-chart";
-import { AnimatedDialog } from "@/components/modals/animated-dialog";
-import { AnimatedList } from "@/components/components/lists/animated-list";
-import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu";
-import { MultipleAccounts } from "@/components/components/account-switcher/multiple-accounts";
-import { DetailTaskCard } from "@/components/components/cards/detail-task";
-import { AIChatInterface } from "@/components/components/chat/ai-chat-interface";
-import GradientOverlay from "@/components/gradiant-overlay";
-import { GithubStarButton } from "@/components/github-star-button";
-import { Star } from "lucide-react";
 import { ColorThemePicker } from "@/components/color-theme-picker";
+import { MultipleAccounts } from "@/components/components/account-switcher/multiple-accounts";
+import { ImageSliderCard } from "@/components/components/cards/image-slider-card";
+import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task";
+import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card";
+import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand";
+import { AIChatInterface } from "@/components/components/chat/ai-chat-interface";
+import { AnimatedList } from "@/components/components/lists/animated-list";
+import { CashFlowChart } from "@/components/data/charts/cash-flow-chart";
+import { GithubStarButton } from "@/components/github-star-button";
+import GradientOverlay from "@/components/gradiant-overlay";
+import { AnimatedDialog } from "@/components/modals/animated-dialog";
+import { BottomModal } from "@/components/modals/bottom-modal";
+import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu";
+import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder";
+import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-converter-card";
+import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block";
 import { TweetsSlider } from "@/components/sections/tweets-slider";
+import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Star } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Suspense, useEffect, useState } from "react";
 
 function StarButtonFallback() {
   return (
@@ -56,9 +56,9 @@ export default function HomePageContent() {
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-center"
+            className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-center flex items-center justify-center gap-2"
           >
-            When Framer Motion meets shadcn/ui
+            When Framer Motion meets <HeroFlip />
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 6 }}
@@ -178,6 +178,78 @@ export default function HomePageContent() {
         </div>
       </section>
       <GradientOverlay />
+    </div>
+  );
+}
+
+function HeroFlip() {
+  const [index, setIndex] = useState(0);
+  const libs = [
+    {
+      name: "shadcn/ui",
+      logoLight: "/logos/shadcnui_dark.svg",
+      logoDark: "/logos/shadcnui_white.svg",
+    },
+    {
+      name: "Base UI",
+      logoLight: "/logos/baseui_white.svg",
+      logoDark: "/logos/baseui_dark.svg",
+    },
+    {
+      name: "React",
+      logoLight: "/logos/react-logo_dark.svg",
+      logoDark: "/logos/react-logo_white.svg",
+    },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % libs.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const current = libs[index];
+
+  return (
+    <div className="inline-flex items-center justify-center overflow-hidden h-6 w-auto align-bottom">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current.name}
+          initial={{ rotateX: -90, opacity: 0, filter: "blur(6px)" }}
+          animate={{ rotateX: 0, opacity: 1, filter: "blur(0px)" }}
+          exit={{ rotateX: 90, opacity: 0, filter: "blur(6px)" }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            opacity: { duration: 0.3 },
+            filter: { duration: 0.3 },
+            rotateX: { duration: 0.4 },
+          }}
+          className="flex items-center gap-2 justify-center w-[110px]"
+        >
+          <div className="relative w-6 h-6 flex items-center justify-center">
+            <Image
+              src={current.logoLight}
+              alt={current.name}
+              width={18}
+              height={18}
+              className="block dark:hidden"
+            />
+            <Image
+              src={current.logoDark}
+              alt={current.name}
+              width={18}
+              height={18}
+              className="hidden dark:block"
+            />
+          </div>
+          <span className="font-bold text-lg tracking-normal normal-case text-foreground">
+            {current.name}
+          </span>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

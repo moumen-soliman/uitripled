@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { StatsCounterBlock } from "@/components/sections/stats-counter-block.tsx"
+import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx"
 
 export function StatsCounterBlockDemo() {
   return (
@@ -47,7 +47,7 @@ The `Stats Counter Block` component uses the following components. Make sure you
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="stats-counter-block" title="@/components/sections/stats-counter-block.tsx" />
+<ComponentSource name="stats-counter-block" title="@/components/sections/shadcnui/stats-counter-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `Stats Counter Block` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { StatsCounterBlock } from "@/components/sections/stats-counter-block.tsx"
+import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -113,7 +113,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { StatsCounterBlock } from "@/components/sections/stats-counter-block.tsx"
+import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx"
 
 export function BasicExample() {
   return (

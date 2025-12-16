@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { TheaterTicket } from "@/components/sections/theater-ticket.tsx"
+import { TheaterTicket } from "@/components/sections/shadcnui/theater-ticket.tsx"
 
 export function TheaterTicketDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/theater-ticket
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="theater-ticket" title="@/components/sections/theater-ticket.tsx" />
+<ComponentSource name="theater-ticket" title="@/components/sections/shadcnui/theater-ticket.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/theater-ticket
 ## Usage
 
 ```tsx showLineNumbers
-import { TheaterTicket } from "@/components/sections/theater-ticket.tsx"
+import { TheaterTicket } from "@/components/sections/shadcnui/theater-ticket.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -101,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { TheaterTicket } from "@/components/sections/theater-ticket.tsx"
+import { TheaterTicket } from "@/components/sections/shadcnui/theater-ticket.tsx"
 
 export function BasicExample() {
   return (

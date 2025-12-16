@@ -1,10 +1,9 @@
 "use client";
 
-import type React from "react";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
 import { Sparkles, X } from "lucide-react";
+import { useState } from "react";
 
 export function BottomModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);

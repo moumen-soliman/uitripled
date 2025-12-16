@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Link from "next/link";
+import { motion } from "framer-motion";
 import { ExternalLink, Star } from "lucide-react";
+import Link from "next/link";
 
 interface Stargazer {
   login: string;

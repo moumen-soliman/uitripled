@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { ScrollReveal } from "@/components/sections/scroll-reveal.tsx"
+import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx"
 
 export function ScrollRevealDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/scroll-reveal
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="scroll-reveal" title="@/components/sections/scroll-reveal.tsx" />
+<ComponentSource name="scroll-reveal" title="@/components/sections/shadcnui/scroll-reveal.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/scroll-reveal
 ## Usage
 
 ```tsx showLineNumbers
-import { ScrollReveal } from "@/components/sections/scroll-reveal.tsx"
+import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -100,7 +100,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { ScrollReveal } from "@/components/sections/scroll-reveal.tsx"
+import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx"
 
 export function BasicExample() {
   return (

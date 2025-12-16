@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { HoverExpandCard } from "@/components/components/cards/hover-expand.tsx"
+import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx"
 
 export function HoverExpandCardDemo() {
   return (
@@ -46,7 +46,7 @@ The `Hover Expand Card` component uses the following components. Make sure you h
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="hover-expand-card" title="@/components/components/cards/hover-expand.tsx" />
+<ComponentSource name="hover-expand-card" title="@/components/components/cards/shadcnui/hover-expand.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Hover Expand Card` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { HoverExpandCard } from "@/components/components/cards/hover-expand.tsx"
+import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -109,7 +109,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { HoverExpandCard } from "@/components/components/cards/hover-expand.tsx"
+import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx"
 
 export function BasicExample() {
   return (

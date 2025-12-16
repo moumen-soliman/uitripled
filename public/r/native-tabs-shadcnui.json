@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-tabs-shadcnui",
+  "type": "registry:component",
+  "title": "Native Tabs",
+  "description": "A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/native/shadcnui/native-tabs-shadcnui.tsx",
+      "content": "\"use client\";\n\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/components/ui/tabs\";\nimport { cn } from \"@/lib/utils\";\nimport { motion } from \"framer-motion\";\nimport { useState } from \"react\";\n\ninterface NativeTabsProps {\n  items: {\n    id: string;\n    label: string;\n    content: React.ReactNode;\n  }[];\n  defaultValue?: string;\n  className?: string;\n}\n\nexport function NativeTabs({\n  items,\n  defaultValue,\n  className,\n}: NativeTabsProps) {\n  const [activeTab, setActiveTab] = useState(defaultValue || items[0].id);\n\n  return (\n    <Tabs\n      value={activeTab}\n      onValueChange={setActiveTab}\n      className={cn(\"w-full max-w-md\", className)}\n    >\n      <TabsList className=\"relative flex w-full items-center gap-1 rounded-xl bg-muted/50 p-1 border border-black/5 dark:border-white/5\">\n        {items.map((tab) => {\n          const isActive = activeTab === tab.id;\n          return (\n            <TabsTrigger\n              key={tab.id}\n              value={tab.id}\n              className=\"relative z-10 flex-1 rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=active]:text-foreground data-[state=inactive]:text-muted-foreground data-[state=inactive]:hover:text-foreground\"\n            >\n              <motion.div\n                layoutId=\"active-tab\"\n                className=\"absolute inset-0 z-[-1] rounded-lg bg-background shadow-sm border border-black/5 dark:border-white/5\"\n                animate={{\n                  opacity: isActive ? 1 : 0,\n                }}\n                transition={{ type: \"spring\", bounce: 0.2, duration: 0.6 }}\n              />\n              {tab.label}\n            </TabsTrigger>\n          );\n        })}\n      </TabsList>\n      {items.map((item) => (\n        <TabsContent\n          key={item.id}\n          value={item.id}\n          className=\"mt-4 overflow-hidden rounded-xl border bg-background p-6 shadow-sm\"\n        >\n          <motion.div\n            initial={{ opacity: 0, x: -10 }}\n            animate={{ opacity: 1, x: 0 }}\n            exit={{ opacity: 0, x: 10 }}\n            transition={{ duration: 0.2 }}\n          >\n            {item.content}\n          </motion.div>\n        </TabsContent>\n      ))}\n    </Tabs>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/native/shadcnui/native-tabs-shadcnui"
+    }
+  ]
+}

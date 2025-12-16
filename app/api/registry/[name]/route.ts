@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
-import { readFileSync, existsSync } from "fs";
-import { join } from "path";
 import registryIndex from "@/registry.json";
+import { existsSync, readFileSync } from "fs";
+import { NextRequest, NextResponse } from "next/server";
+import { join } from "path";
 
 type RegistryItem = {
   name: string;

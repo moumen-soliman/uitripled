@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, User, Bot, Loader2 } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Bot, Loader2, Send, User } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 type Message = {
   id: number;

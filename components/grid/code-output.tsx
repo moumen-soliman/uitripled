@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Code2, Copy, Check } from "lucide-react";
+import { motion } from "framer-motion";
+import { Check, Code2, Copy } from "lucide-react";
 
 interface CodeOutputProps {
   code: string;

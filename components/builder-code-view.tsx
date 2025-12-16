@@ -1,21 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
-import {
-  Copy,
-  Check,
-  ChevronDown,
-  ChevronUp,
-  Save,
-  Eye,
-  Rocket,
-  Download,
-  Loader2,
-} from "lucide-react";
-import { CodeBlock } from "./code-block";
-import type { BuilderComponent, BuilderProjectPage } from "@/types/builder";
-import { mergeComponentImports } from "@/lib/merge-imports";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -26,8 +11,22 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+import { mergeComponentImports } from "@/lib/merge-imports";
+import type { BuilderComponent, BuilderProjectPage } from "@/types/builder";
+import { motion } from "framer-motion";
+import {
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Copy,
+  Download,
+  Eye,
+  Loader2,
+  Save,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { CodeBlock } from "./code-block";
 
 type BuilderCodeViewProps = {
   pages: BuilderProjectPage[];

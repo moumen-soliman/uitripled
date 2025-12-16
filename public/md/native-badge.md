@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NativeBadge } from "@/components/native/native-flip-text.tsx"
+import { NativeBadge } from "@/components/native/carbon/native-flip-text-carbon.tsx"
 
 export function NativeBadgeDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-badge
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-badge" title="@/components/native/native-flip-text.tsx" />
+<ComponentSource name="native-badge" title="@/components/native/carbon/native-flip-text-carbon.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/native-badge
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeBadge } from "@/components/native/native-flip-text.tsx"
+import { NativeBadge } from "@/components/native/carbon/native-flip-text-carbon.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -99,7 +99,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeBadge } from "@/components/native/native-flip-text.tsx"
+import { NativeBadge } from "@/components/native/carbon/native-flip-text-carbon.tsx"
 
 export function BasicExample() {
   return (

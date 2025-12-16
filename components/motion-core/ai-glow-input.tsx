@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useTheme } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
 import {
   motion,
   useMotionValue,
-  useSpring,
   useReducedMotion,
+  useSpring,
 } from "framer-motion";
-import { useTheme } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type AIGlowInputProps = {
   placeholder?: string;

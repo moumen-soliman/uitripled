@@ -1,29 +1,29 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { motion, type Variants } from "framer-motion";
 import {
+  AlertTriangle,
   Award,
   BookOpen,
+  CheckCircle2,
   ChevronRight,
   Clock,
   Download,
+  FileText,
   Languages,
+  Lock,
   Play,
+  PlayCircle,
   Share2,
   Star,
+  Timer,
   Users,
   Video,
-  CheckCircle2,
-  Lock,
-  FileText,
-  PlayCircle,
-  Timer,
-  AlertTriangle,
   Zap,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // ============================================================================
 // TYPES & INTERFACES

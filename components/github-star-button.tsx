@@ -1,5 +1,5 @@
-import { use, useMemo, Suspense } from "react";
 import { Star } from "lucide-react";
+import { Suspense, use, useMemo } from "react";
 
 const GITHUB_REPO = "moumen-soliman/uitripled";
 

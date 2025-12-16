@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NativeDialog } from "components/native/native-dialog.tsx"
+import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx"
 
 export function NativeDialogDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-dialog
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-dialog" title="components/native/native-dialog.tsx" />
+<ComponentSource name="native-dialog" title="components/native/shadcnui/native-dialog-shadcnui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/native-dialog
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeDialog } from "components/native/native-dialog.tsx"
+import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -72,6 +72,8 @@ import { NativeDialog } from "components/native/native-dialog.tsx"
 - `react`
 
 This component uses **Framer Motion** for animations and motion effects.
+
+This component is built on top of **shadcn/ui** component primitives.
 
 ## Customization
 
@@ -99,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeDialog } from "components/native/native-dialog.tsx"
+import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx"
 
 export function BasicExample() {
   return (

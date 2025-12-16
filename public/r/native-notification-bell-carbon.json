@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-notification-bell-carbon",
+  "type": "registry:component",
+  "title": "Native Notification Bell",
+  "description": "Animated notification bell with badge and ringing effect.",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/native/carbon/native-notification-bell-carbon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport { motion, useReducedMotion, type Variants } from \"framer-motion\";\nimport { Bell } from \"lucide-react\";\nimport { useEffect, useState } from \"react\";\n\nexport interface NativeNotificationBellProps {\n  /**\n   * Number of notifications to display.\n   * Default: 0\n   */\n  count?: number;\n  /**\n   * Whether to show the notification badge.\n   * Automatically true if count > 0.\n   */\n  showBadge?: boolean;\n  /**\n   * Callback when the bell is clicked.\n   */\n  onClick?: () => void;\n  /**\n   * Callback when the bell rings (on mount if has notifications).\n   */\n  onRing?: () => void;\n  /**\n   * Custom icon to replace the bell.\n   */\n  icon?: React.ReactNode;\n  /**\n   * Size variant.\n   * Default: 'md'\n   */\n  size?: \"sm\" | \"md\" | \"lg\";\n  className?: string;\n}\n\nconst sizeClasses = {\n  sm: \"h-8 w-8\",\n  md: \"h-10 w-10\",\n  lg: \"h-12 w-12\",\n};\n\nconst iconSizeClasses = {\n  sm: \"h-4 w-4\",\n  md: \"h-5 w-5\",\n  lg: \"h-6 w-6\",\n};\n\nconst badgeSizeClasses = {\n  sm: \"h-4 w-4 text-[10px]\",\n  md: \"h-5 w-5 text-xs\",\n  lg: \"h-6 w-6 text-sm\",\n};\n\nconst ringVariants: Variants = {\n  idle: { rotate: 0 },\n  ringing: {\n    rotate: [0, -15, 15, -10, 10, -5, 5, 0],\n    transition: {\n      duration: 0.6,\n      ease: \"easeInOut\",\n    },\n  },\n};\n\nexport function NativeNotificationBell({\n  count = 0,\n  showBadge,\n  onClick,\n  onRing,\n  icon,\n  size = \"md\",\n  className,\n}: NativeNotificationBellProps) {\n  const shouldReduceMotion = useReducedMotion();\n  const [isRinging, setIsRinging] = useState(false);\n  const hasNotifications = count > 0 || showBadge;\n\n  useEffect(() => {\n    if (hasNotifications && !shouldReduceMotion) {\n      setIsRinging(true);\n      const timer = setTimeout(() => setIsRinging(false), 600);\n      onRing?.();\n      return () => clearTimeout(timer);\n    }\n  }, [hasNotifications, shouldReduceMotion, onRing]);\n\n  const displayCount = count > 99 ? \"99+\" : count > 9 ? \"9+\" : count;\n\n  return (\n    <div className=\"relative inline-block\">\n      <motion.button\n        variants={ringVariants}\n        animate={isRinging ? \"ringing\" : \"idle\"}\n        whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}\n        whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}\n        onClick={onClick}\n        className={cn(\n          \"relative flex items-center justify-center rounded-full border border-border bg-card transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2\",\n          sizeClasses[size],\n          className\n        )}\n        aria-label={`Notifications${count > 0 ? `, ${count} unread` : \"\"}`}\n      >\n        {icon ?? <Bell className={iconSizeClasses[size]} />}\n        {hasNotifications && (\n          <motion.span\n            initial={shouldReduceMotion ? { scale: 1 } : { scale: 0 }}\n            animate={{ scale: 1 }}\n            className={cn(\n              \"absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-destructive font-bold text-destructive-foreground\",\n              badgeSizeClasses[size]\n            )}\n          >\n            {count > 0 ? displayCount : \"\"}\n          </motion.span>\n        )}\n      </motion.button>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/native/carbon/native-notification-bell-carbon"
+    }
+  ]
+}

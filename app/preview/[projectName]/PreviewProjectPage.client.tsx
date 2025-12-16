@@ -1,14 +1,14 @@
 "use client";
 
-import { ComponentType, useEffect, useRef, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { ArrowLeft, Code, ExternalLink, Loader2 } from "lucide-react";
+import { CodeBlock } from "@/components/code-block";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CodeBlock } from "@/components/code-block";
 import { componentsRegistry } from "@/lib/components-registry";
+import { motion } from "framer-motion";
+import { ArrowLeft, Code, ExternalLink, Loader2 } from "lucide-react";
 import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+import { ComponentType, useEffect, useRef, useState } from "react";
 
 type SavedProjectComponent = {
   id?: string;

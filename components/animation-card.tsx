@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { Component, categoryNames } from "@/types";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Component, categoryNames } from "@/types";
+import { useState } from "react";
 
 type AnimationCardProps = {
   animation: Component;

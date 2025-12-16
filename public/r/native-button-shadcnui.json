@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-button-shadcnui",
+  "type": "registry:component",
+  "title": "Native Button",
+  "description": "Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/native/shadcnui/native-button-shadcnui.tsx",
+      "content": "\"use client\";\n\nimport { Button, ButtonProps } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\nimport { motion } from \"framer-motion\";\nimport { Loader2 } from \"lucide-react\";\nimport { ReactNode } from \"react\";\n\nexport interface NativeButtonProps extends ButtonProps {\n  children: ReactNode;\n  loading?: boolean;\n  glow?: boolean;\n}\n\nconst NativeButton = ({\n  className,\n  variant = \"default\",\n  size = \"lg\",\n  children,\n  loading = false,\n  glow = false,\n  disabled,\n  ...props\n}: NativeButtonProps) => {\n  const buttonContent = (\n    <>\n      {loading && <Loader2 className=\"w-4 h-4 mr-2 animate-spin\" />}\n      <motion.span\n        className={cn(\"flex items-center gap-2\")}\n        animate={loading ? { opacity: [1, 0.5, 1] } : { opacity: 1 }}\n        transition={\n          loading\n            ? { duration: 1.5, repeat: Infinity, ease: \"easeInOut\" }\n            : { duration: 0.2 }\n        }\n      >\n        {children}\n      </motion.span>\n    </>\n  );\n\n  const glassmorphismClassName = cn(\n    \"cursor-pointer h-12 rounded-md px-7 text-sm uppercase relative overflow-hidden\",\n    !glow && \"shadow-md hover:shadow-lg\",\n    glow &&\n      \"shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300\",\n    variant === \"outline\" && \"text-foreground/80 hover:bg-foreground/5\",\n    (disabled || loading) && \"opacity-50 cursor-not-allowed grayscale\",\n    className\n  );\n\n  return (\n    <motion.div\n      whileHover={!disabled && !loading ? { scale: 1.02 } : {}}\n      whileTap={!disabled && !loading ? { scale: 0.98 } : {}}\n      transition={{ type: \"spring\", stiffness: 400, damping: 17 }}\n      className=\"relative block w-fit\"\n    >\n      {glow && !disabled && !loading && (\n        <div className=\"absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500\" />\n      )}\n      <Button\n        variant={variant}\n        size={size}\n        className={glassmorphismClassName}\n        disabled={disabled || loading}\n        aria-busy={loading}\n        {...props}\n      >\n        {buttonContent}\n      </Button>\n    </motion.div>\n  );\n};\n\nexport { NativeButton };\n",
+      "type": "registry:component",
+      "target": "components/native/shadcnui/native-button-shadcnui"
+    }
+  ]
+}

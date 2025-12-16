@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Monitor, Moon, Sun, Check } from "lucide-react";
+import { useTheme, type ThemeMode } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,8 +10,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useTheme, type ThemeMode } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
+import { Check, Monitor, Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const menuOptions: Array<{
   key: ThemeMode;

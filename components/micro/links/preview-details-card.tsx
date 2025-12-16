@@ -1,14 +1,14 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
 import {
   AnimatePresence,
   motion,
   useReducedMotion,
-  type Variants,
   type Transition,
+  type Variants,
 } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import { useId, useMemo, useState } from "react";
 
 const previewHighlights = [
   { label: "Owner", value: "Avery Nolan" },

@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, ChevronDown, ChevronRight } from "lucide-react";
-import Link from "next/link";
+import { useUILibrary } from "@/components/ui-library-provider";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { componentsRegistry } from "@/lib/components-registry";
 import { Component, ComponentCategory, categoryNames } from "@/types";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Input } from "@/components/ui/input";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, ChevronRight, Search } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 
 type AnimationsSidebarProps = {
   selectedComponent: Component | null;
@@ -22,6 +23,7 @@ export function AnimationsSidebar({
   useLinks = false,
   target,
 }: AnimationsSidebarProps) {
+  const { selectedLibrary } = useUILibrary();
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<
     Set<ComponentCategory | "all">
@@ -92,6 +94,24 @@ export function AnimationsSidebar({
     // First filter by display property (only show animations where display !== false)
     let filtered = componentsRegistry.filter((anim) => anim.display !== false);
 
+    // Filter by selected UI library
+    // If availableIn is not specified, component defaults to shadcnui only
+    // Carbon = pure React, accessible from both shadcnui and baseui
+    filtered = filtered.filter((anim) => {
+      const availableLibraries = anim.availableIn || ["shadcnui"];
+
+      // If component has "carbon" (pure React), it's compatible with shadcnui and baseui
+      if (availableLibraries.includes("carbon")) {
+        return (
+          selectedLibrary === "shadcnui" ||
+          selectedLibrary === "baseui" ||
+          selectedLibrary === "carbon"
+        );
+      }
+
+      return availableLibraries.includes(selectedLibrary);
+    });
+
     if (searchQuery) {
       const lowerQuery = searchQuery.toLowerCase();
       filtered = filtered.filter(
@@ -103,7 +123,7 @@ export function AnimationsSidebar({
     }
 
     return filtered;
-  }, [searchQuery]);
+  }, [searchQuery, selectedLibrary]);
 
   const animationsByCategory = useMemo(() => {
     const grouped: Record<ComponentCategory | "all", Component[]> = {

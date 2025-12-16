@@ -1,8 +1,8 @@
 "use client";
 
-import { useId, useMemo } from "react";
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import { User } from "lucide-react";
+import { useId, useMemo } from "react";
 
 type Avatar = {
   id: number;

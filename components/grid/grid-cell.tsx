@@ -1,6 +1,6 @@
 "use client";
 
-import { getCellKey, type GridCell as GridCellType } from "@/lib/grid-utils";
+import { type GridCell as GridCellType } from "@/lib/grid-utils";
 
 interface GridCellProps {
   cell: GridCellType;

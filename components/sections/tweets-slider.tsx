@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { TweetCard } from "@/components/components/cards/tweet-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const TweetsLinks = [
   "https://x.com/orcdev/status/1995207833906983243?s=20",

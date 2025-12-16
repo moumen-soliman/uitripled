@@ -1,21 +1,21 @@
 "use client";
 
-import { useState } from "react";
-import { motion, type Variants } from "framer-motion";
-import {
-  Check,
-  ArrowRight,
-  ArrowLeft,
-  User,
-  MapPin,
-  Settings,
-  FileCheck,
-} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { motion, type Variants } from "framer-motion";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  FileCheck,
+  MapPin,
+  Settings,
+  User,
+} from "lucide-react";
+import { useState } from "react";
 
 // ============================================================================
 // ANIMATION VARIANTS

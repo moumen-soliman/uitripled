@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
 import { Check } from "lucide-react";
+import { useState } from "react";
 
 type DragToConfirmSliderProps = {
   onConfirm?: () => void;

@@ -1,5 +1,5 @@
-import type { MetadataRoute } from "next";
 import { sitemapEntries } from "@/lib/seo";
+import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

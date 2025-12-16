@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { TestimonialSection } from "@/components/sections/testimonial-section.tsx"
+import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx"
 
 export function TestimonialSectionDemo() {
   return (
@@ -47,7 +47,7 @@ The `Testimonial Section` component uses the following components. Make sure you
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="testimonial-section" title="@/components/sections/testimonial-section.tsx" />
+<ComponentSource name="testimonial-section" title="@/components/sections/shadcnui/testimonial-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `Testimonial Section` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { TestimonialSection } from "@/components/sections/testimonial-section.tsx"
+import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -113,7 +113,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { TestimonialSection } from "@/components/sections/testimonial-section.tsx"
+import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx"
 
 export function BasicExample() {
   return (

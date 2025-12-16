@@ -12,7 +12,7 @@
       "path": "components/decorative/text/typewriter.tsx",
       "content": "// Error: Could not read file components/decorative/text/typewriter.tsx\n// File not found: components/decorative/text/typewriter.tsx",
       "type": "registry:ui",
-      "target": "components/decorative/text/typewriter"
+      "target": "components/uitripled/typewriter"
     }
   ]
 }

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useRef, MouseEvent } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { MouseEvent, useRef, useState } from "react";
 
 type MoodGradientButtonProps = {
   children: React.ReactNode;

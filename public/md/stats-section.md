@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { StatsSection } from "@/components/sections/stats-section.tsx"
+import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx"
 
 export function StatsSectionDemo() {
   return (
@@ -46,7 +46,7 @@ The `Stats Section` component uses the following components. Make sure you have 
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="stats-section" title="@/components/sections/stats-section.tsx" />
+<ComponentSource name="stats-section" title="@/components/sections/shadcnui/stats-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Stats Section` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { StatsSection } from "@/components/sections/stats-section.tsx"
+import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -111,7 +111,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { StatsSection } from "@/components/sections/stats-section.tsx"
+import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx"
 
 export function BasicExample() {
   return (

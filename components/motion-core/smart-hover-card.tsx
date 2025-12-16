@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, MouseEvent } from "react";
 import { motion } from "framer-motion";
+import { MouseEvent, useRef, useState } from "react";
 
 type Direction = "top" | "bottom" | "left" | "right";
 

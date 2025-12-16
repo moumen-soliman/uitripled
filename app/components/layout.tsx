@@ -1,23 +1,22 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback, Suspense } from "react";
-import { useParams, usePathname, useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
-import { useQueryState, parseAsString } from "nuqs";
-import {
-  getComponentById,
-  componentsRegistry,
-} from "@/lib/components-registry";
 import { AnimationsSidebar } from "@/components/animation-sidebar";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogTrigger,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  componentsRegistry,
+  getComponentById,
+} from "@/lib/components-registry";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { parseAsString, useQueryState } from "nuqs";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 
 function ComponentsLayoutContent({ children }: { children: React.ReactNode }) {
   const params = useParams();

@@ -1,5 +1,6 @@
 "use client";
 
+import { BuilderSidebar } from "@/components/builder-sidebar";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -7,8 +8,7 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { BuilderSidebar } from "@/components/builder-sidebar";
-import { FolderOpen, Menu, Type, X } from "lucide-react";
+import { FolderOpen, Menu, X } from "lucide-react";
 
 type BuilderHeaderProps = {
   mobileSidebarOpen: boolean;

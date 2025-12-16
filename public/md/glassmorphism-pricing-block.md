@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { GlassmorphismPricing } from "@/components/sections/glassmorphism-pricing-block.tsx"
+import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx"
 
 export function GlassmorphismPricingDemo() {
   return (
@@ -47,7 +47,7 @@ The `Glassmorphism Pricing` component uses the following components. Make sure y
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="glassmorphism-pricing-block" title="@/components/sections/glassmorphism-pricing-block.tsx" />
+<ComponentSource name="glassmorphism-pricing-block" title="@/components/sections/shadcnui/glassmorphism-pricing-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `Glassmorphism Pricing` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismPricing } from "@/components/sections/glassmorphism-pricing-block.tsx"
+import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -109,7 +109,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { GlassmorphismPricing } from "@/components/sections/glassmorphism-pricing-block.tsx"
+import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx"
 
 export function BasicExample() {
   return (

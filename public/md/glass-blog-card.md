@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { GlassBlogCard } from "@/components/components/cards/glass-blog-card.tsx"
+import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx"
 
 export function GlassBlogCardDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/glass-blog-card
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="glass-blog-card" title="@/components/components/cards/glass-blog-card.tsx" />
+<ComponentSource name="glass-blog-card" title="@/components/components/cards/shadcnui/glass-blog-card.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/glass-blog-card
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassBlogCard } from "@/components/components/cards/glass-blog-card.tsx"
+import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -101,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { GlassBlogCard } from "@/components/components/cards/glass-blog-card.tsx"
+import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx"
 
 export function BasicExample() {
   return (

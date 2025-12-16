@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { AnimatePresence, motion } from "framer-motion";
+import { Info } from "lucide-react";
 
 type InstructionsBannerProps = {
   show: boolean;

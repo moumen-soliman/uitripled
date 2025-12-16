@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { FooterBlock } from "@/components/sections/footer-block.tsx"
+import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx"
 
 export function FooterBlockDemo() {
   return (
@@ -49,7 +49,7 @@ The `Footer Block` component uses the following components. Make sure you have t
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="footer-block" title="@/components/sections/footer-block.tsx" />
+<ComponentSource name="footer-block" title="@/components/sections/shadcnui/footer-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -62,7 +62,7 @@ The `Footer Block` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { FooterBlock } from "@/components/sections/footer-block.tsx"
+import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -116,7 +116,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { FooterBlock } from "@/components/sections/footer-block.tsx"
+import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx"
 
 export function BasicExample() {
   return (

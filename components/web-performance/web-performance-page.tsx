@@ -1,22 +1,22 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { motion, type Variants } from "framer-motion";
 import {
   Activity,
   AlertCircle,
   CheckCircle2,
+  Code2,
   Download,
   FileCode,
   FileImage,
   FileType,
   Layout,
-  Zap,
   Lightbulb,
-  Code2,
   Smartphone,
+  Zap,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 // ============================================================================
 // TYPES & INTERFACES
@@ -88,8 +88,8 @@ function PerformanceHeader() {
             Web Performance
           </h1>
           <p className="max-w-2xl text-foreground/70">
-            Real-time analysis of your application's Core Web Vitals, resource
-            loading, and overall performance score.
+            Real-time analysis of your application&apos;s Core Web Vitals,
+            resource loading, and overall performance score.
           </p>
         </div>
 

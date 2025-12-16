@@ -1,5 +1,6 @@
 "use client";
 
+import type { BuilderComponent } from "@/types/builder";
 import { useDroppable } from "@dnd-kit/core";
 import {
   SortableContext,
@@ -7,10 +8,9 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { useState, useEffect, useRef, useCallback } from "react";
-import type { BuilderComponent } from "@/types/builder";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type CanvasComponentProps = {
   component: BuilderComponent;

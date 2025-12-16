@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { GalleryGridwithLightbox } from "@/components/sections/gallery-grid-block.tsx"
+import { GalleryGridwithLightbox } from "@/components/sections/shadcnui/gallery-grid-block.tsx"
 
 export function GalleryGridwithLightboxDemo() {
   return (
@@ -48,7 +48,7 @@ The `Gallery Grid with Lightbox` component uses the following components. Make s
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="gallery-grid-block" title="@/components/sections/gallery-grid-block.tsx" />
+<ComponentSource name="gallery-grid-block" title="@/components/sections/shadcnui/gallery-grid-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,7 +61,7 @@ The `Gallery Grid with Lightbox` component uses the following components. Make s
 ## Usage
 
 ```tsx showLineNumbers
-import { GalleryGridwithLightbox } from "@/components/sections/gallery-grid-block.tsx"
+import { GalleryGridwithLightbox } from "@/components/sections/shadcnui/gallery-grid-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -115,7 +115,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { GalleryGridwithLightbox } from "@/components/sections/gallery-grid-block.tsx"
+import { GalleryGridwithLightbox } from "@/components/sections/shadcnui/gallery-grid-block.tsx"
 
 export function BasicExample() {
   return (

@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { CTABannerSection } from "@/components/sections/cta-banner-section.tsx"
+import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx"
 
 export function CTABannerSectionDemo() {
   return (
@@ -47,7 +47,7 @@ The `CTA Banner Section` component uses the following components. Make sure you 
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="cta-banner-section" title="@/components/sections/cta-banner-section.tsx" />
+<ComponentSource name="cta-banner-section" title="@/components/sections/shadcnui/cta-banner-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `CTA Banner Section` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { CTABannerSection } from "@/components/sections/cta-banner-section.tsx"
+import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -113,7 +113,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { CTABannerSection } from "@/components/sections/cta-banner-section.tsx"
+import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx"
 
 export function BasicExample() {
   return (

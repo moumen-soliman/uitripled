@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { GlassmorphismPortfolio } from "@/components/sections/glassmorphism-portfolio-block.tsx"
+import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx"
 
 export function GlassmorphismPortfolioDemo() {
   return (
@@ -47,7 +47,7 @@ The `Glassmorphism Portfolio` component uses the following components. Make sure
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="glassmorphism-portfolio-block" title="@/components/sections/glassmorphism-portfolio-block.tsx" />
+<ComponentSource name="glassmorphism-portfolio-block" title="@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `Glassmorphism Portfolio` component uses the following components. Make sure
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismPortfolio } from "@/components/sections/glassmorphism-portfolio-block.tsx"
+import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -112,7 +112,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { GlassmorphismPortfolio } from "@/components/sections/glassmorphism-portfolio-block.tsx"
+import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx"
 
 export function BasicExample() {
   return (

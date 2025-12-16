@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NativeTooltip } from "components/native/native-tooltip.tsx"
+import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx"
 
 export function NativeTooltipDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-tooltip
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-tooltip" title="components/native/native-tooltip.tsx" />
+<ComponentSource name="native-tooltip" title="components/native/shadcnui/native-tooltip-shadcnui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/native-tooltip
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeTooltip } from "components/native/native-tooltip.tsx"
+import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -99,7 +99,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeTooltip } from "components/native/native-tooltip.tsx"
+import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx"
 
 export function BasicExample() {
   return (

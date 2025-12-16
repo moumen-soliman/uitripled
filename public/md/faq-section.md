@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { FAQSection } from "@/components/sections/faq-section.tsx"
+import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx"
 
 export function FAQSectionDemo() {
   return (
@@ -46,7 +46,7 @@ The `FAQ Section` component uses the following components. Make sure you have th
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="faq-section" title="@/components/sections/faq-section.tsx" />
+<ComponentSource name="faq-section" title="@/components/sections/shadcnui/faq-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `FAQ Section` component uses the following components. Make sure you have th
 ## Usage
 
 ```tsx showLineNumbers
-import { FAQSection } from "@/components/sections/faq-section.tsx"
+import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -111,7 +111,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { FAQSection } from "@/components/sections/faq-section.tsx"
+import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx"
 
 export function BasicExample() {
   return (

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
 import { useDraggable } from "@dnd-kit/core";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+import { useMemo, useState } from "react";
 
 import { componentsRegistry } from "@/lib/components-registry";
-import { categoryNames } from "@/types";
 import { cn } from "@/lib/utils";
+import { categoryNames } from "@/types";
 
 type ComponentItem = (typeof componentsRegistry)[number];
 

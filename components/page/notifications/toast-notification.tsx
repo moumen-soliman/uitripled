@@ -1,10 +1,10 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, X } from "lucide-react";
+import { useState } from "react";
 
 export function ToastNotification() {
   const [isVisible, setIsVisible] = useState(false);

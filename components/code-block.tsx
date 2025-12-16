@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, type ComponentType } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { useState, type ComponentType } from "react";
 import type { SyntaxHighlighterProps } from "react-syntax-highlighter";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const PrismSyntaxHighlighter =

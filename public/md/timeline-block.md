@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { TimelineBlock } from "@/components/sections/timeline-block.tsx"
+import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx"
 
 export function TimelineBlockDemo() {
   return (
@@ -47,7 +47,7 @@ The `Timeline Block` component uses the following components. Make sure you have
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="timeline-block" title="@/components/sections/timeline-block.tsx" />
+<ComponentSource name="timeline-block" title="@/components/sections/shadcnui/timeline-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `Timeline Block` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { TimelineBlock } from "@/components/sections/timeline-block.tsx"
+import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -113,7 +113,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { TimelineBlock } from "@/components/sections/timeline-block.tsx"
+import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx"
 
 export function BasicExample() {
   return (

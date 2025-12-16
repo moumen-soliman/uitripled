@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { ContactBlock } from "@/components/sections/contact-block.tsx"
+import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx"
 
 export function ContactBlockDemo() {
   return (
@@ -50,7 +50,7 @@ The `Contact Block` component uses the following components. Make sure you have 
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="contact-block" title="@/components/sections/contact-block.tsx" />
+<ComponentSource name="contact-block" title="@/components/sections/shadcnui/contact-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -63,7 +63,7 @@ The `Contact Block` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { ContactBlock } from "@/components/sections/contact-block.tsx"
+import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -118,7 +118,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { ContactBlock } from "@/components/sections/contact-block.tsx"
+import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx"
 
 export function BasicExample() {
   return (

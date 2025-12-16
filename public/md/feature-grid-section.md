@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { FeatureGridSection } from "@/components/sections/feature-grid-section.tsx"
+import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx"
 
 export function FeatureGridSectionDemo() {
   return (
@@ -46,7 +46,7 @@ The `Feature Grid Section` component uses the following components. Make sure yo
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="feature-grid-section" title="@/components/sections/feature-grid-section.tsx" />
+<ComponentSource name="feature-grid-section" title="@/components/sections/shadcnui/feature-grid-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Feature Grid Section` component uses the following components. Make sure yo
 ## Usage
 
 ```tsx showLineNumbers
-import { FeatureGridSection } from "@/components/sections/feature-grid-section.tsx"
+import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -111,7 +111,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { FeatureGridSection } from "@/components/sections/feature-grid-section.tsx"
+import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx"
 
 export function BasicExample() {
   return (

@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useId, useState } from "react";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { ChevronRight, LogOut, Settings, TrendingUp, User } from "lucide-react";
+import { useCallback, useId, useState } from "react";
 
 interface MenuItem {
   id: number;

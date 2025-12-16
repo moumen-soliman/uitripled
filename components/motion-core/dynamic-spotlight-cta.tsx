@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState, MouseEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { MouseEvent, useMemo, useState } from "react";
 
 type DynamicSpotlightCTAProps = {
   text?: string;

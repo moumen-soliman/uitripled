@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, MouseEvent, useEffect } from "react";
 import { motion } from "framer-motion";
+import { MouseEvent, useEffect, useState } from "react";
 
 type HolographicWallProps = {
   intensity?: number;

@@ -1,10 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { motion, useReducedMotion } from "framer-motion";
+import { FormEvent, useState } from "react";
 
 export function GlassForgotPasswordCard() {
   const shouldReduceMotion = useReducedMotion();

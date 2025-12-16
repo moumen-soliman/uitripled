@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Edit3, Plus, Trash2 } from "lucide-react";
 import type { BuilderProjectPage } from "@/types/builder";
+import { Edit3, Plus, Trash2 } from "lucide-react";
 
 type PageTabsProps = {
   pages: BuilderProjectPage[];

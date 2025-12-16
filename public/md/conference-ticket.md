@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { ConferenceTicket } from "@/components/sections/conference-ticket.tsx"
+import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx"
 
 export function ConferenceTicketDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/conference-ticket
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="conference-ticket" title="@/components/sections/conference-ticket.tsx" />
+<ComponentSource name="conference-ticket" title="@/components/sections/shadcnui/conference-ticket.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/conference-ticket
 ## Usage
 
 ```tsx showLineNumbers
-import { ConferenceTicket } from "@/components/sections/conference-ticket.tsx"
+import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -101,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { ConferenceTicket } from "@/components/sections/conference-ticket.tsx"
+import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx"
 
 export function BasicExample() {
   return (

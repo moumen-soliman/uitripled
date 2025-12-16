@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { TestimonialsBlock } from "@/components/sections/testimonials-block.tsx"
+import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx"
 
 export function TestimonialsBlockDemo() {
   return (
@@ -46,7 +46,7 @@ The `Testimonials Block` component uses the following components. Make sure you 
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="testimonials-block" title="@/components/sections/testimonials-block.tsx" />
+<ComponentSource name="testimonials-block" title="@/components/sections/shadcnui/testimonials-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `Testimonials Block` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { TestimonialsBlock } from "@/components/sections/testimonials-block.tsx"
+import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -110,7 +110,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { TestimonialsBlock } from "@/components/sections/testimonials-block.tsx"
+import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx"
 
 export function BasicExample() {
   return (

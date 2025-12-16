@@ -1,17 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  MapPin,
-  Link as LinkIcon,
-  Calendar,
-  MoreHorizontal,
-  UserPlus,
-} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  Link as LinkIcon,
+  MapPin,
+  MoreHorizontal,
+  UserPlus,
+} from "lucide-react";
+import { useState } from "react";
 
 export function ProfilePage() {
   const [isFollowing, setIsFollowing] = useState(false);

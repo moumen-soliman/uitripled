@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useMotionValue, animate } from "framer-motion";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { animate, motion, useMotionValue } from "framer-motion";
 import { ChevronLeft, ChevronRight, Clock } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 interface CardData {
   id: number;

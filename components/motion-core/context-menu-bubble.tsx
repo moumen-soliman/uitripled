@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, MouseEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { MoreVertical, Edit, Trash2, Copy, Share2 } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Copy, Edit, MoreVertical, Share2, Trash2 } from "lucide-react";
+import { MouseEvent, useRef, useState } from "react";
 
 type MenuItem = {
   label: string;

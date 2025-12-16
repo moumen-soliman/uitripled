@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-tooltip-shadcnui",
+  "type": "registry:component",
+  "title": "Native Tooltip",
+  "description": "A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/native/shadcnui/native-tooltip-shadcnui.tsx",
+      "content": "\"use client\";\n\nimport * as TooltipPrimitive from \"@radix-ui/react-tooltip\";\nimport { motion } from \"framer-motion\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst NativeTooltipProvider = ({\n  delayDuration = 100,\n  ...props\n}: React.ComponentProps<typeof TooltipPrimitive.Provider>) => (\n  <TooltipPrimitive.Provider delayDuration={delayDuration} {...props} />\n);\n\nconst NativeTooltipRoot = TooltipPrimitive.Root;\n\nconst NativeTooltipTrigger = TooltipPrimitive.Trigger;\n\nconst NativeTooltipContent = React.forwardRef<\n  React.ElementRef<typeof TooltipPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & {\n    animation?: \"blur\" | \"scale\";\n  }\n>(\n  (\n    { className, sideOffset = 8, children, animation = \"blur\", ...props },\n    ref\n  ) => {\n    const animations = {\n      blur: {\n        initial: { opacity: 0, scale: 0.9, filter: \"blur(4px)\" },\n        animate: { opacity: 1, scale: 1, filter: \"blur(0px)\" },\n        transition: { type: \"spring\", duration: 0.4, bounce: 0 } as any,\n      },\n      scale: {\n        initial: { opacity: 0, scale: 0.5, y: 10 },\n        animate: { opacity: 1, scale: 1, y: 0 },\n        transition: { type: \"spring\", duration: 0.4, bounce: 0.4 } as any,\n      },\n    };\n\n    const selectedAnimation = animations[animation];\n\n    return (\n      <TooltipPrimitive.Portal>\n        <TooltipPrimitive.Content\n          ref={ref}\n          sideOffset={sideOffset}\n          className={cn(\"z-50 overflow-visible bg-transparent\", className)}\n          {...props}\n        >\n          <motion.div\n            initial={selectedAnimation.initial}\n            animate={selectedAnimation.animate}\n            transition={selectedAnimation.transition}\n            className=\"rounded-md border border-white/10 bg-black/80 dark:bg-white/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-white dark:text-black shadow-lg\"\n          >\n            {children}\n          </motion.div>\n        </TooltipPrimitive.Content>\n      </TooltipPrimitive.Portal>\n    );\n  }\n);\nNativeTooltipContent.displayName = TooltipPrimitive.Content.displayName;\n\nconst NativeTooltip = ({\n  content,\n  children,\n  animation,\n  ...props\n}: React.ComponentProps<typeof TooltipPrimitive.Root> & {\n  content?: React.ReactNode;\n  animation?: \"blur\" | \"scale\";\n}) => {\n  if (content) {\n    return (\n      <NativeTooltipRoot {...props}>\n        <NativeTooltipTrigger asChild>{children}</NativeTooltipTrigger>\n        <NativeTooltipContent animation={animation}>\n          {content}\n        </NativeTooltipContent>\n      </NativeTooltipRoot>\n    );\n  }\n\n  return <NativeTooltipRoot {...props}>{children}</NativeTooltipRoot>;\n};\n\nexport {\n  NativeTooltip,\n  NativeTooltipContent,\n  NativeTooltipProvider,\n  NativeTooltipTrigger,\n};\n",
+      "type": "registry:component",
+      "target": "components/native/shadcnui/native-tooltip-shadcnui"
+    }
+  ]
+}

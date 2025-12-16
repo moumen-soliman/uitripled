@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NewHeroSection } from "@/components/sections/new-hero-section.tsx"
+import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx"
 
 export function NewHeroSectionDemo() {
   return (
@@ -46,7 +46,7 @@ The `New Hero Section` component uses the following components. Make sure you ha
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="new-hero-section" title="@/components/sections/new-hero-section.tsx" />
+<ComponentSource name="new-hero-section" title="@/components/sections/shadcnui/new-hero-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,7 +59,7 @@ The `New Hero Section` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { NewHeroSection } from "@/components/sections/new-hero-section.tsx"
+import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -110,7 +110,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NewHeroSection } from "@/components/sections/new-hero-section.tsx"
+import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx"
 
 export function BasicExample() {
   return (

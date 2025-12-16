@@ -10,9 +10,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Eye, Trash2 } from "lucide-react";
-import type { SavedProject } from "@/types/builder";
 import { extractSavedPages } from "@/lib/builder-utils";
+import type { SavedProject } from "@/types/builder";
+import { Eye, Trash2 } from "lucide-react";
 
 type LoadProjectDialogProps = {
   open: boolean;

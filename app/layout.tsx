@@ -1,12 +1,13 @@
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { THEME_STORAGE_KEY, ThemeProvider } from "@/components/theme-provider";
+import { UILibraryProvider } from "@/components/ui-library-provider";
+import { baseMetadata, siteConfig } from "@/lib/seo";
 import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { ThemeProvider, THEME_STORAGE_KEY } from "@/components/theme-provider";
-import { baseMetadata, siteConfig } from "@/lib/seo";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -116,11 +117,13 @@ export default function RootLayout({
           async
         />
         <ThemeProvider>
-          <NuqsAdapter>
-            <Header />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-          </NuqsAdapter>
+          <UILibraryProvider>
+            <NuqsAdapter>
+              <Header />
+              <main className="min-h-screen">{children}</main>
+              <Footer />
+            </NuqsAdapter>
+          </UILibraryProvider>
         </ThemeProvider>
       </body>
     </html>

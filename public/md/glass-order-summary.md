@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { GlassOrderSummary } from "@/components/components/cards/glass-order-summary.tsx"
+import { GlassOrderSummary } from "@/components/components/cards/shadcnui/glass-order-summary.tsx"
 
 export function GlassOrderSummaryDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/glass-order-summary
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="glass-order-summary" title="@/components/components/cards/glass-order-summary.tsx" />
+<ComponentSource name="glass-order-summary" title="@/components/components/cards/shadcnui/glass-order-summary.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/glass-order-summary
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassOrderSummary } from "@/components/components/cards/glass-order-summary.tsx"
+import { GlassOrderSummary } from "@/components/components/cards/shadcnui/glass-order-summary.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -101,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { GlassOrderSummary } from "@/components/components/cards/glass-order-summary.tsx"
+import { GlassOrderSummary } from "@/components/components/cards/shadcnui/glass-order-summary.tsx"
 
 export function BasicExample() {
   return (

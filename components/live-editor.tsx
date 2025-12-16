@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { Copy, Check, RotateCcw } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "./ui/button";
 import {
-  SandpackProvider,
-  SandpackLayout,
   SandpackCodeEditor,
+  SandpackLayout,
   SandpackPreview,
+  SandpackProvider,
 } from "@codesandbox/sandpack-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, Copy, RotateCcw } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Button } from "./ui/button";
 
 type LiveEditorProps = {
   initialCode: string;

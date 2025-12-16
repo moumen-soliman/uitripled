@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { motion, type Variants } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const checklistItems = [

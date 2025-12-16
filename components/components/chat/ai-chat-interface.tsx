@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
   ChevronDown,
@@ -16,6 +15,7 @@ import {
   Star,
   Zap,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 type DropdownType = "share" | "quick" | "history" | "magic" | "model" | null;
 

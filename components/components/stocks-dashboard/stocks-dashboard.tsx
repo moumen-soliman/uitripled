@@ -1,25 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
-import {
-  TrendingUp,
-  TrendingDown,
-  DollarSign,
-  BarChart3,
-  ChevronRight,
-  Building2,
-  Activity,
-} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import {
+  Activity,
+  BarChart3,
+  Building2,
+  ChevronRight,
+  DollarSign,
+  TrendingDown,
+  TrendingUp,
+} from "lucide-react";
+import { useState } from "react";
 
 interface Stock {
   id: string;

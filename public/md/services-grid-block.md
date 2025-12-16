@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { ServicesGrid } from "@/components/sections/services-grid-block.tsx"
+import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx"
 
 export function ServicesGridDemo() {
   return (
@@ -48,7 +48,7 @@ The `Services Grid` component uses the following components. Make sure you have 
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="services-grid-block" title="@/components/sections/services-grid-block.tsx" />
+<ComponentSource name="services-grid-block" title="@/components/sections/shadcnui/services-grid-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,7 +61,7 @@ The `Services Grid` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { ServicesGrid } from "@/components/sections/services-grid-block.tsx"
+import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -114,7 +114,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { ServicesGrid } from "@/components/sections/services-grid-block.tsx"
+import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx"
 
 export function BasicExample() {
   return (

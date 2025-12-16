@@ -133,7 +133,6 @@ export function createMetadata({
   description,
   path = "/",
   keywords,
-  url,
   image,
   index = true,
 }: PageSeoConfig): Metadata {

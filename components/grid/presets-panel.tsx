@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { bentoPresets } from "@/lib/grid-presets";
 import type { BentoPreset } from "@/lib/grid-utils";
+import { motion } from "framer-motion";
 
 interface PresetsPanelProps {
   onApplyPreset: (preset: BentoPreset) => void;

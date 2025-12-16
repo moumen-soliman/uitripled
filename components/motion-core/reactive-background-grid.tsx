@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, MouseEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { MouseEvent, useState } from "react";
 
 type ReactiveBackgroundGridProps = {
   dots?: boolean;

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { getGapSliderIndex, getGapValueFromIndex } from "@/lib/grid-utils";
+import { motion } from "framer-motion";
 
 interface SettingsPanelProps {
   cols: number;

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 export function AnimatedPagination() {
   const [currentPage, setCurrentPage] = useState(1);

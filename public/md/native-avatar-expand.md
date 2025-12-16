@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NativeAvatarExpand } from "@/components/native/native-morphing-button.tsx"
+import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx"
 
 export function NativeAvatarExpandDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-avatar-expand
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-avatar-expand" title="@/components/native/native-morphing-button.tsx" />
+<ComponentSource name="native-avatar-expand" title="components/native/shadcnui/native-avatar-expand-shadcnui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/native-avatar-expand
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeAvatarExpand } from "@/components/native/native-morphing-button.tsx"
+import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -72,6 +72,8 @@ import { NativeAvatarExpand } from "@/components/native/native-morphing-button.t
 - `react`
 
 This component uses **Framer Motion** for animations and motion effects.
+
+This component is built on top of **shadcn/ui** component primitives.
 
 ## Customization
 
@@ -99,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeAvatarExpand } from "@/components/native/native-morphing-button.tsx"
+import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx"
 
 export function BasicExample() {
   return (

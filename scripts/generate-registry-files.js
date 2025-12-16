@@ -61,24 +61,14 @@ function generateRegistryFiles() {
             }
 
             // Generate target path: extract component name from path
-            // path format: components/component-name.tsx
-            // target format: components/component-name (without .tsx extension)
+            // All components install to: components/uitripled/component-name
             let targetPath = file.target;
             if (!targetPath) {
-              // Extract component name and format as components/component-name
-              // e.g., "components/about-us-page.tsx" -> "components/about-us-page"
-              if (
-                file.path.startsWith("components/") &&
-                file.path.endsWith(".tsx")
-              ) {
-                targetPath = file.path.slice(0, -4); // Remove .tsx extension
-              } else {
-                // Fallback: extract filename and remove extension
-                const pathParts = file.path.split("/");
-                const filename = pathParts[pathParts.length - 1];
-                const componentName = filename.replace(/\.tsx?$/, "");
-                targetPath = `components/${componentName}`;
-              }
+              // Extract just the component filename and install to components/uitripled/
+              const pathParts = file.path.split("/");
+              const filename = pathParts[pathParts.length - 1];
+              const componentName = filename.replace(/\.tsx?$/, "");
+              targetPath = `components/uitripled/${componentName}`;
             }
 
             return {
@@ -95,20 +85,11 @@ function generateRegistryFiles() {
             // Extract component name for target even on error
             let targetPath = file.target;
             if (!targetPath) {
-              // Extract component name and format as components/component-name
-              // e.g., "components/about-us-page.tsx" -> "components/about-us-page"
-              if (
-                file.path.startsWith("components/") &&
-                file.path.endsWith(".tsx")
-              ) {
-                targetPath = file.path.slice(0, -4); // Remove .tsx extension
-              } else {
-                // Fallback: extract filename and remove extension
-                const pathParts = file.path.split("/");
-                const filename = pathParts[pathParts.length - 1];
-                const componentName = filename.replace(/\.tsx?$/, "");
-                targetPath = `components/${componentName}`;
-              }
+              // Extract just the component filename and install to components/uitripled/
+              const pathParts = file.path.split("/");
+              const filename = pathParts[pathParts.length - 1];
+              const componentName = filename.replace(/\.tsx?$/, "");
+              targetPath = `components/uitripled/${componentName}`;
             }
             return {
               path: file.path,

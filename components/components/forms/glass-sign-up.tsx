@@ -1,12 +1,12 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Github, Twitter, Chrome } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Chrome, Github, Twitter } from "lucide-react";
+import { FormEvent, useState } from "react";
 
 const socialProviders = [
   { name: "Google", icon: Chrome },

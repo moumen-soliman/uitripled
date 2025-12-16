@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { GlassmorphismProductUpdates } from "@/components/sections/glassmorphism-product-update-block.tsx"
+import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx"
 
 export function GlassmorphismProductUpdatesDemo() {
   return (
@@ -48,7 +48,7 @@ The `Glassmorphism Product Updates` component uses the following components. Mak
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="glassmorphism-product-update-block" title="@/components/sections/glassmorphism-product-update-block.tsx" />
+<ComponentSource name="glassmorphism-product-update-block" title="@/components/sections/shadcnui/glassmorphism-product-update-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,7 +61,7 @@ The `Glassmorphism Product Updates` component uses the following components. Mak
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismProductUpdates } from "@/components/sections/glassmorphism-product-update-block.tsx"
+import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -114,7 +114,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { GlassmorphismProductUpdates } from "@/components/sections/glassmorphism-product-update-block.tsx"
+import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx"
 
 export function BasicExample() {
   return (

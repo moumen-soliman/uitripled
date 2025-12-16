@@ -1,6 +1,25 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { BuilderCanvas } from "@/components/builder-canvas";
+import { BuilderCodeView } from "@/components/builder-code-view";
+import { BuilderSidebar } from "@/components/builder-sidebar";
+import { BuilderHeader } from "@/components/builder/builder-header";
+import { DragOverlay } from "@/components/builder/drag-overlay";
+import { InstructionsBanner } from "@/components/builder/instructions-banner";
+import { LoadProjectDialog } from "@/components/builder/load-project-dialog";
+import { PageTabs } from "@/components/builder/page-tabs";
+import { TextEditingBanner } from "@/components/builder/text-editing-banner";
+import {
+  createPage,
+  extractSavedPages,
+  generateUniqueSlug,
+} from "@/lib/builder-utils";
+import { componentsRegistry } from "@/lib/components-registry";
+import type {
+  BuilderComponent,
+  BuilderProjectPage,
+  SavedProject,
+} from "@/types/builder";
 import {
   DndContext,
   DragEndEvent,
@@ -10,26 +29,7 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
-import { BuilderSidebar } from "@/components/builder-sidebar";
-import { BuilderCanvas } from "@/components/builder-canvas";
-import { BuilderCodeView } from "@/components/builder-code-view";
-import { componentsRegistry } from "@/lib/components-registry";
-import {
-  createPage,
-  generateUniqueSlug,
-  extractSavedPages,
-} from "@/lib/builder-utils";
-import type {
-  BuilderComponent,
-  BuilderProjectPage,
-  SavedProject,
-} from "@/types/builder";
-import { BuilderHeader } from "@/components/builder/builder-header";
-import { InstructionsBanner } from "@/components/builder/instructions-banner";
-import { TextEditingBanner } from "@/components/builder/text-editing-banner";
-import { PageTabs } from "@/components/builder/page-tabs";
-import { LoadProjectDialog } from "@/components/builder/load-project-dialog";
-import { DragOverlay } from "@/components/builder/drag-overlay";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export default function BuilderPage() {
   const [pages, setPages] = useState<BuilderProjectPage[]>(() => {

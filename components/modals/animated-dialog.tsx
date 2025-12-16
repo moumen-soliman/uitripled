@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { X } from "lucide-react";
+import { useState } from "react";
 
 export function AnimatedDialog() {
   const [isOpen, setIsOpen] = useState(false);

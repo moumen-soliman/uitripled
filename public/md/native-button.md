@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NativeButton } from "components/native/native-button.tsx"
+import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx"
 
 export function NativeButtonDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-button
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-button" title="components/native/native-button.tsx" />
+<ComponentSource name="native-button" title="components/native/shadcnui/native-button-shadcnui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/native-button
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeButton } from "components/native/native-button.tsx"
+import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -101,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeButton } from "components/native/native-button.tsx"
+import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx"
 
 export function BasicExample() {
   return (

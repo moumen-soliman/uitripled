@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-flip-text-carbon",
+  "type": "registry:component",
+  "title": "Native Flip Text",
+  "description": "Text that flips through words with a 3D blur transition.",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "components/native/carbon/native-flip-text-carbon.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport { AnimatePresence, motion } from \"framer-motion\";\nimport { useEffect, useState } from \"react\";\n\ninterface NativeFlipTextProps {\n  /**\n   * Array of words to flip through.\n   */\n  words: string[];\n  /**\n   * Duration of each word display in ms.\n   * Default: 2000\n   */\n  duration?: number;\n  className?: string;\n}\n\nexport function NativeFlipText({\n  words,\n  duration = 2000,\n  className,\n}: NativeFlipTextProps) {\n  const [index, setIndex] = useState(0);\n\n  useEffect(() => {\n    const interval = setInterval(() => {\n      setIndex((prevIndex) => (prevIndex + 1) % words.length);\n    }, duration);\n\n    return () => clearInterval(interval);\n  }, [words.length, duration]);\n\n  return (\n    <div\n      className={cn(\n        \"inline-flex items-center justify-center overflow-hidden\",\n        className\n      )}\n    >\n      <AnimatePresence mode=\"wait\">\n        <motion.div\n          key={words[index]}\n          initial={{ rotateX: -90, opacity: 0, filter: \"blur(6px)\" }}\n          animate={{ rotateX: 0, opacity: 1, filter: \"blur(0px)\" }}\n          exit={{ rotateX: 90, opacity: 0, filter: \"blur(6px)\" }}\n          transition={{\n            type: \"spring\",\n            stiffness: 100,\n            damping: 20,\n            opacity: { duration: 0.3 },\n            filter: { duration: 0.3 },\n            rotateX: { duration: 0.4 },\n          }}\n          className=\"text-center\"\n        >\n          {words[index]}\n        </motion.div>\n      </AnimatePresence>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/native/carbon/native-flip-text-carbon"
+    }
+  ]
+}

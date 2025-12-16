@@ -1,14 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import {
-  motion,
   AnimatePresence,
+  motion,
   useReducedMotion,
-  type Variants,
   type Transition,
+  type Variants,
 } from "framer-motion";
-import { Search, File, Settings, User, X } from "lucide-react";
+import { File, Search, Settings, User, X } from "lucide-react";
+import { useMemo, useState } from "react";
 
 type Command = {
   icon: typeof File;

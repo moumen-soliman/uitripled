@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export function FloatingLabelInput() {
   const [isFocused, setIsFocused] = useState(false);

@@ -1,7 +1,5 @@
 "use client";
 
-import { useCallback, useId, useState } from "react";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,16 +9,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import {
-  MessageSquare,
-  X,
-  Send,
-  Sparkles,
-  Zap,
   Brain,
   Code,
+  MessageSquare,
+  Send,
+  Sparkles,
+  X,
+  Zap,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useCallback, useId, useState } from "react";
 
 interface Agent {
   id: string;

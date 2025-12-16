@@ -1,0 +1,729 @@
+yarn run v1.22.19
+$ /Users/moumensoliman/code/uitripled/node_modules/.bin/eslint . --quiet
+
+/Users/moumensoliman/code/uitripled/app/builder/page.tsx
+  58:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/app/builder/page.tsx:58:9
+  56 |     if (pages.length === 0) {
+  57 |       if (activePageId) {
+> 58 |         setActivePageId("");
+     |         ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  59 |       }
+  60 |       return;
+  61 |     }                                             react-hooks/set-state-in-effect
+  87:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/app/builder/page.tsx:87:7
+  85 |   useEffect(() => {
+  86 |     if (activeComponentCount === 0 && isTextEditing) {
+> 87 |       setIsTextEditing(false);
+     |       ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  88 |     }
+  89 |   }, [activeComponentCount, isTextEditing]);
+  90 |  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/app/components/[id]/AnimationDetailPage.client.tsx
+   49:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  145:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  147:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  235:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  335:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  439:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/app/components/layout.tsx
+  34:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/app/components/layout.tsx:34:7
+  32 |   useEffect(() => {
+  33 |     if (target && window.innerWidth < 768) {
+> 34 |       setMobileSidebarOpen(true);
+     |       ^^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  35 |     }
+  36 |   }, [target]);
+  37 |  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/app/grid-generator/page.tsx
+  226:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/app/grid-generator/page.tsx:226:5
+  224 |     }
+  225 |
+> 226 |     setCells(initializeCells(cols, rows));
+      |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  227 |     setSelectedCells([]);
+  228 |   }, [cols, rows]);
+  229 |  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/app/preview/[projectName]/PreviewProjectPage.client.tsx
+  55:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/components/animation-sidebar.tsx
+  53:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/animation-sidebar.tsx:53:9
+  51 |       if (validCategories.includes(normalizedTarget)) {
+  52 |         // Close all categories and open only the target
+> 53 |         setExpandedCategories(
+     |         ^^^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  54 |           new Set([normalizedTarget as ComponentCategory | "all"])
+  55 |         );
+  56 |       } else {  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/builder-code-view.tsx
+  570:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  581:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  582:63  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/components/color-theme-picker.tsx
+  163:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/color-theme-picker.tsx:163:5
+  161 |
+  162 |   useEffect(() => {
+> 163 |     setIsMounted(true);
+      |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  164 |
+  165 |     // Load saved color scheme
+  166 |     try {  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/components/chat/messenger.tsx
+  190:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/components/chat/messenger.tsx:190:5
+  188 |   useEffect(() => {
+  189 |     selectedConversationRef.current = selectedConversationId;
+> 190 |     setConversations((prev) =>
+      |     ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  191 |       prev.map((conversation) =>
+  192 |         conversation.id === selectedConversationId
+  193 |           ? { ...conversation, unread: 0 }  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/components/comments/comment-thread.tsx
+  159:33  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/components/comments/comment-thread.tsx:159:33
+  157 |
+  158 |   const uniqueId =
+> 159 |     inputId || `comment-input-${Math.random().toString(36).substr(2, 9)}`;
+      |                                 ^^^^^^^^^^^^^ Cannot call impure function
+  160 |   const uniqueLabelId =
+  161 |     labelId || `comment-label-${Math.random().toString(36).substr(2, 9)}`;
+  162 |   react-hooks/purity
+  161:33  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/components/comments/comment-thread.tsx:161:33
+  159 |     inputId || `comment-input-${Math.random().toString(36).substr(2, 9)}`;
+  160 |   const uniqueLabelId =
+> 161 |     labelId || `comment-label-${Math.random().toString(36).substr(2, 9)}`;
+      |                                 ^^^^^^^^^^^^^ Cannot call impure function
+  162 |
+  163 |   return (
+  164 |     <div  react-hooks/purity
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx
+  271:8  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:271:8
+  269 |   return (
+  270 |     <div className="flex items-center gap-2 sm:gap-3">
+> 271 |       <TimeUnit value={timeLeft.days} label="Days" />
+      |        ^^^^^^^^ This component is created during render
+  272 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+  273 |       <TimeUnit value={timeLeft.hours} label="Hours" />
+  274 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:251:20
+  249 |   }, [deadline]);
+  250 |
+> 251 |   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+      |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 252 |     <div className="flex flex-col items-center">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 253 |       <motion.div
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 266 |     </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 267 |   );
+      | ^^^^ The component is created during render here
+  268 |
+  269 |   return (
+  270 |     <div className="flex items-center gap-2 sm:gap-3">                                                                react-hooks/static-components
+  273:8  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:273:8
+  271 |       <TimeUnit value={timeLeft.days} label="Days" />
+  272 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+> 273 |       <TimeUnit value={timeLeft.hours} label="Hours" />
+      |        ^^^^^^^^ This component is created during render
+  274 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+  275 |       <TimeUnit value={timeLeft.minutes} label="Mins" />
+  276 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:251:20
+  249 |   }, [deadline]);
+  250 |
+> 251 |   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+      |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 252 |     <div className="flex flex-col items-center">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 253 |       <motion.div
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 266 |     </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 267 |   );
+      | ^^^^ The component is created during render here
+  268 |
+  269 |   return (
+  270 |     <div className="flex items-center gap-2 sm:gap-3">  react-hooks/static-components
+  275:8  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:275:8
+  273 |       <TimeUnit value={timeLeft.hours} label="Hours" />
+  274 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+> 275 |       <TimeUnit value={timeLeft.minutes} label="Mins" />
+      |        ^^^^^^^^ This component is created during render
+  276 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+  277 |       <TimeUnit value={timeLeft.seconds} label="Secs" />
+  278 |     </div>
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:251:20
+  249 |   }, [deadline]);
+  250 |
+> 251 |   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+      |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 252 |     <div className="flex flex-col items-center">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 253 |       <motion.div
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 266 |     </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 267 |   );
+      | ^^^^ The component is created during render here
+  268 |
+  269 |   return (
+  270 |     <div className="flex items-center gap-2 sm:gap-3">                                                           react-hooks/static-components
+  277:8  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:277:8
+  275 |       <TimeUnit value={timeLeft.minutes} label="Mins" />
+  276 |       <span className="text-2xl font-bold text-foreground/40">:</span>
+> 277 |       <TimeUnit value={timeLeft.seconds} label="Secs" />
+      |        ^^^^^^^^ This component is created during render
+  278 |     </div>
+  279 |   );
+  280 | }
+
+/Users/moumensoliman/code/uitripled/components/components/course-content/course-content-page.tsx:251:20
+  249 |   }, [deadline]);
+  250 |
+> 251 |   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+      |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 252 |     <div className="flex flex-col items-center">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 253 |       <motion.div
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 266 |     </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 267 |   );
+      | ^^^^ The component is created during render here
+  268 |
+  269 |   return (
+  270 |     <div className="flex items-center gap-2 sm:gap-3">                                                                                                                                                                                   react-hooks/static-components
+
+/Users/moumensoliman/code/uitripled/components/components/sliders/volume-component.tsx
+  56:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  56:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/components/components/weather/weather-dashboard.tsx
+  443:8  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/components/weather/weather-dashboard.tsx:443:8
+  441 |     const updatedDate = new Date(weatherData.updatedAt);
+  442 |     const diffMinutes = Math.floor(
+> 443 |       (Date.now() - updatedDate.getTime()) / (1000 * 60)
+      |        ^^^^^^^^^^ Cannot call impure function
+  444 |     );
+  445 |     if (diffMinutes <= 1) return "Updated moments ago";
+  446 |     if (diffMinutes < 60) return "Updated " + diffMinutes + " minutes ago";  react-hooks/purity
+
+/Users/moumensoliman/code/uitripled/components/live-editor.tsx
+  16:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-glow-input.tsx
+  33:33  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-glow-input.tsx:33:33
+  31 |   const [glowIntensity, setGlowIntensity] = useState(0.3);
+  32 |   const [isFocused, setIsFocused] = useState(false);
+> 33 |   const lastTypingTime = useRef(Date.now());
+     |                                 ^^^^^^^^^^ Cannot call impure function
+  34 |   const typingSpeed = useMotionValue(0);
+  35 |   const glowIntensityMotion = useMotionValue(0.3);
+  36 |   const shouldReduceMotion = useReducedMotion();  react-hooks/purity
+  50:18  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-glow-input.tsx:50:18
+  48 |     () =>
+  49 |       Array.from({ length: 6 }).map(() => ({
+> 50 |         left: `${Math.random() * 100}%`,
+     |                  ^^^^^^^^^^^^^ Cannot call impure function
+  51 |         top: `${Math.random() * 100}%`,
+  52 |         delay: Math.random() * 1.8,
+  53 |       })),                                                                                                                              react-hooks/purity
+  51:17  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-glow-input.tsx:51:17
+  49 |       Array.from({ length: 6 }).map(() => ({
+  50 |         left: `${Math.random() * 100}%`,
+> 51 |         top: `${Math.random() * 100}%`,
+     |                 ^^^^^^^^^^^^^ Cannot call impure function
+  52 |         delay: Math.random() * 1.8,
+  53 |       })),
+  54 |     []                                                                                                                                  react-hooks/purity
+  52:16  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-glow-input.tsx:52:16
+  50 |         left: `${Math.random() * 100}%`,
+  51 |         top: `${Math.random() * 100}%`,
+> 52 |         delay: Math.random() * 1.8,
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  53 |       })),
+  54 |     []
+  55 |   );                                                                                                                                                                           react-hooks/purity
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-unlock-animation.tsx
+  43:12  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-unlock-animation.tsx:43:12
+  41 |     id: i,
+  42 |     angle: (Math.PI * 2 * i) / 24,
+> 43 |     delay: Math.random() * 0.3,
+     |            ^^^^^^^^^^^^^ Cannot call impure function
+  44 |     duration: 1.2 + Math.random() * 0.5,
+  45 |   }));
+  46 |           react-hooks/purity
+  44:21  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/ai-unlock-animation.tsx:44:21
+  42 |     angle: (Math.PI * 2 * i) / 24,
+  43 |     delay: Math.random() * 0.3,
+> 44 |     duration: 1.2 + Math.random() * 0.5,
+     |                     ^^^^^^^^^^^^^ Cannot call impure function
+  45 |   }));
+  46 |
+  47 |   return (  react-hooks/purity
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-spotlight-cta.tsx
+  37:18  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-spotlight-cta.tsx:37:18
+  35 |     () =>
+  36 |       Array.from({ length: 18 }).map(() => ({
+> 37 |         left: `${Math.random() * 100}%`,
+     |                  ^^^^^^^^^^^^^ Cannot call impure function
+  38 |         top: `${Math.random() * 100}%`,
+  39 |         size: Math.random() * 4 + 2,
+  40 |         travel: Math.random() * 72 - 36,                                react-hooks/purity
+  38:17  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-spotlight-cta.tsx:38:17
+  36 |       Array.from({ length: 18 }).map(() => ({
+  37 |         left: `${Math.random() * 100}%`,
+> 38 |         top: `${Math.random() * 100}%`,
+     |                 ^^^^^^^^^^^^^ Cannot call impure function
+  39 |         size: Math.random() * 4 + 2,
+  40 |         travel: Math.random() * 72 - 36,
+  41 |         duration: Math.random() * 3 + 2,  react-hooks/purity
+  39:15  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-spotlight-cta.tsx:39:15
+  37 |         left: `${Math.random() * 100}%`,
+  38 |         top: `${Math.random() * 100}%`,
+> 39 |         size: Math.random() * 4 + 2,
+     |               ^^^^^^^^^^^^^ Cannot call impure function
+  40 |         travel: Math.random() * 72 - 36,
+  41 |         duration: Math.random() * 3 + 2,
+  42 |         delay: Math.random() * 2,                react-hooks/purity
+  40:17  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-spotlight-cta.tsx:40:17
+  38 |         top: `${Math.random() * 100}%`,
+  39 |         size: Math.random() * 4 + 2,
+> 40 |         travel: Math.random() * 72 - 36,
+     |                 ^^^^^^^^^^^^^ Cannot call impure function
+  41 |         duration: Math.random() * 3 + 2,
+  42 |         delay: Math.random() * 2,
+  43 |       })),                                            react-hooks/purity
+  41:19  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-spotlight-cta.tsx:41:19
+  39 |         size: Math.random() * 4 + 2,
+  40 |         travel: Math.random() * 72 - 36,
+> 41 |         duration: Math.random() * 3 + 2,
+     |                   ^^^^^^^^^^^^^ Cannot call impure function
+  42 |         delay: Math.random() * 2,
+  43 |       })),
+  44 |     []                                                                           react-hooks/purity
+  42:16  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-spotlight-cta.tsx:42:16
+  40 |         travel: Math.random() * 72 - 36,
+  41 |         duration: Math.random() * 3 + 2,
+> 42 |         delay: Math.random() * 2,
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  43 |       })),
+  44 |     []
+  45 |   );                                                                                                              react-hooks/purity
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-tag-cloud.tsx
+  28:8  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-tag-cloud.tsx:28:8
+  26 |
+  27 |   const generateRandomOffset = () => ({
+> 28 |     x: Math.random() * 20 - 10,
+     |        ^^^^^^^^^^^^^ Cannot call impure function
+  29 |     y: Math.random() * 20 - 10,
+  30 |   });
+  31 |             react-hooks/purity
+  29:8  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/dynamic-tag-cloud.tsx:29:8
+  27 |   const generateRandomOffset = () => ({
+  28 |     x: Math.random() * 20 - 10,
+> 29 |     y: Math.random() * 20 - 10,
+     |        ^^^^^^^^^^^^^ Cannot call impure function
+  30 |   });
+  31 |
+  32 |   return (  react-hooks/purity
+
+/Users/moumensoliman/code/uitripled/components/motion-core/fluid-modal-transition.tsx
+  23:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/fluid-modal-transition.tsx:23:7
+  21 |   useEffect(() => {
+  22 |     if (!trigger) {
+> 23 |       setIsOpen(true);
+     |       ^^^^^^^^^ Avoid calling setState() directly within an effect
+  24 |     }
+  25 |   }, [trigger]);
+  26 |  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/motion-core/holographic-wall.tsx
+  63:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/holographic-wall.tsx:63:5
+  61 |       }
+  62 |     }
+> 63 |     setLetters(newLetters);
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  64 |   }, []);
+  65 |
+  66 |   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/motion-core/interactive-timeline.tsx
+  44:27  error  React Hook "useRef" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function     react-hooks/rules-of-hooks
+  45:30  error  React Hook "useInView" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
+/Users/moumensoliman/code/uitripled/components/motion-core/synced-lyric-captions.tsx
+  100:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/motion-core/synced-lyric-captions.tsx:100:5
+   98 |
+   99 |   useEffect(() => {
+> 100 |     setDuration(audioRef.current?.duration || fallbackDuration);
+      |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  101 |   }, [fallbackDuration]);
+  102 |
+  103 |   useEffect(() => {  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/native/baseui/native-dialog-baseui.tsx
+  36:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/components/native/baseui/native-magnetic-baseui.tsx
+  132:8  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+/Users/moumensoliman/code/uitripled/components/native/baseui/native-magnetic-baseui.tsx:132:8
+  130 |     const MotionButton = motion(Button);
+  131 |     return (
+> 132 |       <MotionButton
+      |        ^^^^^^^^^^^^ This component is created during render
+  133 |         ref={ref as React.RefObject<HTMLButtonElement>}
+  134 |         type="button"
+  135 |         className={cn("inline-block cursor-pointer", className)}
+
+/Users/moumensoliman/code/uitripled/components/native/baseui/native-magnetic-baseui.tsx:130:26
+  128 |
+  129 |   if (as === "button") {
+> 130 |     const MotionButton = motion(Button);
+      |                          ^^^^^^^^^^^^^^ The component is created during render here
+  131 |     return (
+  132 |       <MotionButton
+  133 |         ref={ref as React.RefObject<HTMLButtonElement>}  react-hooks/static-components
+
+/Users/moumensoliman/code/uitripled/components/native/baseui/native-notification-bell-baseui.tsx
+  83:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/native/baseui/native-notification-bell-baseui.tsx:83:7
+  81 |   useEffect(() => {
+  82 |     if (hasNotifications && !shouldReduceMotion) {
+> 83 |       setIsRinging(true);
+     |       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  84 |       const timer = setTimeout(() => setIsRinging(false), 600);
+  85 |       onRing?.();
+  86 |       return () => clearTimeout(timer);  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/native/baseui/native-tooltip-baseui.tsx
+  31:69  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  36:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/components/native/carbon/native-counter-up-carbon.tsx
+  60:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/native/carbon/native-counter-up-carbon.tsx:60:7
+  58 |     // If reduced motion, just set the value immediately
+  59 |     if (shouldReduceMotion) {
+> 60 |       setDisplayValue(value);
+     |       ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  61 |       return;
+  62 |     }
+  63 |  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/native/carbon/native-notification-bell-carbon.tsx
+  83:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/native/carbon/native-notification-bell-carbon.tsx:83:7
+  81 |   useEffect(() => {
+  82 |     if (hasNotifications && !shouldReduceMotion) {
+> 83 |       setIsRinging(true);
+     |       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  84 |       const timer = setTimeout(() => setIsRinging(false), 600);
+  85 |       onRing?.();
+  86 |       return () => clearTimeout(timer);  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/native/shadcnui/native-magnetic-shadcnui.tsx
+  132:8  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+/Users/moumensoliman/code/uitripled/components/native/shadcnui/native-magnetic-shadcnui.tsx:132:8
+  130 |     const MotionButton = motion(Button);
+  131 |     return (
+> 132 |       <MotionButton
+      |        ^^^^^^^^^^^^ This component is created during render
+  133 |         ref={ref as React.RefObject<HTMLButtonElement>}
+  134 |         type="button"
+  135 |         variant="default"
+
+/Users/moumensoliman/code/uitripled/components/native/shadcnui/native-magnetic-shadcnui.tsx:130:26
+  128 |
+  129 |   if (as === "button") {
+> 130 |     const MotionButton = motion(Button);
+      |                          ^^^^^^^^^^^^^^ The component is created during render here
+  131 |     return (
+  132 |       <MotionButton
+  133 |         ref={ref as React.RefObject<HTMLButtonElement>}  react-hooks/static-components
+
+/Users/moumensoliman/code/uitripled/components/native/shadcnui/native-notification-bell-shadcnui.tsx
+  83:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/native/shadcnui/native-notification-bell-shadcnui.tsx:83:7
+  81 |   useEffect(() => {
+  82 |     if (hasNotifications && !shouldReduceMotion) {
+> 83 |       setIsRinging(true);
+     |       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  84 |       const timer = setTimeout(() => setIsRinging(false), 600);
+  85 |       onRing?.();
+  86 |       return () => clearTimeout(timer);  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/native/shadcnui/native-tooltip-shadcnui.tsx
+  34:69  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  39:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/moumensoliman/code/uitripled/components/sections/baseui/currency-converter-card-baseui.tsx
+  55:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/sections/baseui/currency-converter-card-baseui.tsx:55:7
+  53 |
+  54 |     if (!trimmed) {
+> 55 |       setLoading(false);
+     |       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  56 |       setError("");
+  57 |       setRate(null);
+  58 |       setResult(null);  react-hooks/set-state-in-effect
+
+/Users/moumensoliman/code/uitripled/components/sections/baseui/theater-ticket-baseui.tsx
+  111:45  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/moumensoliman/code/uitripled/components/sections/baseui/theater-ticket-baseui.tsx:111:45
+  109 |               <div
+  110 |                 key={i}
+> 111 |                 className={`bg-foreground ${Math.random() > 0.5 ? "h-full w-1 md:h-1 md:w-full" : "h-full w-2 md:h-2 md:w-full"}`}
+      |                                             ^^^^^^^^^^^^^ Cannot call impure function
+  112 |               />
+  113 |             ))}
+  114 |           </div>  react-hooks/purity
+
+/Users/moumensoliman/code/uitripled/components/sections/shadcnui/currency-converter-card.tsx
+  55:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/moumensoliman/code/uitripled/components/sections/shadcnui/currency-converter-card.tsx:55:7
+  53 |
+  54 |     if (!trimmed) {
+> 55 |       setLoading(false);
+     |       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  56 |       setError("");
+  57 |       setRate(null);
+  58 |       setResult(null);  react-hooks/set-state-in-effect
+
+✖ 61 problems (61 errors, 0 warnings)
+
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

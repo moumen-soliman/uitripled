@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { DetailTaskCard } from "@/components/components/cards/detail-task.tsx"
+import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx"
 
 export function DetailTaskCardDemo() {
   return (
@@ -51,7 +51,7 @@ The `Detail Task Card` component uses the following components. Make sure you ha
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="detail-task-card" title="@/components/components/cards/detail-task.tsx" />
+<ComponentSource name="detail-task-card" title="@/components/components/cards/shadcnui/detail-task.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -64,7 +64,7 @@ The `Detail Task Card` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { DetailTaskCard } from "@/components/components/cards/detail-task.tsx"
+import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -121,7 +121,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { DetailTaskCard } from "@/components/components/cards/detail-task.tsx"
+import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx"
 
 export function BasicExample() {
   return (

@@ -1,3 +1,12 @@
+export type UILibrary = "shadcnui" | "baseui" | "carbon" | "react";
+
+export const uiLibraryLabels: Record<UILibrary, string> = {
+  shadcnui: "shadcn/ui",
+  baseui: "Base UI",
+  carbon: "Carbon",
+  react: "React",
+};
+
 export type ComponentCategory =
   | "microinteractions"
   | "components"
@@ -16,11 +25,15 @@ export type Component = {
   description: string;
   category: ComponentCategory;
   tags: string[];
+
   component: React.ComponentType<any>;
+
+  baseuiComponent?: React.ComponentType<any>; // BaseUI version of the component
   variants?: Array<{
     id: string;
     name: string;
     description: string;
+
     component: React.ComponentType<any>;
     code?: string;
   }>;
@@ -30,6 +43,7 @@ export type Component = {
   easing?: string;
   isFree?: boolean;
   display?: boolean;
+  availableIn?: UILibrary[]; // Which UI libraries have this component implemented
 };
 
 export const categoryNames: Record<ComponentCategory, string> = {

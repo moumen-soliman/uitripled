@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { GlassmorphismMinimalMetrics } from "@/components/sections/glassmorphism-minimal-metrics-block.tsx"
+import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx"
 
 export function GlassmorphismMinimalMetricsDemo() {
   return (
@@ -48,7 +48,7 @@ The `Glassmorphism Minimal Metrics` component uses the following components. Mak
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="glassmorphism-minimal-metrics-block" title="@/components/sections/glassmorphism-minimal-metrics-block.tsx" />
+<ComponentSource name="glassmorphism-minimal-metrics-block" title="@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,7 +61,7 @@ The `Glassmorphism Minimal Metrics` component uses the following components. Mak
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismMinimalMetrics } from "@/components/sections/glassmorphism-minimal-metrics-block.tsx"
+import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -114,7 +114,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { GlassmorphismMinimalMetrics } from "@/components/sections/glassmorphism-minimal-metrics-block.tsx"
+import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx"
 
 export function BasicExample() {
   return (

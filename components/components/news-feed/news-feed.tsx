@@ -1,23 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Newspaper,
-  Clock,
-  ArrowRight,
-  TrendingUp,
-  MessageSquare,
-  Share2,
-  Bookmark,
-  MoreHorizontal,
-  Search,
-  Filter,
-} from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ArrowRight,
+  Bookmark,
+  Clock,
+  Filter,
+  MessageSquare,
+  MoreHorizontal,
+  Newspaper,
+  Search,
+  Share2,
+  TrendingUp,
+} from "lucide-react";
+import { useState } from "react";
 
 // ============================================================================
 // TYPES

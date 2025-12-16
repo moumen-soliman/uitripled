@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, MouseEvent } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { MouseEvent, useState } from "react";
 
 type SpotlightSectionProps = {
   children: React.ReactNode;

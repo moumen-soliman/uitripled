@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { EcommerceHighlightCard } from "@/components/components/cards/ecommerce-highlight-card.tsx"
+import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx"
 
 export function EcommerceHighlightCardDemo() {
   return (
@@ -49,7 +49,7 @@ The `Ecommerce Highlight Card` component uses the following components. Make sur
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="ecommerce-highlight-card" title="@/components/components/cards/ecommerce-highlight-card.tsx" />
+<ComponentSource name="ecommerce-highlight-card" title="@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -62,7 +62,7 @@ The `Ecommerce Highlight Card` component uses the following components. Make sur
 ## Usage
 
 ```tsx showLineNumbers
-import { EcommerceHighlightCard } from "@/components/components/cards/ecommerce-highlight-card.tsx"
+import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -117,7 +117,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { EcommerceHighlightCard } from "@/components/components/cards/ecommerce-highlight-card.tsx"
+import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx"
 
 export function BasicExample() {
   return (

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { Reorder } from "framer-motion";
 import { GripVertical } from "lucide-react";
+import { useState } from "react";
 
 const initialItems = [
   { id: 1, text: "First item" },

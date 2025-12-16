@@ -1,8 +1,8 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { Copy, Edit, Share, Trash } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Copy, Trash, Edit, Share } from "lucide-react";
 
 const menuItems = [
   { icon: Copy, label: "Copy", shortcut: "⌘C" },

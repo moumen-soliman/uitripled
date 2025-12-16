@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Grid3x3, Redo2, RotateCcw, Undo2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { GridCell } from "./grid-cell";
 import type { GridCell as GridCellType } from "@/lib/grid-utils";
 import { isCellInSelection } from "@/lib/grid-utils";
+import { motion } from "framer-motion";
+import { Grid3x3, Redo2, RotateCcw, Undo2 } from "lucide-react";
+import { GridCell } from "./grid-cell";
 
 export interface GridPreviewProps {
   cells: GridCellType[];

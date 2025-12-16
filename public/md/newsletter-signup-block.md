@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NewsletterSignupBlock } from "@/components/sections/newsletter-signup-block.tsx"
+import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx"
 
 export function NewsletterSignupBlockDemo() {
   return (
@@ -49,7 +49,7 @@ The `Newsletter Signup Block` component uses the following components. Make sure
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="newsletter-signup-block" title="@/components/sections/newsletter-signup-block.tsx" />
+<ComponentSource name="newsletter-signup-block" title="@/components/sections/shadcnui/newsletter-signup-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -62,7 +62,7 @@ The `Newsletter Signup Block` component uses the following components. Make sure
 ## Usage
 
 ```tsx showLineNumbers
-import { NewsletterSignupBlock } from "@/components/sections/newsletter-signup-block.tsx"
+import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -117,7 +117,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NewsletterSignupBlock } from "@/components/sections/newsletter-signup-block.tsx"
+import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx"
 
 export function BasicExample() {
   return (

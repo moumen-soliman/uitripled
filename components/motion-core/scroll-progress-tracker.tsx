@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useInView } from "framer-motion";
+import { useEffect, useState } from "react";
 
 type ScrollProgressTrackerProps = {
   sections?: string[];

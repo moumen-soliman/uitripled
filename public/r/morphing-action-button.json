@@ -14,7 +14,7 @@
       "path": "components/motion-core/morphing-action-button.tsx",
       "content": "// Error: Could not read file components/motion-core/morphing-action-button.tsx\n// File not found: components/motion-core/morphing-action-button.tsx",
       "type": "registry:ui",
-      "target": "components/motion-core/morphing-action-button"
+      "target": "components/uitripled/morphing-action-button"
     }
   ]
 }

@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { OurServices } from "@/components/sections/our-services-section.tsx"
+import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx"
 
 export function OurServicesDemo() {
   return (
@@ -48,7 +48,7 @@ The `Our Services` component uses the following components. Make sure you have t
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="our-services-section" title="@/components/sections/our-services-section.tsx" />
+<ComponentSource name="our-services-section" title="@/components/sections/shadcnui/our-services-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,7 +61,7 @@ The `Our Services` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { OurServices } from "@/components/sections/our-services-section.tsx"
+import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -114,7 +114,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { OurServices } from "@/components/sections/our-services-section.tsx"
+import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx"
 
 export function BasicExample() {
   return (

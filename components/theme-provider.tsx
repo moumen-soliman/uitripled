@@ -102,6 +102,7 @@ export function ThemeProvider({
     })();
 
     const initial = isThemeMode(stored) ? stored : defaultTheme;
+
     setThemeState(initial);
     applyTheme(initial);
   }, [applyTheme, defaultTheme]);

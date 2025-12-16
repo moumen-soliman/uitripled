@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { CTABlock } from "@/components/sections/cta-block.tsx"
+import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx"
 
 export function CTABlockDemo() {
   return (
@@ -47,7 +47,7 @@ The `CTA Block` component uses the following components. Make sure you have them
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="cta-block" title="@/components/sections/cta-block.tsx" />
+<ComponentSource name="cta-block" title="@/components/sections/shadcnui/cta-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `CTA Block` component uses the following components. Make sure you have them
 ## Usage
 
 ```tsx showLineNumbers
-import { CTABlock } from "@/components/sections/cta-block.tsx"
+import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -112,7 +112,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { CTABlock } from "@/components/sections/cta-block.tsx"
+import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx"
 
 export function BasicExample() {
   return (

@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { BentoGridBlock } from "@/components/sections/bento-grid-block.tsx"
+import { BentoGridBlock } from "@/components/sections/shadcnui/bento-grid-block.tsx"
 
 export function BentoGridBlockDemo() {
   return (
@@ -47,7 +47,7 @@ The `Bento Grid Block` component uses the following components. Make sure you ha
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="bento-grid-block" title="@/components/sections/bento-grid-block.tsx" />
+<ComponentSource name="bento-grid-block" title="@/components/sections/shadcnui/bento-grid-block.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -60,7 +60,7 @@ The `Bento Grid Block` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { BentoGridBlock } from "@/components/sections/bento-grid-block.tsx"
+import { BentoGridBlock } from "@/components/sections/shadcnui/bento-grid-block.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -112,7 +112,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { BentoGridBlock } from "@/components/sections/bento-grid-block.tsx"
+import { BentoGridBlock } from "@/components/sections/shadcnui/bento-grid-block.tsx"
 
 export function BasicExample() {
   return (

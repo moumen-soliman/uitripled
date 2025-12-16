@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { PricingSection } from "@/components/sections/pricing-section.tsx"
+import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx"
 
 export function PricingSectionDemo() {
   return (
@@ -48,7 +48,7 @@ The `Pricing Section` component uses the following components. Make sure you hav
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="pricing-section" title="@/components/sections/pricing-section.tsx" />
+<ComponentSource name="pricing-section" title="@/components/sections/shadcnui/pricing-section.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,7 +61,7 @@ The `Pricing Section` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { PricingSection } from "@/components/sections/pricing-section.tsx"
+import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -115,7 +115,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { PricingSection } from "@/components/sections/pricing-section.tsx"
+import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx"
 
 export function BasicExample() {
   return (

@@ -1,11 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
-const COMPONENTS_REGISTRY_PATH = path.join(
-  __dirname,
-  "../lib/components-registry.tsx"
-);
+const REGISTRY_DIR = path.join(__dirname, "../lib/registry");
 const REGISTRY_JSON_PATH = path.join(__dirname, "../registry.json");
+const COMPONENTS_DIR = path.join(__dirname, "../components");
 
 // Category to registry type mapping
 const CATEGORY_TO_TYPE = {
@@ -16,6 +14,10 @@ const CATEGORY_TO_TYPE = {
   decorative: "registry:ui",
   blocks: "registry:block",
   "motion-core": "registry:lib",
+  cards: "registry:component",
+  resumes: "registry:component",
+  forms: "registry:component",
+  native: "registry:component",
 };
 
 // Category to registry category mapping
@@ -27,6 +29,10 @@ const CATEGORY_MAPPING = {
   decorative: "decorative",
   blocks: "sections",
   "motion-core": "motion-core",
+  cards: "cards",
+  resumes: "resumes",
+  forms: "forms",
+  native: "native",
 };
 
 // Common dependencies based on imports
@@ -37,11 +43,30 @@ const DEFAULT_DEPENDENCIES = {
 };
 
 /**
- * Extract component imports and registry entries from components-registry.tsx
+ * Extract component imports and registry entries from registry files
  */
 function parseComponentsRegistry() {
-  const content = fs.readFileSync(COMPONENTS_REGISTRY_PATH, "utf-8");
+  if (!fs.existsSync(REGISTRY_DIR)) {
+    throw new Error(`Registry directory not found: ${REGISTRY_DIR}`);
+  }
 
+  const files = fs
+    .readdirSync(REGISTRY_DIR)
+    .filter((file) => file.endsWith(".tsx") && file !== "index.tsx");
+
+  let allEntries = [];
+
+  for (const file of files) {
+    const filePath = path.join(REGISTRY_DIR, file);
+    const content = fs.readFileSync(filePath, "utf-8");
+    const entries = parseRegistryFile(content, file);
+    allEntries = [...allEntries, ...entries];
+  }
+
+  return allEntries;
+}
+
+function parseRegistryFile(content, fileName) {
   // Extract component imports - handle both single and multiple imports
   const componentImports = {};
   const importRegex =
@@ -59,85 +84,125 @@ function parseComponentsRegistry() {
     });
   }
 
-  // Extract componentsRegistry entries
-  const registryStart = content.indexOf(
-    "export const componentsRegistry: Component[] = ["
-  );
-  const registryEnd = content.lastIndexOf("];", content.length);
+  // Find array definitions (e.g., export const nativeComponents = [...])
+  // We look for any array export
+  const exportArrayRegex = /export const \w+\s*:\s*Component\[\]\s*=\s*\[/g;
 
-  if (registryStart === -1 || registryEnd === -1) {
-    throw new Error(
-      "Could not find componentsRegistry in components-registry.tsx"
-    );
-  }
-
-  const registryContent = content.substring(registryStart, registryEnd);
-
-  // Parse entries - split by entry boundaries
   const entries = [];
-  const entryPattern = /\{\s*id:\s*"([^"]+)"/g;
-  let lastIndex = 0;
-  const entryIndices = [];
 
-  while ((match = entryPattern.exec(registryContent)) !== null) {
-    entryIndices.push(match.index);
-  }
+  let arrayMatch;
+  while ((arrayMatch = exportArrayRegex.exec(content)) !== null) {
+    const startIndex = arrayMatch.index + arrayMatch[0].length;
 
-  // Parse each entry
-  for (let i = 0; i < entryIndices.length; i++) {
-    const start = entryIndices[i];
-    const end =
-      i < entryIndices.length - 1
-        ? entryIndices[i + 1]
-        : registryContent.length;
-    const entryText = registryContent.substring(start, end);
+    // Find the end of this array
+    let depth = 1;
+    let endIndex = startIndex;
 
-    // Extract id
-    const idMatch = entryText.match(/id:\s*"([^"]+)"/);
-    if (!idMatch) continue;
+    for (let i = startIndex; i < content.length; i++) {
+      if (content[i] === "[") depth++;
+      if (content[i] === "]") depth--;
+      if (depth === 0) {
+        endIndex = i;
+        break;
+      }
+    }
 
-    const id = idMatch[1];
+    const registryContent = content.substring(startIndex, endIndex);
 
-    // Extract name (title)
-    const nameMatch = entryText.match(/name:\s*"([^"]+)"/);
-    const name = nameMatch ? nameMatch[1] : null;
+    // Parse entries
+    const entryPattern = /\{\s*id:\s*"([^"]+)"/g;
+    const entryIndices = [];
 
-    // Extract description (handle multi-line descriptions)
-    // Match description: followed by optional whitespace/newline and then quoted string
-    // Use [\s\S] to match any character including newlines
-    const descriptionMatch = entryText.match(
-      /description:\s*"((?:[^"\\]|\\.|[\s\S])*?)"/
-    );
-    const description = descriptionMatch
-      ? descriptionMatch[1].replace(/\\"/g, '"').replace(/\\n/g, "\n").trim()
-      : null;
+    while ((match = entryPattern.exec(registryContent)) !== null) {
+      entryIndices.push(match.index);
+    }
 
-    // Extract category
-    const categoryMatch = entryText.match(/category:\s*"([^"]+)"/);
-    if (!categoryMatch) continue;
+    for (let i = 0; i < entryIndices.length; i++) {
+      const start = entryIndices[i];
+      const end =
+        i < entryIndices.length - 1
+          ? entryIndices[i + 1]
+          : registryContent.length;
+      const entryText = registryContent.substring(start, end);
 
-    const category = categoryMatch[1];
+      // Extract id
+      const idMatch = entryText.match(/id:\s*"([^"]+)"/);
+      if (!idMatch) continue;
 
-    // Extract component name
-    const componentMatch = entryText.match(/component:\s*(\w+)/);
-    if (!componentMatch) continue;
+      const id = idMatch[1];
 
-    const componentName = componentMatch[1];
-    const componentPath = componentImports[componentName];
+      // Extract name (title)
+      const nameMatch = entryText.match(/name:\s*"([^"]+)"/);
+      const name = nameMatch ? nameMatch[1] : null;
 
-    if (componentPath) {
-      entries.push({
-        id,
-        name,
-        description,
-        category,
-        componentName,
-        componentPath,
-      });
-    } else {
-      console.warn(
-        `⚠️  Could not find import path for component: ${componentName}`
+      // Extract description
+      const descriptionMatch = entryText.match(
+        /description:\s*"((?:[^"\\]|\\.|[\s\S])*?)"/
       );
+      const description = descriptionMatch
+        ? descriptionMatch[1].replace(/\\"/g, '"').replace(/\\n/g, "\n").trim()
+        : null;
+
+      // Extract category
+      const categoryMatch = entryText.match(/category:\s*"([^"]+)"/);
+      if (!categoryMatch) continue;
+
+      const category = categoryMatch[1];
+
+      // Extract availableIn (UI library variants)
+      const availableInMatch = entryText.match(/availableIn:\s*\[(.*?)\]/s);
+      let availableIn = null;
+      if (availableInMatch) {
+        const libs = availableInMatch[1].match(/"([^"]+)"/g);
+        if (libs) {
+          availableIn = libs.map((s) => s.replace(/"/g, ""));
+        }
+      }
+
+      // Extract codePath (explicit path override)
+      const codePathMatch = entryText.match(/codePath:\s*["']@\/([^"']+)["']/);
+      let componentPath = null;
+      let componentName = null;
+
+      if (codePathMatch) {
+        componentPath = codePathMatch[1];
+        // Normalize path: Remove generic 'components/' prefix and extension as convertToRegistryPath adds them
+        if (componentPath.startsWith("components/")) {
+          componentPath = componentPath.replace(/^components\//, "");
+        }
+        if (componentPath.endsWith(".tsx")) {
+          componentPath = componentPath.replace(/\.tsx$/, "");
+        }
+        // Determine componentName from path or generic
+        componentName = path.basename(componentPath, ".tsx");
+      } else {
+        // Extract component name from component property
+        const componentMatch = entryText.match(/component:\s*(\w+)/);
+        if (componentMatch) {
+          componentName = componentMatch[1];
+          componentPath = componentImports[componentName];
+        }
+      }
+
+      if (componentPath) {
+        entries.push({
+          id,
+          name,
+          description,
+          category,
+          componentName,
+          componentPath,
+          availableIn,
+        });
+      } else {
+        // warning only if we expected to find it
+        if (name) {
+          // primitive check if it's a valid entry
+          console.warn(
+            `⚠️  Could not find import path or codePath for component: ${id} in ${fileName}`
+          );
+        }
+      }
     }
   }
 
@@ -156,9 +221,50 @@ function convertToRegistryPath(componentPath) {
 }
 
 /**
+ * Convert component path to BaseUI variant path
+ * Handles the transformation from shadcnui path to baseui path
+ * Example: sections/shadcnui/hero-section -> sections/baseui/hero-section-baseui
+ */
+function convertToBaseuiPath(componentPath, componentId) {
+  // Replace shadcnui with baseui in the path
+  let baseuiPath = componentPath.replace(/\/shadcnui\//g, "/baseui/");
+
+  // Get the filename without extension
+  const pathParts = baseuiPath.split("/");
+  const filename = pathParts[pathParts.length - 1];
+
+  // Add -baseui suffix if not already present
+  if (!filename.endsWith("-baseui")) {
+    pathParts[pathParts.length - 1] = filename + "-baseui";
+    baseuiPath = pathParts.join("/");
+  }
+
+  return baseuiPath;
+}
+
+/**
+ * Check if a file exists for a given registry path
+ */
+function checkFileExists(registryPath) {
+  const fullPath = path.join(COMPONENTS_DIR, "..", registryPath);
+  return fs.existsSync(fullPath);
+}
+
+/**
+ * Get the target installation path for components
+ * All components install to: components/uitripled/component-name.tsx
+ */
+function getTargetPath(componentId, uiLibrary = null) {
+  if (uiLibrary) {
+    return `components/uitripled/${componentId}-${uiLibrary}`;
+  }
+  return `components/uitripled/${componentId}`;
+}
+
+/**
  * Determine registry dependencies based on component path and category
  */
-function getRegistryDependencies(componentPath, category) {
+function getRegistryDependencies(componentPath, category, uiLibrary = null) {
   const deps = [];
 
   // Common shadcn components that might be used
@@ -181,16 +287,25 @@ function getRegistryDependencies(componentPath, category) {
     "switch",
   ];
 
-  // Check if path suggests use of shadcn components
-  // This is a heuristic - you might need to adjust based on actual usage
-  if (category === "components" || category === "blocks") {
-    // Most components use button and card
-    if (!componentPath.includes("micro/buttons")) {
-      deps.push("button");
+  // Only add shadcn deps for shadcnui components or pure components
+  if (uiLibrary === "shadcnui" || uiLibrary === null) {
+    // Check if path suggests use of shadcn components
+    // This is a heuristic - you might need to adjust based on actual usage
+    if (category === "components" || category === "blocks") {
+      // Most components use button and card
+      if (!componentPath.includes("micro/buttons")) {
+        deps.push("button");
+      }
+      if (componentPath.includes("cards") || componentPath.includes("card")) {
+        deps.push("card");
+      }
     }
-    if (componentPath.includes("cards") || componentPath.includes("card")) {
-      deps.push("card");
-    }
+  }
+
+  // BaseUI components don't use shadcn dependencies
+  if (uiLibrary === "baseui") {
+    // Return minimal deps for baseui
+    return ["button"]; // Base UI still might need some basic components
   }
 
   return deps;
@@ -199,16 +314,18 @@ function getRegistryDependencies(componentPath, category) {
 /**
  * Determine dependencies based on imports in the file
  */
-function getDependencies(componentPath) {
+function getDependencies(componentPath, uiLibrary = null) {
   const deps = ["framer-motion"]; // Almost all components use framer-motion
 
-  // Check if likely to use lucide-react
-  if (
-    componentPath.includes("icons") ||
-    componentPath.includes("navigation") ||
-    componentPath.includes("tooltips")
-  ) {
-    deps.push("lucide-react");
+  // Check if likely to use lucide-react (mainly for shadcnui)
+  if (uiLibrary !== "baseui") {
+    if (
+      componentPath.includes("icons") ||
+      componentPath.includes("navigation") ||
+      componentPath.includes("tooltips")
+    ) {
+      deps.push("lucide-react");
+    }
   }
 
   // React is always needed
@@ -266,38 +383,93 @@ function getSubcategory(componentPath, category) {
 
 /**
  * Create registry entry from component data
+ * @param {Object} componentData - The component data
+ * @param {string|null} uiLibrary - The UI library variant (shadcnui, baseui, or null for pure)
  */
-function createRegistryEntry(componentData) {
+function createRegistryEntry(componentData, uiLibrary = null) {
   const { id, name, description, category, componentPath } = componentData;
   const registryCategory = CATEGORY_MAPPING[category] || category;
   const registryType = CATEGORY_TO_TYPE[category] || "registry:component";
 
+  // Determine entry name based on UI library
+  let entryName = id;
+  let entryTitle = name;
+  let entryDescription = description;
+  let entryPath = componentPath;
+
+  if (uiLibrary === "shadcnui") {
+    entryName = `${id}-shadcnui`;
+    entryTitle = name;
+    entryDescription = description;
+    // Keep original shadcnui path
+  } else if (uiLibrary === "baseui") {
+    entryName = `${id}-baseui`;
+    entryTitle = name;
+    entryDescription = description ? `${description} (Base UI)` : description;
+    // Convert to baseui path
+    entryPath = convertToBaseuiPath(componentPath, id);
+  }
+
   const entry = {
-    name: id,
+    name: entryName,
     type: registryType,
   };
 
   // Add title and description before registryDependencies
-  if (name) {
-    entry.title = name;
+  if (entryTitle) {
+    entry.title = entryTitle;
   }
-  if (description) {
-    entry.description = description;
+  if (entryDescription) {
+    entry.description = entryDescription;
   }
 
   // Add the rest of the fields
-  entry.registryDependencies = getRegistryDependencies(componentPath, category);
-  entry.dependencies = getDependencies(componentPath);
+  entry.registryDependencies = getRegistryDependencies(entryPath, category, uiLibrary);
+  entry.dependencies = getDependencies(entryPath, uiLibrary);
+
+  const registryPath = convertToRegistryPath(entryPath);
+
   entry.files = [
     {
-      path: convertToRegistryPath(componentPath),
+      path: registryPath,
       type: registryType,
+      target: getTargetPath(id, uiLibrary),
     },
   ];
   entry.category = registryCategory;
-  entry.subcategory = getSubcategory(componentPath, registryCategory);
+  entry.subcategory = getSubcategory(entryPath, registryCategory);
 
   return entry;
+}
+
+/**
+ * Generate all variant entries for a component based on availableIn
+ */
+function generateVariantEntries(componentData) {
+  const entries = [];
+  const { availableIn } = componentData;
+
+  if (!availableIn || availableIn.length === 0) {
+    // Pure component - no suffix, single entry
+    entries.push(createRegistryEntry(componentData, null));
+  } else {
+    // Generate entry for each UI library variant
+    for (const lib of availableIn) {
+      const entry = createRegistryEntry(componentData, lib);
+
+      // Verify the file exists before adding
+      const filePath = entry.files[0].path;
+      if (checkFileExists(filePath)) {
+        entries.push(entry);
+      } else {
+        console.warn(`⚠️  File not found for ${entry.name}: ${filePath}`);
+        // Still add the entry but mark it
+        entries.push(entry);
+      }
+    }
+  }
+
+  return entries;
 }
 
 /**
@@ -318,49 +490,71 @@ function syncRegistry() {
       existingItems.map((item) => [item.name, item])
     );
 
+    // Track which base IDs have suffixed versions
+    const idsWithSuffixes = new Set();
+
     // Create/update entries
     let added = 0;
     let updated = 0;
+    let removed = 0;
 
     for (const component of components) {
-      const registryEntry = createRegistryEntry(component);
-      const existing = existingItemsMap.get(component.id);
+      // Generate all variant entries for this component
+      const variantEntries = generateVariantEntries(component);
 
-      if (existing) {
-        // Update existing entry - rebuild in correct order
-        const updatedEntry = {
-          name: existing.name,
-          type: registryEntry.type,
-        };
+      // If this component has availableIn, track the base ID for cleanup
+      if (component.availableIn && component.availableIn.length > 0) {
+        idsWithSuffixes.add(component.id);
+      }
 
-        // Add title and description before registryDependencies
-        if (registryEntry.title || existing.title) {
-          updatedEntry.title = registryEntry.title || existing.title;
+      for (const registryEntry of variantEntries) {
+        const existing = existingItemsMap.get(registryEntry.name);
+
+        if (existing) {
+          // Update existing entry - rebuild in correct order
+          const updatedEntry = {
+            name: existing.name,
+            type: registryEntry.type,
+          };
+
+          // Add title and description before registryDependencies
+          if (registryEntry.title || existing.title) {
+            updatedEntry.title = registryEntry.title || existing.title;
+          }
+          if (registryEntry.description || existing.description) {
+            updatedEntry.description =
+              registryEntry.description || existing.description;
+          }
+
+          // Add the rest of the fields
+          updatedEntry.registryDependencies =
+            existing.registryDependencies?.length > 0
+              ? existing.registryDependencies
+              : registryEntry.registryDependencies;
+          updatedEntry.dependencies =
+            existing.dependencies?.length > 0
+              ? existing.dependencies
+              : registryEntry.dependencies;
+          updatedEntry.files = registryEntry.files; // Always update path
+          updatedEntry.category = registryEntry.category;
+          updatedEntry.subcategory = registryEntry.subcategory;
+
+          existingItemsMap.set(registryEntry.name, updatedEntry);
+          updated++;
+        } else {
+          // Add new entry
+          existingItemsMap.set(registryEntry.name, registryEntry);
+          added++;
         }
-        if (registryEntry.description || existing.description) {
-          updatedEntry.description =
-            registryEntry.description || existing.description;
-        }
+      }
+    }
 
-        // Add the rest of the fields
-        updatedEntry.registryDependencies =
-          existing.registryDependencies?.length > 0
-            ? existing.registryDependencies
-            : registryEntry.registryDependencies;
-        updatedEntry.dependencies =
-          existing.dependencies?.length > 0
-            ? existing.dependencies
-            : registryEntry.dependencies;
-        updatedEntry.files = registryEntry.files; // Always update path
-        updatedEntry.category = registryEntry.category;
-        updatedEntry.subcategory = registryEntry.subcategory;
-
-        existingItemsMap.set(component.id, updatedEntry);
-        updated++;
-      } else {
-        // Add new entry
-        existingItemsMap.set(component.id, registryEntry);
-        added++;
+    // Remove old un-suffixed entries that now have suffixed versions
+    for (const baseId of idsWithSuffixes) {
+      if (existingItemsMap.has(baseId)) {
+        existingItemsMap.delete(baseId);
+        removed++;
+        console.log(`🗑️  Removed old entry: ${baseId} (replaced by suffixed versions)`);
       }
     }
 
@@ -377,7 +571,7 @@ function syncRegistry() {
       "utf-8"
     );
 
-    console.log(`✅ Registry synced! Added: ${added}, Updated: ${updated}`);
+    console.log(`✅ Registry synced! Added: ${added}, Updated: ${updated}, Removed: ${removed}`);
     console.log(`📊 Total items in registry: ${registry.items.length}`);
   } catch (error) {
     console.error("❌ Error syncing registry:", error);

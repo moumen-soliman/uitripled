@@ -1,5 +1,5 @@
-import PreviewProjectPageClient from "./PreviewProjectPage.client";
 import { createMetadata } from "@/lib/seo";
+import PreviewProjectPageClient from "./PreviewProjectPage.client";
 
 type PreviewPageProps = {
   params: Promise<{

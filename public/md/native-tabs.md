@@ -9,7 +9,7 @@ component: true
 
 import * as React from "react"
 
-import { NativeTabs } from "@/components/native/native-tabs.tsx"
+import { NativeTabs } from "@/components/native/shadcnui/native-tabs-shadcnui.tsx"
 
 export function NativeTabsDemo() {
   return (
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-tabs
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-tabs" title="@/components/native/native-tabs.tsx" />
+<ComponentSource name="native-tabs" title="@/components/native/shadcnui/native-tabs-shadcnui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @uitripled/native-tabs
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeTabs } from "@/components/native/native-tabs.tsx"
+import { NativeTabs } from "@/components/native/shadcnui/native-tabs-shadcnui.tsx"
 ```
 
 ```tsx showLineNumbers
@@ -72,6 +72,8 @@ import { NativeTabs } from "@/components/native/native-tabs.tsx"
 - `react`
 
 This component uses **Framer Motion** for animations and motion effects.
+
+This component is built on top of **shadcn/ui** component primitives.
 
 ## Customization
 
@@ -99,7 +101,7 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeTabs } from "@/components/native/native-tabs.tsx"
+import { NativeTabs } from "@/components/native/shadcnui/native-tabs-shadcnui.tsx"
 
 export function BasicExample() {
   return (
