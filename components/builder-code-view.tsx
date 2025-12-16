@@ -27,6 +27,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { CodeBlock } from "./code-block";
+import { useUILibrary } from "@/components/ui-library-provider";
 
 type BuilderCodeViewProps = {
   pages: BuilderProjectPage[];
@@ -93,7 +94,8 @@ const slugifyName = (value: string) =>
 
 const buildPageCode = async (
   currentPage: BuilderProjectPage,
-  allPages: BuilderProjectPage[]
+  allPages: BuilderProjectPage[],
+  selectedLibrary: string = "shadcnui"
 ): Promise<string> => {
   const components = currentPage.components;
 
@@ -107,7 +109,15 @@ const buildPageCode = async (
     // If code is not available, fetch it from the API
     if (!animationCode && component.animation.id) {
       try {
-        const response = await fetch(`/api/registry/${component.animation.id}`);
+        // Try library-specific variant first (e.g., detail-task-card-shadcnui)
+        const libraryId = `${component.animation.id}-${selectedLibrary}`;
+        let response = await fetch(`/api/registry/${libraryId}`);
+
+        // Fallback to base ID if library-specific variant doesn't exist
+        if (!response.ok) {
+          response = await fetch(`/api/registry/${component.animation.id}`);
+        }
+
         if (response.ok) {
           const data = await response.json();
           // The API returns files array with content property
@@ -349,6 +359,7 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
   const [pageArtifacts, setPageArtifacts] = useState<PageArtifact[]>([]);
   const [loadingCode, setLoadingCode] = useState(false);
   const router = useRouter();
+  const { selectedLibrary } = useUILibrary();
 
   const totalComponentCount = useMemo(
     () => pages.reduce((sum, page) => sum + page.components.length, 0),
@@ -367,7 +378,7 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
             id: page.id,
             name: page.name,
             slug: page.slug,
-            code: await buildPageCode(page, pages),
+            code: await buildPageCode(page, pages, selectedLibrary),
             componentCount: page.components.length,
           }))
         );
@@ -392,7 +403,7 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
     return () => {
       cancelled = true;
     };
-  }, [pages]);
+  }, [pages, selectedLibrary]);
 
   const pageCodeMap = useMemo(() => {
     const map: Record<string, string> = {};
@@ -488,7 +499,7 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
           animationId: component.animationId,
           textContent: component.textContent ?? {},
         })),
-        code: pageCodeMap[page.id] || (await buildPageCode(page, pages)),
+        code: pageCodeMap[page.id] || (await buildPageCode(page, pages, selectedLibrary)),
       }))
     );
 
@@ -498,7 +509,7 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
       slug: "home",
       components: [],
     };
-    const fallbackCode = await buildPageCode(fallbackPage, [fallbackPage]);
+    const fallbackCode = await buildPageCode(fallbackPage, [fallbackPage], selectedLibrary);
 
     // Generate a short unique ID (5 characters) for the project if it doesn't exist
     const generateShortId = () => {
@@ -744,13 +755,13 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
           slug: "home",
           components: [],
         };
-        const code = await buildPageCode(fallbackPage, [fallbackPage]);
+        const code = await buildPageCode(fallbackPage, [fallbackPage], selectedLibrary);
         setDisplayedCode(code);
       }
     }
 
     loadDisplayedCode();
-  }, [activeArtifact]);
+  }, [activeArtifact, selectedLibrary]);
 
   return (
     <>
