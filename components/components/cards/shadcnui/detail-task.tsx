@@ -366,7 +366,7 @@ export function DetailTaskCard() {
           </div>
 
           <div className="flex flex-col gap-4 rounded-2xl border border-border/40 bg-background/40 px-4 py-4 backdrop-blur md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center gap-3">
+            <div className="md:flex space-y-2 md:space-y-0 items-center gap-3">
               <motion.button
                 type="button"
                 role="switch"

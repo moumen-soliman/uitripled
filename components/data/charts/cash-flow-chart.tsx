@@ -205,7 +205,7 @@ export function CashFlowChart() {
             initial={shouldAnimate ? { scale: 0.95 } : { scale: 1 }}
             animate={{ scale: 1 }}
             transition={shouldAnimate ? { duration: 0.4 } : { duration: 0 }}
-            className="text-5xl font-bold text-foreground"
+            className="text-3xl md:text-5xl font-bold text-foreground"
           >
             {formatCurrency(
               displayData.reduce((total, datum) => total + datum.cashflow, 0)

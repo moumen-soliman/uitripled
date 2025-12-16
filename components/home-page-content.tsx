@@ -56,7 +56,7 @@ export default function HomePageContent() {
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-center flex items-center justify-center gap-2"
+            className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-center md:flex items-center justify-center gap-2"
           >
             When Framer Motion meets <HeroFlip />
           </motion.p>
@@ -66,7 +66,7 @@ export default function HomePageContent() {
             transition={{ duration: 0.3, delay: 0.05 }}
             className="text-center text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
           >
-            Browse, copy, and ship
+            Browse, install, and ship
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 6 }}
