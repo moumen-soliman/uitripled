@@ -8,7 +8,9 @@ import { Component, ComponentCategory, categoryNames } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronRight, Search } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
+
+// --- Types ---
 
 type AnimationsSidebarProps = {
   selectedComponent: Component | null;
@@ -16,6 +18,133 @@ type AnimationsSidebarProps = {
   useLinks?: boolean;
   target?: string | null;
 };
+
+type SidebarItemProps = {
+  component: Component;
+  isSelected: boolean;
+  useLinks: boolean;
+  onSelect: ((component: Component) => void) | undefined;
+};
+
+type SidebarCategoryProps = {
+  category: ComponentCategory | "all";
+  animations: Component[];
+  isExpanded: boolean;
+  onToggle: (category: ComponentCategory | "all") => void;
+  selectedComponentId: string | undefined;
+  onSelectComponent?: (component: Component) => void;
+  useLinks: boolean;
+};
+
+// --- Components ---
+
+const SidebarItem = memo(function SidebarItem({
+  component,
+  isSelected,
+  useLinks,
+  onSelect,
+}: SidebarItemProps) {
+  const showProBadge = false; // No pro badge shown currently
+
+  const itemClass = `flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs transition-colors ${
+    isSelected
+      ? "bg-primary text-primary-foreground"
+      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+  }`;
+
+  if (useLinks) {
+    return (
+      <Link href={`/components/${component.id}`} className={itemClass}>
+        <span className="flex-1 truncate">{component.name}</span>
+        {showProBadge && (
+          <span
+            className={`ml-2 whitespace-nowrap rounded border px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
+              isSelected
+                ? "border-primary-foreground/80 bg-primary-foreground/10 text-primary-foreground"
+                : "backdrop-blur-sm border border-border bg-black/10 rounded-sm"
+            }`}
+          >
+            PRO
+          </span>
+        )}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      onClick={() => onSelect?.(component)}
+      className={itemClass}
+      type="button"
+    >
+      <span className="flex-1 truncate">{component.name}</span>
+    </button>
+  );
+});
+
+const SidebarCategory = memo(function SidebarCategory({
+  category,
+  animations,
+  isExpanded,
+  onToggle,
+  selectedComponentId,
+  onSelectComponent,
+  useLinks,
+}: SidebarCategoryProps) {
+  const hasAnimations = animations.length > 0;
+
+  // Memoize the list of items to prevent re-rendering all items when only one changes selection
+  const items = useMemo(() => {
+    return animations.map((component) => (
+      <SidebarItem
+        key={component.id}
+        component={component}
+        isSelected={selectedComponentId === component.id}
+        useLinks={useLinks}
+        onSelect={onSelectComponent}
+      />
+    ));
+  }, [animations, selectedComponentId, useLinks, onSelectComponent]);
+
+  return (
+    <div className="mb-1">
+      <button
+        onClick={() => onToggle(category)}
+        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      >
+        {isExpanded ? (
+          <ChevronDown className="h-4 w-4" />
+        ) : (
+          <ChevronRight className="h-4 w-4" />
+        )}
+        <span className="flex-1 text-left">
+          {category === "all" ? "All" : categoryNames[category]}
+        </span>
+        <span className="text-xs text-muted-foreground/60">
+          {animations.length}
+        </span>
+      </button>
+
+      <AnimatePresence>
+        {isExpanded && hasAnimations && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="ml-4 mt-1 space-y-0.5 border-l border-border pl-2">
+              {items}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+});
+
+// --- Main Component ---
 
 export function AnimationsSidebar({
   selectedComponent,
@@ -95,8 +224,6 @@ export function AnimationsSidebar({
     let filtered = componentsRegistry.filter((anim) => anim.display !== false);
 
     // Filter by selected UI library
-    // If availableIn is not specified, component defaults to shadcnui only
-    // Carbon = pure React, accessible from both shadcnui and baseui
     filtered = filtered.filter((anim) => {
       const availableLibraries = anim.availableIn || ["shadcnui"];
 
@@ -147,7 +274,7 @@ export function AnimationsSidebar({
     return grouped;
   }, [filteredAnimations]);
 
-  const toggleCategory = (category: ComponentCategory | "all") => {
+  const toggleCategory = useCallback((category: ComponentCategory | "all") => {
     setExpandedCategories((prev) => {
       const next = new Set(prev);
       if (next.has(category)) {
@@ -157,7 +284,7 @@ export function AnimationsSidebar({
       }
       return next;
     });
-  };
+  }, []);
 
   return (
     <div className="flex h-full flex-col bg-background overflow-hidden">
@@ -181,96 +308,18 @@ export function AnimationsSidebar({
       {/* Categories List */}
       <ScrollArea className="flex-1">
         <div className="p-2 pb-8">
-          {categories.map((category) => {
-            const animations = animationsByCategory[category];
-            const isExpanded = expandedCategories.has(category);
-            const hasAnimations = animations.length > 0;
-
-            return (
-              <div key={category} className="mb-1">
-                <button
-                  onClick={() => toggleCategory(category)}
-                  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                >
-                  {isExpanded ? (
-                    <ChevronDown className="h-4 w-4" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4" />
-                  )}
-                  <span className="flex-1 text-left">
-                    {category === "all" ? "All" : categoryNames[category]}
-                  </span>
-                  <span className="text-xs text-muted-foreground/60">
-                    {animations.length}
-                  </span>
-                </button>
-
-                <AnimatePresence>
-                  {isExpanded && hasAnimations && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="ml-4 mt-1 space-y-0.5 border-l border-border pl-2">
-                        {animations.map((component) => {
-                          const isSelected =
-                            selectedComponent?.id === component.id;
-                          const isFree = component.isFree !== false;
-                          const hasAccess = true; // All features accessible
-                          const showProBadge = false; // No pro badge shown
-                          const itemClass = `flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs transition-colors ${
-                            isSelected
-                              ? "bg-primary text-primary-foreground"
-                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                          }`;
-
-                          if (useLinks) {
-                            return (
-                              <Link
-                                key={component.id}
-                                href={`/components/${component.id}`}
-                                className={itemClass}
-                              >
-                                <span className="flex-1 truncate">
-                                  {component.name}
-                                </span>
-                                {showProBadge && (
-                                  <span
-                                    className={`ml-2 whitespace-nowrap rounded border px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
-                                      isSelected
-                                        ? "border-primary-foreground/80 bg-primary-foreground/10 text-primary-foreground"
-                                        : "backdrop-blur-sm border border-border bg-black/10 rounded-sm"
-                                    }`}
-                                  >
-                                    PRO
-                                  </span>
-                                )}
-                              </Link>
-                            );
-                          }
-
-                          return (
-                            <button
-                              key={component.id}
-                              onClick={() => onSelectComponent?.(component)}
-                              className={itemClass}
-                            >
-                              <span className="flex-1 truncate">
-                                {component.name}
-                              </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
+          {categories.map((category) => (
+            <SidebarCategory
+              key={category}
+              category={category}
+              animations={animationsByCategory[category]}
+              isExpanded={expandedCategories.has(category)}
+              onToggle={toggleCategory}
+              selectedComponentId={selectedComponent?.id}
+              onSelectComponent={onSelectComponent}
+              useLinks={useLinks}
+            />
+          ))}
         </div>
       </ScrollArea>
     </div>
