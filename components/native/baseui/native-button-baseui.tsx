@@ -23,6 +23,7 @@ export interface NativeButtonProps extends Omit<BaseButtonProps, "className"> {
     | "link";
   size?: "default" | "sm" | "lg" | "icon";
   className?: string;
+  href?: string;
 }
 
 const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
@@ -43,7 +44,7 @@ const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
       <>
         {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
         <motion.span
-          className={cn("flex items-center gap-2")}
+          className={cn("flex items-center gap-2 w-full")}
           animate={loading ? { opacity: [1, 0.5, 1] } : { opacity: 1 }}
           transition={
             loading
@@ -93,6 +94,22 @@ const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
     // or we could use a different approach if critical.
     // The glow effect moves inside.
 
+    if (props.href) {
+      return (
+        <a
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          className={glassmorphismClassName}
+          aria-disabled={disabled || loading}
+          {...(props as any)}
+        >
+          {glow && !disabled && !loading && (
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          )}
+          {buttonContent}
+        </a>
+      )
+    }
+
     return (
       <Button
         ref={ref}
@@ -107,7 +124,7 @@ const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
         )}
         {buttonContent}
       </Button>
-    );
+    )
   }
 );
 NativeButton.displayName = "NativeButton";

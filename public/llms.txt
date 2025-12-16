@@ -2,11 +2,11 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2025-12-16T02:43:29.972Z
+**Last Updated:** 2025-12-16T12:39:51.833Z
 
 ## Table of Contents
 
-- Components (159 items)
+- Components (161 items)
 - Blocks (73 items)
 - Pages (23 items)
 - UI Elements (19 items)
@@ -174,6 +174,8 @@
 - [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-baseui): Floating action button that morphs into a menu of actions. (Base UI)
 - [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-carbon): Floating action button that morphs into a menu of actions.
 - [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-shadcnui): Floating action button that morphs into a menu of actions.
+- [Native Nested List](https://ui.tripled.work/components/native-nested-list): A nested list component with smooth expand/collapse animations, perfect for file explorers or navigation menus.
+- [Native Nested List](https://ui.tripled.work/components/native-nested-list-baseui): A nested list component with smooth expand/collapse animations. (Base UI)
 - [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell): Animated notification bell with badge and ringing effect.
 - [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-baseui): Animated notification bell with badge and ringing effect. (Base UI)
 - [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-carbon): Animated notification bell with badge and ringing effect.

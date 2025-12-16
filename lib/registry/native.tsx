@@ -165,6 +165,10 @@ import { NativeTabs } from "@/components/native/shadcnui/native-tabs-shadcnui";
 import { NativeTooltip } from "@/components/native/shadcnui/native-tooltip-shadcnui";
 import { SocialLoginButton } from "@/components/native/shadcnui/social-login-button-shadcnui";
 
+import { NativeNestedList } from "@/components/native/shadcnui/native-nested-list-shadcnui";
+import { NativeNestedListDemo } from "@/components/native/shadcnui/demo/native-nested-list-demo";
+import { NativeNestedListBaseUI } from "@/components/native/baseui/native-nested-list-baseui";
+
 export const nativeComponents: Component[] = [
   {
     id: "native-tooltip",
@@ -2166,6 +2170,52 @@ export const nativeComponents: Component[] = [
     tags: [],
     component: NativeDelete,
     codePath: "@/components/native/baseui/native-delete-baseui.tsx",
+    display: false,
+    availableIn: ["baseui"],
+  },
+  {
+    id: "native-nested-list",
+    name: "Native Nested List",
+    description:
+      "A nested list component with smooth expand/collapse animations, perfect for file explorers or navigation menus.",
+    category: "native",
+    tags: ["list", "nested", "tree", "navigation", "native", "framer-motion"],
+    component: NativeNestedList,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard nested list information",
+        component: NativeNestedListDemo,
+        code: `<NativeNestedList
+  items={[
+    {
+      id: "1",
+      label: "Documents",
+      icon: <Folder className="h-4 w-4" />,
+      children: [
+        { id: "1-1", label: "Project Specs", icon: <File className="h-4 w-4" /> },
+      ],
+    },
+  ]}
+/>`,
+      },
+    ],
+    codePath: "@/components/native/shadcnui/native-nested-list-shadcnui.tsx",
+    duration: "300ms",
+    easing: "spring",
+    display: true,
+    availableIn: ["shadcnui", "baseui"],
+  },
+  {
+    id: "native-nested-list-baseui",
+    name: "Native Nested List",
+    description:
+      "A nested list component with smooth expand/collapse animations.",
+    category: "native",
+    tags: [],
+    component: NativeNestedListBaseUI,
+    codePath: "@/components/native/baseui/native-nested-list-baseui.tsx",
     display: false,
     availableIn: ["baseui"],
   },

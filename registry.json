@@ -4210,6 +4210,48 @@
       "subcategory": null
     },
     {
+      "name": "native-nested-list",
+      "type": "registry:component",
+      "title": "Native Nested List",
+      "description": "A nested list component with smooth expand/collapse animations, perfect for file explorers or navigation menus.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/shadcnui/native-nested-list-shadcnui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-nested-list.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-nested-list-baseui",
+      "type": "registry:component",
+      "title": "Native Nested List",
+      "description": "A nested list component with smooth expand/collapse animations. (Base UI)",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/baseui/native-nested-list-baseui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-nested-list-baseui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
       "name": "native-notification-bell",
       "type": "registry:component",
       "title": "Native Notification Bell",
