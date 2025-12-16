@@ -38,6 +38,12 @@ npx shadcn@latest add @uitripled/native-start-now-baseui
 
 <Steps>
 
+<Step>Add the required components to your project.</Step>
+
+The `Native Start Now` component uses the following components. Make sure you have them installed in your project.
+
+- button
+
 <Step>Copy and paste the following code into your project.</Step>
 
 <ComponentSource name="native-start-now-baseui" title="@/components/native/baseui/native-start-now-baseui.tsx" />
@@ -71,7 +77,12 @@ import { NativeStartNow } from "@/components/native/baseui/native-start-now-base
 - `framer-motion`
 - `react`
 
+**UI Components**:
+- button
+
 This component uses **Framer Motion** for animations and motion effects.
+
+This component is built on top of **shadcn/ui** component primitives.
 
 ## Customization
 
@@ -121,4 +132,4 @@ This component is part of the UI TripleD component library, a collection of prod
 
 ## Related Components
 
-No related components.
+- [button](/docs/components/button)

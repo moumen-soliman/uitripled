@@ -203,27 +203,6 @@
       "subcategory": null
     },
     {
-      "name": "animated-badge",
-      "type": "registry:ui",
-      "title": "Animated Badge",
-      "description": "Badge with scale and spin animation",
-      "registryDependencies": [
-        "badge"
-      ],
-      "dependencies": [
-        "framer-motion",
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "components/micro/badges/animated-badge.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "category": "micro",
-      "subcategory": "badges"
-    },
-    {
       "name": "animated-card-stack-baseui",
       "type": "registry:component",
       "title": "Animated Card Stack",
@@ -797,6 +776,26 @@
       "subcategory": null
     },
     {
+      "name": "cash-flow-chart",
+      "type": "registry:ui",
+      "title": "Accessible Cash Flow Chart",
+      "description": "Interactive cash flow bar chart with keyboard focus, tooltips, and screen reader support",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/data/charts/cash-flow-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/uitripled/cash-flow-chart-carbon.tsx"
+        }
+      ],
+      "category": "data",
+      "subcategory": "charts"
+    },
+    {
       "name": "chat-app",
       "type": "registry:component",
       "title": "Chat App",
@@ -1084,25 +1083,6 @@
       ],
       "category": "components",
       "subcategory": null
-    },
-    {
-      "name": "counter-up",
-      "type": "registry:ui",
-      "title": "Animated Counter",
-      "description": "Number counter that animates up from zero",
-      "registryDependencies": [],
-      "dependencies": [
-        "framer-motion",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/data/progress/counter-up.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "category": "data",
-      "subcategory": "progress"
     },
     {
       "name": "course-content-page",
@@ -3234,46 +3214,6 @@
       "subcategory": null
     },
     {
-      "name": "magnetic-button",
-      "type": "registry:ui",
-      "title": "Magnetic Button",
-      "description": "Button that magnetically follows your cursor",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "framer-motion",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/micro/buttons/magnetic-button.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "category": "micro",
-      "subcategory": "buttons"
-    },
-    {
-      "name": "magnetic-cursor-link",
-      "type": "registry:ui",
-      "title": "Magnetic Cursor Link",
-      "description": "Link that slightly follows mouse cursor within boundary and snaps back",
-      "registryDependencies": [],
-      "dependencies": [
-        "framer-motion",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/motion-core/magnetic-cursor-link.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "category": "micro",
-      "subcategory": null
-    },
-    {
       "name": "messenger",
       "type": "registry:component",
       "title": "Messenger",
@@ -3357,26 +3297,6 @@
           "path": "components/motion-core/mood-gradient-button.tsx",
           "type": "registry:ui",
           "target": "components/uitripled/mood-gradient-button.tsx"
-        }
-      ],
-      "category": "micro",
-      "subcategory": null
-    },
-    {
-      "name": "morphing-action-button",
-      "type": "registry:ui",
-      "title": "Morphing Action Button",
-      "description": "A circular FAB that morphs into a rectangular action panel using layoutId",
-      "registryDependencies": [],
-      "dependencies": [
-        "framer-motion",
-        "lucide-react",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/motion-core/morphing-action-button.tsx",
-          "type": "registry:ui"
         }
       ],
       "category": "micro",
@@ -3470,7 +3390,7 @@
       "subcategory": null
     },
     {
-      "name": "native-avatar-expand-baseui-baseui",
+      "name": "native-avatar-expand-baseui",
       "type": "registry:component",
       "title": "Native Avatar Expand",
       "description": "Avatar component that expands to reveal the name on click with smooth animations. (Base UI)",
@@ -3485,14 +3405,14 @@
         {
           "path": "components/native/baseui/native-avatar-expand-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-avatar-expand-baseui-baseui.tsx"
+          "target": "components/uitripled/native-avatar-expand-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-avatar-expand-shadcnui-shadcnui",
+      "name": "native-avatar-expand-shadcnui",
       "type": "registry:component",
       "title": "Native Avatar Expand",
       "description": "Avatar component that expands to reveal the name on click with smooth animations.",
@@ -3505,7 +3425,7 @@
         {
           "path": "components/native/shadcnui/native-avatar-expand-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-avatar-expand-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-avatar-expand-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -3532,7 +3452,7 @@
       "subcategory": null
     },
     {
-      "name": "native-avatar-with-name-baseui-baseui",
+      "name": "native-avatar-with-name-baseui",
       "type": "registry:component",
       "title": "Native Avatar With Name",
       "description": "Avatar component that displays a name tooltip on hover with directional animations. (Base UI)",
@@ -3547,14 +3467,14 @@
         {
           "path": "components/native/baseui/native-avatar-with-name-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-avatar-with-name-baseui-baseui.tsx"
+          "target": "components/uitripled/native-avatar-with-name-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-avatar-with-name-shadcnui-shadcnui",
+      "name": "native-avatar-with-name-shadcnui",
       "type": "registry:component",
       "title": "Native Avatar With Name",
       "description": "Avatar component that displays a name tooltip on hover with directional animations.",
@@ -3567,7 +3487,7 @@
         {
           "path": "components/native/shadcnui/native-avatar-with-name-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-avatar-with-name-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-avatar-with-name-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -3594,6 +3514,26 @@
       "subcategory": null
     },
     {
+      "name": "native-badge-carbon",
+      "type": "registry:component",
+      "title": "Native Badge",
+      "description": "Animated badge component with glass, glow, and outline variants for native feel.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-badge-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-badge-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
       "name": "native-button",
       "type": "registry:component",
       "title": "Native Button",
@@ -3614,7 +3554,7 @@
       "subcategory": null
     },
     {
-      "name": "native-button-baseui-baseui",
+      "name": "native-button-baseui",
       "type": "registry:component",
       "title": "Native Button",
       "description": "Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling (Base UI)",
@@ -3629,14 +3569,14 @@
         {
           "path": "components/native/baseui/native-button-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-button-baseui-baseui.tsx"
+          "target": "components/uitripled/native-button-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-button-shadcnui-shadcnui",
+      "name": "native-button-shadcnui",
       "type": "registry:component",
       "title": "Native Button",
       "description": "Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling",
@@ -3649,7 +3589,7 @@
         {
           "path": "components/native/shadcnui/native-button-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-button-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-button-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -3676,6 +3616,26 @@
       "subcategory": null
     },
     {
+      "name": "native-counter-up-carbon",
+      "type": "registry:component",
+      "title": "Native Counter Up",
+      "description": "Animated number counter with smooth easing and accessibility support.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-counter-up-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-counter-up-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
       "name": "native-delete",
       "type": "registry:component",
       "title": "Native Delete",
@@ -3696,7 +3656,7 @@
       "subcategory": null
     },
     {
-      "name": "native-delete-baseui-baseui",
+      "name": "native-delete-baseui",
       "type": "registry:component",
       "title": "Native Delete",
       "description": "Delete button that expands to show a confirmation button with smooth animations. (Base UI)",
@@ -3711,14 +3671,14 @@
         {
           "path": "components/native/baseui/native-delete-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-delete-baseui-baseui.tsx"
+          "target": "components/uitripled/native-delete-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-delete-shadcnui-shadcnui",
+      "name": "native-delete-shadcnui",
       "type": "registry:component",
       "title": "Native Delete",
       "description": "Delete button that expands to show a confirmation button with smooth animations.",
@@ -3731,7 +3691,7 @@
         {
           "path": "components/native/shadcnui/native-delete-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-delete-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-delete-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -3758,7 +3718,7 @@
       "subcategory": null
     },
     {
-      "name": "native-dialog-baseui-baseui",
+      "name": "native-dialog-baseui",
       "type": "registry:component",
       "title": "Native Dialog",
       "description": "A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals. (Base UI)",
@@ -3773,14 +3733,14 @@
         {
           "path": "components/native/baseui/native-dialog-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-dialog-baseui-baseui.tsx"
+          "target": "components/uitripled/native-dialog-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-dialog-shadcnui-shadcnui",
+      "name": "native-dialog-shadcnui",
       "type": "registry:component",
       "title": "Native Dialog",
       "description": "A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.",
@@ -3793,7 +3753,7 @@
         {
           "path": "components/native/shadcnui/native-dialog-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-dialog-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-dialog-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -3820,6 +3780,26 @@
       "subcategory": null
     },
     {
+      "name": "native-flip-text-carbon",
+      "type": "registry:component",
+      "title": "Native Flip Text",
+      "description": "Text that flips through words with a 3D blur transition.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-flip-text-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-flip-text-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
       "name": "native-follow-cursor",
       "type": "registry:component",
       "title": "Native Follow Cursor",
@@ -3834,6 +3814,26 @@
           "path": "components/native/carbon/native-follow-cursor-carbon.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-follow-cursor.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-follow-cursor-carbon",
+      "type": "registry:component",
+      "title": "Native Follow Cursor",
+      "description": "Label that smoothly follows the cursor with spring physics and customizable variants.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-follow-cursor-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-follow-cursor-carbon.tsx"
         }
       ],
       "category": "native",
@@ -3860,7 +3860,7 @@
       "subcategory": null
     },
     {
-      "name": "native-hover-card-baseui-baseui",
+      "name": "native-hover-card-baseui",
       "type": "registry:component",
       "title": "Native Hover Card",
       "description": "Avatar card that expands on hover to reveal profile information with smooth animations. (Base UI)",
@@ -3875,14 +3875,14 @@
         {
           "path": "components/native/baseui/native-hover-card-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-hover-card-baseui-baseui.tsx"
+          "target": "components/uitripled/native-hover-card-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-hover-card-shadcnui-shadcnui",
+      "name": "native-hover-card-shadcnui",
       "type": "registry:component",
       "title": "Native Hover Card",
       "description": "Avatar card that expands on hover to reveal profile information with smooth animations.",
@@ -3895,7 +3895,7 @@
         {
           "path": "components/native/shadcnui/native-hover-card-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-hover-card-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-hover-card-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -3922,7 +3922,7 @@
       "subcategory": null
     },
     {
-      "name": "native-image-checkbox-baseui-baseui",
+      "name": "native-image-checkbox-baseui",
       "type": "registry:component",
       "title": "Native Image Checkbox",
       "description": "Image checkbox component with grayscale filter and checkmark indicator. (Base UI)",
@@ -3937,14 +3937,34 @@
         {
           "path": "components/native/baseui/native-image-checkbox-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-image-checkbox-baseui-baseui.tsx"
+          "target": "components/uitripled/native-image-checkbox-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-image-checkbox-shadcnui-shadcnui",
+      "name": "native-image-checkbox-carbon",
+      "type": "registry:component",
+      "title": "Native Image Checkbox",
+      "description": "Image checkbox component with grayscale filter and checkmark indicator.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-image-checkbox-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-image-checkbox-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-image-checkbox-shadcnui",
       "type": "registry:component",
       "title": "Native Image Checkbox",
       "description": "Image checkbox component with grayscale filter and checkmark indicator.",
@@ -3957,7 +3977,7 @@
         {
           "path": "components/native/shadcnui/native-image-checkbox-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-image-checkbox-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-image-checkbox-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -3984,7 +4004,7 @@
       "subcategory": null
     },
     {
-      "name": "native-liquid-button-baseui-baseui",
+      "name": "native-liquid-button-baseui",
       "type": "registry:component",
       "title": "Native Liquid Button",
       "description": "Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions. (Base UI)",
@@ -3999,14 +4019,14 @@
         {
           "path": "components/native/baseui/native-liquid-button-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-liquid-button-baseui-baseui.tsx"
+          "target": "components/uitripled/native-liquid-button-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-liquid-button-shadcnui-shadcnui",
+      "name": "native-liquid-button-shadcnui",
       "type": "registry:component",
       "title": "Native Liquid Button",
       "description": "Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions.",
@@ -4019,7 +4039,7 @@
         {
           "path": "components/native/shadcnui/native-liquid-button-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-liquid-button-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-liquid-button-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -4046,7 +4066,7 @@
       "subcategory": null
     },
     {
-      "name": "native-magnetic-baseui-baseui",
+      "name": "native-magnetic-baseui",
       "type": "registry:component",
       "title": "Native Magnetic",
       "description": "Magnetic wrapper that applies a cursor-following effect to any content. (Base UI)",
@@ -4061,14 +4081,34 @@
         {
           "path": "components/native/baseui/native-magnetic-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-magnetic-baseui-baseui.tsx"
+          "target": "components/uitripled/native-magnetic-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-magnetic-shadcnui-shadcnui",
+      "name": "native-magnetic-carbon",
+      "type": "registry:component",
+      "title": "Native Magnetic",
+      "description": "Magnetic wrapper that applies a cursor-following effect to any content.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-magnetic-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-magnetic-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-magnetic-shadcnui",
       "type": "registry:component",
       "title": "Native Magnetic",
       "description": "Magnetic wrapper that applies a cursor-following effect to any content.",
@@ -4081,7 +4121,7 @@
         {
           "path": "components/native/shadcnui/native-magnetic-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-magnetic-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-magnetic-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -4108,7 +4148,7 @@
       "subcategory": null
     },
     {
-      "name": "native-morphing-button-baseui-baseui",
+      "name": "native-morphing-button-baseui",
       "type": "registry:component",
       "title": "Native Morphing Button",
       "description": "Floating action button that morphs into a menu of actions. (Base UI)",
@@ -4123,14 +4163,34 @@
         {
           "path": "components/native/baseui/native-morphing-button-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-morphing-button-baseui-baseui.tsx"
+          "target": "components/uitripled/native-morphing-button-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-morphing-button-shadcnui-shadcnui",
+      "name": "native-morphing-button-carbon",
+      "type": "registry:component",
+      "title": "Native Morphing Button",
+      "description": "Floating action button that morphs into a menu of actions.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-morphing-button-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-morphing-button-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-morphing-button-shadcnui",
       "type": "registry:component",
       "title": "Native Morphing Button",
       "description": "Floating action button that morphs into a menu of actions.",
@@ -4143,7 +4203,7 @@
         {
           "path": "components/native/shadcnui/native-morphing-button-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-morphing-button-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-morphing-button-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -4170,7 +4230,7 @@
       "subcategory": null
     },
     {
-      "name": "native-notification-bell-baseui-baseui",
+      "name": "native-notification-bell-baseui",
       "type": "registry:component",
       "title": "Native Notification Bell",
       "description": "Animated notification bell with badge and ringing effect. (Base UI)",
@@ -4185,14 +4245,34 @@
         {
           "path": "components/native/baseui/native-notification-bell-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-notification-bell-baseui-baseui.tsx"
+          "target": "components/uitripled/native-notification-bell-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-notification-bell-shadcnui-shadcnui",
+      "name": "native-notification-bell-carbon",
+      "type": "registry:component",
+      "title": "Native Notification Bell",
+      "description": "Animated notification bell with badge and ringing effect.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-notification-bell-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-notification-bell-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-notification-bell-shadcnui",
       "type": "registry:component",
       "title": "Native Notification Bell",
       "description": "Animated notification bell with badge and ringing effect.",
@@ -4205,7 +4285,7 @@
         {
           "path": "components/native/shadcnui/native-notification-bell-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-notification-bell-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-notification-bell-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -4232,7 +4312,7 @@
       "subcategory": null
     },
     {
-      "name": "native-start-now-baseui-baseui",
+      "name": "native-start-now-baseui",
       "type": "registry:component",
       "title": "Native Start Now",
       "description": "Animated button with sparkle effects, loading states, and smooth transitions for starting actions. (Base UI)",
@@ -4247,14 +4327,14 @@
         {
           "path": "components/native/baseui/native-start-now-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-start-now-baseui-baseui.tsx"
+          "target": "components/uitripled/native-start-now-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-start-now-shadcnui-shadcnui",
+      "name": "native-start-now-shadcnui",
       "type": "registry:component",
       "title": "Native Start Now",
       "description": "Animated button with sparkle effects, loading states, and smooth transitions for starting actions.",
@@ -4267,7 +4347,7 @@
         {
           "path": "components/native/shadcnui/native-start-now-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-start-now-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-start-now-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -4294,7 +4374,7 @@
       "subcategory": null
     },
     {
-      "name": "native-tabs-baseui-baseui",
+      "name": "native-tabs-baseui",
       "type": "registry:component",
       "title": "Native Tabs",
       "description": "A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations. (Base UI)",
@@ -4309,14 +4389,34 @@
         {
           "path": "components/native/baseui/native-tabs-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-tabs-baseui-baseui.tsx"
+          "target": "components/uitripled/native-tabs-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-tabs-shadcnui-shadcnui",
+      "name": "native-tabs-carbon",
+      "type": "registry:component",
+      "title": "Native Tabs",
+      "description": "A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/carbon/native-tabs-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-tabs-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-tabs-shadcnui",
       "type": "registry:component",
       "title": "Native Tabs",
       "description": "A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.",
@@ -4329,7 +4429,7 @@
         {
           "path": "components/native/shadcnui/native-tabs-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-tabs-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-tabs-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -4356,7 +4456,7 @@
       "subcategory": null
     },
     {
-      "name": "native-tooltip-baseui-baseui",
+      "name": "native-tooltip-baseui",
       "type": "registry:component",
       "title": "Native Tooltip",
       "description": "A glassmorphism-styled tooltip with smooth spring animations using Framer Motion. (Base UI)",
@@ -4371,14 +4471,14 @@
         {
           "path": "components/native/baseui/native-tooltip-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-tooltip-baseui-baseui.tsx"
+          "target": "components/uitripled/native-tooltip-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "native-tooltip-shadcnui-shadcnui",
+      "name": "native-tooltip-shadcnui",
       "type": "registry:component",
       "title": "Native Tooltip",
       "description": "A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.",
@@ -4391,7 +4491,7 @@
         {
           "path": "components/native/shadcnui/native-tooltip-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-tooltip-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/native-tooltip-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -4418,7 +4518,7 @@
       "subcategory": null
     },
     {
-      "name": "native-typewriter-baseui-baseui",
+      "name": "native-typewriter-baseui",
       "type": "registry:component",
       "title": "Native Typewriter",
       "description": "Typewriter effect with speed control, looping, and blinking cursor. (Base UI)",
@@ -4433,7 +4533,7 @@
         {
           "path": "components/native/baseui/native-typewriter-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/native-typewriter-baseui-baseui.tsx"
+          "target": "components/uitripled/native-typewriter-baseui.tsx"
         }
       ],
       "category": "native",
@@ -4547,26 +4647,6 @@
         }
       ],
       "category": "sections",
-      "subcategory": null
-    },
-    {
-      "name": "notification-bell",
-      "type": "registry:ui",
-      "title": "Notification Bell",
-      "description": "Bell icon that gently swings when new notification appears",
-      "registryDependencies": [],
-      "dependencies": [
-        "framer-motion",
-        "lucide-react",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/motion-core/notification-bell.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "category": "micro",
       "subcategory": null
     },
     {
@@ -5190,27 +5270,6 @@
       "subcategory": null
     },
     {
-      "name": "smart-tabs",
-      "type": "registry:component",
-      "title": "Smart Tabs",
-      "description": "Animated tabs with sliding pill indicator and smooth content transitions",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "framer-motion",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/components/tabs/smart-tabs.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "category": "components",
-      "subcategory": "tabs"
-    },
-    {
       "name": "social-login-button",
       "type": "registry:component",
       "title": "Social Login Button",
@@ -5231,7 +5290,7 @@
       "subcategory": null
     },
     {
-      "name": "social-login-button-baseui-baseui",
+      "name": "social-login-button-baseui",
       "type": "registry:component",
       "title": "Social Login Button",
       "description": "A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects. (Base UI)",
@@ -5246,14 +5305,14 @@
         {
           "path": "components/native/baseui/social-login-button-baseui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/social-login-button-baseui-baseui.tsx"
+          "target": "components/uitripled/social-login-button-baseui.tsx"
         }
       ],
       "category": "native",
       "subcategory": null
     },
     {
-      "name": "social-login-button-shadcnui-shadcnui",
+      "name": "social-login-button-shadcnui",
       "type": "registry:component",
       "title": "Social Login Button",
       "description": "A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.",
@@ -5266,7 +5325,7 @@
         {
           "path": "components/native/shadcnui/social-login-button-shadcnui.tsx",
           "type": "registry:component",
-          "target": "components/uitripled/social-login-button-shadcnui-shadcnui.tsx"
+          "target": "components/uitripled/social-login-button-shadcnui.tsx"
         }
       ],
       "category": "native",
@@ -5772,66 +5831,6 @@
       ],
       "category": "page",
       "subcategory": "notifications"
-    },
-    {
-      "name": "tweets-slider",
-      "type": "registry:component",
-      "title": "Tweets Slider",
-      "description": "Animated slider displaying tweets and social messages",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "framer-motion",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/sections/shadcnui/tweets-slider.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "category": "components",
-      "subcategory": null
-    },
-    {
-      "name": "tweets-slider-baseui",
-      "type": "registry:component",
-      "title": "Tweets Slider",
-      "description": "Animated slider displaying tweets and social messages (Base UI)",
-      "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "framer-motion",
-        "react"
-      ],
-      "files": [
-        {
-          "path": "components/sections/baseui/tweets-slider.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "category": "components",
-      "subcategory": null
-    },
-    {
-      "name": "typewriter-text",
-      "type": "registry:ui",
-      "title": "Typewriter Effect",
-      "description": "Text that types out character by character",
-      "registryDependencies": [],
-      "dependencies": [
-        "framer-motion"
-      ],
-      "files": [
-        {
-          "path": "components/decorative/text/typewriter.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "category": "decorative",
-      "subcategory": "text"
     },
     {
       "name": "volume-component",

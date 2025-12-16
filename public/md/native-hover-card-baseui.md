@@ -38,6 +38,12 @@ npx shadcn@latest add @uitripled/native-hover-card-baseui
 
 <Steps>
 
+<Step>Add the required components to your project.</Step>
+
+The `Native Hover Card` component uses the following components. Make sure you have them installed in your project.
+
+- button
+
 <Step>Copy and paste the following code into your project.</Step>
 
 <ComponentSource name="native-hover-card-baseui" title="@/components/native/baseui/native-hover-card-baseui.tsx" />
@@ -71,7 +77,12 @@ import { NativeHoverCard } from "@/components/native/baseui/native-hover-card-ba
 - `framer-motion`
 - `react`
 
+**UI Components**:
+- button
+
 This component uses **Framer Motion** for animations and motion effects.
+
+This component is built on top of **shadcn/ui** component primitives.
 
 ## Customization
 
@@ -121,4 +132,4 @@ This component is part of the UI TripleD component library, a collection of prod
 
 ## Related Components
 
-No related components.
+- [button](/docs/components/button)

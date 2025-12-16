@@ -256,7 +256,13 @@ function checkFileExists(registryPath) {
  */
 function getTargetPath(componentId, uiLibrary = null) {
   if (uiLibrary) {
-    return `components/uitripled/${componentId}-${uiLibrary}.tsx`;
+    // Only append suffix if it's not already in the ID
+    const suffix = `-${uiLibrary}`;
+    const cleanId = componentId.endsWith(suffix)
+      ? componentId.slice(0, -suffix.length)
+      : componentId;
+
+    return `components/uitripled/${cleanId}-${uiLibrary}.tsx`;
   }
   return `components/uitripled/${componentId}.tsx`;
 }
@@ -398,12 +404,14 @@ function createRegistryEntry(componentData, uiLibrary = null) {
   let entryPath = componentPath;
 
   if (uiLibrary === "shadcnui") {
-    entryName = `${id}-shadcnui`;
+    // Only append suffix if it's not already there
+    entryName = id.endsWith("-shadcnui") ? id : `${id}-shadcnui`;
     entryTitle = name;
     entryDescription = description;
     // Keep original shadcnui path
   } else if (uiLibrary === "baseui") {
-    entryName = `${id}-baseui`;
+    // Only append suffix if it's not already there
+    entryName = id.endsWith("-baseui") ? id : `${id}-baseui`;
     entryTitle = name;
     entryDescription = description ? `${description} (Base UI)` : description;
     // Convert to baseui path
@@ -490,8 +498,8 @@ function syncRegistry() {
       existingItems.map((item) => [item.name, item])
     );
 
-    // Track which base IDs have suffixed versions
-    const idsWithSuffixes = new Set();
+    // Track all generated names to remove stale entries
+    const generatedNames = new Set();
 
     // Create/update entries
     let added = 0;
@@ -502,12 +510,8 @@ function syncRegistry() {
       // Generate all variant entries for this component
       const variantEntries = generateVariantEntries(component);
 
-      // If this component has availableIn, track the base ID for cleanup
-      if (component.availableIn && component.availableIn.length > 0) {
-        idsWithSuffixes.add(component.id);
-      }
-
       for (const registryEntry of variantEntries) {
+        generatedNames.add(registryEntry.name);
         const existing = existingItemsMap.get(registryEntry.name);
 
         if (existing) {
@@ -549,12 +553,12 @@ function syncRegistry() {
       }
     }
 
-    // Remove old un-suffixed entries that now have suffixed versions
-    for (const baseId of idsWithSuffixes) {
-      if (existingItemsMap.has(baseId)) {
-        existingItemsMap.delete(baseId);
+    // Remove stale entries that were not generated in this run
+    for (const name of existingItemsMap.keys()) {
+      if (!generatedNames.has(name)) {
+        existingItemsMap.delete(name);
         removed++;
-        console.log(`🗑️  Removed old entry: ${baseId} (replaced by suffixed versions)`);
+        console.log(`🗑️  Removed stale entry: ${name}`);
       }
     }
 

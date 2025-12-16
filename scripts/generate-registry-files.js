@@ -22,6 +22,13 @@ function generateRegistryFiles() {
     if (!fs.existsSync(PUBLIC_R_DIR)) {
       fs.mkdirSync(PUBLIC_R_DIR, { recursive: true });
       console.log(`Created directory: ${PUBLIC_R_DIR}`);
+    } else {
+      // Clean directory before regenerating
+      console.log(`Cleaning directory: ${PUBLIC_R_DIR}`);
+      const files = fs.readdirSync(PUBLIC_R_DIR);
+      for (const file of files) {
+        fs.unlinkSync(path.join(PUBLIC_R_DIR, file));
+      }
     }
 
     let successCount = 0;

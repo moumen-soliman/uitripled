@@ -2,14 +2,14 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2025-12-16T01:22:38.286Z
+**Last Updated:** 2025-12-16T02:43:29.972Z
 
 ## Table of Contents
 
-- Components (153 items)
+- Components (159 items)
 - Blocks (73 items)
 - Pages (23 items)
-- UI Elements (25 items)
+- UI Elements (19 items)
 
 ### Components
 
@@ -84,8 +84,6 @@
 - [Smart Hover Card](https://ui.tripled.work/components/smart-hover-card): Card that detects cursor direction and reveals content from that side
 - [Stacked Card Carousel](https://ui.tripled.work/components/stacked-card-carousel): Three stacked cards that shift and tilt dynamically on hover
 - [Synced Lyric Captions](https://ui.tripled.work/components/synced-lyric-captions): Bottom-to-top timed captions with play/pause controls and optional audio sync for songs or voiceovers.
-- [Tweets Slider](https://ui.tripled.work/components/tweets-slider): Animated slider displaying tweets and social messages
-- [Tweets Slider](https://ui.tripled.work/components/tweets-slider-baseui): Animated slider displaying tweets and social messages (Base UI)
 - [Volume Component](https://ui.tripled.work/components/volume-component): A smooth, draggable volume slider component with framer-motion animations and shadcn styling.
 - [Weather Dashboard](https://ui.tripled.work/components/weather-dashboard): Immersive weather dashboard with hourly charting, weekly outlook, and live air-quality alerts
 - [Web Performance Page](https://ui.tripled.work/components/web-performance-page): Real-time analysis of web vitals and performance metrics
@@ -131,62 +129,70 @@
 ##### Tabs
 
 - [Animated Tabs](https://ui.tripled.work/components/animated-tabs): Tabs with sliding indicator animation
-- [Smart Tabs](https://ui.tripled.work/components/smart-tabs): Animated tabs with sliding pill indicator and smooth content transitions
 
 - [Wizard Form](https://ui.tripled.work/components/wizard-form): Multi-step wizard form with animated transitions, validation, and progress tracking
 
 - [Bottom Modal](https://ui.tripled.work/components/bottom-modal): Cute bottom-centered modal with smooth slide-up animation and glassmorphism design
 - [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand): Avatar component that expands to reveal the name on click with smooth animations.
-- [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-baseui-baseui): Avatar component that expands to reveal the name on click with smooth animations. (Base UI)
-- [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-shadcnui-shadcnui): Avatar component that expands to reveal the name on click with smooth animations.
+- [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-baseui): Avatar component that expands to reveal the name on click with smooth animations. (Base UI)
+- [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-shadcnui): Avatar component that expands to reveal the name on click with smooth animations.
 - [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name): Avatar component that displays a name tooltip on hover with directional animations.
-- [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name-baseui-baseui): Avatar component that displays a name tooltip on hover with directional animations. (Base UI)
-- [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name-shadcnui-shadcnui): Avatar component that displays a name tooltip on hover with directional animations.
+- [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name-baseui): Avatar component that displays a name tooltip on hover with directional animations. (Base UI)
+- [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name-shadcnui): Avatar component that displays a name tooltip on hover with directional animations.
 - [Native Badge](https://ui.tripled.work/components/native-badge): Animated badge component with glass, glow, and outline variants for native feel.
+- [Native Badge](https://ui.tripled.work/components/native-badge-carbon): Animated badge component with glass, glow, and outline variants for native feel.
 - [Native Button](https://ui.tripled.work/components/native-button): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling
-- [Native Button](https://ui.tripled.work/components/native-button-baseui-baseui): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling (Base UI)
-- [Native Button](https://ui.tripled.work/components/native-button-shadcnui-shadcnui): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling
+- [Native Button](https://ui.tripled.work/components/native-button-baseui): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling (Base UI)
+- [Native Button](https://ui.tripled.work/components/native-button-shadcnui): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling
 - [Native Counter Up](https://ui.tripled.work/components/native-counter-up): Animated number counter with smooth easing and accessibility support.
+- [Native Counter Up](https://ui.tripled.work/components/native-counter-up-carbon): Animated number counter with smooth easing and accessibility support.
 - [Native Delete](https://ui.tripled.work/components/native-delete): Delete button that expands to show a confirmation button with smooth animations.
-- [Native Delete](https://ui.tripled.work/components/native-delete-baseui-baseui): Delete button that expands to show a confirmation button with smooth animations. (Base UI)
-- [Native Delete](https://ui.tripled.work/components/native-delete-shadcnui-shadcnui): Delete button that expands to show a confirmation button with smooth animations.
+- [Native Delete](https://ui.tripled.work/components/native-delete-baseui): Delete button that expands to show a confirmation button with smooth animations. (Base UI)
+- [Native Delete](https://ui.tripled.work/components/native-delete-shadcnui): Delete button that expands to show a confirmation button with smooth animations.
 - [Native Dialog](https://ui.tripled.work/components/native-dialog): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.
-- [Native Dialog](https://ui.tripled.work/components/native-dialog-baseui-baseui): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals. (Base UI)
-- [Native Dialog](https://ui.tripled.work/components/native-dialog-shadcnui-shadcnui): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.
+- [Native Dialog](https://ui.tripled.work/components/native-dialog-baseui): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals. (Base UI)
+- [Native Dialog](https://ui.tripled.work/components/native-dialog-shadcnui): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.
 - [Native Flip Text](https://ui.tripled.work/components/native-flip-text): Text that flips through words with a 3D blur transition.
+- [Native Flip Text](https://ui.tripled.work/components/native-flip-text-carbon): Text that flips through words with a 3D blur transition.
 - [Native Follow Cursor](https://ui.tripled.work/components/native-follow-cursor): Label that smoothly follows the cursor with spring physics and customizable variants.
+- [Native Follow Cursor](https://ui.tripled.work/components/native-follow-cursor-carbon): Label that smoothly follows the cursor with spring physics and customizable variants.
 - [Native Hover Card](https://ui.tripled.work/components/native-hover-card): Avatar card that expands on hover to reveal profile information with smooth animations.
-- [Native Hover Card](https://ui.tripled.work/components/native-hover-card-baseui-baseui): Avatar card that expands on hover to reveal profile information with smooth animations. (Base UI)
-- [Native Hover Card](https://ui.tripled.work/components/native-hover-card-shadcnui-shadcnui): Avatar card that expands on hover to reveal profile information with smooth animations.
+- [Native Hover Card](https://ui.tripled.work/components/native-hover-card-baseui): Avatar card that expands on hover to reveal profile information with smooth animations. (Base UI)
+- [Native Hover Card](https://ui.tripled.work/components/native-hover-card-shadcnui): Avatar card that expands on hover to reveal profile information with smooth animations.
 - [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox): Image checkbox component with grayscale filter and checkmark indicator.
-- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox-baseui-baseui): Image checkbox component with grayscale filter and checkmark indicator. (Base UI)
-- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox-shadcnui-shadcnui): Image checkbox component with grayscale filter and checkmark indicator.
+- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox-baseui): Image checkbox component with grayscale filter and checkmark indicator. (Base UI)
+- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox-carbon): Image checkbox component with grayscale filter and checkmark indicator.
+- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox-shadcnui): Image checkbox component with grayscale filter and checkmark indicator.
 - [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions.
-- [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button-baseui-baseui): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions. (Base UI)
-- [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button-shadcnui-shadcnui): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions.
+- [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button-baseui): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions. (Base UI)
+- [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button-shadcnui): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions.
 - [Native Magnetic](https://ui.tripled.work/components/native-magnetic): Magnetic wrapper that applies a cursor-following effect to any content.
-- [Native Magnetic](https://ui.tripled.work/components/native-magnetic-baseui-baseui): Magnetic wrapper that applies a cursor-following effect to any content. (Base UI)
-- [Native Magnetic](https://ui.tripled.work/components/native-magnetic-shadcnui-shadcnui): Magnetic wrapper that applies a cursor-following effect to any content.
+- [Native Magnetic](https://ui.tripled.work/components/native-magnetic-baseui): Magnetic wrapper that applies a cursor-following effect to any content. (Base UI)
+- [Native Magnetic](https://ui.tripled.work/components/native-magnetic-carbon): Magnetic wrapper that applies a cursor-following effect to any content.
+- [Native Magnetic](https://ui.tripled.work/components/native-magnetic-shadcnui): Magnetic wrapper that applies a cursor-following effect to any content.
 - [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button): Floating action button that morphs into a menu of actions.
-- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-baseui-baseui): Floating action button that morphs into a menu of actions. (Base UI)
-- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-shadcnui-shadcnui): Floating action button that morphs into a menu of actions.
+- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-baseui): Floating action button that morphs into a menu of actions. (Base UI)
+- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-carbon): Floating action button that morphs into a menu of actions.
+- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-shadcnui): Floating action button that morphs into a menu of actions.
 - [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell): Animated notification bell with badge and ringing effect.
-- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-baseui-baseui): Animated notification bell with badge and ringing effect. (Base UI)
-- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-shadcnui-shadcnui): Animated notification bell with badge and ringing effect.
+- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-baseui): Animated notification bell with badge and ringing effect. (Base UI)
+- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-carbon): Animated notification bell with badge and ringing effect.
+- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-shadcnui): Animated notification bell with badge and ringing effect.
 - [Native Start Now](https://ui.tripled.work/components/native-start-now): Animated button with sparkle effects, loading states, and smooth transitions for starting actions.
-- [Native Start Now](https://ui.tripled.work/components/native-start-now-baseui-baseui): Animated button with sparkle effects, loading states, and smooth transitions for starting actions. (Base UI)
-- [Native Start Now](https://ui.tripled.work/components/native-start-now-shadcnui-shadcnui): Animated button with sparkle effects, loading states, and smooth transitions for starting actions.
+- [Native Start Now](https://ui.tripled.work/components/native-start-now-baseui): Animated button with sparkle effects, loading states, and smooth transitions for starting actions. (Base UI)
+- [Native Start Now](https://ui.tripled.work/components/native-start-now-shadcnui): Animated button with sparkle effects, loading states, and smooth transitions for starting actions.
 - [Native Tabs](https://ui.tripled.work/components/native-tabs): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.
-- [Native Tabs](https://ui.tripled.work/components/native-tabs-baseui-baseui): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations. (Base UI)
-- [Native Tabs](https://ui.tripled.work/components/native-tabs-shadcnui-shadcnui): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.
+- [Native Tabs](https://ui.tripled.work/components/native-tabs-baseui): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations. (Base UI)
+- [Native Tabs](https://ui.tripled.work/components/native-tabs-carbon): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.
+- [Native Tabs](https://ui.tripled.work/components/native-tabs-shadcnui): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.
 - [Native Tooltip](https://ui.tripled.work/components/native-tooltip): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.
-- [Native Tooltip](https://ui.tripled.work/components/native-tooltip-baseui-baseui): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion. (Base UI)
-- [Native Tooltip](https://ui.tripled.work/components/native-tooltip-shadcnui-shadcnui): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.
+- [Native Tooltip](https://ui.tripled.work/components/native-tooltip-baseui): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion. (Base UI)
+- [Native Tooltip](https://ui.tripled.work/components/native-tooltip-shadcnui): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.
 - [Native Typewriter](https://ui.tripled.work/components/native-typewriter): Typewriter effect with speed control, looping, and blinking cursor.
-- [Native Typewriter](https://ui.tripled.work/components/native-typewriter-baseui-baseui): Typewriter effect with speed control, looping, and blinking cursor. (Base UI)
+- [Native Typewriter](https://ui.tripled.work/components/native-typewriter-baseui): Typewriter effect with speed control, looping, and blinking cursor. (Base UI)
 - [Social Login Button](https://ui.tripled.work/components/social-login-button): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.
-- [Social Login Button](https://ui.tripled.work/components/social-login-button-baseui-baseui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects. (Base UI)
-- [Social Login Button](https://ui.tripled.work/components/social-login-button-shadcnui-shadcnui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.
+- [Social Login Button](https://ui.tripled.work/components/social-login-button-baseui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects. (Base UI)
+- [Social Login Button](https://ui.tripled.work/components/social-login-button-shadcnui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.
 
 - [Interactive Resume Card](https://ui.tripled.work/components/resume-card-baseui): Professional resume template with animated sections and interactive elements (Base UI)
 - [Interactive Resume Card](https://ui.tripled.work/components/resume-card-shadcnui): Professional resume template with animated sections and interactive elements
@@ -314,9 +320,12 @@
 
 #### Data
 
+##### Charts
+
+- [Accessible Cash Flow Chart](https://ui.tripled.work/components/cash-flow-chart): Interactive cash flow bar chart with keyboard focus, tooltips, and screen reader support
+
 ##### Progress
 
-- [Animated Counter](https://ui.tripled.work/components/counter-up): Number counter that animates up from zero
 - [Animated Progress Bar](https://ui.tripled.work/components/animated-progress): Progress bar with smooth animation
 
 #### Decorative
@@ -334,28 +343,16 @@
 - [Liquid Cursor](https://ui.tripled.work/components/liquid-cursor): A liquid-like cursor effect that mixes colors on movement
 - [Spotlight Section](https://ui.tripled.work/components/spotlight-section): Container where mouse creates soft radial spotlight following cursor
 
-##### Text
-
-- [Typewriter Effect](https://ui.tripled.work/components/typewriter-text): Text that types out character by character
-
 #### Micro
-
-##### Badges
-
-- [Animated Badge](https://ui.tripled.work/components/animated-badge): Badge with scale and spin animation
 
 ##### Buttons
 
-- [Magnetic Button](https://ui.tripled.work/components/magnetic-button): Button that magnetically follows your cursor
 - [Ripple Click Effect](https://ui.tripled.work/components/ripple-click-button): Material design inspired ripple effect on click
 - [Scale Hover Button](https://ui.tripled.work/components/scale-hover-button): A button that scales up smoothly on hover
 - [Shimmer Button](https://ui.tripled.work/components/shimmer-button): Button with continuous shimmer effect
 
 - [AI Unlock Animation](https://ui.tripled.work/components/ai-unlock-animation): Premium unlock animation with particles, ripples, and loading states
-- [Magnetic Cursor Link](https://ui.tripled.work/components/magnetic-cursor-link): Link that slightly follows mouse cursor within boundary and snaps back
 - [Mood Gradient Button](https://ui.tripled.work/components/mood-gradient-button): Button with background gradient that shifts based on hover angle
-- [Morphing Action Button](https://ui.tripled.work/components/morphing-action-button): A circular FAB that morphs into a rectangular action panel using layoutId
-- [Notification Bell](https://ui.tripled.work/components/notification-bell): Bell icon that gently swings when new notification appears
 
 ##### Icons
 
