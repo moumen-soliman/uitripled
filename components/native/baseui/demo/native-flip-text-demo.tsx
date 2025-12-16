@@ -1,10 +1,6 @@
 "use client";
 
-<<<<<<<< HEAD:components/native/carbon/demo/native-flip-text-demo.tsx
-import { NativeFlipText } from "@/components/native/carbon/native-flip-text-carbon";
-========
 import { NativeFlipText } from "@/components/native/baseui/native-flip-text-baseui";
->>>>>>>> d9817c2bdb87cfd190d000931197b86c885f739e:components/native/baseui/demo/native-flip-text-demo.tsx
 
 export function NativeFlipTextDefault() {
   return (
