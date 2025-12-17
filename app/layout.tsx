@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { StarUsSideReminder } from "@/components/star-us-side-reminder";
 import { THEME_STORAGE_KEY, ThemeProvider } from "@/components/theme-provider";
 import { UILibraryProvider } from "@/components/ui-library-provider";
 import { baseMetadata, siteConfig } from "@/lib/seo";
@@ -122,6 +123,7 @@ export default function RootLayout({
               <Header />
               <main className="min-h-screen">{children}</main>
               <Footer />
+              <StarUsSideReminder />
             </NuqsAdapter>
           </UILibraryProvider>
         </ThemeProvider>
