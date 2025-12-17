@@ -71,7 +71,7 @@ export function NativeStartNowLarge() {
 export function NativeStartNowNoSparkles() {
   return (
     <NativeStartNow
-      showSparkles={false}
+      showRocket={false}
       onStart={async () => {
         await new Promise((resolve) => setTimeout(resolve, 1500));
       }}
