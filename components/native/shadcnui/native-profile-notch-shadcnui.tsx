@@ -32,6 +32,13 @@ export interface NativeProfileNotchProps {
    * Class name for the container
    */
   className?: string;
+  /**
+    * Variant of the notch.
+    * "default": expands and pushes content.
+    * "overlay": expands over content (absolute positioning).
+    * @default "default"
+    */
+  variant?: "default" | "overlay";
 }
 
 export function NativeProfileNotch({
@@ -41,16 +48,25 @@ export function NativeProfileNotch({
   children,
   size = "md",
   className,
+  variant = "default",
 }: NativeProfileNotchProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={cn("flex items-start justify-center", className)}>
+    <div
+      className={cn(
+        variant === "overlay"
+          ? "relative flex items-center justify-center w-[160px] h-[60px]"
+          : "flex items-start justify-center",
+        className
+      )}
+    >
       <motion.div
         layout
         className={cn(
-          "relative bg-background text-foreground overflow-hidden z-50 cursor-pointer border border-accent/60",
-          isOpen ? "rounded-3xl" : "rounded-full"
+          "bg-background text-foreground overflow-hidden z-50 cursor-pointer border border-accent/60",
+          isOpen ? "rounded-3xl" : "rounded-full",
+          variant === "overlay" ? "absolute top-0 left-0" : "relative"
         )}
         initial={false}
         animate={{
@@ -108,7 +124,7 @@ export function NativeProfileNotch({
                     @{username}
                   </span>
                 </div>
-                <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                <ChevronRight className="w-4 h-4 text-muted-foreground ml-auto" />
               </div>
             </motion.div>
           ) : (

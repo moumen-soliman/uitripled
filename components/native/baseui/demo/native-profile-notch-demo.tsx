@@ -4,7 +4,7 @@ import { NativeProfileNotch } from "@/components/native/baseui/native-profile-no
 
 export function NativeProfileNotchDefault() {
   return (
-    <div className="h-[500px] w-full flex items-center justify-center bg-gray-50/50 dark:bg-neutral-900/50 rounded-xl relative overflow-hidden">
+    <div className="h-[500px] w-full flex items-center justify-center bg-gray-50/50 dark:bg-neutral-900/50 rounded-xl relative">
       <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
       <NativeProfileNotch
         imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
@@ -34,26 +34,38 @@ export function NativeProfileNotchDefault() {
   );
 }
 
-export function NativeProfileNotchCustom() {
+export function NativeProfileNotchOverlay() {
   return (
-    <div className="h-[500px] w-full flex items-center justify-center bg-gray-50/50 dark:bg-neutral-900/50 rounded-xl relative overflow-hidden">
+    <div className="h-[500px] w-full flex items-center justify-center bg-gray-50/50 dark:bg-neutral-900/50 rounded-xl relative">
       <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
-      <NativeProfileNotch
-        imageSrc="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-        name="Sarah Chen"
-        username="sarahc_design"
-      >
-        <div className="border-t border-primary-accent/10 pt-4 mt-2">
-           <p className="text-sm text-primary-accent/70 text-center italic">
-             "Designing experiences that matter. Passionate about UI/UX and accessibility."
-           </p>
-           <div className="flex justify-center gap-2 mt-4">
-              <span className="px-2 py-1 rounded-md bg-primary-accent/10 text-xs text-primary-accent/80">UI Design</span>
-              <span className="px-2 py-1 rounded-md bg-primary-accent/10 text-xs text-primary-accent/80">React</span>
-              <span className="px-2 py-1 rounded-md bg-primary-accent/10 text-xs text-primary-accent/80">Motion</span>
-           </div>
+
+      {/* Background content to demonstrate overlay behavior */}
+      <div className="flex flex-col gap-4 max-w-sm text-center z-0 px-4">
+        <h3 className="text-2xl font-bold text-foreground">Content Below Profile</h3>
+        <p className="text-muted-foreground">
+          This content stays in place when the profile expands because the notch uses absolute positioning.
+          Try clicking the profile above!
+        </p>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+           <div className="h-24 bg-muted/50 rounded-lg" />
+           <div className="h-24 bg-muted/50 rounded-lg" />
         </div>
-      </NativeProfileNotch>
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <NativeProfileNotch
+          variant="overlay"
+          imageSrc="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtoUjLg4dAryGEidskK72wBCQA6DNcZH4Xh5b8"
+          name="Base UI"
+          username="base-ui"
+        >
+          <div className="border-t border-primary-accent/10 pt-4 mt-2">
+            <p className="text-sm text-primary-accent/70 text-center italic">
+              "Overlay variant example."
+            </p>
+          </div>
+        </NativeProfileNotch>
+      </div>
     </div>
   );
 }

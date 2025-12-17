@@ -170,7 +170,7 @@ import { NativeNestedListDemo } from "@/components/native/shadcnui/demo/native-n
 import { NativeNestedListBaseUI } from "@/components/native/baseui/native-nested-list-baseui";
 import { NativeProfileNotch } from "@/components/native/shadcnui/native-profile-notch-shadcnui";
 import {
-  NativeProfileNotchCustom,
+  NativeProfileNotchOverlay,
   NativeProfileNotchDefault,
 } from "@/components/native/shadcnui/demo/native-profile-notch-demo";
 import { NativeProfileNotch as NativeProfileNotchBaseUI } from "@/components/native/baseui/native-profile-notch-baseui";
@@ -2257,18 +2257,19 @@ export const nativeComponents: Component[] = [
 </NativeProfileNotch>`,
       },
       {
-        id: "custom",
-        name: "Detailed",
-        description: "Profile notch with extra details",
-        component: NativeProfileNotchCustom,
+        id: "overlay",
+        name: "Overlay",
+        description: "Profile notch with overlay positioning",
+        component: NativeProfileNotchOverlay,
         code: `<NativeProfileNotch
-  imageSrc="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-  name="Sarah Chen"
-  username="sarahc_design"
+  variant="overlay"
+  imageSrc="https://github.com/shadcn.png"
+  name="Shadcn"
+  username="shadcn"
 >
   <div className="border-t border-primary-foreground/10 pt-4 mt-2">
     <p className="text-sm text-primary-foreground/70 text-center italic">
-      "Designing experiences that matter."
+      "Overlay variant example."
     </p>
   </div>
 </NativeProfileNotch>`,

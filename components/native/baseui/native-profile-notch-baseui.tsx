@@ -32,6 +32,13 @@ export interface NativeProfileNotchProps {
    * Class name for the container
    */
   className?: string;
+  /**
+    * Variant of the notch.
+    * "default": expands and pushes content.
+    * "overlay": expands over content (absolute positioning).
+    * @default "default"
+    */
+  variant?: "default" | "overlay";
 }
 
 export function NativeProfileNotch({
@@ -41,16 +48,25 @@ export function NativeProfileNotch({
   children,
   size = "md",
   className,
+  variant = "default",
 }: NativeProfileNotchProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={cn("flex items-start justify-center", className)}>
+    <div
+      className={cn(
+        variant === "overlay"
+          ? "relative flex items-center justify-center w-[160px] h-[60px]"
+          : "flex items-start justify-center",
+        className
+      )}
+    >
       <motion.div
         layout
         className={cn(
-          "relative bg-background text-foreground overflow-hidden z-50 cursor-pointer border border-accent/50",
-          isOpen ? "rounded-3xl" : "rounded-full"
+          "bg-background text-foreground overflow-hidden z-50 cursor-pointer border border-accent/50",
+          isOpen ? "rounded-3xl" : "rounded-full",
+          variant === "overlay" ? "absolute top-0 left-0" : "relative"
         )}
         initial={false}
         animate={{
@@ -170,23 +186,22 @@ export function NativeProfileNotch({
                 >
                   {children}
                 </motion.div>
-
-                {/* Bottom Action */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-4 w-full pt-4 sticky bottom-0 bg-gradient-to-t from-background via-background to-transparent p-1"
-                >
-                  <button
-                    className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
-                    onClick={(e) => {
-                       e.stopPropagation();
-                    }}
-                  >
-                    View Full Profile
-                  </button>
-                </motion.div>
+                 {/* Bottom Action */}
+                 <motion.div
+                   initial={{ opacity: 0, y: 10 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ delay: 0.3 }}
+                   className="mt-4 w-full pt-4 sticky bottom-0 bg-gradient-to-t from-background via-background to-transparent p-1"
+                 >
+                   <button
+                     className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
+                     onClick={(e) => {
+                        e.stopPropagation();
+                     }}
+                   >
+                     View Full Profile
+                   </button>
+                 </motion.div>
               </div>
             </motion.div>
           )}
