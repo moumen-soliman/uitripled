@@ -44,7 +44,7 @@ const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
       <>
         {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
         <motion.span
-          className={cn("flex items-center gap-2 w-full")}
+          className={cn("flex justify-center items-center gap-2 w-full")}
           animate={loading ? { opacity: [1, 0.5, 1] } : { opacity: 1 }}
           transition={
             loading
