@@ -1,0 +1,252 @@
+
+
+> web@0.1.0 build
+> next build
+
+ [33m[1m⚠[22m[39m turbopack.root should be absolute, using: /Users/moumensoliman/code/uitripled
+   [1m[38;2;173;127;168m▲ Next.js 16.0.10[39m[22m (Turbopack)
+   - Environments: .env
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+Turbopack build encountered 7 warnings:
+./apps/web/lib/file-reader.ts:18:27
+Ecmascript file had an error
+[0m [90m 16 |[39m     [36mlet[39m resolvedPath [33m=[39m filePath[33m;[39m
+ [90m 17 |[39m     [36mif[39m (filePath[33m.[39mstartsWith([32m"@/"[39m)) {
+[31m[1m>[22m[39m[90m 18 |[39m       resolvedPath [33m=[39m join(process[33m.[39mcwd()[33m,[39m filePath[33m.[39mreplace([32m"@/"[39m[33m,[39m [32m""[39m))[33m;[39m
+ [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 19 |[39m     } [36melse[39m [36mif[39m (filePath[33m.[39mstartsWith([32m"@uitripled/ui/"[39m)) {
+ [90m 20 |[39m       resolvedPath [33m=[39m join(
+ [90m 21 |[39m         process[33m.[39mcwd()[33m,[39m[0m
+
+A Node.js API is used (process.cwd at line: 18) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import traces:
+  App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/app/api/registry/[name]/route.ts
+
+  Edge App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/og/route.tsx
+
+  Server Component:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/components/[id]/page.tsx
+
+
+./apps/web/lib/file-reader.ts:21:9
+Ecmascript file had an error
+[0m [90m 19 |[39m     } [36melse[39m [36mif[39m (filePath[33m.[39mstartsWith([32m"@uitripled/ui/"[39m)) {
+ [90m 20 |[39m       resolvedPath [33m=[39m join(
+[31m[1m>[22m[39m[90m 21 |[39m         process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 22 |[39m         [32m"../../packages/ui/src"[39m[33m,[39m
+ [90m 23 |[39m         filePath[33m.[39mreplace([32m"@uitripled/ui/"[39m[33m,[39m [32m""[39m)
+ [90m 24 |[39m       )[33m;[39m[0m
+
+A Node.js API is used (process.cwd at line: 21) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import traces:
+  App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/app/api/registry/[name]/route.ts
+
+  Edge App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/og/route.tsx
+
+  Server Component:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/components/[id]/page.tsx
+
+
+./apps/web/lib/file-reader.ts:27:9
+Ecmascript file had an error
+[0m [90m 25 |[39m     } [36melse[39m [36mif[39m (filePath[33m.[39mstartsWith([32m"@uitripled/shared/"[39m)) {
+ [90m 26 |[39m       resolvedPath [33m=[39m join(
+[31m[1m>[22m[39m[90m 27 |[39m         process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 28 |[39m         [32m"../../packages/shared/src"[39m[33m,[39m
+ [90m 29 |[39m         filePath[33m.[39mreplace([32m"@uitripled/shared/"[39m[33m,[39m [32m""[39m)
+ [90m 30 |[39m       )[33m;[39m[0m
+
+A Node.js API is used (process.cwd at line: 27) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import traces:
+  App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/app/api/registry/[name]/route.ts
+
+  Edge App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/og/route.tsx
+
+  Server Component:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/components/[id]/page.tsx
+
+
+./apps/web/lib/file-reader.ts:33:9
+Ecmascript file had an error
+[0m [90m 31 |[39m     } [36melse[39m [36mif[39m (filePath[33m.[39mstartsWith([32m"@uitripled/registry/"[39m)) {
+ [90m 32 |[39m       resolvedPath [33m=[39m join(
+[31m[1m>[22m[39m[90m 33 |[39m         process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m         [32m"../../packages/registry/src"[39m[33m,[39m
+ [90m 35 |[39m         filePath[33m.[39mreplace([32m"@uitripled/registry/"[39m[33m,[39m [32m""[39m)
+ [90m 36 |[39m       )[33m;[39m[0m
+
+A Node.js API is used (process.cwd at line: 33) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import traces:
+  App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/app/api/registry/[name]/route.ts
+
+  Edge App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/og/route.tsx
+
+  Server Component:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/components/[id]/page.tsx
+
+
+./apps/web/lib/file-reader.ts:38:27
+Ecmascript file had an error
+[0m [90m 36 |[39m       )[33m;[39m
+ [90m 37 |[39m     } [36melse[39m [36mif[39m ([33m![39mfilePath[33m.[39mstartsWith([32m"/"[39m)) {
+[31m[1m>[22m[39m[90m 38 |[39m       resolvedPath [33m=[39m join(process[33m.[39mcwd()[33m,[39m filePath)[33m;[39m
+ [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 39 |[39m     }
+ [90m 40 |[39m
+ [90m 41 |[39m     [36mconst[39m absolutePath [33m=[39m resolvedPath[33m;[39m[0m
+
+A Node.js API is used (process.cwd at line: 38) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import traces:
+  App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/app/api/registry/[name]/route.ts
+
+  Edge App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/og/route.tsx
+
+  Server Component:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/components/[id]/page.tsx
+
+
+./apps/web/lib/file-reader.ts:4:1
+Ecmascript file had an error
+[0m [90m 2 |[39m [32m"use server"[39m[33m;[39m
+ [90m 3 |[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { readFileSync } [36mfrom[39m [32m"fs"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m [36mimport[39m { join } [36mfrom[39m [32m"path"[39m[33m;[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [90m/**[39m[0m
+
+A Node.js module is loaded ('fs' at line 4) which is not supported in the Edge Runtime.
+Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime
+
+Import traces:
+  App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/app/api/registry/[name]/route.ts
+
+  Edge App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/og/route.tsx
+
+  Server Component:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/components/[id]/page.tsx
+
+
+./apps/web/lib/file-reader.ts:5:1
+Ecmascript file had an error
+[0m [90m 3 |[39m
+ [90m 4 |[39m [36mimport[39m { readFileSync } [36mfrom[39m [32m"fs"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { join } [36mfrom[39m [32m"path"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m
+ [90m 7 |[39m [90m/**[39m
+ [90m 8 |[39m [90m * Reads a component file and returns its source code as a string[39m[0m
+
+A Node.js module is loaded ('path' at line 5) which is not supported in the Edge Runtime.
+Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime
+
+Import traces:
+  App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/app/api/registry/[name]/route.ts
+
+  Edge App Route:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/og/route.tsx
+
+  Server Component:
+    ./apps/web/lib/file-reader.ts
+    ./apps/web/lib/components-registry.tsx
+    ./apps/web/app/components/[id]/page.tsx
+
+
+ [32m[1m✓[22m[39m Compiled successfully in 15.1s
+[?25l [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[?25h[?25l [37m[1m [22m[39m Finished TypeScript in 10.5s  [36m.[39m[2K[1G[?25h [37m[1m [22m[39m Finished TypeScript in 10.5s     [32m[1m✓[22m[39m Finished TypeScript in 10.5s 
+[?25l [37m[1m [22m[39m Collecting page data using 7 workers  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data using 7 workers  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data using 7 workers  [36m...[39m[2K[1G[?25h [33m[1m⚠[22m[39m Using edge runtime on a page currently disables static generation for that page
+[?25l [36m.[39m [2K[1G[?25h [37m[1m [22m[39m Collecting page data using 7 workers in 462.8ms     [32m[1m✓[22m[39m Collecting page data using 7 workers in 462.8ms 
+[?25l [37m[1m [22m[39m Generating static pages using 7 workers (0/150)  [36m[    ][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (0/150)  [36m[=   ][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (0/150)  [36m[==  ][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (1/150)  [36m[=== ][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (1/150)  [36m[ ===][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (1/150)  [36m[  ==][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (9/150)  [36m[   =][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (17/150)  [36m[    ][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (41/150)  [36m[   =][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (56/150)  [36m[  ==][39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 7 workers (81/150)  [36m[ ===][39m[2K[1G[1A[2K[1G[?25hError fetching stargazers: Error: Dynamic server usage: Route /hall-of-fame couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/repos/moumen-soliman/uitripled/stargazers?per_page=100 /hall-of-fame. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at [3mignore-listed frames[23m {
+  description: [32m"Route /hall-of-fame couldn't be rendered statically because it used revalidate: 0 fetch https://api.github.com/repos/moumen-soliman/uitripled/stargazers?per_page=100 /hall-of-fame. See more info here: https://nextjs.org/docs/messages/dynamic-server-error"[39m,
+  digest: [32m'DYNAMIC_SERVER_USAGE'[39m
+}
+[?25h [32m[1m✓[22m[39m Generating static pages using 7 workers (150/150) in 2.9s
+[?25l [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G[?25h [37m[1m [22m[39m Finalizing page optimization in 49.3ms     [32m[1m✓[22m[39m Finalizing page optimization in 49.3ms 
+
+[4mRoute (app)[24m
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/export
+├ ƒ /api/registry/[name]
+├ ○ /builder
+├ ○ /components
+├ ● /components/[id]
+│ ├ /components/native-tooltip
+│ ├ /components/native-dialog
+│ ├ /components/social-login-button
+│ └ [+135 more paths]
+├ ○ /grid-generator
+├ ƒ /hall-of-fame
+├ ƒ /og
+├ ƒ /preview/[projectName]
+├ ○ /robots.txt
+├ ƒ /rss.xml
+└ ○ /sitemap.xml
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses [36mgenerateStaticParams[39m)
+ƒ  (Dynamic)  server-rendered on demand
+
+[?25h⠙[1G[0K

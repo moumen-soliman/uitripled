@@ -1,0 +1,35 @@
+{
+  "node": {
+    "400950b9bbfd0c5f35c48a892b0f21b3f2903a08a0": {
+      "workers": {
+        "app/builder/page": {
+          "moduleId": "[project]/apps/web/.next-internal/server/app/builder/page/actions.js { ACTIONS_MODULE0 => \"[project]/apps/web/lib/file-reader.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        },
+        "app/components/[id]/page": {
+          "moduleId": "[project]/apps/web/.next-internal/server/app/components/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/apps/web/lib/file-reader.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        },
+        "app/components/page": {
+          "moduleId": "[project]/apps/web/.next-internal/server/app/components/page/actions.js { ACTIONS_MODULE0 => \"[project]/apps/web/lib/file-reader.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        }
+      },
+      "layer": {
+        "app/builder/page": "action-browser",
+        "app/components/[id]/page": "rsc",
+        "app/components/page": "action-browser"
+      },
+      "filename": "apps/web/lib/file-reader.ts",
+      "exportedName": "getComponentCode"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "ivDv4Yj3sb5K7n7JOuTAPI4YWziv1EPE8gL/ezfgvqo="
+}

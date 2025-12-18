@@ -1,0 +1,132 @@
+1:"$Sreact.fragment"
+2:I[176430,["/_next/static/chunks/dc92709d96e51da4.js","/_next/static/chunks/28d31646f911358e.js","/_next/static/chunks/b0689fc5070200a0.js","/_next/static/chunks/d55ca8c48b5d5d51.js","/_next/static/chunks/2363ff9e745ac33a.js","/_next/static/chunks/5d9ce5f95154af4a.js","/_next/static/chunks/fe35a3e987c156fc.js","/_next/static/chunks/b794c6d381badd61.js","/_next/static/chunks/f7bfd565bd2f913f.js","/_next/static/chunks/b59d4e65b6fc885c.js","/_next/static/chunks/becf1da93e15457b.js","/_next/static/chunks/fdd25d98951f5402.js","/_next/static/chunks/91ff2107e32627dd.js","/_next/static/chunks/0d9443edae03239b.js","/_next/static/chunks/caa50e77cf52fdaa.js","/_next/static/chunks/e0bc9c3a4105a6fe.js","/_next/static/chunks/48913bc585f72fa4.js"],"default"]
+8:I[897367,["/_next/static/chunks/d96012bcfc98706a.js","/_next/static/chunks/c1216787d4b31b65.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+3:T10ca,"use client";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { motion, useReducedMotion } from "framer-motion";
+import { FormEvent, useMemo, useState } from "react";
+
+const CODE_LENGTH = 6;
+
+export function GlassVerificationCodeCard() {
+  const shouldReduceMotion = useReducedMotion();
+  const [code, setCode] = useState(Array<string>(CODE_LENGTH).fill(""));
+  const [status, setStatus] = useState<"idle" | "verified" | "error">("idle");
+
+  const handleChange = (value: string, index: number) => {
+    const sanitized = value.replace(/\D/g, "").slice(-1);
+    setCode((prev) => {
+      const updated = [...prev];
+      updated[index] = sanitized;
+      return updated;
+    });
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const hasEmpty = code.some((digit) => digit.trim().length === 0);
+    setStatus(hasEmpty ? "error" : "verified");
+  };
+
+  const combinedCode = useMemo(() => code.join(""), [code]);
+
+  const resetCode = () => {
+    setCode(Array<string>(CODE_LENGTH).fill(""));
+    setStatus("idle");
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.45,
+        ease: shouldReduceMotion ? "linear" : [0.16, 1, 0.3, 1],
+      }}
+      className="group w-full max-w-md rounded-3xl overflow-hidden border border-border/60 bg-card/85 p-8 backdrop-blur-xl sm:p-10 relative"
+      aria-labelledby="glass-verification-title"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-10"
+      />
+      <div className="mb-8 text-center">
+        <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border/60 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.28em] text-muted-foreground">
+          Verify Email
+        </div>
+        <h1
+          id="glass-verification-title"
+          className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl"
+        >
+          Enter verification code
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          We sent a 6-digit code to your inbox. Enter it below to confirm your
+          email.
+        </p>
+      </div>
+
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        <div className="flex justify-between gap-2">
+          {code.map((digit, index) => (
+            <Input
+              key={index}
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={1}
+              value={digit}
+              onChange={(event) => handleChange(event.target.value, index)}
+              className="h-14 w-full rounded-2xl border-border/60 bg-background/60 text-center text-lg font-semibold"
+              aria-label={`Verification digit ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <Button
+          type="submit"
+          className="w-full rounded-full bg-primary px-6 py-3 text-primary-foreground shadow-[0_18px_55px_-30px_rgba(79,70,229,0.75)] transition-transform duration-300 hover:-translate-y-1"
+        >
+          Verify code
+        </Button>
+      </form>
+
+      <motion.p
+        role="status"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: status === "verified" ? 1 : 0 }}
+        className="mt-6 text-center text-xs text-primary/80"
+      >
+        Verification successful! Redirecting you now.
+      </motion.p>
+      <motion.p
+        role="status"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: status === "error" ? 1 : 0 }}
+        className="mt-6 text-center text-xs text-rose-400/80"
+      >
+        Please fill every digit before verifying.
+      </motion.p>
+
+      <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground">
+        <button
+          type="button"
+          className="text-primary underline-offset-4 hover:underline"
+          onClick={resetCode}
+        >
+          Resend code
+        </button>
+        <span aria-live="polite">Code: {combinedCode || "______"}</span>
+      </div>
+    </motion.div>
+  );
+}
+0:{"buildId":"bFBIq5AO28jMw9-shWxSc","rsc":["$","$1","c",{"children":[["$","$L2",null,{"code":"$3","variantCodes":{},"baseId":"glass-verification-code-card"}],["$L4","$L5","$L6"],"$L7"]}],"loading":null,"isPartial":false}
+4:["$","script","script-0",{"src":"/_next/static/chunks/caa50e77cf52fdaa.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/e0bc9c3a4105a6fe.js","async":true}]
+6:["$","script","script-2",{"src":"/_next/static/chunks/48913bc585f72fa4.js","async":true}]
+7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null

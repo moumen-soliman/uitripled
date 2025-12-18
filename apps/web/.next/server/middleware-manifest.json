@@ -1,0 +1,53 @@
+{
+  "version": 3,
+  "middleware": {},
+  "sortedMiddleware": [],
+  "functions": {
+    "/og/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/server-reference-manifest.js",
+        "server/app/og/route_client-reference-manifest.js",
+        "server/edge/chunks/apps_web__next-internal_server_app_og_route_actions_c44f2738.js",
+        "server/edge/chunks/[root-of-the-server]__241d315d._.js",
+        "server/edge/chunks/node_modules_next_dist_compiled_75f4cebf._.js",
+        "server/edge/chunks/[root-of-the-server]__849a1cfa._.js",
+        "server/edge/chunks/_aaa16983._.js",
+        "server/edge/chunks/node_modules_next_dist_compiled_@vercel_og_16be1ace._.js",
+        "server/edge/chunks/turbopack-apps_web_edge-wrapper_c0f9ff1b.js"
+      ],
+      "name": "app/og/route",
+      "page": "/og/route",
+      "matchers": [
+        {
+          "regexp": "^/og(?:/)?$",
+          "originalSource": "/og"
+        }
+      ],
+      "wasm": [
+        {
+          "name": "wasm_fdb56e4cc5936d29",
+          "filePath": "server/edge/chunks/node_modules_next_dist_compiled_@vercel_og_resvg_23ace1ce.wasm"
+        },
+        {
+          "name": "wasm_1ccdc983b1fd9f87",
+          "filePath": "server/edge/chunks/node_modules_next_dist_compiled_@vercel_og_yoga_23ace1ce.wasm"
+        }
+      ],
+      "assets": [
+        {
+          "name": "server/edge/assets/noto-sans-v27-latin-regular.bdfa676c.ttf",
+          "filePath": "server/edge/assets/noto-sans-v27-latin-regular.bdfa676c.ttf"
+        }
+      ],
+      "env": {
+        "__NEXT_BUILD_ID": "bFBIq5AO28jMw9-shWxSc",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "xamfms7TXtTkUXrUgFc5EYzcnzLoUhctjMeWDcU9+1A=",
+        "__NEXT_PREVIEW_MODE_ID": "8d66a735be09b6ec511daa5047f001e0",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "53854706bc7d50effb2ae0c286e71fcdca8d1316ed5850774b9950b991b285a4",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "fc0d0bfac3a32ad784c98d20f109efb5532d319c483b350f763a8f91c6813f69"
+      }
+    }
+  }
+}

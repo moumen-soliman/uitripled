@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "title": "Example Song",
+    "artist": "Artist",
+    "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745",
+    "lyrics": [
+      {
+        "time": 0,
+        "text": "Lyrics go here"
+      }
+    ]
+  }
+]

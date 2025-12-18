@@ -1,0 +1,42 @@
+{
+  "node": {
+    "40e0a8958fc44e15f6922186b5e8c4f6999e4d31fc": {
+      "workers": {
+        "app/builder/page": {
+          "moduleId": 627401,
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        },
+        "app/components/[id]/page": {
+          "moduleId": 599993,
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        },
+        "app/components/page": {
+          "moduleId": 205827,
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        },
+        "app/preview/[projectName]/page": {
+          "moduleId": 50421,
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        }
+      },
+      "layer": {
+        "app/builder/page": "action-browser",
+        "app/components/[id]/page": "rsc",
+        "app/components/page": "action-browser",
+        "app/preview/[projectName]/page": "action-browser"
+      },
+      "filename": "apps/web/lib/file-reader.ts",
+      "exportedName": "getComponentCode"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "xamfms7TXtTkUXrUgFc5EYzcnzLoUhctjMeWDcU9+1A="
+}

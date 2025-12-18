@@ -1,0 +1,13 @@
+{
+  "extends": "../../apps/web/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@uitripled/ui/*": ["./src/*"],
+      "@/*": ["./src/*"]
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": ["src"]
+}

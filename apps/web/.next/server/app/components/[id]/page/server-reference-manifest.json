@@ -1,0 +1,20 @@
+{
+  "node": {
+    "40e0a8958fc44e15f6922186b5e8c4f6999e4d31fc": {
+      "workers": {
+        "app/components/[id]/page": {
+          "moduleId": 599993,
+          "async": false,
+          "exportedName": "getComponentCode",
+          "filename": "apps/web/lib/file-reader.ts"
+        }
+      },
+      "layer": {
+        "app/components/[id]/page": "rsc"
+      },
+      "exportedName": "getComponentCode",
+      "filename": "apps/web/lib/file-reader.ts"
+    }
+  },
+  "edge": {}
+}

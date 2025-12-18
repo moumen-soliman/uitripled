@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"],
+      "@uitripled/ui": ["../../packages/ui/src/index.ts"],
+      "@uitripled/ui/*": ["../../packages/ui/src/*"],
+      "@uitripled/registry": ["../../packages/registry/src/index.ts"],
+      "@uitripled/registry/*": ["../../packages/registry/src/*"],
+      "@uitripled/shared": ["../../packages/shared/src/index.ts"],
+      "@uitripled/shared/*": ["../../packages/shared/src/*"]
+
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}

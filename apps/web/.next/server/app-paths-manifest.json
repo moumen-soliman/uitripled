@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/export/route": "app/api/export/route.js",
+  "/api/registry/[name]/route": "app/api/registry/[name]/route.js",
+  "/builder/page": "app/builder/page.js",
+  "/components/[id]/page": "app/components/[id]/page.js",
+  "/components/page": "app/components/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/grid-generator/page": "app/grid-generator/page.js",
+  "/hall-of-fame/page": "app/hall-of-fame/page.js",
+  "/og/route": "app-edge-has-no-entrypoint",
+  "/page": "app/page.js",
+  "/preview/[projectName]/page": "app/preview/[projectName]/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/rss.xml/route": "app/rss.xml/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
+}

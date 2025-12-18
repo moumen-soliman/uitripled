@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/components/layout,_N_T_/components/[id]/layout,_N_T_/components/[id]/page,_N_T_/components/cta-hero-block"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/components/$d$id/__PAGE__",
+    "/components/$d$id",
+    "/components",
+    "/_index",
+    "/_head"
+  ]
+}

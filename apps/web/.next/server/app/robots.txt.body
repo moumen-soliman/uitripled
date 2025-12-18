@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://ui.tripled.work
+Sitemap: https://ui.tripled.work/sitemap.xml

@@ -1,0 +1,17 @@
+{
+  "name": "@uitripled/registry",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@uitripled/ui": "^0.0.0",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

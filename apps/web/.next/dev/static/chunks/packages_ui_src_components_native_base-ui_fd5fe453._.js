@@ -1,0 +1,452 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "NativeDelete",
+    ()=>NativeDelete
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/packages/ui/src/lib/utils.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$base$2d$ui$2f$react$2f$esm$2f$button$2f$Button$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@base-ui/react/esm/button/Button.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+;
+;
+;
+const sizeVariants = {
+    sm: "h-8 text-xs px-3",
+    md: "h-10 text-sm px-4",
+    lg: "h-12 text-base px-6"
+};
+const iconSizeVariants = {
+    sm: "h-3 w-3",
+    md: "h-4 w-4",
+    lg: "h-5 w-5"
+};
+function NativeDelete({ onConfirm, onDelete, buttonText = "Delete", confirmText = "Confirm", size = "md", showIcon = true, className, disabled = false }) {
+    _s();
+    const [isExpanded, setIsExpanded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const handleDeleteClick = ()=>{
+        if (!disabled) {
+            setIsExpanded(true);
+            onConfirm();
+        }
+    };
+    const handleConfirm = ()=>{
+        onDelete();
+        setIsExpanded(false);
+    };
+    const handleCancel = ()=>{
+        setIsExpanded(false);
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("relative inline-flex items-center gap-2", className),
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                animate: isExpanded ? {
+                    filter: [
+                        "blur(0px)",
+                        "blur(3px)",
+                        "blur(0px)"
+                    ],
+                    x: [
+                        0,
+                        -2,
+                        2,
+                        -2,
+                        2,
+                        0
+                    ]
+                } : {
+                    filter: "blur(0px)",
+                    x: 0
+                },
+                transition: isExpanded ? {
+                    filter: {
+                        duration: 0.3
+                    },
+                    x: {
+                        duration: 0.4,
+                        times: [
+                            0,
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1
+                        ]
+                    }
+                } : {
+                    duration: 0.2
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                    whileHover: !disabled ? {
+                        scale: 1.02
+                    } : {},
+                    whileTap: !disabled ? {
+                        scale: 0.98
+                    } : {},
+                    transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 17
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$base$2d$ui$2f$react$2f$esm$2f$button$2f$Button$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                        nativeButton: true,
+                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(sizeVariants[size], "inline-flex items-center justify-center rounded-md bg-destructive text-white hover:bg-destructive/90 shadow-md hover:shadow-lg transition-shadow", disabled && "opacity-50 cursor-not-allowed"),
+                        onClick: isExpanded ? handleConfirm : handleDeleteClick,
+                        disabled: disabled,
+                        children: [
+                            showIcon && !isExpanded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
+                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(iconSizeVariants[size], "mr-2")
+                            }, void 0, false, {
+                                fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                                lineNumber: 129,
+                                columnNumber: 15
+                            }, this),
+                            isExpanded ? confirmText : buttonText
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                        lineNumber: 118,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                    lineNumber: 113,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                lineNumber: 90,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                children: isExpanded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                    initial: {
+                        opacity: 0,
+                        scale: 0.8,
+                        x: -10
+                    },
+                    animate: {
+                        opacity: 1,
+                        scale: 1,
+                        x: 0
+                    },
+                    exit: {
+                        opacity: 0,
+                        scale: 0.8,
+                        x: -10
+                    },
+                    transition: {
+                        delay: 0.3,
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 25
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                        whileHover: {
+                            scale: 1.05
+                        },
+                        whileTap: {
+                            scale: 0.95
+                        },
+                        transition: {
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 17
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$base$2d$ui$2f$react$2f$esm$2f$button$2f$Button$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                            nativeButton: true,
+                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("inline-flex items-center justify-center rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-md hover:shadow-lg transition-shadow", size === "sm" ? "h-8 w-8" : size === "md" ? "h-10 w-10" : "h-12 w-12"),
+                            onClick: handleCancel,
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                className: iconSizeVariants[size]
+                            }, void 0, false, {
+                                fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                                lineNumber: 166,
+                                columnNumber: 17
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                            lineNumber: 154,
+                            columnNumber: 15
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                        lineNumber: 149,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                    lineNumber: 138,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+                lineNumber: 136,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx",
+        lineNumber: 89,
+        columnNumber: 5
+    }, this);
+}
+_s(NativeDelete, "FPNvbbHVlWWR4LKxxNntSxiIS38=");
+_c = NativeDelete;
+var _c;
+__turbopack_context__.k.register(_c, "NativeDelete");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "NativeDeleteCustomText",
+    ()=>NativeDeleteCustomText,
+    "NativeDeleteDefault",
+    ()=>NativeDeleteDefault,
+    "NativeDeleteDemo",
+    ()=>NativeDeleteDemo,
+    "NativeDeleteDisabled",
+    ()=>NativeDeleteDisabled,
+    "NativeDeleteLarge",
+    ()=>NativeDeleteLarge,
+    "NativeDeleteNoIcon",
+    ()=>NativeDeleteNoIcon,
+    "NativeDeleteSmall",
+    ()=>NativeDeleteSmall
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$components$2f$native$2f$base$2d$ui$2f$native$2d$delete$2d$baseui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/packages/ui/src/components/native/base-ui/native-delete-baseui.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature();
+"use client";
+;
+;
+function NativeDeleteDefault() {
+    _s();
+    const [deleted, setDeleted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex items-center justify-center p-4",
+        children: !deleted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$components$2f$native$2f$base$2d$ui$2f$native$2d$delete$2d$baseui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NativeDelete"], {
+            onConfirm: ()=>{
+            // Handle confirmation UI shown
+            },
+            onDelete: ()=>{
+                setDeleted(true);
+                setTimeout(()=>setDeleted(false), 2000);
+            }
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 11,
+            columnNumber: 9
+        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "text-sm text-muted-foreground",
+            children: "Deleted!"
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 21,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+        lineNumber: 9,
+        columnNumber: 5
+    }, this);
+}
+_s(NativeDeleteDefault, "o2xeLiSUc9MiQ9+ZoT8hWttPBRw=");
+_c = NativeDeleteDefault;
+function NativeDeleteSmall() {
+    _s1();
+    const [deleted, setDeleted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex items-center justify-center p-4",
+        children: !deleted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$components$2f$native$2f$base$2d$ui$2f$native$2d$delete$2d$baseui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NativeDelete"], {
+            size: "sm",
+            onConfirm: ()=>{
+            // Handle confirmation UI shown
+            },
+            onDelete: ()=>{
+                setDeleted(true);
+                setTimeout(()=>setDeleted(false), 2000);
+            }
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 32,
+            columnNumber: 9
+        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "text-sm text-muted-foreground",
+            children: "Deleted!"
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 43,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+        lineNumber: 30,
+        columnNumber: 5
+    }, this);
+}
+_s1(NativeDeleteSmall, "o2xeLiSUc9MiQ9+ZoT8hWttPBRw=");
+_c1 = NativeDeleteSmall;
+function NativeDeleteLarge() {
+    _s2();
+    const [deleted, setDeleted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex items-center justify-center p-4",
+        children: !deleted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$components$2f$native$2f$base$2d$ui$2f$native$2d$delete$2d$baseui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NativeDelete"], {
+            size: "lg",
+            onConfirm: ()=>{
+            // Handle confirmation UI shown
+            },
+            onDelete: ()=>{
+                setDeleted(true);
+                setTimeout(()=>setDeleted(false), 2000);
+            }
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 54,
+            columnNumber: 9
+        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "text-sm text-muted-foreground",
+            children: "Deleted!"
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 65,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+        lineNumber: 52,
+        columnNumber: 5
+    }, this);
+}
+_s2(NativeDeleteLarge, "o2xeLiSUc9MiQ9+ZoT8hWttPBRw=");
+_c2 = NativeDeleteLarge;
+function NativeDeleteCustomText() {
+    _s3();
+    const [deleted, setDeleted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex items-center justify-center p-4",
+        children: !deleted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$components$2f$native$2f$base$2d$ui$2f$native$2d$delete$2d$baseui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NativeDelete"], {
+            buttonText: "Remove Item",
+            confirmText: "Yes, Remove",
+            onConfirm: ()=>{
+            // Handle confirmation UI shown
+            },
+            onDelete: ()=>{
+                setDeleted(true);
+                setTimeout(()=>setDeleted(false), 2000);
+            }
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 76,
+            columnNumber: 9
+        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "text-sm text-muted-foreground",
+            children: "Removed!"
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 88,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+        lineNumber: 74,
+        columnNumber: 5
+    }, this);
+}
+_s3(NativeDeleteCustomText, "o2xeLiSUc9MiQ9+ZoT8hWttPBRw=");
+_c3 = NativeDeleteCustomText;
+function NativeDeleteNoIcon() {
+    _s4();
+    const [deleted, setDeleted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex items-center justify-center p-4",
+        children: !deleted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$components$2f$native$2f$base$2d$ui$2f$native$2d$delete$2d$baseui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NativeDelete"], {
+            showIcon: false,
+            onConfirm: ()=>{
+            // Handle confirmation UI shown
+            },
+            onDelete: ()=>{
+                setDeleted(true);
+                setTimeout(()=>setDeleted(false), 2000);
+            }
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 99,
+            columnNumber: 9
+        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "text-sm text-muted-foreground",
+            children: "Deleted!"
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 110,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+        lineNumber: 97,
+        columnNumber: 5
+    }, this);
+}
+_s4(NativeDeleteNoIcon, "o2xeLiSUc9MiQ9+ZoT8hWttPBRw=");
+_c4 = NativeDeleteNoIcon;
+function NativeDeleteDisabled() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex items-center justify-center p-4",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$ui$2f$src$2f$components$2f$native$2f$base$2d$ui$2f$native$2d$delete$2d$baseui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NativeDelete"], {
+            disabled: true,
+            onConfirm: ()=>{},
+            onDelete: ()=>{}
+        }, void 0, false, {
+            fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+            lineNumber: 119,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+        lineNumber: 118,
+        columnNumber: 5
+    }, this);
+}
+_c5 = NativeDeleteDisabled;
+function NativeDeleteDemo() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NativeDeleteDefault, {}, void 0, false, {
+        fileName: "[project]/packages/ui/src/components/native/base-ui/demo/native-delete-demo.tsx",
+        lineNumber: 125,
+        columnNumber: 10
+    }, this);
+}
+_c6 = NativeDeleteDemo;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6;
+__turbopack_context__.k.register(_c, "NativeDeleteDefault");
+__turbopack_context__.k.register(_c1, "NativeDeleteSmall");
+__turbopack_context__.k.register(_c2, "NativeDeleteLarge");
+__turbopack_context__.k.register(_c3, "NativeDeleteCustomText");
+__turbopack_context__.k.register(_c4, "NativeDeleteNoIcon");
+__turbopack_context__.k.register(_c5, "NativeDeleteDisabled");
+__turbopack_context__.k.register(_c6, "NativeDeleteDemo");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+]);
+
+//# sourceMappingURL=packages_ui_src_components_native_base-ui_fd5fe453._.js.map

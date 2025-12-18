@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/export/route": "/api/export",
+  "/api/registry/[name]/route": "/api/registry/[name]",
+  "/builder/page": "/builder",
+  "/components/[id]/page": "/components/[id]",
+  "/components/page": "/components",
+  "/favicon.ico/route": "/favicon.ico",
+  "/grid-generator/page": "/grid-generator",
+  "/hall-of-fame/page": "/hall-of-fame",
+  "/og/route": "/og",
+  "/page": "/",
+  "/preview/[projectName]/page": "/preview/[projectName]",
+  "/robots.txt/route": "/robots.txt",
+  "/rss.xml/route": "/rss.xml",
+  "/sitemap.xml/route": "/sitemap.xml"
+}

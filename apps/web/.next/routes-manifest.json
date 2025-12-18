@@ -1,0 +1,147 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/api/registry/[name]",
+      "regex": "^/api/registry/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPname": "nxtPname"
+      },
+      "namedRegex": "^/api/registry/(?<nxtPname>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/components/[id]",
+      "regex": "^/components/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/components/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/preview/[projectName]",
+      "regex": "^/preview/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPprojectName": "nxtPprojectName"
+      },
+      "namedRegex": "^/preview/(?<nxtPprojectName>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/api/export",
+      "regex": "^/api/export(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/export(?:/)?$"
+    },
+    {
+      "page": "/builder",
+      "regex": "^/builder(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/builder(?:/)?$"
+    },
+    {
+      "page": "/components",
+      "regex": "^/components(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/components(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/grid-generator",
+      "regex": "^/grid\\-generator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/grid\\-generator(?:/)?$"
+    },
+    {
+      "page": "/hall-of-fame",
+      "regex": "^/hall\\-of\\-fame(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/hall\\-of\\-fame(?:/)?$"
+    },
+    {
+      "page": "/og",
+      "regex": "^/og(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/og(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/rss.xml",
+      "regex": "^/rss\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/rss\\.xml(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

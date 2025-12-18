@@ -1,0 +1,561 @@
+[00:00:01.226] Server  LOG      ✓ Ready in 1008ms
+[00:00:18.517] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:18.890] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <head>
+                          <body
+                            className="inter_5972bc34-module__OU16Qa__className"
+-                           inject_vt_svd="true"
+                          >
+                  ...
+
+[00:00:18.890] Browser ERROR   In HTML, %s cannot be a descendant of <%s>.
+This will cause a hydration error.%s <div> p 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="/apps/web/...">
+                  <SegmentTrieNode>
+                  <HomePage>
+                    <HomePageContent>
+                      <div className="min-h-scre...">
+                        <section className="bg-backgro...">
+                          <div className="container ...">
+                            <div>
+                            <div>
+                            <div>
+                            <motion.p initial={{opacity:0,y:4}} animate={{opacity:1,y:0}} transition={{duration:0.25}} ...>
+>                             <p
+>                               className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-..."
+>                               style={{opacity:0,transform:"translateY..."}}
+>                               ref={function useMotionRef.useCallback}
+>                             >
+                                <HeroFlip>
+                                  <div className="inline-fle...">
+                                    <div className="absolute f..." style={{opacity:1}}>
+>                                     <div className="relative w-6 h-6 flex items-center justify-center">
+                                      ...
+                                    ...
+                            ...
+                        ...
+                ...
+              ...
+
+[00:00:18.890] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. p <div>
+[00:00:19.456] Browser WARN    Image with src "http://localhost:3000/logos/baseui_dark.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:19.576] Browser WARN    Image with src "http://localhost:3000/logos/react-logo_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:19.576] Browser WARN    Image with src "http://localhost:3000/logos/logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:24.964] Browser WARN    Image with src "http://localhost:3000/logos/baseui_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:24.964] Browser WARN    Image with src "http://localhost:3000/logos/logo-black.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:24.964] Browser WARN    Image with src "http://localhost:3000/logos/react-logo_dark.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:48.253] Server  LOG      ○ Compiling /components/[id] ...
+[00:02:02.612] Browser WARN    You are trying to animate backgroundColor from "transparent" to "hsl(var(--accent) / 0.5)". "transparent" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable
+[00:02:02.612] Browser WARN    You are trying to animate backgroundColor from "hsl(var(--accent) / 0.5)" to "transparent". "transparent" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable
+[00:02:02.612] Browser WARN    You are trying to animate backgroundColor from "transparent" to "hsl(var(--accent) / 0.5)". "transparent" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable
+[00:02:02.612] Browser WARN    You are trying to animate backgroundColor from "hsl(var(--accent) / 0.5)" to "transparent". "transparent" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable
+[00:02:03.680] Browser WARN    You are trying to animate backgroundColor from "transparent" to "hsl(var(--accent) / 0.5)". "transparent" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable
+[00:02:03.963] Browser WARN    You are trying to animate backgroundColor from "hsl(var(--accent) / 0.5)" to "transparent". "transparent" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable
+[00:02:03.963] Browser WARN    You are trying to animate backgroundColor from "transparent" to "hsl(var(--accent) / 0.5)". "transparent" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable
+[00:02:57.323] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:57.559] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <head>
+                          <body
+                            className="inter_5972bc34-module__OU16Qa__className"
+-                           inject_vt_svd="true"
+                          >
+                  ...
+
+[00:02:57.560] Browser ERROR   In HTML, %s cannot be a descendant of <%s>.
+This will cause a hydration error.%s <div> p 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="/apps/web/...">
+                  <SegmentTrieNode>
+                  <HomePage>
+                    <HomePageContent>
+                      <div className="min-h-scre...">
+                        <section className="bg-backgro...">
+                          <div className="container ...">
+                            <div>
+                            <div>
+                            <div>
+                            <motion.p initial={{opacity:0,y:4}} animate={{opacity:1,y:0}} transition={{duration:0.25}} ...>
+>                             <p
+>                               className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-..."
+>                               style={{opacity:0,transform:"translateY..."}}
+>                               ref={function useMotionRef.useCallback}
+>                             >
+                                <HeroFlip>
+                                  <div className="inline-fle...">
+                                    <div className="absolute f..." style={{opacity:1}}>
+>                                     <div className="relative w-6 h-6 flex items-center justify-center">
+                                      ...
+                                    ...
+                            ...
+                        ...
+                ...
+              ...
+
+[00:02:57.560] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. p <div>
+[00:02:57.713] Browser WARN    Image with src "http://localhost:3000/logos/logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:02:57.713] Browser WARN    Image with src "http://localhost:3000/logos/baseui_dark.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:02:57.713] Browser WARN    Image with src "http://localhost:3000/logos/react-logo_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:17:29.212] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:29.501] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/component..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <head>
+                          <body
+                            className="inter_5972bc34-module__OU16Qa__className"
+-                           inject_vt_svd="true"
+                          >
+                  ...
+
+[00:17:30.728] Browser WARN    Image with src "http://localhost:3000/logos/logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:18:00.699] Server  LOG      ✓ Compiled in 1527ms
+[00:18:37.450] Browser ERROR   In HTML, %s cannot be a descendant of <%s>.
+This will cause a hydration error.%s <div> p 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="/apps/web/...">
+                  <SegmentTrieNode>
+                  <HomePage>
+                    <HomePageContent>
+                      <div className="min-h-scre...">
+                        <section className="bg-backgro...">
+                          <div className="container ...">
+                            <div>
+                            <div>
+                            <div>
+                            <motion.p initial={{opacity:0,y:4}} animate={{opacity:1,y:0}} transition={{duration:0.25}} ...>
+>                             <p
+>                               className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-..."
+>                               style={{opacity:0,transform:"translateY..."}}
+>                               ref={function useMotionRef.useCallback}
+>                             >
+                                <HeroFlip>
+                                  <div className="inline-fle...">
+                                    <div className="absolute f..." style={{opacity:1}}>
+>                                     <div className="relative w-6 h-6 flex items-center justify-center">
+                                      ...
+                                    ...
+                            ...
+                        ...
+                ...
+              ...
+
+[00:18:37.450] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. p <div>
+[00:18:37.810] Browser WARN    Image with src "http://localhost:3000/logos/react-logo_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:18:37.810] Browser WARN    Image with src "http://localhost:3000/logos/baseui_dark.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:19:15.122] Browser ERROR   Failed to load section component variant {"code":"MODULE_NOT_FOUND"}
+[00:23:57.094] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:57.343] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <head>
+                          <body
+                            className="inter_5972bc34-module__OU16Qa__className"
+-                           inject_vt_svd="true"
+                          >
+                  ...
+
+[00:23:57.343] Browser ERROR   In HTML, %s cannot be a descendant of <%s>.
+This will cause a hydration error.%s <div> p 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="/apps/web/...">
+                  <SegmentTrieNode>
+                  <HomePage>
+                    <HomePageContent>
+                      <div className="min-h-scre...">
+                        <section className="bg-backgro...">
+                          <div className="container ...">
+                            <div>
+                            <div>
+                            <div>
+                            <motion.p initial={{opacity:0,y:4}} animate={{opacity:1,y:0}} transition={{duration:0.25}} ...>
+>                             <p
+>                               className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-..."
+>                               style={{opacity:0,transform:"translateY..."}}
+>                               ref={function useMotionRef.useCallback}
+>                             >
+                                <HeroFlip>
+                                  <div className="inline-fle...">
+                                    <div className="absolute f..." style={{opacity:1}}>
+>                                     <div className="relative w-6 h-6 flex items-center justify-center">
+                                      ...
+                                    ...
+                            ...
+                        ...
+                ...
+              ...
+
+[00:23:57.343] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. p <div>
+[00:23:57.472] Browser WARN    Image with src "http://localhost:3000/logos/baseui_dark.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:23:57.472] Browser WARN    Image with src "http://localhost:3000/logos/react-logo_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:23:57.472] Browser WARN    Image with src "http://localhost:3000/logos/logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:24:00.807] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:24:11.498] Server  ERROR   File not found: /Users/moumensoliman/code/uitripled/apps/web/components/components/resumes/baseui/professional-resume-baseui.tsx (from registry path: components/components/resumes/baseui/professional-resume-baseui.tsx)
+[00:24:11.500] Server  ERROR   Error reading file components/components/resumes/baseui/professional-resume-baseui.tsx: "File not found: components/components/resumes/baseui/professional-resume-baseui.tsx"
+[00:24:13.363] Server  ERROR   File not found: /Users/moumensoliman/code/uitripled/apps/web/components/components/resumes/baseui/resume-card-baseui.tsx (from registry path: components/components/resumes/baseui/resume-card-baseui.tsx)
+[00:24:13.363] Server  ERROR   Error reading file components/components/resumes/baseui/resume-card-baseui.tsx: "File not found: components/components/resumes/baseui/resume-card-baseui.tsx"
+[00:24:16.565] Browser ERROR   Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+[00:24:17.339] Browser ERROR   Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+[00:24:18.029] Browser ERROR   Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+[00:24:19.627] Server  ERROR   File not found: /Users/moumensoliman/code/uitripled/apps/web/components/sections/baseui/glowy-waves-hero-baseui.tsx (from registry path: components/sections/baseui/glowy-waves-hero-baseui.tsx)
+[00:24:19.627] Server  ERROR   Error reading file components/sections/baseui/glowy-waves-hero-baseui.tsx: "File not found: components/sections/baseui/glowy-waves-hero-baseui.tsx"
+[00:24:25.747] Server  ERROR   File not found: /Users/moumensoliman/code/uitripled/apps/web/components/components/stocks-dashboard/dashboard.tsx (from registry path: components/components/stocks-dashboard/dashboard.tsx)
+[00:24:25.747] Server  ERROR   Error reading file components/components/stocks-dashboard/dashboard.tsx: "File not found: components/components/stocks-dashboard/dashboard.tsx"
+[00:24:25.750] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:24:25.750] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:24:25.750] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:24:25.750] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:27:05.608] Server  LOG      ✓ Compiled in 254ms
+[00:32:54.608] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:55.164] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <head>
+                          <body
+                            className="inter_5972bc34-module__OU16Qa__className"
+-                           inject_vt_svd="true"
+                          >
+                  ...
+
+[00:32:55.164] Browser ERROR   In HTML, %s cannot be a descendant of <%s>.
+This will cause a hydration error.%s <div> p 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="/apps/web/...">
+                  <SegmentTrieNode>
+                  <HomePage>
+                    <HomePageContent>
+                      <div className="min-h-scre...">
+                        <section className="bg-backgro...">
+                          <div className="container ...">
+                            <div>
+                            <div>
+                            <div>
+                            <motion.p initial={{opacity:0,y:4}} animate={{opacity:1,y:0}} transition={{duration:0.25}} ...>
+>                             <p
+>                               className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-..."
+>                               style={{opacity:0,transform:"translateY..."}}
+>                               ref={function useMotionRef.useCallback}
+>                             >
+                                <HeroFlip>
+                                  <div className="inline-fle...">
+                                    <div className="absolute f..." style={{opacity:1}}>
+>                                     <div className="relative w-6 h-6 flex items-center justify-center">
+                                      ...
+                                    ...
+                            ...
+                        ...
+                ...
+              ...
+
+[00:32:55.164] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. p <div>
+[00:32:55.559] Browser WARN    Image with src "http://localhost:3000/logos/logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:32:55.559] Browser WARN    Image with src "http://localhost:3000/logos/baseui_dark.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:32:55.559] Browser WARN    Image with src "http://localhost:3000/logos/react-logo_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:38:10.224] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:38:10.446] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <head>
+                          <body
+                            className="inter_5972bc34-module__OU16Qa__className"
+-                           inject_vt_svd="true"
+                          >
+                  ...
+
+[00:38:10.446] Browser ERROR   In HTML, %s cannot be a descendant of <%s>.
+This will cause a hydration error.%s <div> p 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="/apps/web/...">
+                  <SegmentTrieNode>
+                  <HomePage>
+                    <HomePageContent>
+                      <div className="min-h-scre...">
+                        <section className="bg-backgro...">
+                          <div className="container ...">
+                            <div>
+                            <div>
+                            <div>
+                            <motion.p initial={{opacity:0,y:4}} animate={{opacity:1,y:0}} transition={{duration:0.25}} ...>
+>                             <p
+>                               className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground text-..."
+>                               style={{opacity:0,transform:"translateY..."}}
+>                               ref={function useMotionRef.useCallback}
+>                             >
+                                <HeroFlip>
+                                  <div className="inline-fle...">
+                                    <div className="absolute f..." style={{opacity:1}}>
+>                                     <div className="relative w-6 h-6 flex items-center justify-center">
+                                      ...
+                                    ...
+                            ...
+                        ...
+                ...
+              ...
+
+[00:38:10.446] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. p <div>
+[00:38:10.572] Browser WARN    Image with src "http://localhost:3000/logos/logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:38:10.572] Browser WARN    Image with src "http://localhost:3000/logos/baseui_dark.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:38:10.572] Browser WARN    Image with src "http://localhost:3000/logos/react-logo_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:38:18.938] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}
+[00:38:18.938] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}
+[00:38:20.692] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}
+[00:38:20.692] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}
+[00:38:32.387] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}
+[00:38:32.387] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}
+[00:44:29.930] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}
+[00:44:29.930] Browser ERROR   Failed to load component: {"code":"MODULE_NOT_FOUND"}

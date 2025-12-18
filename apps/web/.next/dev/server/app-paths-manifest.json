@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/registry/[name]/route": "app/api/registry/[name]/route.js",
+  "/builder/page": "app/builder/page.js",
+  "/components/[id]/page": "app/components/[id]/page.js",
+  "/components/page": "app/components/page.js",
+  "/grid-generator/page": "app/grid-generator/page.js",
+  "/hall-of-fame/page": "app/hall-of-fame/page.js",
+  "/page": "app/page.js"
+}

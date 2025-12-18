@@ -1,0 +1,14 @@
+{
+  "name": "@uitripled/scripts",
+  "version": "0.0.0",
+  "bin": {
+    "sync-registry": "./sync-registry.js"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "fs-extra": "^11.0.0",
+    "glob": "^10.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+(globalThis.TURBOPACK_CHUNK_LISTS || (globalThis.TURBOPACK_CHUNK_LISTS = [])).push({
+    script: typeof document === "object" ? document.currentScript : undefined,
+    chunks: [
+  "static/chunks/730ea_ui_src_components_native_shadcn-ui_native-flip-text-shadcnui_tsx_205fed0e._.js"
+],
+    source: "dynamic"
+});

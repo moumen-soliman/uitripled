@@ -1,0 +1,14 @@
+{
+  "extends": "../../apps/web/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@uitripled/registry/*": ["./src/*"],
+      "@uitripled/ui": ["../ui/src/index.ts"],
+      "@uitripled/ui/*": ["../ui/src/*"],
+      "@uitripled/shared": ["../shared/src/index.ts"],
+      "@uitripled/shared/*": ["../shared/src/*"]
+    }
+  },
+  "include": ["src"]
+}
