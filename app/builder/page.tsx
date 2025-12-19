@@ -176,7 +176,7 @@ export default function BuilderPage() {
       );
       if (
         !animation ||
-        (animation.category !== "blocks" && animation.category !== "resumes")
+        (animation.category !== "blocks")
       ) {
         return;
       }
@@ -269,8 +269,7 @@ export default function BuilderPage() {
     // Only allow blocks category components
     if (
       animation &&
-      animation.category !== "blocks" &&
-      animation.category !== "resumes"
+      animation.category !== "blocks"
     ) {
       setActiveId(null);
       return;

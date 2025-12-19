@@ -107,7 +107,7 @@ export function BuilderSidebar({
       .filter(
         (component) =>
           component.display !== false &&
-          (component.category === "blocks" || component.category === "resumes")
+          (component.category === "blocks")
       )
       .filter((component) => {
         if (!query) return true;
