@@ -36,7 +36,19 @@ export default async function HallOfFamePage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         {stargazers.length > 0 ? (
-          <HallOfFameGrid stargazers={stargazers} />
+          <HallOfFameGrid
+            stargazers={stargazers.map((stargazer: any) => {
+              if (stargazer.login === "mohamed-hendawy") {
+                return {
+                  ...stargazer,
+                  login: "shadcn-studio",
+                  avatar_url: "/logos/shadcnstudio.svg",
+                  html_url: "https://github.com/themeselection/shadcn-studio",
+                };
+              }
+              return stargazer;
+            })}
+          />
         ) : (
           <div className="text-center py-20 text-muted-foreground">
             <p>Unable to load stargazers at the moment.</p>
