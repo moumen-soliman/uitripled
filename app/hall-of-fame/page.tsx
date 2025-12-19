@@ -43,7 +43,7 @@ export default async function HallOfFamePage() {
                   ...stargazer,
                   login: "shadcn-studio",
                   avatar_url: "/logos/shadcnstudio.svg",
-                  html_url: "https://github.com/themeselection/shadcn-studio",
+                  html_url: "https://shadcnstudio.com/",
                 };
               }
               return stargazer;
