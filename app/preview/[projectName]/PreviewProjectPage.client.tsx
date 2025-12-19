@@ -8,18 +8,17 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Code, ExternalLink, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { ComponentType, useEffect, useRef, useState } from "react";
-
+import { ComponentType, CSSProperties, useEffect, useRef, useState } from "react";
 type SavedProjectComponent = {
   id?: string;
   animationId: string;
-  textContent?: Record<
-    string,
-    {
-      original: string;
-      value: string;
-    }
-  >;
+  textContent?: Record<string, { original: string; value: string }>;
+  imageContent?: Record<string, { original: string; value: string }>;
+  linkContent?: Record<string, { original: string; value: string }>;
+  styleOverrides?: Record<string, CSSProperties>;
+  hiddenNodes?: string[];
+  elementOrder?: string[];
+  code?: string;
 };
 
 type SavedProjectPage = {
@@ -52,6 +51,11 @@ type ComponentInstance = {
   id: string;
   animationId: string;
   textContent?: Record<string, TextContentEntry>;
+  imageContent?: Record<string, TextContentEntry>;
+  linkContent?: Record<string, TextContentEntry>;
+  styleOverrides?: Record<string, CSSProperties>;
+  hiddenNodes?: string[];
+  elementOrder?: string[];
   component: ComponentType<any>;
 };
 
@@ -148,6 +152,11 @@ function normalizeProject(project: SavedProject): NormalizedProject | null {
               : `component-${pageId}-${componentIndex}`,
           animationId: comp.animationId,
           textContent: comp.textContent,
+          imageContent: comp.imageContent,
+          linkContent: comp.linkContent,
+          styleOverrides: comp.styleOverrides,
+          hiddenNodes: comp.hiddenNodes,
+          elementOrder: comp.elementOrder,
           component: animation.component,
         };
       })
@@ -280,41 +289,105 @@ export default function PreviewProjectPageClient() {
 
     useEffect(() => {
       const container = containerRef.current;
-      if (!container || !instance.textContent) return;
+      if (!container) return;
 
-      const allElements = Array.from(
-        container.querySelectorAll<HTMLElement>(selector)
-      );
-
-      const editableElements = allElements.filter((el) => {
-        const text = el.textContent?.trim();
-        if (!text) return false;
-
-        const hasChildWithText = Array.from(
-          el.querySelectorAll<HTMLElement>(selector)
-        ).some((child) => {
-          if (child === el) return false;
-          const childText = child.textContent?.trim();
-          return !!childText;
+      // Apply Text Overrides
+      if (instance.textContent) {
+        const textElements = Array.from(container.querySelectorAll<HTMLElement>(selector));
+        const editableTextElements = textElements.filter(el => {
+          const text = el.textContent?.trim();
+          if (!text) return false;
+          return !Array.from(el.querySelectorAll<HTMLElement>(selector)).some(child => child !== el && !!child.textContent?.trim());
         });
 
-        if (hasChildWithText) {
-          return false;
-        }
+        editableTextElements.forEach((el, index) => {
+          const textId = `${instance.id}-text-${index}`;
+          const stored = instance.textContent?.[textId];
+          if (stored) {
+            el.dataset.builderTextId = textId;
+            el.textContent = stored.value;
+          }
+        });
+      }
 
-        return true;
-      });
+      // Apply Image Overrides
+      if (instance.imageContent) {
+        const images = Array.from(container.querySelectorAll<HTMLImageElement>("img"));
+        images.forEach((img, index) => {
+          const imageId = `${instance.id}-image-${index}`;
+          const stored = instance.imageContent?.[imageId];
+          if (stored && stored.value !== undefined) {
+             img.src = stored.value;
+          }
+        });
+      }
 
-      editableElements.forEach((el, index) => {
-        const textId = `${instance.id}-${index}`;
-        const stored = instance.textContent?.[textId];
+      // Apply Link Overrides
+      if (instance.linkContent) {
+        const links = Array.from(container.querySelectorAll<HTMLAnchorElement>("a"));
+        links.forEach((a, index) => {
+          const linkId = `${instance.id}-link-${index}`;
+          const stored = instance.linkContent?.[linkId];
+          if (stored && stored.value !== undefined) {
+            a.href = stored.value;
+          }
+        });
+      }
 
-        if (stored) {
-          el.dataset.builderTextId = textId;
-          el.textContent = stored.value;
-        }
-      });
-    }, [instance.id, instance.textContent]);
+      // Apply Hidden Nodes
+      if (instance.hiddenNodes) {
+        // Discovery for containers must match canvas logic
+        const containers = Array.from(container.querySelectorAll<HTMLElement>("div, section, article, aside, main, header, footer"))
+          .filter(el => el !== container && !["P", "SPAN", "H1", "H2", "H3", "H4", "H5", "H6", "BUTTON", "A", "LABEL", "IMG", "BLOCKQUOTE", "FIGCAPTION", "STRONG", "EM", "SMALL"].includes(el.tagName));
+
+        instance.hiddenNodes.forEach(nodeId => {
+          // It could be a text, image, link or node ID
+          const el = container.querySelector<HTMLElement>(`[data-builder-text-id="${nodeId}"], [data-builder-image-id="${nodeId}"], [data-builder-link-id="${nodeId}"], [data-builder-node-id="${nodeId}"]`);
+          if (el) el.style.display = "none";
+          else {
+            // Fallback for nodes that haven't been tagged yet
+            const nodeIndex = nodeId.split("-node-")[1];
+            if (nodeIndex !== undefined && containers[Number(nodeIndex)]) {
+              containers[Number(nodeIndex)].style.display = "none";
+            }
+          }
+        });
+      }
+
+      // Apply Style Overrides
+      if (instance.styleOverrides) {
+        Object.entries(instance.styleOverrides).forEach(([nodeId, styles]) => {
+          const el = container.querySelector<HTMLElement>(`[data-builder-text-id="${nodeId}"], [data-builder-image-id="${nodeId}"], [data-builder-link-id="${nodeId}"], [data-builder-node-id="${nodeId}"]`);
+          if (el) {
+            Object.entries(styles).forEach(([prop, value]) => {
+              const cssProperty = prop.replace(/([A-Z])/g, '-$1').toLowerCase();
+              el.style.setProperty(cssProperty, value as string, 'important');
+            });
+          }
+        });
+      }
+
+      // Apply Reordering
+      if (instance.elementOrder && instance.elementOrder.length > 0) {
+        const containers = Array.from(container.querySelectorAll<HTMLElement>("[class*='grid-cols-'], [class*='md:grid-cols-'], [class*='flex-']"));
+        containers.forEach(grid => {
+          const children = Array.from(grid.children) as HTMLElement[];
+          if (children.length < 2) return;
+
+          const sortedChildren = children.slice().sort((a, b) => {
+            const idA = a.dataset.builderTextId || a.dataset.builderImageId || a.dataset.builderLinkId || a.dataset.builderNodeId;
+            const idB = b.dataset.builderTextId || b.dataset.builderImageId || b.dataset.builderLinkId || b.dataset.builderNodeId;
+            if (!idA || !idB) return 0;
+            const indexA = instance.elementOrder!.indexOf(idA);
+            const indexB = instance.elementOrder!.indexOf(idB);
+            if (indexA === -1 || indexB === -1) return 0;
+            return indexA - indexB;
+          });
+          sortedChildren.forEach(child => grid.appendChild(child));
+        });
+      }
+
+    }, [instance]);
 
     const Component = instance.component;
 

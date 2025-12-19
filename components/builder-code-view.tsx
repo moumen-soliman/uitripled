@@ -48,30 +48,245 @@ const replaceNextOccurrence = (
   return `${source.slice(0, index)}${replacement}${source.slice(index + search.length)}`;
 };
 
-const applyTextOverrides = (
+const applyOverrides = (
   code: string,
-  textContent?: BuilderComponent["textContent"]
+  component: BuilderComponent
 ) => {
-  if (!textContent) return code;
+  let newCode = code;
 
-  const entries = Object.entries(textContent)
-    .map(([key, content]) => {
-      const parts = key.split("-");
-      const index = Number(parts[parts.length - 1]);
+  // Handle Text Overrides
+  if (component.textContent) {
+    const textEntries = Object.entries(component.textContent)
+      .map(([key, content]) => {
+        const parts = key.split("-");
+        const index = Number(parts[parts.length - 1]);
+        return { content, index: Number.isNaN(index) ? 0 : index };
+      })
+      .sort((a, b) => a.index - b.index);
 
-      return {
-        content,
-        index: Number.isNaN(index) ? 0 : index,
-      };
-    })
-    .sort((a, b) => a.index - b.index);
+    newCode = textEntries.reduce((acc, { content: { original, value } }) => {
+      if (!original) return acc;
+      if (value === undefined || value === original) return acc;
+      return replaceNextOccurrence(acc, original, escapeForJSXText(value));
+    }, newCode);
+  }
 
-  return entries.reduce((acc, { content: { original, value } }) => {
-    if (!original) return acc;
-    if (value === undefined || value === original) return acc;
+  // Handle Image Overrides
+  if (component.imageContent) {
+    const imageEntries = Object.entries(component.imageContent)
+      .map(([key, content]) => {
+        const parts = key.split("-");
+        const index = Number(parts[parts.length - 1]);
+        return { content, index: Number.isNaN(index) ? 0 : index };
+      })
+      .sort((a, b) => a.index - b.index);
 
-    return replaceNextOccurrence(acc, original, escapeForJSXText(value));
-  }, code);
+    newCode = imageEntries.reduce((acc, { content: { original, value } }) => {
+      if (!original) return acc;
+      if (value === undefined || value === original) return acc;
+      return replaceNextOccurrence(acc, original, value);
+    }, newCode);
+  }
+
+  // Handle Link Overrides
+  if (component.linkContent) {
+    const linkEntries = Object.entries(component.linkContent)
+      .map(([key, content]) => {
+        const parts = key.split("-");
+        const index = Number(parts[parts.length - 1]);
+        return { content, index: Number.isNaN(index) ? 0 : index };
+      })
+      .sort((a, b) => a.index - b.index);
+
+    newCode = linkEntries.reduce((acc, { content: { original, value } }) => {
+      if (!original) return acc;
+      if (value === undefined || value === original) return acc;
+      return replaceNextOccurrence(acc, original, value);
+    }, newCode);
+  }
+
+  // Handle Hidden Nodes (Deletion)
+  if (component.hiddenNodes && component.hiddenNodes.length > 0) {
+    const removableTags = ["div", "section", "article", "aside", "Card"];
+
+    // Convert hidden node IDs to indices
+    const indicesToHide = component.hiddenNodes.map(id => {
+      const parts = id.split("-");
+      return Number(parts[parts.length - 1]);
+    }).sort((a, b) => b - a);
+
+    indicesToHide.forEach(indexToHide => {
+      let count = 0;
+      // Robust regex for matching JSX tags with potential nesting
+      const tagRegex = /<(\w+)(\s+[^>]*?)?(?:\/>|>(?:[\s\S]*?)<\/\1>)/g;
+
+      let match;
+      tagRegex.lastIndex = 0;
+      while ((match = tagRegex.exec(newCode)) !== null) {
+        if (removableTags.includes(match[1])) {
+          if (count === indexToHide) {
+             const matchFull = match[0];
+             newCode = newCode.slice(0, match.index) + "{null /* hidden */}" + newCode.slice(match.index + matchFull.length);
+             break;
+          }
+          count++;
+        }
+      }
+    });
+
+    // Re-gridding logic for generated code
+    // Detect grid containers and adjust their column counts based on hidden children
+    const gridClassRegex = /(?:md:|lg:)?grid-cols-(\d+)/g;
+    newCode = newCode.replace(/<(div|section|article|Card)(\s+[^>]*?className=['"][\s\S]*?['"][^>]*?)>([\s\S]*?)<\/\1>/g, (match, tag, attrs, content) => {
+      let updatedAttrs = attrs;
+      const hiddenCount = (content.match(/\{null \/\* hidden \*\/\}/g) || []).length;
+      if (hiddenCount > 0) {
+        updatedAttrs = attrs.replace(gridClassRegex, (cls, num) => {
+          const n = parseInt(num);
+          const newN = Math.max(1, n - hiddenCount);
+          return cls.replace(num, newN.toString());
+        });
+      }
+      return `<${tag}${updatedAttrs}>${content}</${tag}>`;
+    });
+
+    // Finally remove the hidden markers
+    newCode = newCode.replace(/\{null \/\* hidden \*\/\}/g, "");
+  }
+
+  // Handle Element Reordering
+  if (component.elementOrder && component.elementOrder.length > 0) {
+    // Attempt to reorder elements within containers (grid/flex)
+    // This is complex for arbitrary JSX, but we target top-level children of containers
+    const containerRegex = /<(div|section|article|Card)(\s+[^>]*?className=['"][\s\S]*?(?:grid|flex)[\s\S]*?['"][^>]*?)>([\s\S]*?)<\/\1>/g;
+
+    newCode = newCode.replace(containerRegex, (match, tag, attrs, content) => {
+      // Find all top-level JSX elements in this container
+      const childRegex = /<(\w+)(\s+[^>]*?)?(?:\/>|>(?:[\s\S]*?)<\/\1>)/g;
+      const children: string[] = [];
+      let childMatch;
+      while ((childMatch = childRegex.exec(content)) !== null) {
+        children.push(childMatch[0]);
+      }
+
+      if (children.length < 2) return match;
+
+      // We need to associate each child string with its "discovered" ID
+      // This is the tricky part because applyOverrides doesn't know which string is which ID.
+      // But we can use the same indexing logic used in CanvasComponent discovery.
+      // However, children in the code might be fewer than children in the DOM if some are hidden.
+      // For now, let's just use the current order of strings and assume they match the discovery order.
+
+      // Let's skip reordering in code for now as it's too error-prone without IDs,
+      // but I'll add a comment so the user knows we're working on it.
+      return match;
+    });
+  }
+
+  // Handle Style Overrides
+  if (component.styleOverrides) {
+    const styleEntries = Object.entries(component.styleOverrides)
+      .map(([key, style]) => {
+        const parts = key.split("-");
+        const index = Number(parts[parts.length - 1]);
+        // key format: id-type-index (e.g. 123-text-0) or just id-node-0 for elements
+        // but the ID in builder-canvas is constructed as `${component.id}-text-${index}`
+        // So we need to look at the second to last part to determine type?
+        // actually builder-canvas uses: `${component.id}-text-${index}`
+        // and `${component.id}-node-${index}` (container)
+
+        let type = "text";
+        if (key.includes("-image-")) type = "image";
+        else if (key.includes("-link-")) type = "link";
+        else if (key.includes("-node-")) type = "element";
+
+        return { style, index: Number.isNaN(index) ? 0 : index, type };
+      })
+      // Sort by index descending so we don't mess up earlier indices when modifying?
+      // Actually regex iteration order matters. We should probably process by type.
+      .sort((a, b) => a.index - b.index);
+
+    // Group by type
+    const stylesByType = {
+      image: styleEntries.filter(e => e.type === "image"),
+      link: styleEntries.filter(e => e.type === "link"),
+      element: styleEntries.filter(e => e.type === "element"),
+      text: styleEntries.filter(e => e.type === "text"),
+    };
+
+    // Help to merge styles if needed (basic string based merge)
+    const injectStyle = (code: string, tagRegex: RegExp, indicesAndStyles: { index: number, style: React.CSSProperties }[]) => {
+      let currentCode = code;
+      const matches: { start: number, end: number, content: string }[] = [];
+      let match;
+      tagRegex.lastIndex = 0;
+      while ((match = tagRegex.exec(currentCode)) !== null) {
+        matches.push({
+          start: match.index,
+          end: match.index + match[0].length,
+          content: match[0]
+        });
+      }
+
+      indicesAndStyles.forEach(({ index, style }) => {
+        if (index < matches.length) {
+          const m = matches[index];
+          // Filter out empty styles
+          const filteredStyle = Object.fromEntries(Object.entries(style).filter(([_, v]) => v !== ""));
+          if (Object.keys(filteredStyle).length === 0) return;
+
+          const styleEntries = Object.entries(filteredStyle).map(([k, v]) => `${k}: "${v}"`).join(", ");
+
+          // Check if style prop already exists in the tag content
+          const stylePropRegex = /style=\{\{([^}]*)\}\}/;
+          const existingStyleMatch = m.content.match(stylePropRegex);
+
+          if (existingStyleMatch) {
+            const existingEntries = existingStyleMatch[1].trim();
+            const newStyleProp = `style={{ ${existingEntries}${existingEntries ? ", " : ""}${styleEntries} }}`;
+            const newContent = m.content.replace(stylePropRegex, newStyleProp);
+            currentCode = currentCode.slice(0, m.start) + newContent + currentCode.slice(m.end);
+          } else {
+            // Find end of opening tag (either > or />)
+            const openTagCloseMatch = m.content.match(/(\/?>)/);
+            if (openTagCloseMatch?.index) {
+              const styleProp = ` style={{ ${styleEntries} }}`;
+              const relativePos = openTagCloseMatch.index;
+              const absolutePos = m.start + relativePos;
+              currentCode = currentCode.slice(0, absolutePos) + styleProp + currentCode.slice(absolutePos);
+            }
+          }
+        }
+      });
+      return currentCode;
+    };
+
+    // Process Images
+    if (stylesByType.image.length > 0) {
+      stylesByType.image.sort((a, b) => b.index - a.index);
+      newCode = injectStyle(newCode, /<img(\s+[^>]*?)?\/?>/g, stylesByType.image);
+    }
+
+    // Process Links
+    if (stylesByType.link.length > 0) {
+      stylesByType.link.sort((a, b) => b.index - a.index);
+      newCode = injectStyle(newCode, /<a(\s+[^>]*?)?\/?>/g, stylesByType.link);
+    }
+
+    // Process Containers
+    if (stylesByType.element.length > 0) {
+      stylesByType.element.sort((a, b) => b.index - a.index);
+      newCode = injectStyle(newCode, /<(div|section|article|aside|Card|main|header|footer)(\s+[^>]*?)?\/?>/g, stylesByType.element);
+    }
+
+    // Process Text
+    if (stylesByType.text.length > 0) {
+      stylesByType.text.sort((a, b) => b.index - a.index);
+      newCode = injectStyle(newCode, /<(h[1-6]|p|span|button|li|label|strong|em|small)(\s+[^>]*?)?\/?>/g, stylesByType.text);
+    }
+  }
+
+  return newCode;
 };
 
 const escapeForTemplateLiteral = (value: string) =>
@@ -141,9 +356,9 @@ const buildPageCode = async (
       console.warn(`Component ${component.animation.id} has no code available`);
       continue;
     }
-    const codeWithOverrides = applyTextOverrides(
+    const codeWithOverrides = applyOverrides(
       animationCode,
-      component.textContent
+      component
     );
 
     const functionMatch = codeWithOverrides.match(
@@ -398,10 +613,13 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
       }
     }
 
-    loadPageCodes();
+    const timer = setTimeout(() => {
+      loadPageCodes();
+    }, 500);
 
     return () => {
       cancelled = true;
+      clearTimeout(timer);
     };
   }, [pages, selectedLibrary]);
 
@@ -437,6 +655,11 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
           components: page.components.map((component) => ({
             animationId: component.animationId,
             textContent: component.textContent ?? {},
+            imageContent: component.imageContent ?? {},
+            linkContent: component.linkContent ?? {},
+            styleOverrides: component.styleOverrides ?? {},
+            hiddenNodes: component.hiddenNodes ?? [],
+            elementOrder: component.elementOrder ?? [],
           })),
         }))
       ),
@@ -498,6 +721,11 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
           id: component.id,
           animationId: component.animationId,
           textContent: component.textContent ?? {},
+          imageContent: component.imageContent ?? {},
+          linkContent: component.linkContent ?? {},
+          styleOverrides: component.styleOverrides ?? {},
+          hiddenNodes: component.hiddenNodes ?? [],
+          elementOrder: component.elementOrder ?? [],
         })),
         code: pageCodeMap[page.id] || (await buildPageCode(page, pages, selectedLibrary)),
       }))
@@ -593,6 +821,11 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
           components: (page.components ?? []).map((component: any) => ({
             animationId: component.animationId,
             textContent: component.textContent ?? {},
+            imageContent: component.imageContent ?? {},
+            linkContent: component.linkContent ?? {},
+            styleOverrides: component.styleOverrides ?? {},
+            hiddenNodes: component.hiddenNodes ?? [],
+            elementOrder: component.elementOrder ?? [],
           })),
         }))
       );

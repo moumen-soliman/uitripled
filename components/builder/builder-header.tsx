@@ -8,7 +8,7 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { FolderOpen, Menu, X } from "lucide-react";
+import { FolderOpen, Menu, X, PanelRight } from "lucide-react";
 
 type BuilderHeaderProps = {
   mobileSidebarOpen: boolean;
@@ -18,6 +18,8 @@ type BuilderHeaderProps = {
   isTextEditing: boolean;
   activeComponentCount: number;
   onMobileComponentSelect: (animationId: string) => void;
+  isSidebarOpen: boolean;
+  onToggleSidebar: () => void;
 };
 
 export function BuilderHeader({
@@ -28,6 +30,8 @@ export function BuilderHeader({
   isTextEditing,
   activeComponentCount,
   onMobileComponentSelect,
+  isSidebarOpen,
+  onToggleSidebar,
 }: BuilderHeaderProps) {
   return (
     <div className="border-b border-border bg-card px-4 py-3 sm:px-6">
@@ -71,16 +75,15 @@ export function BuilderHeader({
             <FolderOpen className="mr-2 h-4 w-4" />
             Load Project
           </Button>
-          {/* <Button
-            variant={isTextEditing ? "default" : "outline"}
+          <Button
+            variant={isSidebarOpen ? "default" : "outline"}
             size="sm"
-            onClick={onToggleTextEditing}
+            onClick={onToggleSidebar}
             className="gap-2"
-            disabled={activeComponentCount === 0}
           >
-            <Type className="h-4 w-4" />
-            {isTextEditing ? "Done editing" : "Edit text"}
-          </Button> */}
+            <PanelRight className="h-4 w-4" />
+            {isSidebarOpen ? "Close Panel" : "Open Panel"}
+          </Button>
         </div>
       </div>
     </div>

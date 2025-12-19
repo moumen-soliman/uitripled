@@ -10,6 +10,12 @@ import { LoadProjectDialog } from "@/components/builder/load-project-dialog";
 import { PageTabs } from "@/components/builder/page-tabs";
 import { TextEditingBanner } from "@/components/builder/text-editing-banner";
 import {
+  EditPopupData,
+} from "@/components/builder/inline-edit-popup";
+import { FolderOpen, Menu, Layers, ChevronRight, PanelRight } from "lucide-react";
+import { PropertiesSidebar } from "@/components/builder/properties-sidebar";
+import { ElementLayersPanel } from "@/components/builder/element-layers-panel";
+import {
   createPage,
   extractSavedPages,
   generateUniqueSlug,
@@ -43,6 +49,14 @@ export default function BuilderPage() {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [savedProjects, setSavedProjects] = useState<SavedProject[]>([]);
   const [isTextEditing, setIsTextEditing] = useState(false);
+  const [selectedComponentId, setSelectedComponentId] = useState<string | null>(
+    null
+  );
+  const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isLayersOpen, setIsLayersOpen] = useState(false);
+  const [discoveredElements, setDiscoveredElements] = useState<Record<string, any[]>>({});
+  const [editPopupData, setEditPopupData] = useState<EditPopupData | null>(null);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -92,43 +106,54 @@ export default function BuilderPage() {
     (componentId: string, nodeId: string, originalText: string) => {
       if (!activePageId) return;
 
-      setPages((prev) =>
-        prev.map((page) => {
+      setPages((prev) => {
+        let changed = false;
+        const newPages = prev.map((page) => {
           if (page.id !== activePageId) return page;
 
-          return {
-            ...page,
-            components: page.components.map((component) => {
-              if (component.id !== componentId) return component;
+          const newComponents = page.components.map((component) => {
+            if (component.id !== componentId) return component;
 
-              const existing = component.textContent?.[nodeId];
-              if (existing) {
-                if (
-                  existing.value === existing.original &&
-                  existing.original !== originalText
-                ) {
-                  return {
-                    ...component,
-                    textContent: {
-                      ...(component.textContent ?? {}),
-                      [nodeId]: { original: originalText, value: originalText },
-                    },
-                  };
-                }
-                return component;
+            const currentTextContent = component.textContent ?? {};
+            const existing = currentTextContent[nodeId];
+
+            if (existing) {
+              if (
+                existing.value === existing.original &&
+                existing.original !== originalText &&
+                originalText !== ""
+              ) {
+                changed = true;
+                return {
+                  ...component,
+                  textContent: {
+                    ...currentTextContent,
+                    [nodeId]: { original: originalText, value: originalText },
+                  },
+                };
               }
+              return component;
+            }
 
-              return {
-                ...component,
-                textContent: {
-                  ...(component.textContent ?? {}),
-                  [nodeId]: { original: originalText, value: originalText },
-                },
-              };
-            }),
-          };
-        })
-      );
+            // New node registration
+            if (originalText === "") return component; // Don't register empty nodes initially
+
+            changed = true;
+            return {
+              ...component,
+              textContent: {
+                ...currentTextContent,
+                [nodeId]: { original: originalText, value: originalText },
+              },
+            };
+          });
+
+          if (newComponents === page.components) return page;
+          return { ...page, components: newComponents };
+        });
+
+        return changed ? newPages : prev;
+      });
     },
     [activePageId]
   );
@@ -169,6 +194,178 @@ export default function BuilderPage() {
     [activePageId]
   );
 
+  const handleUpdateImageNode = useCallback(
+    (componentId: string, nodeId: string, newValue: string) => {
+      if (!activePageId) return;
+
+      setPages((prev) =>
+        prev.map((page) => {
+          if (page.id !== activePageId) return page;
+
+          return {
+            ...page,
+            components: page.components.map((component) => {
+              if (component.id !== componentId) return component;
+
+              const existing = component.imageContent?.[nodeId];
+              if (existing && existing.value === newValue) {
+                return component;
+              }
+
+              return {
+                ...component,
+                imageContent: {
+                  ...(component.imageContent ?? {}),
+                  [nodeId]: {
+                    original: existing?.original ?? newValue,
+                    value: newValue,
+                  },
+                },
+              };
+            }),
+          };
+        })
+      );
+    },
+    [activePageId]
+  );
+
+  const handleUpdateLinkNode = useCallback(
+    (componentId: string, nodeId: string, newValue: string) => {
+      if (!activePageId) return;
+
+      setPages((prev) =>
+        prev.map((page) => {
+          if (page.id !== activePageId) return page;
+
+          return {
+            ...page,
+            components: page.components.map((component) => {
+              if (component.id !== componentId) return component;
+
+              const existing = component.linkContent?.[nodeId];
+              if (existing && existing.value === newValue) {
+                return component;
+              }
+
+              return {
+                ...component,
+                linkContent: {
+                  ...(component.linkContent ?? {}),
+                  [nodeId]: {
+                    original: existing?.original ?? newValue,
+                    value: newValue,
+                  },
+                },
+              };
+            }),
+          };
+        })
+      );
+    },
+    [activePageId]
+  );
+
+  const handleUpdateStyle = useCallback(
+    (componentId: string, nodeId: string, newStyle: React.CSSProperties) => {
+      if (!activePageId) return;
+
+      setPages((prev) =>
+        prev.map((page) => {
+          if (page.id !== activePageId) return page;
+
+          return {
+            ...page,
+            components: page.components.map((component) => {
+              if (component.id !== componentId) return component;
+
+              return {
+                ...component,
+                styleOverrides: {
+                  ...(component.styleOverrides ?? {}),
+                  [nodeId]: newStyle,
+                },
+              };
+            }),
+          };
+        })
+      );
+    },
+    [activePageId]
+  );
+
+  const handleToggleNodeVisibility = useCallback(
+    (componentId: string, nodeId: string) => {
+      if (!activePageId) return;
+
+      setPages((prev) =>
+        prev.map((page) => {
+          if (page.id !== activePageId) return page;
+
+          return {
+            ...page,
+            components: page.components.map((component) => {
+              if (component.id !== componentId) return component;
+
+              const currentHidden = component.hiddenNodes ?? [];
+              const isHidden = currentHidden.includes(nodeId);
+
+              return {
+                ...component,
+                hiddenNodes: isHidden
+                  ? currentHidden.filter((id) => id !== nodeId)
+                  : [...currentHidden, nodeId],
+              };
+            }),
+          };
+        })
+      );
+    },
+    [activePageId]
+  );
+
+  const handleReorderElements = useCallback(
+    (componentId: string, newOrder: string[]) => {
+      if (!activePageId) return;
+
+      setPages((prev) =>
+        prev.map((page) => {
+          if (page.id !== activePageId) return page;
+
+          return {
+            ...page,
+            components: page.components.map((component) => {
+              if (component.id !== componentId) return component;
+
+              return {
+                ...component,
+                elementOrder: newOrder,
+              };
+            }),
+          };
+        })
+      );
+    },
+    [activePageId]
+  );
+
+  const handleElementsDiscovered = useCallback(
+    (componentId: string, elements: any[]) => {
+      setDiscoveredElements((prev) => {
+        // Deep compare to avoid infinite loops if the array is stable
+        const current = prev[componentId];
+        if (current && JSON.stringify(current) === JSON.stringify(elements)) {
+          return prev;
+        }
+        return {
+          ...prev,
+          [componentId]: elements,
+        };
+      });
+    },
+    []
+  );
+
   const handleAddComponentToPage = useCallback(
     (animationId: string) => {
       const animation = componentsRegistry.find(
@@ -186,6 +383,9 @@ export default function BuilderPage() {
         animationId: animation.id,
         animation,
         textContent: {},
+        imageContent: {},
+        linkContent: {},
+        hiddenNodes: [],
       };
 
       setPages((prev) => {
@@ -283,6 +483,9 @@ export default function BuilderPage() {
         animationId: animation.id,
         animation,
         textContent: {},
+        imageContent: {},
+        linkContent: {},
+        hiddenNodes: [],
       };
 
       // If dropped over a component, insert at that position
@@ -316,6 +519,10 @@ export default function BuilderPage() {
   const handleDeleteComponent = (id: string) => {
     if (!activePage) return;
 
+    if (selectedComponentId === id) {
+      setSelectedComponentId(null);
+    }
+
     setPages((prev) =>
       prev.map((page) =>
         page.id === activePage.id
@@ -334,6 +541,7 @@ export default function BuilderPage() {
     setActivePageId(pageId);
     setIsTextEditing(false);
     setActiveId(null);
+    setSelectedComponentId(null);
   };
 
   const handleAddPage = () => {
@@ -350,6 +558,7 @@ export default function BuilderPage() {
     setActivePageId(newPage.id);
     setIsTextEditing(false);
     setActiveId(null);
+    setSelectedComponentId(null);
   };
 
   const handleRenamePage = (pageId: string) => {
@@ -400,6 +609,7 @@ export default function BuilderPage() {
     if (activePageId === pageId) {
       setActivePageId(remainingPages[0]?.id ?? "");
     }
+    setSelectedComponentId(null);
   };
 
   const loadSavedProjects = () => {
@@ -450,6 +660,10 @@ export default function BuilderPage() {
             animationId: comp.animationId,
             animation,
             textContent: comp.textContent ?? {},
+            imageContent: comp.imageContent ?? {},
+            linkContent: comp.linkContent ?? {},
+            styleOverrides: comp.styleOverrides ?? {},
+            hiddenNodes: comp.hiddenNodes ?? [],
           };
         })
         .filter((value): value is BuilderComponent => Boolean(value));
@@ -469,6 +683,7 @@ export default function BuilderPage() {
     setLoadDialogOpen(false);
     setIsTextEditing(false);
     setActiveId(null);
+    setSelectedComponentId(null);
 
     const desiredActiveId =
       project.entryPageId &&
@@ -528,6 +743,8 @@ export default function BuilderPage() {
         isTextEditing={isTextEditing}
         activeComponentCount={activeComponentCount}
         onMobileComponentSelect={handleMobileComponentSelect}
+        isSidebarOpen={isSidebarOpen}
+        onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
       />
 
       <div className="flex flex-1 overflow-hidden">
@@ -537,10 +754,23 @@ export default function BuilderPage() {
           onDragEnd={handleDragEnd}
         >
           {/* Left Sidebar */}
-          <BuilderSidebar
-            className="hidden h-full w-80 border-r border-border md:flex"
-            onSelectComponent={handleAddComponentToPage}
-          />
+          <div className="hidden h-full w-80 flex-col border-r border-border md:flex">
+            <BuilderSidebar
+              className="flex-1"
+              onSelectComponent={handleAddComponentToPage}
+            />
+            {selectedComponentId && (
+              <ElementLayersPanel
+                component={activePage?.components.find(c => c.id === selectedComponentId) || null}
+                elements={discoveredElements[selectedComponentId] || []}
+                activeElementId={activeNodeId}
+                onSelectElement={setActiveNodeId}
+                onToggleVisibility={(nodeId) => handleToggleNodeVisibility(selectedComponentId, nodeId)}
+                onDeleteElement={(nodeId) => handleToggleNodeVisibility(selectedComponentId, nodeId)}
+                onReorderElements={handleReorderElements}
+              />
+            )}
+          </div>
 
           {/* Main Canvas Area */}
           <div className="flex flex-1 flex-col overflow-y-auto md:overflow-hidden">
@@ -561,14 +791,48 @@ export default function BuilderPage() {
               activeRoute={activeRoute}
             />
 
-            <div className="md:flex-1 md:overflow-y-auto p-4 md:p-6">
-              <BuilderCanvas
-                components={activePage?.components ?? []}
-                onDelete={handleDeleteComponent}
-                isTextEditing={isTextEditing}
-                onRegisterTextNode={handleRegisterTextNode}
-                onUpdateTextNode={handleUpdateTextNode}
-              />
+            <div className="flex flex-1 overflow-hidden">
+              <div className="md:flex-1 md:overflow-y-auto p-4 md:p-6">
+                <BuilderCanvas
+                  components={activePage?.components ?? []}
+                  onDelete={handleDeleteComponent}
+                  isTextEditing={isTextEditing}
+                  onRegisterTextNode={handleRegisterTextNode}
+                  onUpdateTextNode={handleUpdateTextNode}
+                  selectedComponentId={selectedComponentId}
+                  onSelectComponent={setSelectedComponentId}
+                  onToggleVisibility={handleToggleNodeVisibility}
+                  onOpenEditPopup={(componentId, nodeId, nodeType, value, position) => {
+                    setSelectedComponentId(componentId);
+                    setActiveNodeId(nodeId);
+                    const component = activePage?.components.find(c => c.id === componentId);
+                    if (!component) return;
+                    let originalValue = value;
+                    if (nodeType === "text") {
+                      originalValue = component.textContent?.[nodeId]?.original ?? value;
+                    } else if (nodeType === "image") {
+                      originalValue = component.imageContent?.[nodeId]?.original ?? value;
+                    } else if (nodeType === "link") {
+                      originalValue = component.linkContent?.[nodeId]?.original ?? value;
+                    }
+
+                    const currentStyle = component.styleOverrides?.[nodeId];
+
+                    setEditPopupData({
+                      nodeId,
+                      nodeType,
+                      value,
+                      originalValue,
+                      position,
+                      componentId,
+                      currentStyle,
+                    });
+                  }}
+                  activeNodeId={activeNodeId}
+                  onElementsDiscovered={handleElementsDiscovered}
+                  onUpdateStyle={handleUpdateStyle}
+                />
+              </div>
             </div>
 
             {/* Code View */}
@@ -577,6 +841,21 @@ export default function BuilderPage() {
               activePageId={activePage?.id ?? null}
             />
           </div>
+
+          {/* Right Sidebar */}
+          {isSidebarOpen && (
+            <PropertiesSidebar
+              data={editPopupData}
+              pages={pages.map(p => ({ id: p.id, name: p.name, slug: p.slug }))}
+              onUpdateText={handleUpdateTextNode}
+              onUpdateImage={handleUpdateImageNode}
+              onUpdateLink={handleUpdateLinkNode}
+              onUpdateStyle={handleUpdateStyle}
+              onDeleteNode={handleToggleNodeVisibility}
+              onAddPage={handleAddPage}
+              onClose={() => setIsSidebarOpen(false)}
+            />
+          )}
 
           <DragOverlay activeComponentInfo={activeComponentInfo} />
         </DndContext>
