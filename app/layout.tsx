@@ -1,7 +1,8 @@
+import { ColorSchemeSync } from "@/components/color-scheme-sync";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { StarUsSideReminder } from "@/components/star-us-side-reminder";
-import { THEME_STORAGE_KEY, ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { UILibraryProvider } from "@/components/ui-library-provider";
 import { baseMetadata, siteConfig } from "@/lib/seo";
 import type { Viewport } from "next";
@@ -29,27 +30,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const themeInitScript = `
-    (() => {
-      try {
-        const storageKey = "${THEME_STORAGE_KEY}";
-        const root = document.documentElement;
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const storedTheme = localStorage.getItem(storageKey);
-        const isTheme = (value) => value === "light" || value === "dark" || value === "system";
-        const activeTheme = isTheme(storedTheme) ? storedTheme : "system";
-        const resolvedTheme = activeTheme === "system" ? (prefersDark ? "dark" : "light") : activeTheme;
-        root.dataset.theme = resolvedTheme;
-        if (resolvedTheme === "dark") {
-          root.classList.add("dark");
-        } else {
-          root.classList.remove("dark");
-        }
-      } catch {
-        // ignore
-      }
-    })();
-  `;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -87,9 +67,6 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {themeInitScript}
-        </Script>
         <Script
           id="structured-data"
           type="application/ld+json"
@@ -118,6 +95,7 @@ export default function RootLayout({
           async
         />
         <ThemeProvider>
+          <ColorSchemeSync />
           <UILibraryProvider>
             <NuqsAdapter>
               <Header />
