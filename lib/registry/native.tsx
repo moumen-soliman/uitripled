@@ -100,6 +100,14 @@ import {
   NativeImageCheckboxSmall,
 } from "@/components/native/shadcnui/demo/native-image-checkbox-demo";
 import {
+  NativeLikesCounterDefault,
+  NativeLikesCounterGhost,
+  NativeLikesCounterInteractive,
+  NativeLikesCounterOutline,
+  NativeLikesCounterSizes,
+  NativeLikesCounterSubtle,
+} from "@/components/native/shadcnui/demo/native-likes-counter-demo";
+import {
   NativeLiquidButtonDefault,
   NativeLiquidButtonError,
   NativeLiquidButtonGlow,
@@ -145,6 +153,15 @@ import {
   NativeTypewriterMultiline,
 } from "@/components/native/shadcnui/demo/native-typewriter-demo";
 import {
+  NativeVerifiedBadgeCustomIcon,
+  NativeVerifiedBadgeDefault,
+  NativeVerifiedBadgeOutlineVariants,
+  NativeVerifiedBadgeShield,
+  NativeVerifiedBadgeSizes,
+  NativeVerifiedBadgeWithLabel,
+  NativeVerifiedBadgeWithTooltip,
+} from "@/components/native/shadcnui/demo/native-verified-badge-demo";
+import {
   SocialButtonsGlow,
   SocialButtonsScale,
   SocialButtonsShine,
@@ -157,6 +174,7 @@ import { NativeDelete } from "@/components/native/shadcnui/native-delete-shadcnu
 import { NativeDialog } from "@/components/native/shadcnui/native-dialog-shadcnui";
 import { NativeHoverCard } from "@/components/native/shadcnui/native-hover-card-shadcnui";
 import { NativeImageCheckbox } from "@/components/native/shadcnui/native-image-checkbox-shadcnui";
+import { NativeLikesCounter } from "@/components/native/shadcnui/native-likes-counter-shadcnui";
 import { NativeLiquidButton } from "@/components/native/shadcnui/native-liquid-button-shadcnui";
 import { NativeMorphingButton } from "@/components/native/shadcnui/native-morphing-button-shadcnui";
 import { NativeNotificationBell } from "@/components/native/shadcnui/native-notification-bell-shadcnui";
@@ -164,15 +182,6 @@ import { NativeStartNow } from "@/components/native/shadcnui/native-start-now-sh
 import { NativeTabs } from "@/components/native/shadcnui/native-tabs-shadcnui";
 import { NativeTooltip } from "@/components/native/shadcnui/native-tooltip-shadcnui";
 import { SocialLoginButton } from "@/components/native/shadcnui/social-login-button-shadcnui";
-import { NativeLikesCounter } from "@/components/native/shadcnui/native-likes-counter-shadcnui";
-import {
-  NativeLikesCounterDefault,
-  NativeLikesCounterSubtle,
-  NativeLikesCounterOutline,
-  NativeLikesCounterGhost,
-  NativeLikesCounterSizes,
-  NativeLikesCounterInteractive,
-} from "@/components/native/shadcnui/demo/native-likes-counter-demo";
 
 import { NativeNestedListBaseUI } from "@/components/native/baseui/native-nested-list-baseui";
 import { NativeProfileNotch as NativeProfileNotchBaseUI } from "@/components/native/baseui/native-profile-notch-baseui";
@@ -183,6 +192,7 @@ import {
 } from "@/components/native/shadcnui/demo/native-profile-notch-demo";
 import { NativeNestedList } from "@/components/native/shadcnui/native-nested-list-shadcnui";
 import { NativeProfileNotch } from "@/components/native/shadcnui/native-profile-notch-shadcnui";
+import { VerifiedBadge } from "@/components/native/shadcnui/native-verified-badge-shadcnui";
 
 export const nativeComponents: Component[] = [
   {
@@ -226,9 +236,18 @@ export const nativeComponents: Component[] = [
   {
     id: "native-likes-counter",
     name: "Native Likes Counter",
-    description: "An interactive likes counter with avatar stack, popup details, and smooth animations.",
+    description:
+      "An interactive likes counter with avatar stack, popup details, and smooth animations.",
     category: "native",
-    tags: ["likes", "counter", "avatar", "social", "interaction", "animation", "popup"],
+    tags: [
+      "likes",
+      "counter",
+      "avatar",
+      "social",
+      "interaction",
+      "animation",
+      "popup",
+    ],
     component: NativeLikesCounter,
     variants: [
       {
@@ -786,6 +805,85 @@ export const nativeComponents: Component[] = [
       "@/components/native/shadcnui/native-notification-bell-shadcnui.tsx",
     duration: "600ms",
     easing: "easeInOut",
+    display: true,
+    availableIn: ["shadcnui", "baseui"],
+  },
+  {
+    id: "native-verified-badge",
+    name: "Native Verified Badge",
+    description:
+      "Verified badge component with multiple variants, sizes, and styles including outline and shield designs.",
+    category: "native",
+    tags: ["badge", "verified", "status", "icon", "native", "tooltip"],
+    component: VerifiedBadge,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Basic verified badge with variants",
+        component: NativeVerifiedBadgeDefault,
+        code: `<VerifiedBadge />
+<VerifiedBadge variant="blue" />
+<VerifiedBadge variant="gold" />
+<VerifiedBadge variant="green" />`,
+      },
+      {
+        id: "with-label",
+        name: "With Label",
+        description: "Badge with label text",
+        component: NativeVerifiedBadgeWithLabel,
+        code: `<VerifiedBadge showLabel label="Verified" />
+<VerifiedBadge variant="blue" showLabel label="Premium" />
+<VerifiedBadge variant="gold" showLabel label="Pro" />`,
+      },
+      {
+        id: "sizes",
+        name: "Sizes",
+        description: "Different badge sizes",
+        component: NativeVerifiedBadgeSizes,
+        code: `<VerifiedBadge size="sm" showLabel label="Verified" />
+<VerifiedBadge size="md" showLabel label="Verified" />
+<VerifiedBadge size="lg" showLabel label="Verified" />`,
+      },
+      {
+        id: "outline",
+        name: "Outline Variants",
+        description: "Outline style badge variants",
+        component: NativeVerifiedBadgeOutlineVariants,
+        code: `<VerifiedBadgeOutline />
+<VerifiedBadgeOutline variant="blue" />
+<VerifiedBadgeOutline variant="gold" />`,
+      },
+      {
+        id: "shield",
+        name: "Shield Badge",
+        description: "Shield-shaped verified badge",
+        component: NativeVerifiedBadgeShield,
+        code: `<VerifiedShieldBadge />
+<VerifiedShieldBadge variant="blue" />
+<VerifiedShieldBadge variant="gold" />`,
+      },
+      {
+        id: "with-tooltip",
+        name: "With Tooltip",
+        description: "Badge with tooltip on hover",
+        component: NativeVerifiedBadgeWithTooltip,
+        code: `<VerifiedBadge tooltip="This account is verified" showLabel label="Verified" />
+<VerifiedBadgeOutline variant="blue" tooltip="Premium member" size="lg" />`,
+      },
+      {
+        id: "custom-icon",
+        name: "Custom Icon",
+        description: "Badge with custom icon",
+        component: NativeVerifiedBadgeCustomIcon,
+        code: `<VerifiedBadge icon={<Star className="h-3 w-3" />} variant="gold" showLabel label="Featured" />
+<VerifiedBadgeOutline icon={<Star className="h-2.5 w-2.5" />} variant="blue" size="lg" />
+<VerifiedShieldBadge icon={<Star className="h-3 w-3" />} variant="gold" size="lg" />`,
+      },
+    ],
+    codePath: "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx",
+    duration: "500ms",
+    easing: "ease-out",
     display: true,
     availableIn: ["shadcnui", "baseui"],
   },
@@ -2395,7 +2493,8 @@ export const nativeComponents: Component[] = [
   {
     id: "native-likes-counter-shadcnui",
     name: "Native Likes Counter",
-    description: "An interactive likes counter with avatar stack, popup details, and smooth animations.",
+    description:
+      "An interactive likes counter with avatar stack, popup details, and smooth animations.",
     category: "native",
     tags: [],
     component: NativeLikesCounterDefault,
@@ -2406,11 +2505,36 @@ export const nativeComponents: Component[] = [
   {
     id: "native-likes-counter-baseui",
     name: "Native Likes Counter",
-    description: "An interactive likes counter with avatar stack, popup details, and smooth animations.",
+    description:
+      "An interactive likes counter with avatar stack, popup details, and smooth animations.",
     category: "native",
     tags: [],
     component: NativeLikesCounterDefault,
     codePath: "@/components/native/baseui/native-likes-counter-baseui.tsx",
+    display: false,
+    availableIn: ["baseui"],
+  },
+  {
+    id: "native-verified-badge-shadcnui",
+    name: "Native Verified Badge",
+    description:
+      "Verified badge component with multiple variants, sizes, and styles including outline and shield designs.",
+    category: "native",
+    tags: [],
+    component: VerifiedBadge,
+    codePath: "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx",
+    display: false,
+    availableIn: ["shadcnui"],
+  },
+  {
+    id: "native-verified-badge-baseui",
+    name: "Native Verified Badge",
+    description:
+      "Verified badge component with multiple variants, sizes, and styles including outline and shield designs.",
+    category: "native",
+    tags: [],
+    component: VerifiedBadge,
+    codePath: "@/components/native/baseui/native-verified-badge-baseui.tsx",
     display: false,
     availableIn: ["baseui"],
   },

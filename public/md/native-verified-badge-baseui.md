@@ -1,6 +1,6 @@
 ---
-title: Native Morphing Button
-description: Floating action button that morphs into a menu of actions.
+title: Native Verified Badge
+description: Verified badge component with multiple variants, sizes, and styles including outline and shield designs.
 component: true
 ---
 
@@ -9,11 +9,11 @@ component: true
 
 import * as React from "react"
 
-import { NativeMorphingButton } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
+import { NativeVerifiedBadge } from "@/components/native/baseui/native-verified-badge-baseui.tsx"
 
-export function NativeMorphingButtonDemo() {
+export function NativeVerifiedBadgeDemo() {
   return (
-    <NativeMorphingButton />
+    <NativeVerifiedBadge />
   )
 }
 ```
@@ -29,7 +29,7 @@ export function NativeMorphingButtonDemo() {
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @uitripled/native-morphing-button
+npx shadcn@latest add @uitripled/native-verified-badge-baseui
 ```
 
 </TabsContent>
@@ -38,9 +38,15 @@ npx shadcn@latest add @uitripled/native-morphing-button
 
 <Steps>
 
+<Step>Add the required components to your project.</Step>
+
+The `Native Verified Badge` component uses the following components. Make sure you have them installed in your project.
+
+- button
+
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-morphing-button" title="@/components/native/shadcnui/native-verified-badge-shadcnui.tsx" />
+<ComponentSource name="native-verified-badge-baseui" title="@/components/native/baseui/native-verified-badge-baseui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,23 +59,26 @@ npx shadcn@latest add @uitripled/native-morphing-button
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeMorphingButton } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
+import { NativeVerifiedBadge } from "@/components/native/baseui/native-verified-badge-baseui.tsx"
 ```
 
 ```tsx showLineNumbers
-<NativeMorphingButton />
+<NativeVerifiedBadge />
 ```
 
 ## Component Details
 
 - **Category**: native
-- **Tags**: fab, morphing, menu, actions, native
+
 
 ### Technical Specifications
 
 **Dependencies**:
 - `framer-motion`
 - `react`
+
+**UI Components**:
+- button
 
 This component uses **Framer Motion** for animations and motion effects.
 
@@ -101,11 +110,11 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeMorphingButton } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
+import { NativeVerifiedBadge } from "@/components/native/baseui/native-verified-badge-baseui.tsx"
 
 export function BasicExample() {
   return (
-    <NativeMorphingButton />
+    <NativeVerifiedBadge />
   )
 }
 ```
@@ -123,4 +132,4 @@ This component is part of the UI TripleD component library, a collection of prod
 
 ## Related Components
 
-No related components.
+- [button](/docs/components/button)

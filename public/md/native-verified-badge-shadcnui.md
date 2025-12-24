@@ -1,6 +1,6 @@
 ---
-title: Native Morphing Button
-description: Floating action button that morphs into a menu of actions.
+title: Native Verified Badge
+description: Verified badge component with multiple variants, sizes, and styles including outline and shield designs.
 component: true
 ---
 
@@ -9,11 +9,11 @@ component: true
 
 import * as React from "react"
 
-import { NativeMorphingButton } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
+import { NativeVerifiedBadge } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
 
-export function NativeMorphingButtonDemo() {
+export function NativeVerifiedBadgeDemo() {
   return (
-    <NativeMorphingButton />
+    <NativeVerifiedBadge />
   )
 }
 ```
@@ -29,7 +29,7 @@ export function NativeMorphingButtonDemo() {
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @uitripled/native-morphing-button
+npx shadcn@latest add @uitripled/native-verified-badge-shadcnui
 ```
 
 </TabsContent>
@@ -40,7 +40,7 @@ npx shadcn@latest add @uitripled/native-morphing-button
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-morphing-button" title="@/components/native/shadcnui/native-verified-badge-shadcnui.tsx" />
+<ComponentSource name="native-verified-badge-shadcnui" title="@/components/native/shadcnui/native-verified-badge-shadcnui.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -53,17 +53,17 @@ npx shadcn@latest add @uitripled/native-morphing-button
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeMorphingButton } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
+import { NativeVerifiedBadge } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
 ```
 
 ```tsx showLineNumbers
-<NativeMorphingButton />
+<NativeVerifiedBadge />
 ```
 
 ## Component Details
 
 - **Category**: native
-- **Tags**: fab, morphing, menu, actions, native
+
 
 ### Technical Specifications
 
@@ -101,11 +101,11 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeMorphingButton } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
+import { NativeVerifiedBadge } from "@/components/native/shadcnui/native-verified-badge-shadcnui.tsx"
 
 export function BasicExample() {
   return (
-    <NativeMorphingButton />
+    <NativeVerifiedBadge />
   )
 }
 ```

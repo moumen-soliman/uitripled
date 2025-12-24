@@ -3984,6 +3984,26 @@
       "subcategory": null
     },
     {
+      "name": "native-likes-counter",
+      "type": "registry:component",
+      "title": "Native Likes Counter",
+      "description": "An interactive likes counter with avatar stack, popup details, and smooth animations.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/shadcnui/native-likes-counter-shadcnui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-likes-counter.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
       "name": "native-likes-counter-baseui",
       "type": "registry:component",
       "title": "Native Likes Counter",
@@ -4680,6 +4700,68 @@
           "path": "components/native/baseui/native-typewriter-baseui.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-typewriter-baseui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-verified-badge",
+      "type": "registry:component",
+      "title": "Native Verified Badge",
+      "description": "Verified badge component with multiple variants, sizes, and styles including outline and shield designs.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/shadcnui/native-verified-badge-shadcnui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-verified-badge.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-verified-badge-baseui",
+      "type": "registry:component",
+      "title": "Native Verified Badge",
+      "description": "Verified badge component with multiple variants, sizes, and styles including outline and shield designs. (Base UI)",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/baseui/native-verified-badge-baseui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-verified-badge-baseui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-verified-badge-shadcnui",
+      "type": "registry:component",
+      "title": "Native Verified Badge",
+      "description": "Verified badge component with multiple variants, sizes, and styles including outline and shield designs.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "components/native/shadcnui/native-verified-badge-shadcnui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-verified-badge-shadcnui.tsx"
         }
       ],
       "category": "native",
