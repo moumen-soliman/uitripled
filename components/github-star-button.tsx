@@ -15,7 +15,7 @@ function StarCount({ promise }: { promise: Promise<number> }) {
 }
 
 function StarCountSkeleton() {
-  return 113;
+  return 151;
 }
 
 function fetchStarCount(): Promise<number> {
