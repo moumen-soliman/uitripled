@@ -8,6 +8,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ZoomIn } from "lucide-react";
 import { Magnifier } from "./magnifier";
+import { HeroDemo } from "./hero-demo";
+import { DemoSettingsButton } from "./demo-settings-button";
 
 export interface PreviewCanvasProps {
   layers: GradientLayer[];
@@ -41,12 +43,22 @@ function PreviewContent({
   smoothX,
   smoothY,
   showOverlays = true,
-}: PreviewCanvasProps & { showOverlays?: boolean }) {
+  showDemo = false,
+  demoTextColor,
+  demoButtonColor,
+}: PreviewCanvasProps & {
+  showOverlays?: boolean;
+  showDemo?: boolean;
+  demoTextColor?: string;
+  demoButtonColor?: string;
+}) {
   return (
     <div
       className="absolute inset-0 w-full h-full"
       style={{ filter: `saturate(${saturation / 100})` }}
     >
+      {/* Demo Overlay */}
+      {showDemo && <HeroDemo textColor={demoTextColor} buttonColor={demoButtonColor} />}
       {/* Base Gradient */}
       <div
         className="absolute inset-0 z-0"
@@ -129,16 +141,24 @@ function PreviewContent({
 
 export function PreviewCanvas(props: PreviewCanvasProps) {
   const [magnifierEnabled, setMagnifierEnabled] = useState(false);
+  const [showDemo, setShowDemo] = useState(false);
+  const [demoTextColor, setDemoTextColor] = useState("#ffffff");
+  const [demoButtonColor, setDemoButtonColor] = useState("#ffffff");
 
   return (
     <div
       className="flex-1 relative overflow-hidden cursor-crosshair group min-h-[50vh] md:min-h-0"
       onMouseMove={props.onMouseMove}
     >
-      <PreviewContent {...props} />
+      <PreviewContent
+        {...props}
+        showDemo={showDemo}
+        demoTextColor={demoTextColor}
+        demoButtonColor={demoButtonColor}
+      />
 
-      {/* Magnifier Toggle */}
-      <div className="absolute top-4 right-4 z-40">
+      {/* Tools */}
+      <div className="absolute top-4 right-4 z-40 flex flex-col gap-2 items-end">
         <Button
           variant={magnifierEnabled ? "default" : "secondary"}
           size="icon"
@@ -148,6 +168,15 @@ export function PreviewCanvas(props: PreviewCanvasProps) {
         >
           <ZoomIn className="w-4 h-4" />
         </Button>
+        <DemoSettingsButton
+          showDemo={showDemo}
+          setShowDemo={setShowDemo}
+          demoTextColor={demoTextColor}
+          setDemoTextColor={setDemoTextColor}
+          demoButtonColor={demoButtonColor}
+          setDemoButtonColor={setDemoButtonColor}
+          switchId="show-demo"
+        />
       </div>
 
       <Magnifier
@@ -155,7 +184,7 @@ export function PreviewCanvas(props: PreviewCanvasProps) {
         onClose={() => setMagnifierEnabled(false)}
       >
         <div className="w-full h-full relative bg-neutral-900">
-          <PreviewContent {...props} showOverlays={false} />
+          <PreviewContent {...props} showOverlays={false} showDemo={showDemo} demoTextColor={demoTextColor} demoButtonColor={demoButtonColor} />
         </div>
       </Magnifier>
     </div>
