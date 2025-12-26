@@ -36,6 +36,10 @@ export interface NativeAvatarProps {
    * Additional class names for the name label
    */
   nameClassName?: string;
+  /**
+   * Additional class names for the motion container
+   */
+  motionClassName?: string;
 }
 
 const sizeVariants = {
@@ -60,6 +64,7 @@ export function NativeAvatarWithName({
   direction = "bottom",
   className,
   nameClassName,
+  motionClassName,
 }: NativeAvatarProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -115,6 +120,7 @@ export function NativeAvatarWithName({
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        className={motionClassName}
       >
         <Avatar
           className={cn(

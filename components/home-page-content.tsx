@@ -39,6 +39,10 @@ const SPONSORS = [
   {
     username: "DavidHDev",
   },
+  {
+    username: "shadcraft",
+    url: "https://shadcraft.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+  },
 ];
 
 export default function HomePageContent() {
@@ -125,7 +129,7 @@ export default function HomePageContent() {
               {SPONSORS.map((sponsor, index) => (
                 <motion.div
                   key={sponsor.username}
-                  initial={{ opacity: 0, scale: 0.5 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
                     type: "spring",
@@ -135,7 +139,9 @@ export default function HomePageContent() {
                   }}
                 >
                   <Link
-                    href={`https://github.com/${sponsor.username}`}
+                    href={
+                      sponsor.url || `https://github.com/${sponsor.username}`
+                    }
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-2"
@@ -145,6 +151,8 @@ export default function HomePageContent() {
                       name={sponsor.username}
                       size="sm"
                       direction="top"
+                      motionClassName="border-2 border-border rounded-full p-1"
+                      className="p-0"
                     />
                   </Link>
                 </motion.div>
@@ -154,9 +162,9 @@ export default function HomePageContent() {
                 href="https://github.com/sponsors/moumen-soliman"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background transition-all hover:bg-muted shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] border-white/20"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-dashed bg-background transition-all hover:bg-muted border-border"
               >
-                <Plus className="h-4 w-4 text-foreground" strokeWidth={3} />
+                <Plus className="h-3 w-3 text-foreground" strokeWidth={3} />
               </Link>
             </div>
           </motion.div>
