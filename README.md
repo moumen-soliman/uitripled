@@ -41,6 +41,28 @@
 - [shadcn/ui](https://ui.shadcn.com)
 - [Radix UI](https://www.radix-ui.com)
 
+## Sponsored
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://shadcraft.com">
+        <img width="70" height="70" alt="Shadcraft" src="https://github.com/shadcraft.png" style="border-radius: 100%;" />
+      </a>
+      <br />
+      <strong><a href="https://shadcraft.com">Shadcraft</a></strong>
+    </td>
+    <td align="center">
+      <a href="https://github.com/DavidHDev">
+        <img width="70" height="70" alt="DavidHDev" src="https://github.com/DavidHDev.png" style="border-radius: 100%;" />
+      </a>
+      <br />
+      <strong><a href="https://github.com/DavidHDev">DavidHDev</a></strong>
+    </td>
+  </tr>
+</table>
+
+
 ## Getting Started
 
 Install dependencies:
