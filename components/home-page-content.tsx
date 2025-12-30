@@ -42,7 +42,7 @@ const SPONSORS = [
   {
     username: "shadcn/studio",
     url: "https://shadcnstudio.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
-    logo: "https://ts-assets.b-cdn.net/ss-assets/logo/logo.png",
+    logo: "https://ts-assets.b-cdn.net/ss-assets/logo/logo.svg",
   },
   {
     username: "shadcraft",
