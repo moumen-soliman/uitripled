@@ -30,7 +30,7 @@ export function Footer() {
               technologies.
             </p>
             <p className="text-center text-sm text-muted-foreground">
-              © 2025 UI-TripleD. All rights reserved. Built by{" "}
+              © 2026 UI-TripleD. All rights reserved. Built by{" "}
               <a
                 href="https://x.com/uitripled"
                 target="_blank"
