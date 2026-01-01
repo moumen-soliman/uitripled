@@ -40,7 +40,7 @@ const defaultItems: OrderItem[] = [
     name: "UI Design Kit",
     price: 49.0,
     image:
-      "https://images.unsplash.com/photo-1586717791821-3f44a5638d48?w=100&q=80",
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=100&q=80",
     quantity: 1,
     variant: "Dark Mode",
   },
