@@ -1,0 +1,14 @@
+{
+  "name": "@uitripled/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.mjs",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "eslint-config-next": "16.0.3",
+    "eslint": "^9"
+  }
+}

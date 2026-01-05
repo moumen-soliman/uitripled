@@ -1,0 +1,12 @@
+{
+  "name": "@uitripled/tailwind-config",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./theme.css": "./src/theme.css"
+  }
+}

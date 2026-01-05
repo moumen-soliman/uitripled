@@ -1,0 +1,26 @@
+{
+  "name": "@uitripled/scripts",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Internal scripts for uitripled monorepo",
+  "type": "module",
+  "bin": {
+    "generate-registry": "./bin/generate-registry.js",
+    "sync-registry": "./bin/sync-registry.js",
+    "validate-registry": "./bin/validate-registry.js"
+  },
+  "scripts": {
+    "lint": "eslint src/",
+    "validate": "tsx src/validate-registry.ts"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "kleur": "^4.1.5",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@uitripled/eslint-config": "*"
+  }
+}

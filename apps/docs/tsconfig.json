@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/components/ui/*": ["../../packages/components/react-shadcn/src/ui/*"],
+      "@/lib/utils": ["../../packages/components/react-shadcn/src/lib/utils"],
+      "@/*": ["./*"],
+      "@uitripled/react-shadcn/*": [
+        "../../packages/components/react-shadcn/src/*"
+      ],
+      "@uitripled/react-shadcn/src/*": [
+        "../../packages/components/react-shadcn/src/*"
+      ],
+      "@uitripled/react-baseui/*": [
+        "../../packages/components/react-baseui/src/*"
+      ],
+      "@uitripled/react-baseui/src/*": [
+        "../../packages/components/react-baseui/src/*"
+      ],
+      "@uitripled/react-carbon/*": [
+        "../../packages/components/react-carbon/src/*"
+      ],
+      "@uitripled/react-carbon/src/*": [
+        "../../packages/components/react-carbon/src/*"
+      ],
+      "@uitripled/utils": ["../../packages/utils/src/index.ts"],
+      "@uitripled/utils/*": ["../../packages/utils/src/*"],
+      "@uitripled/registry": ["../../packages/registry/src/index.tsx"],
+      "@uitripled/registry/*": ["../../packages/registry/src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}

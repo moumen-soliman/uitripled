@@ -1,0 +1,190 @@
+# UI TripleD
+
+> Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
+
+**Last Updated:** 2026-01-05T13:38:56.218Z
+
+## Table of Contents
+
+- Components (76 items)
+- Blocks (70 items)
+- Pages (16 items)
+
+### Components
+
+- [Cinema Ticket](https://ui.tripled.work/components/cinema-ticket-baseui): Cinematic theater ticket with rip effect and barcode (Base UI)
+- [Cinema Ticket](https://ui.tripled.work/components/cinema-ticket-shadcnui): Cinematic theater ticket with rip effect and barcode
+- [Conference Ticket](https://ui.tripled.work/components/conference-ticket-baseui): Animated conference ticket with glassmorphism effects and holographic details (Base UI)
+- [Conference Ticket](https://ui.tripled.work/components/conference-ticket-shadcnui): Animated conference ticket with glassmorphism effects and holographic details
+- [Theater Ticket](https://ui.tripled.work/components/theater-ticket-baseui): Cinematic theater ticket with rip effect and barcode (Base UI)
+- [Theater Ticket](https://ui.tripled.work/components/theater-ticket-shadcnui): Cinematic theater ticket with rip effect and barcode
+
+- [Browse Folder](https://ui.tripled.work/components/browse-folder-baseui): Folder browser with animated tabs and content (Base UI)
+- [Browse Folder](https://ui.tripled.work/components/browse-folder-shadcnui): Folder browser with animated tabs and content
+- [Currency Converter Card](https://ui.tripled.work/components/currency-converter-card-baseui): Finance conversion widget with animated inputs, simulated exchange updates, and contextual feedback (Base UI)
+- [Currency Converter Card](https://ui.tripled.work/components/currency-converter-card-shadcnui): Finance conversion widget with animated inputs, simulated exchange updates, and contextual feedback
+- [Glassmorphism Statistics Card](https://ui.tripled.work/components/glassmorphism-statistics-card-baseui): Interactive statistics card with hover reveal and smooth transitions (Base UI)
+- [Glassmorphism Statistics Card](https://ui.tripled.work/components/glassmorphism-statistics-card-shadcnui): Interactive statistics card with hover reveal and smooth transitions
+- [Projects Block](https://ui.tripled.work/components/projects-block-baseui): Animated project card with hover effects, image zoom, and link buttons (Base UI)
+- [Projects Block](https://ui.tripled.work/components/projects-block-shadcnui): Animated project card with hover effects, image zoom, and link buttons
+
+- [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand): Avatar component that expands to reveal the name on click with smooth animations.
+- [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-baseui): Avatar component that expands to reveal the name on click with smooth animations. (Base UI)
+- [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-shadcnui): Avatar component that expands to reveal the name on click with smooth animations.
+- [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name): Avatar component that displays a name tooltip on hover with directional animations.
+- [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name-baseui): Avatar component that displays a name tooltip on hover with directional animations. (Base UI)
+- [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name-shadcnui): Avatar component that displays a name tooltip on hover with directional animations.
+- [Native Badge](https://ui.tripled.work/components/native-badge): Animated badge component with glass, glow, and outline variants for native feel.
+- [Native Button](https://ui.tripled.work/components/native-button): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling
+- [Native Button](https://ui.tripled.work/components/native-button-baseui): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling (Base UI)
+- [Native Button](https://ui.tripled.work/components/native-button-shadcnui): Glassmorphism-inspired button component based on shadcn/ui with smooth animations and modern styling
+- [Native Counter Up](https://ui.tripled.work/components/native-counter-up): Animated number counter with smooth easing and accessibility support.
+- [Native Delete](https://ui.tripled.work/components/native-delete): Delete button that expands to show a confirmation button with smooth animations.
+- [Native Delete](https://ui.tripled.work/components/native-delete-baseui): Delete button that expands to show a confirmation button with smooth animations. (Base UI)
+- [Native Delete](https://ui.tripled.work/components/native-delete-shadcnui): Delete button that expands to show a confirmation button with smooth animations.
+- [Native Dialog](https://ui.tripled.work/components/native-dialog): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.
+- [Native Dialog](https://ui.tripled.work/components/native-dialog-baseui): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals. (Base UI)
+- [Native Dialog](https://ui.tripled.work/components/native-dialog-shadcnui): A glassmorphism-styled dialog component with backdrop blur and smooth animations, inspired by native OS modals.
+- [Native Flip Text](https://ui.tripled.work/components/native-flip-text): Text that flips through words with a 3D blur transition.
+- [Native Follow Cursor](https://ui.tripled.work/components/native-follow-cursor): Label that smoothly follows the cursor with spring physics and customizable variants.
+- [Native Hover Card](https://ui.tripled.work/components/native-hover-card): Avatar card that expands on hover to reveal profile information with smooth animations.
+- [Native Hover Card](https://ui.tripled.work/components/native-hover-card-baseui): Avatar card that expands on hover to reveal profile information with smooth animations. (Base UI)
+- [Native Hover Card](https://ui.tripled.work/components/native-hover-card-shadcnui): Avatar card that expands on hover to reveal profile information with smooth animations.
+- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox): Image checkbox component with grayscale filter and checkmark indicator.
+- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox-baseui): Image checkbox component with grayscale filter and checkmark indicator. (Base UI)
+- [Native Image Checkbox](https://ui.tripled.work/components/native-image-checkbox-shadcnui): Image checkbox component with grayscale filter and checkmark indicator.
+- [Native Likes Counter](https://ui.tripled.work/components/native-likes-counter): An interactive likes counter with avatar stack, popup details, and smooth animations.
+- [Native Likes Counter](https://ui.tripled.work/components/native-likes-counter-baseui): An interactive likes counter with avatar stack, popup details, and smooth animations. (Base UI)
+- [Native Likes Counter](https://ui.tripled.work/components/native-likes-counter-shadcnui): An interactive likes counter with avatar stack, popup details, and smooth animations.
+- [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions.
+- [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button-baseui): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions. (Base UI)
+- [Native Liquid Button](https://ui.tripled.work/components/native-liquid-button-shadcnui): Button with animated liquid fill effect, progress tracking, and multiple visual variants for engaging interactions.
+- [Native Magnetic](https://ui.tripled.work/components/native-magnetic): Magnetic wrapper that applies a cursor-following effect to any content.
+- [Native Magnetic](https://ui.tripled.work/components/native-magnetic-baseui): Magnetic wrapper that applies a cursor-following effect to any content. (Base UI)
+- [Native Magnetic](https://ui.tripled.work/components/native-magnetic-shadcnui): Magnetic wrapper that applies a cursor-following effect to any content.
+- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button): Floating action button that morphs into a menu of actions.
+- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-baseui): Floating action button that morphs into a menu of actions. (Base UI)
+- [Native Morphing Button](https://ui.tripled.work/components/native-morphing-button-shadcnui): Floating action button that morphs into a menu of actions.
+- [Native Nested List](https://ui.tripled.work/components/native-nested-list): A nested list component with smooth expand/collapse animations, perfect for file explorers or navigation menus.
+- [Native Nested List](https://ui.tripled.work/components/native-nested-list-baseui): A nested list component with smooth expand/collapse animations. (Base UI)
+- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell): Animated notification bell with badge and ringing effect.
+- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-baseui): Animated notification bell with badge and ringing effect. (Base UI)
+- [Native Notification Bell](https://ui.tripled.work/components/native-notification-bell-shadcnui): Animated notification bell with badge and ringing effect.
+- [Native Profile Notch](https://ui.tripled.work/components/native-profile-notch): A dynamic expanding notch component for displaying user profiles with smooth spring animations.
+- [Native Profile Notch](https://ui.tripled.work/components/native-profile-notch-baseui): A dynamic expanding notch component for displaying user profiles with smooth spring animations. (Base UI)
+- [Native Profile Notch](https://ui.tripled.work/components/native-profile-notch-shadcnui): A dynamic expanding notch component for displaying user profiles with smooth spring animations.
+- [Native Start Now](https://ui.tripled.work/components/native-start-now): Animated button with sparkle effects, loading states, and smooth transitions for starting actions.
+- [Native Start Now](https://ui.tripled.work/components/native-start-now-baseui): Animated button with sparkle effects, loading states, and smooth transitions for starting actions. (Base UI)
+- [Native Start Now](https://ui.tripled.work/components/native-start-now-shadcnui): Animated button with sparkle effects, loading states, and smooth transitions for starting actions.
+- [Native Tabs](https://ui.tripled.work/components/native-tabs): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.
+- [Native Tabs](https://ui.tripled.work/components/native-tabs-baseui): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations. (Base UI)
+- [Native Tabs](https://ui.tripled.work/components/native-tabs-shadcnui): A sleek tabs component with a smooth sliding background indicator using Framer Motion layout animations.
+- [Native Tooltip](https://ui.tripled.work/components/native-tooltip): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.
+- [Native Tooltip](https://ui.tripled.work/components/native-tooltip-baseui): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion. (Base UI)
+- [Native Tooltip](https://ui.tripled.work/components/native-tooltip-shadcnui): A glassmorphism-styled tooltip with smooth spring animations using Framer Motion.
+- [Native Typewriter](https://ui.tripled.work/components/native-typewriter): Typewriter effect with speed control, looping, and blinking cursor.
+- [Native Typewriter](https://ui.tripled.work/components/native-typewriter-baseui): Typewriter effect with speed control, looping, and blinking cursor. (Base UI)
+- [Native Verified Badge](https://ui.tripled.work/components/native-verified-badge): Verified badge component with multiple variants, sizes, and styles including outline and shield designs.
+- [Native Verified Badge](https://ui.tripled.work/components/native-verified-badge-baseui): Verified badge component with multiple variants, sizes, and styles including outline and shield designs. (Base UI)
+- [Native Verified Badge](https://ui.tripled.work/components/native-verified-badge-shadcnui): Verified badge component with multiple variants, sizes, and styles including outline and shield designs.
+- [Social Login Button](https://ui.tripled.work/components/social-login-button): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.
+- [Social Login Button](https://ui.tripled.work/components/social-login-button-baseui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects. (Base UI)
+- [Social Login Button](https://ui.tripled.work/components/social-login-button-shadcnui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects.
+
+### Blocks
+
+- [About Us](https://ui.tripled.work/components/about-us-section-baseui): About us section with value cards, icons, and animated reveal effects (Base UI)
+- [About Us](https://ui.tripled.work/components/about-us-section-shadcnui): About us section with value cards, icons, and animated reveal effects
+- [Bento Grid Block](https://ui.tripled.work/components/bento-grid-block-baseui): Layered bento grid with imagery, metrics, and smooth motion reveals (Base UI)
+- [Bento Grid Block](https://ui.tripled.work/components/bento-grid-block-shadcnui): Layered bento grid with imagery, metrics, and smooth motion reveals
+- [Blog Block](https://ui.tripled.work/components/blog-block-baseui): Animated blog posts grid with staggered cards, date/time indicators, and hover effects (Base UI)
+- [Blog Block](https://ui.tripled.work/components/blog-block-shadcnui): Animated blog posts grid with staggered cards, date/time indicators, and hover effects
+- [Contact Block](https://ui.tripled.work/components/contact-block-baseui): Contact form with animated contact info cards, working hours, and interactive icons (Base UI)
+- [Contact Block](https://ui.tripled.work/components/contact-block-shadcnui): Contact form with animated contact info cards, working hours, and interactive icons
+- [Contact Form](https://ui.tripled.work/components/contact-form-section-baseui): Contact form section with animated inputs, validation, and form handling (Base UI)
+- [Contact Form](https://ui.tripled.work/components/contact-form-section-shadcnui): Contact form section with animated inputs, validation, and form handling
+- [CTA Block](https://ui.tripled.work/components/cta-block-baseui): Call-to-action section with gradient overlay, animated buttons, and status indicator (Base UI)
+- [CTA Block](https://ui.tripled.work/components/cta-block-shadcnui): Call-to-action section with gradient overlay, animated buttons, and status indicator
+- [CTA Hero Block](https://ui.tripled.work/components/cta-hero-block-baseui): Engaging hero section with email signup, video preview, and social proof (Base UI)
+- [CTA Hero Block](https://ui.tripled.work/components/cta-hero-block-shadcnui): Engaging hero section with email signup, video preview, and social proof
+- [FAQ Accordion](https://ui.tripled.work/components/faq-accordion-block-baseui): Expandable FAQ section with smooth accordion animations (Base UI)
+- [FAQ Accordion](https://ui.tripled.work/components/faq-accordion-block-shadcnui): Expandable FAQ section with smooth accordion animations
+- [Feature Cards Grid](https://ui.tripled.work/components/feature-cards-block-baseui): Three feature cards with icons, hover effects, and glassmorphism styling (Base UI)
+- [Feature Cards Grid](https://ui.tripled.work/components/feature-cards-block-shadcnui): Three feature cards with icons, hover effects, and glassmorphism styling
+- [Feature Comparison Table](https://ui.tripled.work/components/feature-comparison-block-baseui): Interactive pricing comparison table with animated checkmarks and plan highlights (Base UI)
+- [Feature Comparison Table](https://ui.tripled.work/components/feature-comparison-block-shadcnui): Interactive pricing comparison table with animated checkmarks and plan highlights
+- [Footer Block](https://ui.tripled.work/components/footer-block-baseui): Comprehensive footer with links, newsletter signup, social icons, and scroll-to-top (Base UI)
+- [Footer Block](https://ui.tripled.work/components/footer-block-shadcnui): Comprehensive footer with links, newsletter signup, social icons, and scroll-to-top
+- [Gallery Grid with Lightbox](https://ui.tripled.work/components/gallery-grid-block-baseui): Filterable image gallery with animated lightbox and navigation (Base UI)
+- [Gallery Grid with Lightbox](https://ui.tripled.work/components/gallery-grid-block-shadcnui): Filterable image gallery with animated lightbox and navigation
+- [Glassmorphism CTA](https://ui.tripled.work/components/glassmorphism-cta-block-baseui): Call-to-action section with glassy card, gradient background, and animated buttons (Base UI)
+- [Glassmorphism CTA](https://ui.tripled.work/components/glassmorphism-cta-block-shadcnui): Call-to-action section with glassy card, gradient background, and animated buttons
+- [Glassmorphism Hero](https://ui.tripled.work/components/glassmorphism-hero-block-baseui): Modern hero section with glassmorphism effects, animated background orbs, and CTA buttons (Base UI)
+- [Glassmorphism Hero](https://ui.tripled.work/components/glassmorphism-hero-block-shadcnui): Modern hero section with glassmorphism effects, animated background orbs, and CTA buttons
+- [Glassmorphism Launch Timeline](https://ui.tripled.work/components/glassmorphism-launch-timeline-block-baseui): Frictionless launch roadmap with staggered motion, glassmorphism milestones, and paired CTA actions (Base UI)
+- [Glassmorphism Launch Timeline](https://ui.tripled.work/components/glassmorphism-launch-timeline-block-shadcnui): Frictionless launch roadmap with staggered motion, glassmorphism milestones, and paired CTA actions
+- [Glassmorphism Listen App](https://ui.tripled.work/components/glassmorphism-listen-app-block-baseui): Music streaming block with glassmorphism player, curated highlights, and animated controls (Base UI)
+- [Glassmorphism Listen App](https://ui.tripled.work/components/glassmorphism-listen-app-block-shadcnui): Music streaming block with glassmorphism player, curated highlights, and animated controls
+- [Glassmorphism Logo Showcase](https://ui.tripled.work/components/glassmorphism-logo-showcase-block-baseui): Glassmorphism partner grid with floating motion, brand hints, and collaborative call-to-action (Base UI)
+- [Glassmorphism Logo Showcase](https://ui.tripled.work/components/glassmorphism-logo-showcase-block-shadcnui): Glassmorphism partner grid with floating motion, brand hints, and collaborative call-to-action
+- [Glassmorphism Minimal Metrics](https://ui.tripled.work/components/glassmorphism-minimal-metrics-block-baseui): Focused metric cards with glass surfaces, subtle motion, and concierge insight CTA banner (Base UI)
+- [Glassmorphism Minimal Metrics](https://ui.tripled.work/components/glassmorphism-minimal-metrics-block-shadcnui): Focused metric cards with glass surfaces, subtle motion, and concierge insight CTA banner
+- [Glassmorphism Portfolio](https://ui.tripled.work/components/glassmorphism-portfolio-block-baseui): Personal portfolio spotlight with profile portrait, narrative highlights, and animated social links (Base UI)
+- [Glassmorphism Portfolio](https://ui.tripled.work/components/glassmorphism-portfolio-block-shadcnui): Personal portfolio spotlight with profile portrait, narrative highlights, and animated social links
+- [Glassmorphism Pricing](https://ui.tripled.work/components/glassmorphism-pricing-block-baseui): Pricing cards with glassmorphism effects, hover animations, and feature lists (Base UI)
+- [Glassmorphism Pricing](https://ui.tripled.work/components/glassmorphism-pricing-block-shadcnui): Pricing cards with glassmorphism effects, hover animations, and feature lists
+- [Glassmorphism Product Updates](https://ui.tripled.work/components/glassmorphism-product-update-block-baseui): Multi-state changelog cards with glass overlays, status badges, and GitHub integration banner (Base UI)
+- [Glassmorphism Product Updates](https://ui.tripled.work/components/glassmorphism-product-update-block-shadcnui): Multi-state changelog cards with glass overlays, status badges, and GitHub integration banner
+- [Glassmorphism Testimonials](https://ui.tripled.work/components/glassmorphism-testimonials-block-baseui): Customer testimonials with glassmorphism cards, star ratings, and hover effects (Base UI)
+- [Glassmorphism Testimonials](https://ui.tripled.work/components/glassmorphism-testimonials-block-shadcnui): Customer testimonials with glassmorphism cards, star ratings, and hover effects
+- [Glowy Waves Hero](https://ui.tripled.work/components/glowy-waves-hero-baseui): Hero section with glowy waves effect (Base UI)
+- [Glowy Waves Hero](https://ui.tripled.work/components/glowy-waves-hero-shadcnui): Hero section with glowy waves effect
+- [Hero Block](https://ui.tripled.work/components/hero-block-baseui): Personal portfolio hero section with animated avatar, staggered text, social links, and scroll indicator (Base UI)
+- [Hero Block](https://ui.tripled.work/components/hero-block-shadcnui): Personal portfolio hero section with animated avatar, staggered text, social links, and scroll indicator
+- [Interactive Logs Table](https://ui.tripled.work/components/interactive-logs-table-baseui): Observability logs panel with animated filters, search, and expandable rows (Base UI)
+- [Interactive Logs Table](https://ui.tripled.work/components/interactive-logs-table-shadcnui): Observability logs panel with animated filters, search, and expandable rows
+- [N8N Workflow Block](https://ui.tripled.work/components/n8n-workflow-block-baseui): Visual workflow automation builder with animated nodes, connections, and real-time execution monitoring (Base UI)
+- [N8N Workflow Block](https://ui.tripled.work/components/n8n-workflow-block-shadcnui): Visual workflow automation builder with animated nodes, connections, and real-time execution monitoring
+- [New Hero Section](https://ui.tripled.work/components/new-hero-section-baseui): Modern hero section with gradient background, animated stats, and call-to-action buttons (Base UI)
+- [New Hero Section](https://ui.tripled.work/components/new-hero-section-shadcnui): Modern hero section with gradient background, animated stats, and call-to-action buttons
+- [Newsletter Signup Block](https://ui.tripled.work/components/newsletter-signup-block-baseui): Animated newsletter subscription form with success state and gradient background (Base UI)
+- [Newsletter Signup Block](https://ui.tripled.work/components/newsletter-signup-block-shadcnui): Animated newsletter subscription form with success state and gradient background
+- [Notion Blog Page](https://ui.tripled.work/components/notion-blog-page-baseui): Notion-style publishing playbook with rich text, toggles, and supporting visuals (Base UI)
+- [Notion Blog Page](https://ui.tripled.work/components/notion-blog-page-shadcnui): Notion-style publishing playbook with rich text, toggles, and supporting visuals
+- [Our Services](https://ui.tripled.work/components/our-services-section-baseui): Services section with service cards, badges, icons, and hover animations (Base UI)
+- [Our Services](https://ui.tripled.work/components/our-services-section-shadcnui): Services section with service cards, badges, icons, and hover animations
+- [Services Grid](https://ui.tripled.work/components/services-grid-block-baseui): 8-column responsive services grid with icons, features, and hover effects (Base UI)
+- [Services Grid](https://ui.tripled.work/components/services-grid-block-shadcnui): 8-column responsive services grid with icons, features, and hover effects
+- [Stats Counter Block](https://ui.tripled.work/components/stats-counter-block-baseui): Animated statistics counters with icons and gradient backgrounds (Base UI)
+- [Stats Counter Block](https://ui.tripled.work/components/stats-counter-block-shadcnui): Animated statistics counters with icons and gradient backgrounds
+- [Team Section Block](https://ui.tripled.work/components/team-section-block-baseui): Animated team member cards with avatars, roles, and social links (Base UI)
+- [Team Section Block](https://ui.tripled.work/components/team-section-block-shadcnui): Animated team member cards with avatars, roles, and social links
+- [Testimonials Block](https://ui.tripled.work/components/testimonials-block-baseui): Animated testimonials grid with staggered cards, star ratings, and hover effects (Base UI)
+- [Testimonials Block](https://ui.tripled.work/components/testimonials-block-shadcnui): Animated testimonials grid with staggered cards, star ratings, and hover effects
+- [Timeline Block](https://ui.tripled.work/components/timeline-block-baseui): Vertical timeline with alternating cards and animated progress line (Base UI)
+- [Timeline Block](https://ui.tripled.work/components/timeline-block-shadcnui): Vertical timeline with alternating cards and animated progress line
+
+### Pages
+
+#### Page
+
+- [CTA Banner Section](https://ui.tripled.work/components/cta-banner-section-baseui): Animated call-to-action banner with gradient background and button animations (Base UI)
+- [CTA Banner Section](https://ui.tripled.work/components/cta-banner-section-shadcnui): Animated call-to-action banner with gradient background and button animations
+- [FAQ Section](https://ui.tripled.work/components/faq-section-baseui): Animated FAQ section with expandable questions and smooth transitions (Base UI)
+- [FAQ Section](https://ui.tripled.work/components/faq-section-shadcnui): Animated FAQ section with expandable questions and smooth transitions
+- [Feature Grid Section](https://ui.tripled.work/components/feature-grid-section-baseui): Animated feature grid with staggered card animations and icon reveals (Base UI)
+- [Feature Grid Section](https://ui.tripled.work/components/feature-grid-section-shadcnui): Animated feature grid with staggered card animations and icon reveals
+- [Pricing Section](https://ui.tripled.work/components/pricing-section-baseui): Animated pricing cards with hover effects and feature lists (Base UI)
+- [Pricing Section](https://ui.tripled.work/components/pricing-section-shadcnui): Animated pricing cards with hover effects and feature lists
+- [Scroll Reveal](https://ui.tripled.work/components/scroll-reveal-baseui): Section that animates into view on scroll with intersection observer (Base UI)
+- [Scroll Reveal](https://ui.tripled.work/components/scroll-reveal-shadcnui): Section that animates into view on scroll with intersection observer
+- [Stats Section](https://ui.tripled.work/components/stats-section-baseui): Animated statistics section with cards and counters (Base UI)
+- [Stats Section](https://ui.tripled.work/components/stats-section-shadcnui): Animated statistics section with cards and counters
+- [Testimonial Section](https://ui.tripled.work/components/testimonial-section-baseui): Carousel-style testimonial section with smooth transitions (Base UI)
+- [Testimonial Section](https://ui.tripled.work/components/testimonial-section-shadcnui): Carousel-style testimonial section with smooth transitions
+
+##### Hero
+
+- [Hero Section](https://ui.tripled.work/components/hero-section-baseui): Hero section with staggered text and button reveal (Base UI)
+- [Hero Section](https://ui.tripled.work/components/hero-section-shadcnui): Hero section with staggered text and button reveal
+

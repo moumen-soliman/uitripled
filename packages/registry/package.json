@@ -1,0 +1,33 @@
+{
+  "name": "@uitripled/registry",
+  "version": "0.1.0",
+  "type": "module",
+  "private": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@uitripled/react-shadcn": "*",
+    "@uitripled/react-baseui": "*",
+    "@uitripled/react-carbon": "*",
+    "@uitripled/utils": "*",
+    "react": "^19.0.0",
+    "framer-motion": "^12.23.24"
+  },
+  "devDependencies": {
+    "@uitripled/typescript-config": "*",
+    "@uitripled/eslint-config": "*",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@types/react": "^19.0.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "packages/components/*"
+  - "packages/config/*"
+  - "tooling/*"

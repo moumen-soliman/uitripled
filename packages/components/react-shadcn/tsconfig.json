@@ -1,0 +1,12 @@
+{
+  "extends": "@uitripled/typescript-config/react.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/components/ui/*": ["./src/ui/*"],
+      "@/lib/utils": ["./src/lib/utils"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

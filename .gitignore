@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -10,6 +10,15 @@
 !.yarn/releases
 !.yarn/versions
 .npmrc
+.turbo
+.next
+
+# build outputs
+dist/
+
+# lockfiles (keep only yarn.lock)
+package-lock.json
+pnpm-lock.yaml
 
 # testing
 /coverage

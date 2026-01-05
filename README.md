@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/moumen-soliman/uitripled">
-    <img width="100" height="100" alt="UI TripleD Logo" src="./public/logo.png" />
+    <img width="100" height="100" alt="UI TripleD Logo" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtl1pW0d6xiLckpa7VobAKthYDjBuwMy6zmGSe" />
   </a>
 
 </p>
@@ -8,7 +8,7 @@
 <h1 align="center">UI TripleD</h1>
 
 <p align="center">
-  <strong>Production-ready UI components and blocks powered by shadcn/ui and Framer Motion.</strong>
+  <strong>Production-ready UI blocks, components, and full pages available in shadcn/ui and Base UI, powered by Framer Motion, with a Landing Builder, Background Builder, and Grid Generator.</strong>
 </p>
 
 <p align="center">
@@ -22,23 +22,34 @@
   <a href="https://github.com/moumen-soliman/uitripled/issues"><img src="https://img.shields.io/github/issues/moumen-soliman/uitripled" alt="Issues" /></a>
 </p>
 
-<img width="2800" height="2044" alt="UI TripleD" src="./public/readme.png" />
+<img width="2800" height="2044" alt="UI TripleD" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtmjnFn4EXoBagjvOt2MCq0xnsViJcwbWR4PEp" />
 
 ## Features
 
 - **Production-Ready Components** - Carefully crafted UI components built with shadcn/ui & Framer Motion
 - **Visual Builder** - Drag-and-drop interface for building and previewing components
+- **Landing Builder** - Drag-and-drop shadcn/ui blocks to assemble full landing pages in seconds
+- **Background Builder** - Shader-powered and animated Aurora backgrounds, fast to tweak and export
+- **Grid Generator** - Compose complex Tailwind CSS grid layouts with just a few clicks
 - **Copy & Paste** - One-click code copying for seamless integration
 - **TypeScript Support** - Full type safety throughout
 
+## Turbo Monorepo
+
+- Managed with Turborepo and Yarn workspaces
+- Run tasks via `turbo run <script>` (e.g., `yarn dev --filter=uitripled` for the docs app)
+- Node.js 18+ is required
+
 ## Tech Stack
 
+- [Turborepo](https://turbo.build/repo) + Yarn Workspaces
 - [Next.js](https://nextjs.org) 16
 - [React](https://react.dev) 19
 - [TypeScript](https://www.typescriptlang.org)
 - [Tailwind CSS](https://tailwindcss.com)
 - [Framer Motion](https://www.framer.com/motion)
 - [shadcn/ui](https://ui.shadcn.com)
+- [Base UI](https://base-ui.com)
 - [Radix UI](https://www.radix-ui.com)
 
 ## Sponsored by
@@ -75,20 +86,24 @@
 Install dependencies:
 
 ```bash
-npm install
+yarn install
 ```
 
 Run the development server:
 
 ```bash
-npm run dev
+yarn dev --filter=uitripled
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Usage
 
-Browse components in the library, preview them, and copy the code directly into your project. Use the visual builder to customize components and see live previews.
+Browse components in the library, preview them, and copy the code directly into your project. Use the visual builder to customize components and see live previews. Try the specialized builders:
+
+- `Landing Builder` for shadcn/ui landing pages
+- `Background Builder` for shaders and animated Aurora backgrounds
+- `Grid Generator` for Tailwind CSS grids
 
 ## Contributing
 

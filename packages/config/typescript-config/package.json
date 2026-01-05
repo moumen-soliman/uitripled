@@ -1,0 +1,14 @@
+{
+  "name": "@uitripled/typescript-config",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./base.json": "./base.json",
+    "./react.json": "./react.json",
+    "./nextjs.json": "./nextjs.json"
+  }
+}

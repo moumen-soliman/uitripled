@@ -1,0 +1,84 @@
+{
+  "name": "@uitripled/react-shadcn",
+  "version": "0.1.0",
+  "private": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./src/*": "./src/*",
+    "./components/*": {
+      "types": "./dist/components/*.d.mts",
+      "import": "./dist/components/*.mjs",
+      "require": "./dist/components/*.js"
+    },
+    "./components/*/*": {
+      "types": "./dist/components/*/*.d.mts",
+      "import": "./dist/components/*/*.mjs",
+      "require": "./dist/components/*/*.js"
+    },
+    "./components/*/*/*": {
+      "types": "./dist/components/*/*/*.d.mts",
+      "import": "./dist/components/*/*/*.mjs",
+      "require": "./dist/components/*/*/*.js"
+    },
+    "./components/*/*/*/*": {
+      "types": "./dist/components/*/*/*/*.d.mts",
+      "import": "./dist/components/*/*/*/*.mjs",
+      "require": "./dist/components/*/*/*/*.js"
+    },
+    "./components/*/*/*/*/*": {
+      "types": "./dist/components/*/*/*/*/*.d.mts",
+      "import": "./dist/components/*/*/*/*/*.mjs",
+      "require": "./dist/components/*/*/*/*/*.js"
+    },
+    "./ui/*": {
+      "types": "./dist/ui/*.d.mts",
+      "import": "./dist/ui/*.mjs",
+      "require": "./dist/ui/*.js"
+    },
+    "./styles/*": {
+      "import": "./dist/styles/*.css"
+    },
+    "./lib/*": {
+      "types": "./dist/lib/*.d.mts",
+      "import": "./dist/lib/*.mjs",
+      "require": "./dist/lib/*.js"
+    },
+    "./ui-library-provider": {
+      "types": "./dist/ui-library-provider.d.mts",
+      "import": "./dist/ui-library-provider.mjs",
+      "require": "./dist/ui-library-provider.js"
+    }
+  },
+  "scripts": {
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' tsup",
+    "dev": "NODE_OPTIONS='--max-old-space-size=8192' tsup --watch",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.24",
+    "@radix-ui/react-slot": "^1.2.3",
+    "lucide-react": "^0.553.0",
+    "class-variance-authority": "^0.7.1",
+    "@uitripled/utils": "*"
+  },
+  "devDependencies": {
+    "@uitripled/typescript-config": "*",
+    "@uitripled/eslint-config": "*",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
