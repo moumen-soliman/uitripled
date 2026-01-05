@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeMorphingButton } from "@/components/native/carbon/native-morphing-button-carbon.tsx"
+import { NativeMorphingButton } from "@/components/native/carbon/native-morphing-button-carbon.tsx";
 
 export function NativeMorphingButtonDemo() {
-  return (
-    <NativeMorphingButton />
-  )
+  return <NativeMorphingButton />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-morphing-button-carbon
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeMorphingButton } from "@/components/native/carbon/native-morphing-button-carbon.tsx"
+import { NativeMorphingButton } from "@/components/native/carbon/native-morphing-button-carbon.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeMorphingButton } from "@/components/native/carbon/native-morphing
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeMorphingButton } from "@/components/native/carbon/native-morphing-button-carbon.tsx"
+import { NativeMorphingButton } from "@/components/native/carbon/native-morphing-button-carbon.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeMorphingButton />
-  )
+  return <NativeMorphingButton />;
 }
 ```
 

@@ -1,6 +1,11 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@uitripled/react-shadcn/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@uitripled/react-shadcn/ui/card";
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
 

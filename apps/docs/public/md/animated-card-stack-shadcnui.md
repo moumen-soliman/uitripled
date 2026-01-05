@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCardStack } from "components/components/cards/shadcnui/animated-card-stack.tsx"
+import { AnimatedCardStack } from "components/components/cards/shadcnui/animated-card-stack.tsx";
 
 export function AnimatedCardStackDemo() {
-  return (
-    <AnimatedCardStack />
-  )
+  return <AnimatedCardStack />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/animated-card-stack-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedCardStack } from "components/components/cards/shadcnui/animated-card-stack.tsx"
+import { AnimatedCardStack } from "components/components/cards/shadcnui/animated-card-stack.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { AnimatedCardStack } from "components/components/cards/shadcnui/animated
 
 - **Category**: cards
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCardStack } from "components/components/cards/shadcnui/animated-card-stack.tsx"
+import { AnimatedCardStack } from "components/components/cards/shadcnui/animated-card-stack.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedCardStack />
-  )
+  return <AnimatedCardStack />;
 }
 ```
 

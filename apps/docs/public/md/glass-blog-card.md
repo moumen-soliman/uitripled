@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx"
+import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx";
 
 export function GlassBlogCardDemo() {
-  return (
-    <GlassBlogCard />
-  )
+  return <GlassBlogCard />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/glass-blog-card
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx"
+import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx"
+import { GlassBlogCard } from "@/components/components/cards/shadcnui/glass-blog-card.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassBlogCard />
-  )
+  return <GlassBlogCard />;
 }
 ```
 

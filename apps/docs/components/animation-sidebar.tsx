@@ -1,10 +1,10 @@
 "use client";
 
 import { useUILibrary } from "@/components/ui-library-provider";
-import { Input } from "@uitripled/react-shadcn/ui/input";
-import { ScrollArea } from "@uitripled/react-shadcn/ui/scroll-area";
 import { componentsRegistry } from "@/lib/components-registry";
 import { Component, ComponentCategory, categoryNames } from "@/types";
+import { Input } from "@uitripled/react-shadcn/ui/input";
+import { ScrollArea } from "@uitripled/react-shadcn/ui/scroll-area";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronRight, Search } from "lucide-react";
 import Link from "next/link";
@@ -46,7 +46,7 @@ const SidebarItem = memo(function SidebarItem({
 }: SidebarItemProps) {
   const showProBadge = false; // No pro badge shown currently
 
-  const itemClass = `flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs transition-colors ${
+  const itemClass = `flex w-full items-center justify-between rounded-[5px] px-2 py-1.5 text-left text-xs transition-colors ${
     isSelected
       ? "bg-primary text-primary-foreground"
       : "text-muted-foreground hover:bg-muted hover:text-foreground"

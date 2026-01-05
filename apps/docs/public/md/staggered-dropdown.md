@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StaggeredDropdown } from "@/components/components/dropdown/staggered-items.tsx"
+import { StaggeredDropdown } from "@/components/components/dropdown/staggered-items.tsx";
 
 export function StaggeredDropdownDemo() {
-  return (
-    <StaggeredDropdown />
-  )
+  return <StaggeredDropdown />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Staggered Dropdown` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { StaggeredDropdown } from "@/components/components/dropdown/staggered-items.tsx"
+import { StaggeredDropdown } from "@/components/components/dropdown/staggered-items.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { StaggeredDropdown } from "@/components/components/dropdown/staggered-it
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StaggeredDropdown } from "@/components/components/dropdown/staggered-items.tsx"
+import { StaggeredDropdown } from "@/components/components/dropdown/staggered-items.tsx";
 
 export function BasicExample() {
-  return (
-    <StaggeredDropdown />
-  )
+  return <StaggeredDropdown />;
 }
 ```
 

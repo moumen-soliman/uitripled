@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx"
+import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx";
 
 export function TestimonialsBlockDemo() {
-  return (
-    <TestimonialsBlock />
-  )
+  return <TestimonialsBlock />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Testimonials Block` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx"
+import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-b
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx"
+import { TestimonialsBlock } from "@/components/sections/shadcnui/testimonials-block.tsx";
 
 export function BasicExample() {
-  return (
-    <TestimonialsBlock />
-  )
+  return <TestimonialsBlock />;
 }
 ```
 

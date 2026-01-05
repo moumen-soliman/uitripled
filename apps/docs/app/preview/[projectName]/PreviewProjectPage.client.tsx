@@ -1,9 +1,9 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
+import { componentsRegistry } from "@/lib/components-registry";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import { Card } from "@uitripled/react-shadcn/ui/card";
-import { componentsRegistry } from "@/lib/components-registry";
 import { motion } from "framer-motion";
 import { ArrowLeft, Code, ExternalLink, Loader2 } from "lucide-react";
 import Link from "next/link";

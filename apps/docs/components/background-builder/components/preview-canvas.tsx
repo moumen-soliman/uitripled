@@ -1,15 +1,15 @@
 "use client";
 
+import { Button } from "@uitripled/react-shadcn/ui/button";
 import { useSpring } from "framer-motion";
+import { ZoomIn } from "lucide-react";
+import { useState } from "react";
+import { DemoSettingsButton } from "./demo-settings-button";
+import { HeroDemo } from "./hero-demo";
 import { LayerRenderer } from "./layer-renderer";
+import { Magnifier } from "./magnifier";
 import { getPatternCSS, getPatternSize } from "./pattern-utils";
 import type { GradientLayer } from "./types";
-import { useState } from "react";
-import { Button } from "@uitripled/react-shadcn/ui/button";
-import { ZoomIn } from "lucide-react";
-import { Magnifier } from "./magnifier";
-import { HeroDemo } from "./hero-demo";
-import { DemoSettingsButton } from "./demo-settings-button";
 
 export interface PreviewCanvasProps {
   layers: GradientLayer[];
@@ -58,7 +58,9 @@ function PreviewContent({
       style={{ filter: `saturate(${saturation / 100})` }}
     >
       {/* Demo Overlay */}
-      {showDemo && <HeroDemo textColor={demoTextColor} buttonColor={demoButtonColor} />}
+      {showDemo && (
+        <HeroDemo textColor={demoTextColor} buttonColor={demoButtonColor} />
+      )}
       {/* Base Gradient */}
       <div
         className="absolute inset-0 z-0"
@@ -184,7 +186,13 @@ export function PreviewCanvas(props: PreviewCanvasProps) {
         onClose={() => setMagnifierEnabled(false)}
       >
         <div className="w-full h-full relative bg-neutral-900">
-          <PreviewContent {...props} showOverlays={false} showDemo={showDemo} demoTextColor={demoTextColor} demoButtonColor={demoButtonColor} />
+          <PreviewContent
+            {...props}
+            showOverlays={false}
+            showDemo={showDemo}
+            demoTextColor={demoTextColor}
+            demoButtonColor={demoButtonColor}
+          />
         </div>
       </Magnifier>
     </div>

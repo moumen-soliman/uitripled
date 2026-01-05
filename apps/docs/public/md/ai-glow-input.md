@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIGlowInput } from "@/components/motion-core/ai-glow-input.tsx"
+import { AIGlowInput } from "@/components/motion-core/ai-glow-input.tsx";
 
 export function AIGlowInputDemo() {
-  return (
-    <AIGlowInput />
-  )
+  return <AIGlowInput />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `AI Glow Input` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { AIGlowInput } from "@/components/motion-core/ai-glow-input.tsx"
+import { AIGlowInput } from "@/components/motion-core/ai-glow-input.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { AIGlowInput } from "@/components/motion-core/ai-glow-input.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIGlowInput } from "@/components/motion-core/ai-glow-input.tsx"
+import { AIGlowInput } from "@/components/motion-core/ai-glow-input.tsx";
 
 export function BasicExample() {
-  return (
-    <AIGlowInput />
-  )
+  return <AIGlowInput />;
 }
 ```
 

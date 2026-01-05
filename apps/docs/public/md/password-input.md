@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { PasswordInput } from "@/components/inputs/password-input.tsx"
+import { PasswordInput } from "@/components/inputs/password-input.tsx";
 
 export function PasswordInputDemo() {
-  return (
-    <PasswordInput />
-  )
+  return <PasswordInput />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Password Input` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { PasswordInput } from "@/components/inputs/password-input.tsx"
+import { PasswordInput } from "@/components/inputs/password-input.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { PasswordInput } from "@/components/inputs/password-input.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { PasswordInput } from "@/components/inputs/password-input.tsx"
+import { PasswordInput } from "@/components/inputs/password-input.tsx";
 
 export function BasicExample() {
-  return (
-    <PasswordInput />
-  )
+  return <PasswordInput />;
 }
 ```
 

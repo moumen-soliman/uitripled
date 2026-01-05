@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx"
+import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx";
 
 export function FAQSectionDemo() {
-  return (
-    <FAQSection />
-  )
+  return <FAQSection />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `FAQ Section` component uses the following components. Make sure you have th
 ## Usage
 
 ```tsx showLineNumbers
-import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx"
+import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx"
+import { FAQSection } from "@/components/sections/shadcnui/faq-section.tsx";
 
 export function BasicExample() {
-  return (
-    <FAQSection />
-  )
+  return <FAQSection />;
 }
 ```
 

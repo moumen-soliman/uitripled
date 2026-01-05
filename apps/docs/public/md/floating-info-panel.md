@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingInfoPanel } from "@/components/motion-core/floating-info-panel.tsx"
+import { FloatingInfoPanel } from "@/components/motion-core/floating-info-panel.tsx";
 
 export function FloatingInfoPanelDemo() {
-  return (
-    <FloatingInfoPanel />
-  )
+  return <FloatingInfoPanel />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/floating-info-panel
 ## Usage
 
 ```tsx showLineNumbers
-import { FloatingInfoPanel } from "@/components/motion-core/floating-info-panel.tsx"
+import { FloatingInfoPanel } from "@/components/motion-core/floating-info-panel.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { FloatingInfoPanel } from "@/components/motion-core/floating-info-panel.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingInfoPanel } from "@/components/motion-core/floating-info-panel.tsx"
+import { FloatingInfoPanel } from "@/components/motion-core/floating-info-panel.tsx";
 
 export function BasicExample() {
-  return (
-    <FloatingInfoPanel />
-  )
+  return <FloatingInfoPanel />;
 }
 ```
 

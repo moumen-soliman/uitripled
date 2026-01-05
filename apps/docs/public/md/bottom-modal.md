@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BottomModal } from "components/modals/bottom-modal.tsx"
+import { BottomModal } from "components/modals/bottom-modal.tsx";
 
 export function BottomModalDemo() {
-  return (
-    <BottomModal />
-  )
+  return <BottomModal />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Bottom Modal` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { BottomModal } from "components/modals/bottom-modal.tsx"
+import { BottomModal } from "components/modals/bottom-modal.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { BottomModal } from "components/modals/bottom-modal.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BottomModal } from "components/modals/bottom-modal.tsx"
+import { BottomModal } from "components/modals/bottom-modal.tsx";
 
 export function BasicExample() {
-  return (
-    <BottomModal />
-  )
+  return <BottomModal />;
 }
 ```
 

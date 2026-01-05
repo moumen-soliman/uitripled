@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AccessibleImageSliderCard } from "@/components/components/cards/image-slider-card.tsx"
+import { AccessibleImageSliderCard } from "@/components/components/cards/image-slider-card.tsx";
 
 export function AccessibleImageSliderCardDemo() {
-  return (
-    <AccessibleImageSliderCard />
-  )
+  return <AccessibleImageSliderCard />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Accessible Image Slider Card` component uses the following components. Make
 ## Usage
 
 ```tsx showLineNumbers
-import { AccessibleImageSliderCard } from "@/components/components/cards/image-slider-card.tsx"
+import { AccessibleImageSliderCard } from "@/components/components/cards/image-slider-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { AccessibleImageSliderCard } from "@/components/components/cards/image-s
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AccessibleImageSliderCard } from "@/components/components/cards/image-slider-card.tsx"
+import { AccessibleImageSliderCard } from "@/components/components/cards/image-slider-card.tsx";
 
 export function BasicExample() {
-  return (
-    <AccessibleImageSliderCard />
-  )
+  return <AccessibleImageSliderCard />;
 }
 ```
 

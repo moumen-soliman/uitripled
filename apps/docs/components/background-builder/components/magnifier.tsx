@@ -58,7 +58,8 @@ export function Magnifier({
   }, [enabled, onClose]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current || !lensRef.current || !contentRef.current) return;
+    if (!containerRef.current || !lensRef.current || !contentRef.current)
+      return;
 
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;

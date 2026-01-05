@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MinimalResume } from "components/components/resumes/baseui/minimal-resume-baseui.tsx"
+import { MinimalResume } from "components/components/resumes/baseui/minimal-resume-baseui.tsx";
 
 export function MinimalResumeDemo() {
-  return (
-    <MinimalResume />
-  )
+  return <MinimalResume />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Minimal Resume` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { MinimalResume } from "components/components/resumes/baseui/minimal-resume-baseui.tsx"
+import { MinimalResume } from "components/components/resumes/baseui/minimal-resume-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { MinimalResume } from "components/components/resumes/baseui/minimal-resu
 
 - **Category**: resumes
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MinimalResume } from "components/components/resumes/baseui/minimal-resume-baseui.tsx"
+import { MinimalResume } from "components/components/resumes/baseui/minimal-resume-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <MinimalResume />
-  )
+  return <MinimalResume />;
 }
 ```
 

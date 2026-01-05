@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeMagnetic } from "components/native/baseui/native-magnetic-baseui.tsx"
+import { NativeMagnetic } from "components/native/baseui/native-magnetic-baseui.tsx";
 
 export function NativeMagneticDemo() {
-  return (
-    <NativeMagnetic />
-  )
+  return <NativeMagnetic />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Magnetic` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeMagnetic } from "components/native/baseui/native-magnetic-baseui.tsx"
+import { NativeMagnetic } from "components/native/baseui/native-magnetic-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeMagnetic } from "components/native/baseui/native-magnetic-baseui.
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeMagnetic } from "components/native/baseui/native-magnetic-baseui.tsx"
+import { NativeMagnetic } from "components/native/baseui/native-magnetic-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeMagnetic />
-  )
+  return <NativeMagnetic />;
 }
 ```
 

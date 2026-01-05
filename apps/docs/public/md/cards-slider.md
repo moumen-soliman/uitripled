@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CardsSlider } from "@/components/components/sliders/cards-slider.tsx"
+import { CardsSlider } from "@/components/components/sliders/cards-slider.tsx";
 
 export function CardsSliderDemo() {
-  return (
-    <CardsSlider />
-  )
+  return <CardsSlider />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/cards-slider
 ## Usage
 
 ```tsx showLineNumbers
-import { CardsSlider } from "@/components/components/sliders/cards-slider.tsx"
+import { CardsSlider } from "@/components/components/sliders/cards-slider.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { CardsSlider } from "@/components/components/sliders/cards-slider.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CardsSlider } from "@/components/components/sliders/cards-slider.tsx"
+import { CardsSlider } from "@/components/components/sliders/cards-slider.tsx";
 
 export function BasicExample() {
-  return (
-    <CardsSlider />
-  )
+  return <CardsSlider />;
 }
 ```
 

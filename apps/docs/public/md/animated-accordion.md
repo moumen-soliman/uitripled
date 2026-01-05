@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedAccordion } from "@/components/disclosure/animated-accordion.tsx"
+import { AnimatedAccordion } from "@/components/disclosure/animated-accordion.tsx";
 
 export function AnimatedAccordionDemo() {
-  return (
-    <AnimatedAccordion />
-  )
+  return <AnimatedAccordion />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Accordion` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedAccordion } from "@/components/disclosure/animated-accordion.tsx"
+import { AnimatedAccordion } from "@/components/disclosure/animated-accordion.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { AnimatedAccordion } from "@/components/disclosure/animated-accordion.ts
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedAccordion } from "@/components/disclosure/animated-accordion.tsx"
+import { AnimatedAccordion } from "@/components/disclosure/animated-accordion.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedAccordion />
-  )
+  return <AnimatedAccordion />;
 }
 ```
 

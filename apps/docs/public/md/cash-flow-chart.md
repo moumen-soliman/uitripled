@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AccessibleCashFlowChart } from "@/components/data/charts/cash-flow-chart.tsx"
+import { AccessibleCashFlowChart } from "@/components/data/charts/cash-flow-chart.tsx";
 
 export function AccessibleCashFlowChartDemo() {
-  return (
-    <AccessibleCashFlowChart />
-  )
+  return <AccessibleCashFlowChart />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/cash-flow-chart
 ## Usage
 
 ```tsx showLineNumbers
-import { AccessibleCashFlowChart } from "@/components/data/charts/cash-flow-chart.tsx"
+import { AccessibleCashFlowChart } from "@/components/data/charts/cash-flow-chart.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { AccessibleCashFlowChart } from "@/components/data/charts/cash-flow-char
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AccessibleCashFlowChart } from "@/components/data/charts/cash-flow-chart.tsx"
+import { AccessibleCashFlowChart } from "@/components/data/charts/cash-flow-chart.tsx";
 
 export function BasicExample() {
-  return (
-    <AccessibleCashFlowChart />
-  )
+  return <AccessibleCashFlowChart />;
 }
 ```
 

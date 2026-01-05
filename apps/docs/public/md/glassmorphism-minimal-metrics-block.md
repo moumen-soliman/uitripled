@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx"
+import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx";
 
 export function GlassmorphismMinimalMetricsDemo() {
-  return (
-    <GlassmorphismMinimalMetrics />
-  )
+  return <GlassmorphismMinimalMetrics />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Glassmorphism Minimal Metrics` component uses the following components. Mak
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx"
+import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glas
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -110,16 +110,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx"
+import { GlassmorphismMinimalMetrics } from "@/components/sections/shadcnui/glassmorphism-minimal-metrics-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismMinimalMetrics />
-  )
+  return <GlassmorphismMinimalMetrics />;
 }
 ```
 

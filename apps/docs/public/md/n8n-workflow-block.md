@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { N8NWorkflowBlock } from "@/components/sections/shadcnui/n8n-workflow-block.tsx"
+import { N8NWorkflowBlock } from "@/components/sections/shadcnui/n8n-workflow-block.tsx";
 
 export function N8NWorkflowBlockDemo() {
-  return (
-    <N8NWorkflowBlock />
-  )
+  return <N8NWorkflowBlock />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `N8N Workflow Block` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { N8NWorkflowBlock } from "@/components/sections/shadcnui/n8n-workflow-block.tsx"
+import { N8NWorkflowBlock } from "@/components/sections/shadcnui/n8n-workflow-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,12 +74,14 @@ import { N8NWorkflowBlock } from "@/components/sections/shadcnui/n8n-workflow-bl
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 - `react-dom`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -112,16 +112,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { N8NWorkflowBlock } from "@/components/sections/shadcnui/n8n-workflow-block.tsx"
+import { N8NWorkflowBlock } from "@/components/sections/shadcnui/n8n-workflow-block.tsx";
 
 export function BasicExample() {
-  return (
-    <N8NWorkflowBlock />
-  )
+  return <N8NWorkflowBlock />;
 }
 ```
 

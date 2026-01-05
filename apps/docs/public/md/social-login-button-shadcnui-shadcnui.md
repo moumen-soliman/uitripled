@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx"
+import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx";
 
 export function SocialLoginButtonDemo() {
-  return (
-    <SocialLoginButton />
-  )
+  return <SocialLoginButton />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/social-login-button-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx"
+import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { SocialLoginButton } from "components/native/shadcnui/social-login-butto
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx"
+import { SocialLoginButton } from "components/native/shadcnui/social-login-button-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <SocialLoginButton />
-  )
+  return <SocialLoginButton />;
 }
 ```
 

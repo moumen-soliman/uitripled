@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismTestimonials } from "@/components/sections/shadcnui/glassmorphism-testimonials-block.tsx"
+import { GlassmorphismTestimonials } from "@/components/sections/shadcnui/glassmorphism-testimonials-block.tsx";
 
 export function GlassmorphismTestimonialsDemo() {
-  return (
-    <GlassmorphismTestimonials />
-  )
+  return <GlassmorphismTestimonials />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Glassmorphism Testimonials` component uses the following components. Make s
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismTestimonials } from "@/components/sections/shadcnui/glassmorphism-testimonials-block.tsx"
+import { GlassmorphismTestimonials } from "@/components/sections/shadcnui/glassmorphism-testimonials-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,9 +72,11 @@ import { GlassmorphismTestimonials } from "@/components/sections/shadcnui/glassm
 ### Technical Specifications
 
 **Dependencies**:
+
 - `lucide-react`
 
 **UI Components**:
+
 - card
 
 This component is built on top of **shadcn/ui** component primitives.
@@ -103,16 +103,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismTestimonials } from "@/components/sections/shadcnui/glassmorphism-testimonials-block.tsx"
+import { GlassmorphismTestimonials } from "@/components/sections/shadcnui/glassmorphism-testimonials-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismTestimonials />
-  )
+  return <GlassmorphismTestimonials />;
 }
 ```
 

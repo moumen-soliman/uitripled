@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder.tsx"
+import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder.tsx";
 
 export function BrowseFolderDemo() {
-  return (
-    <BrowseFolder />
-  )
+  return <BrowseFolder />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Browse Folder` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder.tsx"
+import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,11 +74,13 @@ import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - tabs
@@ -111,16 +111,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder.tsx"
+import { BrowseFolder } from "@/components/sections/shadcnui/browse-folder.tsx";
 
 export function BasicExample() {
-  return (
-    <BrowseFolder />
-  )
+  return <BrowseFolder />;
 }
 ```
 

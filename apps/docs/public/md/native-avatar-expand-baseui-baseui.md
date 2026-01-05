@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeAvatarExpand } from "components/native/baseui/native-avatar-expand-baseui.tsx"
+import { NativeAvatarExpand } from "components/native/baseui/native-avatar-expand-baseui.tsx";
 
 export function NativeAvatarExpandDemo() {
-  return (
-    <NativeAvatarExpand />
-  )
+  return <NativeAvatarExpand />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Avatar Expand` component uses the following components. Make sure yo
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeAvatarExpand } from "components/native/baseui/native-avatar-expand-baseui.tsx"
+import { NativeAvatarExpand } from "components/native/baseui/native-avatar-expand-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeAvatarExpand } from "components/native/baseui/native-avatar-expan
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeAvatarExpand } from "components/native/baseui/native-avatar-expand-baseui.tsx"
+import { NativeAvatarExpand } from "components/native/baseui/native-avatar-expand-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeAvatarExpand />
-  )
+  return <NativeAvatarExpand />;
 }
 ```
 

@@ -2,9 +2,9 @@ import { Button } from "@uitripled/react-shadcn/ui/button";
 import { ZoomIn } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { Magnifier } from "../magnifier";
-import { HeroDemo } from "../hero-demo";
 import { DemoSettingsButton } from "../demo-settings-button";
+import { HeroDemo } from "../hero-demo";
+import { Magnifier } from "../magnifier";
 import { SHADER_INFO } from "./constants";
 import { ShaderRenderer, ShaderRendererProps } from "./shader-renderer";
 
@@ -22,7 +22,9 @@ export function ShaderPreview(props: ShaderPreviewProps) {
         <ShaderRenderer {...props} />
       </div>
 
-      {showDemo && <HeroDemo textColor={demoTextColor} buttonColor={demoButtonColor} />}
+      {showDemo && (
+        <HeroDemo textColor={demoTextColor} buttonColor={demoButtonColor} />
+      )}
 
       {/* Tools */}
       <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 items-end">
@@ -47,7 +49,9 @@ export function ShaderPreview(props: ShaderPreviewProps) {
       </div>
 
       <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm p-2 rounded text-xs text-muted-foreground font-mono z-20">
-        <span className="uppercase">{SHADER_INFO[props.activeShader].name}</span>{" "}
+        <span className="uppercase">
+          {SHADER_INFO[props.activeShader].name}
+        </span>{" "}
         by{" "}
         <Link
           href="https://paper.design/"

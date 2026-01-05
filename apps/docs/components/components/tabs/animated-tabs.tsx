@@ -1,6 +1,11 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@uitripled/react-shadcn/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@uitripled/react-shadcn/ui/tabs";
 import { motion } from "framer-motion";
 import { useState } from "react";
 

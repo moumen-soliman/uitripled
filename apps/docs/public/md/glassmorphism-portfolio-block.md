@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx"
+import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx";
 
 export function GlassmorphismPortfolioDemo() {
-  return (
-    <GlassmorphismPortfolio />
-  )
+  return <GlassmorphismPortfolio />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Glassmorphism Portfolio` component uses the following components. Make sure
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx"
+import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorp
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx"
+import { GlassmorphismPortfolio } from "@/components/sections/shadcnui/glassmorphism-portfolio-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismPortfolio />
-  )
+  return <GlassmorphismPortfolio />;
 }
 ```
 

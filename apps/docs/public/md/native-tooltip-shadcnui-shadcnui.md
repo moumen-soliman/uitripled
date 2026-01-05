@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx"
+import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx";
 
 export function NativeTooltipDemo() {
-  return (
-    <NativeTooltip />
-  )
+  return <NativeTooltip />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-tooltip-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx"
+import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnu
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx"
+import { NativeTooltip } from "components/native/shadcnui/native-tooltip-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeTooltip />
-  )
+  return <NativeTooltip />;
 }
 ```
 

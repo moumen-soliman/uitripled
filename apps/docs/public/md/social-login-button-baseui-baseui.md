@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SocialLoginButton } from "components/native/baseui/social-login-button-baseui.tsx"
+import { SocialLoginButton } from "components/native/baseui/social-login-button-baseui.tsx";
 
 export function SocialLoginButtonDemo() {
-  return (
-    <SocialLoginButton />
-  )
+  return <SocialLoginButton />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Social Login Button` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { SocialLoginButton } from "components/native/baseui/social-login-button-baseui.tsx"
+import { SocialLoginButton } from "components/native/baseui/social-login-button-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { SocialLoginButton } from "components/native/baseui/social-login-button-
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SocialLoginButton } from "components/native/baseui/social-login-button-baseui.tsx"
+import { SocialLoginButton } from "components/native/baseui/social-login-button-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <SocialLoginButton />
-  )
+  return <SocialLoginButton />;
 }
 ```
 

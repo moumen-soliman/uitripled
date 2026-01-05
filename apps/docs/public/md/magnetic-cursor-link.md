@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-link.tsx"
+import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-link.tsx";
 
 export function MagneticCursorLinkDemo() {
-  return (
-    <MagneticCursorLink />
-  )
+  return <MagneticCursorLink />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/magnetic-cursor-link
 ## Usage
 
 ```tsx showLineNumbers
-import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-link.tsx"
+import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-link.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-lin
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-link.tsx"
+import { MagneticCursorLink } from "@/components/motion-core/magnetic-cursor-link.tsx";
 
 export function BasicExample() {
-  return (
-    <MagneticCursorLink />
-  )
+  return <MagneticCursorLink />;
 }
 ```
 

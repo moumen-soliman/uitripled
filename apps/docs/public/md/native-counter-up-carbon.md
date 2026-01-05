@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeCounterUp } from "@/components/native/carbon/native-counter-up-carbon.tsx"
+import { NativeCounterUp } from "@/components/native/carbon/native-counter-up-carbon.tsx";
 
 export function NativeCounterUpDemo() {
-  return (
-    <NativeCounterUp />
-  )
+  return <NativeCounterUp />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-counter-up-carbon
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeCounterUp } from "@/components/native/carbon/native-counter-up-carbon.tsx"
+import { NativeCounterUp } from "@/components/native/carbon/native-counter-up-carbon.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeCounterUp } from "@/components/native/carbon/native-counter-up-ca
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeCounterUp } from "@/components/native/carbon/native-counter-up-carbon.tsx"
+import { NativeCounterUp } from "@/components/native/carbon/native-counter-up-carbon.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeCounterUp />
-  )
+  return <NativeCounterUp />;
 }
 ```
 

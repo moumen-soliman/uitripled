@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SpotlightSection } from "@/components/motion-core/spotlight-section.tsx"
+import { SpotlightSection } from "@/components/motion-core/spotlight-section.tsx";
 
 export function SpotlightSectionDemo() {
-  return (
-    <SpotlightSection />
-  )
+  return <SpotlightSection />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/spotlight-section
 ## Usage
 
 ```tsx showLineNumbers
-import { SpotlightSection } from "@/components/motion-core/spotlight-section.tsx"
+import { SpotlightSection } from "@/components/motion-core/spotlight-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { SpotlightSection } from "@/components/motion-core/spotlight-section.tsx
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SpotlightSection } from "@/components/motion-core/spotlight-section.tsx"
+import { SpotlightSection } from "@/components/motion-core/spotlight-section.tsx";
 
 export function BasicExample() {
-  return (
-    <SpotlightSection />
-  )
+  return <SpotlightSection />;
 }
 ```
 

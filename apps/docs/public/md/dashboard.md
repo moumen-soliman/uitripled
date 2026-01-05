@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { Dashboard } from "@/components/components/stocks-dashboard/dashboard.tsx"
+import { Dashboard } from "@/components/components/stocks-dashboard/dashboard.tsx";
 
 export function DashboardDemo() {
-  return (
-    <Dashboard />
-  )
+  return <Dashboard />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Dashboard` component uses the following components. Make sure you have them
 ## Usage
 
 ```tsx showLineNumbers
-import { Dashboard } from "@/components/components/stocks-dashboard/dashboard.tsx"
+import { Dashboard } from "@/components/components/stocks-dashboard/dashboard.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { Dashboard } from "@/components/components/stocks-dashboard/dashboard.ts
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { Dashboard } from "@/components/components/stocks-dashboard/dashboard.tsx"
+import { Dashboard } from "@/components/components/stocks-dashboard/dashboard.tsx";
 
 export function BasicExample() {
-  return (
-    <Dashboard />
-  )
+  return <Dashboard />;
 }
 ```
 

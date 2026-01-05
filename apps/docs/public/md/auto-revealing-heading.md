@@ -68,6 +68,7 @@ import { Auto-RevealingHeading } from "@/components/motion-core/auto-revealing-h
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CommandPalette } from "@/components/search/command-palette.tsx"
+import { CommandPalette } from "@/components/search/command-palette.tsx";
 
 export function CommandPaletteDemo() {
-  return (
-    <CommandPalette />
-  )
+  return <CommandPalette />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Command Palette` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { CommandPalette } from "@/components/search/command-palette.tsx"
+import { CommandPalette } from "@/components/search/command-palette.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { CommandPalette } from "@/components/search/command-palette.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CommandPalette } from "@/components/search/command-palette.tsx"
+import { CommandPalette } from "@/components/search/command-palette.tsx";
 
 export function BasicExample() {
-  return (
-    <CommandPalette />
-  )
+  return <CommandPalette />;
 }
 ```
 

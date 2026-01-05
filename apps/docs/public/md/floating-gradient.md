@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingGradient } from "@/components/decorative/background/floating-gradient.tsx"
+import { FloatingGradient } from "@/components/decorative/background/floating-gradient.tsx";
 
 export function FloatingGradientDemo() {
-  return (
-    <FloatingGradient />
-  )
+  return <FloatingGradient />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/floating-gradient
 ## Usage
 
 ```tsx showLineNumbers
-import { FloatingGradient } from "@/components/decorative/background/floating-gradient.tsx"
+import { FloatingGradient } from "@/components/decorative/background/floating-gradient.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { FloatingGradient } from "@/components/decorative/background/floating-gr
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -94,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingGradient } from "@/components/decorative/background/floating-gradient.tsx"
+import { FloatingGradient } from "@/components/decorative/background/floating-gradient.tsx";
 
 export function BasicExample() {
-  return (
-    <FloatingGradient />
-  )
+  return <FloatingGradient />;
 }
 ```
 

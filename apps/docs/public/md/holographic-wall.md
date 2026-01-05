@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HolographicWall } from "@/components/motion-core/holographic-wall.tsx"
+import { HolographicWall } from "@/components/motion-core/holographic-wall.tsx";
 
 export function HolographicWallDemo() {
-  return (
-    <HolographicWall />
-  )
+  return <HolographicWall />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/holographic-wall
 ## Usage
 
 ```tsx showLineNumbers
-import { HolographicWall } from "@/components/motion-core/holographic-wall.tsx"
+import { HolographicWall } from "@/components/motion-core/holographic-wall.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { HolographicWall } from "@/components/motion-core/holographic-wall.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HolographicWall } from "@/components/motion-core/holographic-wall.tsx"
+import { HolographicWall } from "@/components/motion-core/holographic-wall.tsx";
 
 export function BasicExample() {
-  return (
-    <HolographicWall />
-  )
+  return <HolographicWall />;
 }
 ```
 

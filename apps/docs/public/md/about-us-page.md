@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AboutUsPage } from "@/components/page/about/about-us-page.tsx"
+import { AboutUsPage } from "@/components/page/about/about-us-page.tsx";
 
 export function AboutUsPageDemo() {
-  return (
-    <AboutUsPage />
-  )
+  return <AboutUsPage />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `About Us Page` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { AboutUsPage } from "@/components/page/about/about-us-page.tsx"
+import { AboutUsPage } from "@/components/page/about/about-us-page.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { AboutUsPage } from "@/components/page/about/about-us-page.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AboutUsPage } from "@/components/page/about/about-us-page.tsx"
+import { AboutUsPage } from "@/components/page/about/about-us-page.tsx";
 
 export function BasicExample() {
-  return (
-    <AboutUsPage />
-  )
+  return <AboutUsPage />;
 }
 ```
 

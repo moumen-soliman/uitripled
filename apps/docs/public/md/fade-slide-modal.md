@@ -74,11 +74,13 @@ import { Fade&SlideModal } from "@/components/components/modal/fade-slide.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.

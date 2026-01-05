@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProfilePage } from "@/components/components/profile/profile-page.tsx"
+import { ProfilePage } from "@/components/components/profile/profile-page.tsx";
 
 export function ProfilePageDemo() {
-  return (
-    <ProfilePage />
-  )
+  return <ProfilePage />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/profile-page
 ## Usage
 
 ```tsx showLineNumbers
-import { ProfilePage } from "@/components/components/profile/profile-page.tsx"
+import { ProfilePage } from "@/components/components/profile/profile-page.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { ProfilePage } from "@/components/components/profile/profile-page.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProfilePage } from "@/components/components/profile/profile-page.tsx"
+import { ProfilePage } from "@/components/components/profile/profile-page.tsx";
 
 export function BasicExample() {
-  return (
-    <ProfilePage />
-  )
+  return <ProfilePage />;
 }
 ```
 

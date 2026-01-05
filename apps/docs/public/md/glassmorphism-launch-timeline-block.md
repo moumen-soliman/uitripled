@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismLaunchTimeline } from "@/components/sections/shadcnui/glassmorphism-launch-timeline-block.tsx"
+import { GlassmorphismLaunchTimeline } from "@/components/sections/shadcnui/glassmorphism-launch-timeline-block.tsx";
 
 export function GlassmorphismLaunchTimelineDemo() {
-  return (
-    <GlassmorphismLaunchTimeline />
-  )
+  return <GlassmorphismLaunchTimeline />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Glassmorphism Launch Timeline` component uses the following components. Mak
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismLaunchTimeline } from "@/components/sections/shadcnui/glassmorphism-launch-timeline-block.tsx"
+import { GlassmorphismLaunchTimeline } from "@/components/sections/shadcnui/glassmorphism-launch-timeline-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { GlassmorphismLaunchTimeline } from "@/components/sections/shadcnui/glas
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismLaunchTimeline } from "@/components/sections/shadcnui/glassmorphism-launch-timeline-block.tsx"
+import { GlassmorphismLaunchTimeline } from "@/components/sections/shadcnui/glassmorphism-launch-timeline-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismLaunchTimeline />
-  )
+  return <GlassmorphismLaunchTimeline />;
 }
 ```
 

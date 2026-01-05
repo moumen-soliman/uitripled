@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx"
+import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx";
 
 export function DetailTaskCardDemo() {
-  return (
-    <DetailTaskCard />
-  )
+  return <DetailTaskCard />;
 }
 ```
 
@@ -64,7 +62,7 @@ The `Detail Task Card` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx"
+import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -79,11 +77,13 @@ import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-ta
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -117,16 +117,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx"
+import { DetailTaskCard } from "@/components/components/cards/shadcnui/detail-task.tsx";
 
 export function BasicExample() {
-  return (
-    <DetailTaskCard />
-  )
+  return <DetailTaskCard />;
 }
 ```
 

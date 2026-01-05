@@ -8,6 +8,7 @@ import {
   getSchemeByName,
 } from "@/components/color-scheme-sync";
 import { useTheme } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import {
   DropdownMenu,
@@ -17,7 +18,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@uitripled/react-shadcn/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
 import { Check, Palette } from "lucide-react";
 import { useEffect, useState } from "react";
 

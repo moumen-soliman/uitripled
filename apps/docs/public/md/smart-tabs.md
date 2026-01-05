@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SmartTabs } from "@/components/components/tabs/smart-tabs.tsx"
+import { SmartTabs } from "@/components/components/tabs/smart-tabs.tsx";
 
 export function SmartTabsDemo() {
-  return (
-    <SmartTabs />
-  )
+  return <SmartTabs />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Smart Tabs` component uses the following components. Make sure you have the
 ## Usage
 
 ```tsx showLineNumbers
-import { SmartTabs } from "@/components/components/tabs/smart-tabs.tsx"
+import { SmartTabs } from "@/components/components/tabs/smart-tabs.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { SmartTabs } from "@/components/components/tabs/smart-tabs.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SmartTabs } from "@/components/components/tabs/smart-tabs.tsx"
+import { SmartTabs } from "@/components/components/tabs/smart-tabs.tsx";
 
 export function BasicExample() {
-  return (
-    <SmartTabs />
-  )
+  return <SmartTabs />;
 }
 ```
 

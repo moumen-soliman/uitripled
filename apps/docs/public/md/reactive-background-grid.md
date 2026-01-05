@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ReactiveBackgroundGrid } from "@/components/motion-core/reactive-background-grid.tsx"
+import { ReactiveBackgroundGrid } from "@/components/motion-core/reactive-background-grid.tsx";
 
 export function ReactiveBackgroundGridDemo() {
-  return (
-    <ReactiveBackgroundGrid />
-  )
+  return <ReactiveBackgroundGrid />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/reactive-background-grid
 ## Usage
 
 ```tsx showLineNumbers
-import { ReactiveBackgroundGrid } from "@/components/motion-core/reactive-background-grid.tsx"
+import { ReactiveBackgroundGrid } from "@/components/motion-core/reactive-background-grid.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { ReactiveBackgroundGrid } from "@/components/motion-core/reactive-backgr
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ReactiveBackgroundGrid } from "@/components/motion-core/reactive-background-grid.tsx"
+import { ReactiveBackgroundGrid } from "@/components/motion-core/reactive-background-grid.tsx";
 
 export function BasicExample() {
-  return (
-    <ReactiveBackgroundGrid />
-  )
+  return <ReactiveBackgroundGrid />;
 }
 ```
 

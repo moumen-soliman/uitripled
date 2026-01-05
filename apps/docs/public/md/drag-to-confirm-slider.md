@@ -74,11 +74,13 @@ import { Drag-to-ConfirmSlider } from "@/components/motion-core/drag-to-confirm-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.

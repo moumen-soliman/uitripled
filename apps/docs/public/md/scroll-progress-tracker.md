@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-tracker.tsx"
+import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-tracker.tsx";
 
 export function ScrollProgressTrackerDemo() {
-  return (
-    <ScrollProgressTracker />
-  )
+  return <ScrollProgressTracker />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/scroll-progress-tracker
 ## Usage
 
 ```tsx showLineNumbers
-import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-tracker.tsx"
+import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-tracker.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-tracker.tsx"
+import { ScrollProgressTracker } from "@/components/motion-core/scroll-progress-tracker.tsx";
 
 export function BasicExample() {
-  return (
-    <ScrollProgressTracker />
-  )
+  return <ScrollProgressTracker />;
 }
 ```
 

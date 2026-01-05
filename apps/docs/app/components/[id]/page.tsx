@@ -170,7 +170,8 @@ export default async function AnimationDetailPage({ params }: PageParams) {
     // Try different paths based on component category and common subdirectories
     const subDirs = ["sections", "cards/baseui", "resumes/baseui", "blocks"];
     const possiblePaths = subDirs.map(
-      (dir) => `@uitripled/react-baseui/components/${dir}/${component.id}-baseui.tsx`
+      (dir) =>
+        `@uitripled/react-baseui/components/${dir}/${component.id}-baseui.tsx`
     );
 
     for (const baseuiPath of possiblePaths) {
@@ -191,7 +192,12 @@ export default async function AnimationDetailPage({ params }: PageParams) {
     // Ensure shadcnuiCode is set to the default code if not already set
     if (!shadcnuiCode) {
       // Try to find the shadcnui-specific path first if it exists
-      const shadcnSubDirs = ["sections", "components/cards/shadcnui", "components/resumes/shadcnui", "blocks"];
+      const shadcnSubDirs = [
+        "sections",
+        "components/cards/shadcnui",
+        "components/resumes/shadcnui",
+        "blocks",
+      ];
       for (const dir of shadcnSubDirs) {
         const shadcnPath = `@uitripled/react-shadcn/components/${dir}/${component.id}.tsx`;
         try {

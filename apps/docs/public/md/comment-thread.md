@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CommentThread } from "@/components/components/comments/comment-thread.tsx"
+import { CommentThread } from "@/components/components/comments/comment-thread.tsx";
 
 export function CommentThreadDemo() {
-  return (
-    <CommentThread />
-  )
+  return <CommentThread />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Comment Thread` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { CommentThread } from "@/components/components/comments/comment-thread.tsx"
+import { CommentThread } from "@/components/components/comments/comment-thread.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { CommentThread } from "@/components/components/comments/comment-thread.t
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CommentThread } from "@/components/components/comments/comment-thread.tsx"
+import { CommentThread } from "@/components/components/comments/comment-thread.tsx";
 
 export function BasicExample() {
-  return (
-    <CommentThread />
-  )
+  return <CommentThread />;
 }
 ```
 

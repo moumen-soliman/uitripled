@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { DynamicSpotlightCTA } from "@/components/motion-core/dynamic-spotlight-cta.tsx"
+import { DynamicSpotlightCTA } from "@/components/motion-core/dynamic-spotlight-cta.tsx";
 
 export function DynamicSpotlightCTADemo() {
-  return (
-    <DynamicSpotlightCTA />
-  )
+  return <DynamicSpotlightCTA />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/dynamic-spotlight-cta
 ## Usage
 
 ```tsx showLineNumbers
-import { DynamicSpotlightCTA } from "@/components/motion-core/dynamic-spotlight-cta.tsx"
+import { DynamicSpotlightCTA } from "@/components/motion-core/dynamic-spotlight-cta.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { DynamicSpotlightCTA } from "@/components/motion-core/dynamic-spotlight-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { DynamicSpotlightCTA } from "@/components/motion-core/dynamic-spotlight-cta.tsx"
+import { DynamicSpotlightCTA } from "@/components/motion-core/dynamic-spotlight-cta.tsx";
 
 export function BasicExample() {
-  return (
-    <DynamicSpotlightCTA />
-  )
+  return <DynamicSpotlightCTA />;
 }
 ```
 

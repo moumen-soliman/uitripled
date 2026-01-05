@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MagneticButton } from "@/components/native/native-counter-up.tsx"
+import { MagneticButton } from "@/components/native/native-counter-up.tsx";
 
 export function MagneticButtonDemo() {
-  return (
-    <MagneticButton />
-  )
+  return <MagneticButton />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Magnetic Button` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { MagneticButton } from "@/components/native/native-counter-up.tsx"
+import { MagneticButton } from "@/components/native/native-counter-up.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { MagneticButton } from "@/components/native/native-counter-up.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MagneticButton } from "@/components/native/native-counter-up.tsx"
+import { MagneticButton } from "@/components/native/native-counter-up.tsx";
 
 export function BasicExample() {
-  return (
-    <MagneticButton />
-  )
+  return <MagneticButton />;
 }
 ```
 

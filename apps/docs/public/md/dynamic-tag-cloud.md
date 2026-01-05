@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { DynamicTagCloud } from "@/components/motion-core/dynamic-tag-cloud.tsx"
+import { DynamicTagCloud } from "@/components/motion-core/dynamic-tag-cloud.tsx";
 
 export function DynamicTagCloudDemo() {
-  return (
-    <DynamicTagCloud />
-  )
+  return <DynamicTagCloud />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/dynamic-tag-cloud
 ## Usage
 
 ```tsx showLineNumbers
-import { DynamicTagCloud } from "@/components/motion-core/dynamic-tag-cloud.tsx"
+import { DynamicTagCloud } from "@/components/motion-core/dynamic-tag-cloud.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { DynamicTagCloud } from "@/components/motion-core/dynamic-tag-cloud.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { DynamicTagCloud } from "@/components/motion-core/dynamic-tag-cloud.tsx"
+import { DynamicTagCloud } from "@/components/motion-core/dynamic-tag-cloud.tsx";
 
 export function BasicExample() {
-  return (
-    <DynamicTagCloud />
-  )
+  return <DynamicTagCloud />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { Messenger } from "@/components/components/chat/messenger.tsx"
+import { Messenger } from "@/components/components/chat/messenger.tsx";
 
 export function MessengerDemo() {
-  return (
-    <Messenger />
-  )
+  return <Messenger />;
 }
 ```
 
@@ -63,7 +61,7 @@ The `Messenger` component uses the following components. Make sure you have them
 ## Usage
 
 ```tsx showLineNumbers
-import { Messenger } from "@/components/components/chat/messenger.tsx"
+import { Messenger } from "@/components/components/chat/messenger.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -78,11 +76,13 @@ import { Messenger } from "@/components/components/chat/messenger.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - avatar
 - badge
 - button
@@ -115,16 +115,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { Messenger } from "@/components/components/chat/messenger.tsx"
+import { Messenger } from "@/components/components/chat/messenger.tsx";
 
 export function BasicExample() {
-  return (
-    <Messenger />
-  )
+  return <Messenger />;
 }
 ```
 

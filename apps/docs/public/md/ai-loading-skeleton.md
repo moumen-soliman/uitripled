@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton.tsx"
+import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton.tsx";
 
 export function AILoadingSkeletonDemo() {
-  return (
-    <AILoadingSkeleton />
-  )
+  return <AILoadingSkeleton />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `AI Loading Skeleton` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton.tsx"
+import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,9 +72,11 @@ import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -105,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton.tsx"
+import { AILoadingSkeleton } from "@/components/motion-core/ai-loading-skeleton.tsx";
 
 export function BasicExample() {
-  return (
-    <AILoadingSkeleton />
-  )
+  return <AILoadingSkeleton />;
 }
 ```
 

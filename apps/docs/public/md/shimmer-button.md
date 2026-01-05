@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ShimmerButton } from "@/components/micro/buttons/shimmer-button.tsx"
+import { ShimmerButton } from "@/components/micro/buttons/shimmer-button.tsx";
 
 export function ShimmerButtonDemo() {
-  return (
-    <ShimmerButton />
-  )
+  return <ShimmerButton />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Shimmer Button` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { ShimmerButton } from "@/components/micro/buttons/shimmer-button.tsx"
+import { ShimmerButton } from "@/components/micro/buttons/shimmer-button.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,9 +72,11 @@ import { ShimmerButton } from "@/components/micro/buttons/shimmer-button.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -105,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ShimmerButton } from "@/components/micro/buttons/shimmer-button.tsx"
+import { ShimmerButton } from "@/components/micro/buttons/shimmer-button.tsx";
 
 export function BasicExample() {
-  return (
-    <ShimmerButton />
-  )
+  return <ShimmerButton />;
 }
 ```
 

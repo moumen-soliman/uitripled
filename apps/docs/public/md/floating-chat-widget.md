@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget.tsx"
+import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget.tsx";
 
 export function FloatingChatWidgetDemo() {
-  return (
-    <FloatingChatWidget />
-  )
+  return <FloatingChatWidget />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Floating Chat Widget` component uses the following components. Make sure yo
 ## Usage
 
 ```tsx showLineNumbers
-import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget.tsx"
+import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { FloatingChatWidget } from "@/components/components/chat/floating-chat-w
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 - select
 - avatar
@@ -110,16 +110,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget.tsx"
+import { FloatingChatWidget } from "@/components/components/chat/floating-chat-widget.tsx";
 
 export function BasicExample() {
-  return (
-    <FloatingChatWidget />
-  )
+  return <FloatingChatWidget />;
 }
 ```
 

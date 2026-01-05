@@ -1,9 +1,13 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
+import { cn } from "@/lib/utils";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
 import { Badge } from "@uitripled/react-shadcn/ui/badge";
 import { Card } from "@uitripled/react-shadcn/ui/card";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { BookOpen, Clock } from "lucide-react";
 

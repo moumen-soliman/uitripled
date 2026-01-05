@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeHoverCard } from "components/native/baseui/native-hover-card-baseui.tsx"
+import { NativeHoverCard } from "components/native/baseui/native-hover-card-baseui.tsx";
 
 export function NativeHoverCardDemo() {
-  return (
-    <NativeHoverCard />
-  )
+  return <NativeHoverCard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Hover Card` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeHoverCard } from "components/native/baseui/native-hover-card-baseui.tsx"
+import { NativeHoverCard } from "components/native/baseui/native-hover-card-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeHoverCard } from "components/native/baseui/native-hover-card-base
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeHoverCard } from "components/native/baseui/native-hover-card-baseui.tsx"
+import { NativeHoverCard } from "components/native/baseui/native-hover-card-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeHoverCard />
-  )
+  return <NativeHoverCard />;
 }
 ```
 

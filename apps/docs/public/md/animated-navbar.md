@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedNavbar } from "@/components/navigation/animated-navbar.tsx"
+import { AnimatedNavbar } from "@/components/navigation/animated-navbar.tsx";
 
 export function AnimatedNavbarDemo() {
-  return (
-    <AnimatedNavbar />
-  )
+  return <AnimatedNavbar />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Navbar` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedNavbar } from "@/components/navigation/animated-navbar.tsx"
+import { AnimatedNavbar } from "@/components/navigation/animated-navbar.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { AnimatedNavbar } from "@/components/navigation/animated-navbar.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedNavbar } from "@/components/navigation/animated-navbar.tsx"
+import { AnimatedNavbar } from "@/components/navigation/animated-navbar.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedNavbar />
-  )
+  return <AnimatedNavbar />;
 }
 ```
 

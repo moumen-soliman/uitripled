@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble.tsx"
+import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble.tsx";
 
 export function ContextMenuBubbleDemo() {
-  return (
-    <ContextMenuBubble />
-  )
+  return <ContextMenuBubble />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Context Menu Bubble` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble.tsx"
+import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble.tsx"
+import { ContextMenuBubble } from "@/components/motion-core/context-menu-bubble.tsx";
 
 export function BasicExample() {
-  return (
-    <ContextMenuBubble />
-  )
+  return <ContextMenuBubble />;
 }
 ```
 

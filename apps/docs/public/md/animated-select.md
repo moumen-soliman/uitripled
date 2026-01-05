@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedSelect } from "@/components/forms/animated-select.tsx"
+import { AnimatedSelect } from "@/components/forms/animated-select.tsx";
 
 export function AnimatedSelectDemo() {
-  return (
-    <AnimatedSelect />
-  )
+  return <AnimatedSelect />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Select` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedSelect } from "@/components/forms/animated-select.tsx"
+import { AnimatedSelect } from "@/components/forms/animated-select.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { AnimatedSelect } from "@/components/forms/animated-select.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedSelect } from "@/components/forms/animated-select.tsx"
+import { AnimatedSelect } from "@/components/forms/animated-select.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedSelect />
-  )
+  return <AnimatedSelect />;
 }
 ```
 

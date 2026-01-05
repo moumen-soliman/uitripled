@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIChatInterface } from "@/components/components/chat/ai-chat-interface.tsx"
+import { AIChatInterface } from "@/components/components/chat/ai-chat-interface.tsx";
 
 export function AIChatInterfaceDemo() {
-  return (
-    <AIChatInterface />
-  )
+  return <AIChatInterface />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `AI Chat Interface` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { AIChatInterface } from "@/components/components/chat/ai-chat-interface.tsx"
+import { AIChatInterface } from "@/components/components/chat/ai-chat-interface.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { AIChatInterface } from "@/components/components/chat/ai-chat-interface.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - textarea
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIChatInterface } from "@/components/components/chat/ai-chat-interface.tsx"
+import { AIChatInterface } from "@/components/components/chat/ai-chat-interface.tsx";
 
 export function BasicExample() {
-  return (
-    <AIChatInterface />
-  )
+  return <AIChatInterface />;
 }
 ```
 

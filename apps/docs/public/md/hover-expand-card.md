@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx"
+import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx";
 
 export function HoverExpandCardDemo() {
-  return (
-    <HoverExpandCard />
-  )
+  return <HoverExpandCard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Hover Expand Card` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx"
+import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,9 +72,11 @@ import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-ex
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 **UI Components**:
+
 - badge
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -105,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx"
+import { HoverExpandCard } from "@/components/components/cards/shadcnui/hover-expand.tsx";
 
 export function BasicExample() {
-  return (
-    <HoverExpandCard />
-  )
+  return <HoverExpandCard />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SyncedLyricCaptions } from "@/components/motion-core/synced-lyric-captions.tsx"
+import { SyncedLyricCaptions } from "@/components/motion-core/synced-lyric-captions.tsx";
 
 export function SyncedLyricCaptionsDemo() {
-  return (
-    <SyncedLyricCaptions />
-  )
+  return <SyncedLyricCaptions />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Synced Lyric Captions` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { SyncedLyricCaptions } from "@/components/motion-core/synced-lyric-captions.tsx"
+import { SyncedLyricCaptions } from "@/components/motion-core/synced-lyric-captions.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { SyncedLyricCaptions } from "@/components/motion-core/synced-lyric-capti
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SyncedLyricCaptions } from "@/components/motion-core/synced-lyric-captions.tsx"
+import { SyncedLyricCaptions } from "@/components/motion-core/synced-lyric-captions.tsx";
 
 export function BasicExample() {
-  return (
-    <SyncedLyricCaptions />
-  )
+  return <SyncedLyricCaptions />;
 }
 ```
 

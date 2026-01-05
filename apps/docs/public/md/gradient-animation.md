@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-animation.tsx"
+import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-animation.tsx";
 
 export function GradientAnimationDemo() {
-  return (
-    <GradientAnimation />
-  )
+  return <GradientAnimation />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/gradient-animation
 ## Usage
 
 ```tsx showLineNumbers
-import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-animation.tsx"
+import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-animation.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -94,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-animation.tsx"
+import { GradientAnimation } from "@/components/decorative/backgrounds/gradient-animation.tsx";
 
 export function BasicExample() {
-  return (
-    <GradientAnimation />
-  )
+  return <GradientAnimation />;
 }
 ```
 

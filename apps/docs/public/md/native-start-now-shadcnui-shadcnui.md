@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeStartNow } from "components/native/shadcnui/native-start-now-shadcnui.tsx"
+import { NativeStartNow } from "components/native/shadcnui/native-start-now-shadcnui.tsx";
 
 export function NativeStartNowDemo() {
-  return (
-    <NativeStartNow />
-  )
+  return <NativeStartNow />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-start-now-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeStartNow } from "components/native/shadcnui/native-start-now-shadcnui.tsx"
+import { NativeStartNow } from "components/native/shadcnui/native-start-now-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeStartNow } from "components/native/shadcnui/native-start-now-shad
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeStartNow } from "components/native/shadcnui/native-start-now-shadcnui.tsx"
+import { NativeStartNow } from "components/native/shadcnui/native-start-now-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeStartNow />
-  )
+  return <NativeStartNow />;
 }
 ```
 

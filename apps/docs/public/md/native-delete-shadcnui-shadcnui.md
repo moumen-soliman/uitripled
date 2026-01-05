@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeDelete } from "components/native/shadcnui/native-delete-shadcnui.tsx"
+import { NativeDelete } from "components/native/shadcnui/native-delete-shadcnui.tsx";
 
 export function NativeDeleteDemo() {
-  return (
-    <NativeDelete />
-  )
+  return <NativeDelete />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-delete-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeDelete } from "components/native/shadcnui/native-delete-shadcnui.tsx"
+import { NativeDelete } from "components/native/shadcnui/native-delete-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeDelete } from "components/native/shadcnui/native-delete-shadcnui.
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeDelete } from "components/native/shadcnui/native-delete-shadcnui.tsx"
+import { NativeDelete } from "components/native/shadcnui/native-delete-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeDelete />
-  )
+  return <NativeDelete />;
 }
 ```
 

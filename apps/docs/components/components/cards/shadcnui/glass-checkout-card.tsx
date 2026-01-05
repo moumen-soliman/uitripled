@@ -1,10 +1,10 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import { Card } from "@uitripled/react-shadcn/ui/card";
 import { Input } from "@uitripled/react-shadcn/ui/input";
 import { Label } from "@uitripled/react-shadcn/ui/label";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Calendar, CreditCard, Lock } from "lucide-react";
 import { useState } from "react";

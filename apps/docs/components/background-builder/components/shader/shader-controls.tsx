@@ -13,7 +13,12 @@ import {
 import { Slider } from "@uitripled/react-shadcn/ui/slider";
 import { Check, Copy, Info, Plus, X } from "lucide-react";
 import { useState } from "react";
-import { COLOR_PRESETS, COMPONENT_MAP, SHADER_INFO, ShaderType } from "./constants";
+import {
+  COLOR_PRESETS,
+  COMPONENT_MAP,
+  SHADER_INFO,
+  ShaderType,
+} from "./constants";
 
 export interface ShaderControlsProps {
   activeShader: string;
@@ -319,7 +324,7 @@ export function ShaderControls({
           onValueChange={(val) => setActiveShader(val as ShaderType)}
         >
           <SelectTrigger>
-          <SelectValue placeholder="Select Shader" />
+            <SelectValue placeholder="Select Shader" />
           </SelectTrigger>
           <SelectContent>
             {Object.entries(SHADER_INFO)
@@ -688,8 +693,7 @@ export function ShaderControls({
                     setVoronoiBg(e.target.value);
                   else if (activeShader === "godrays")
                     setGodraysBg(e.target.value);
-                  else if (activeShader === "swirl")
-                    setSwirlBg(e.target.value);
+                  else if (activeShader === "swirl") setSwirlBg(e.target.value);
                   else setSpiralBg(e.target.value);
                 }}
                 className="h-10 w-10 p-1 cursor-pointer shrink-0"

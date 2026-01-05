@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-converter-card.tsx"
+import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-converter-card.tsx";
 
 export function CurrencyConverterCardDemo() {
-  return (
-    <CurrencyConverterCard />
-  )
+  return <CurrencyConverterCard />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Currency Converter Card` component uses the following components. Make sure
 ## Usage
 
 ```tsx showLineNumbers
-import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-converter-card.tsx"
+import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-converter-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-c
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-converter-card.tsx"
+import { CurrencyConverterCard } from "@/components/sections/shadcnui/currency-converter-card.tsx";
 
 export function BasicExample() {
-  return (
-    <CurrencyConverterCard />
-  )
+  return <CurrencyConverterCard />;
 }
 ```
 

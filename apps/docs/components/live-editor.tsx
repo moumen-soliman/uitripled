@@ -6,10 +6,10 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from "@codesandbox/sandpack-react";
+import { Button } from "@uitripled/react-shadcn/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy, RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
-import { Button } from "@uitripled/react-shadcn/ui/button";
 
 type LiveEditorProps = {
   initialCode: string;

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-resume.tsx"
+import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-resume.tsx";
 
 export function MinimalResumeDemo() {
-  return (
-    <MinimalResume />
-  )
+  return <MinimalResume />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/minimal-resume
 ## Usage
 
 ```tsx showLineNumbers
-import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-resume.tsx"
+import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-resume.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-resume.tsx"
+import { MinimalResume } from "@/components/components/resumes/shadcnui/minimal-resume.tsx";
 
 export function BasicExample() {
-  return (
-    <MinimalResume />
-  )
+  return <MinimalResume />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { WeatherDashboard } from "@/components/components/weather/weather-dashboard.tsx"
+import { WeatherDashboard } from "@/components/components/weather/weather-dashboard.tsx";
 
 export function WeatherDashboardDemo() {
-  return (
-    <WeatherDashboard />
-  )
+  return <WeatherDashboard />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Weather Dashboard` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { WeatherDashboard } from "@/components/components/weather/weather-dashboard.tsx"
+import { WeatherDashboard } from "@/components/components/weather/weather-dashboard.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { WeatherDashboard } from "@/components/components/weather/weather-dashbo
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { WeatherDashboard } from "@/components/components/weather/weather-dashboard.tsx"
+import { WeatherDashboard } from "@/components/components/weather/weather-dashboard.tsx";
 
 export function BasicExample() {
-  return (
-    <WeatherDashboard />
-  )
+  return <WeatherDashboard />;
 }
 ```
 

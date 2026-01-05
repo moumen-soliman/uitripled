@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CinemaTicket } from "@/components/sections/shadcnui/cinema-ticket.tsx"
+import { CinemaTicket } from "@/components/sections/shadcnui/cinema-ticket.tsx";
 
 export function CinemaTicketDemo() {
-  return (
-    <CinemaTicket />
-  )
+  return <CinemaTicket />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/cinema-ticket
 ## Usage
 
 ```tsx showLineNumbers
-import { CinemaTicket } from "@/components/sections/shadcnui/cinema-ticket.tsx"
+import { CinemaTicket } from "@/components/sections/shadcnui/cinema-ticket.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { CinemaTicket } from "@/components/sections/shadcnui/cinema-ticket.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CinemaTicket } from "@/components/sections/shadcnui/cinema-ticket.tsx"
+import { CinemaTicket } from "@/components/sections/shadcnui/cinema-ticket.tsx";
 
 export function BasicExample() {
-  return (
-    <CinemaTicket />
-  )
+  return <CinemaTicket />;
 }
 ```
 

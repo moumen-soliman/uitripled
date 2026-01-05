@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SimpleCalendar } from "@/components/forms/simple-calendar.tsx"
+import { SimpleCalendar } from "@/components/forms/simple-calendar.tsx";
 
 export function SimpleCalendarDemo() {
-  return (
-    <SimpleCalendar />
-  )
+  return <SimpleCalendar />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Simple Calendar` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { SimpleCalendar } from "@/components/forms/simple-calendar.tsx"
+import { SimpleCalendar } from "@/components/forms/simple-calendar.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { SimpleCalendar } from "@/components/forms/simple-calendar.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SimpleCalendar } from "@/components/forms/simple-calendar.tsx"
+import { SimpleCalendar } from "@/components/forms/simple-calendar.tsx";
 
 export function BasicExample() {
-  return (
-    <SimpleCalendar />
-  )
+  return <SimpleCalendar />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeLiquidButton } from "components/native/shadcnui/native-liquid-button-shadcnui.tsx"
+import { NativeLiquidButton } from "components/native/shadcnui/native-liquid-button-shadcnui.tsx";
 
 export function NativeLiquidButtonDemo() {
-  return (
-    <NativeLiquidButton />
-  )
+  return <NativeLiquidButton />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-liquid-button-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeLiquidButton } from "components/native/shadcnui/native-liquid-button-shadcnui.tsx"
+import { NativeLiquidButton } from "components/native/shadcnui/native-liquid-button-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeLiquidButton } from "components/native/shadcnui/native-liquid-but
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeLiquidButton } from "components/native/shadcnui/native-liquid-button-shadcnui.tsx"
+import { NativeLiquidButton } from "components/native/shadcnui/native-liquid-button-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeLiquidButton />
-  )
+  return <NativeLiquidButton />;
 }
 ```
 

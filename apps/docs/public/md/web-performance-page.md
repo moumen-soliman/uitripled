@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { WebPerformancePage } from "@/components/web-performance/web-performance-page.tsx"
+import { WebPerformancePage } from "@/components/web-performance/web-performance-page.tsx";
 
 export function WebPerformancePageDemo() {
-  return (
-    <WebPerformancePage />
-  )
+  return <WebPerformancePage />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Web Performance Page` component uses the following components. Make sure yo
 ## Usage
 
 ```tsx showLineNumbers
-import { WebPerformancePage } from "@/components/web-performance/web-performance-page.tsx"
+import { WebPerformancePage } from "@/components/web-performance/web-performance-page.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { WebPerformancePage } from "@/components/web-performance/web-performance
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { WebPerformancePage } from "@/components/web-performance/web-performance-page.tsx"
+import { WebPerformancePage } from "@/components/web-performance/web-performance-page.tsx";
 
 export function BasicExample() {
-  return (
-    <WebPerformancePage />
-  )
+  return <WebPerformancePage />;
 }
 ```
 

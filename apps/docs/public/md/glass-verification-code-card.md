@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassVerificationCodeCard } from "@/components/components/forms/glass-verification-code.tsx"
+import { GlassVerificationCodeCard } from "@/components/components/forms/glass-verification-code.tsx";
 
 export function GlassVerificationCodeCardDemo() {
-  return (
-    <GlassVerificationCodeCard />
-  )
+  return <GlassVerificationCodeCard />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Glass Verification Code Card` component uses the following components. Make
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassVerificationCodeCard } from "@/components/components/forms/glass-verification-code.tsx"
+import { GlassVerificationCodeCard } from "@/components/components/forms/glass-verification-code.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { GlassVerificationCodeCard } from "@/components/components/forms/glass-v
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 - input
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassVerificationCodeCard } from "@/components/components/forms/glass-verification-code.tsx"
+import { GlassVerificationCodeCard } from "@/components/components/forms/glass-verification-code.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassVerificationCodeCard />
-  )
+  return <GlassVerificationCodeCard />;
 }
 ```
 

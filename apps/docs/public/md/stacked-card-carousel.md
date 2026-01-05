@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carousel.tsx"
+import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carousel.tsx";
 
 export function StackedCardCarouselDemo() {
-  return (
-    <StackedCardCarousel />
-  )
+  return <StackedCardCarousel />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Stacked Card Carousel` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carousel.tsx"
+import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carousel.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carou
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carousel.tsx"
+import { StackedCardCarousel } from "@/components/motion-core/stacked-card-carousel.tsx";
 
 export function BasicExample() {
-  return (
-    <StackedCardCarousel />
-  )
+  return <StackedCardCarousel />;
 }
 ```
 

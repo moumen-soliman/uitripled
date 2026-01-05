@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassWalletCard } from "components/components/cards/baseui/glass-wallet-card-baseui.tsx"
+import { GlassWalletCard } from "components/components/cards/baseui/glass-wallet-card-baseui.tsx";
 
 export function GlassWalletCardDemo() {
-  return (
-    <GlassWalletCard />
-  )
+  return <GlassWalletCard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Glass Wallet Card` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassWalletCard } from "components/components/cards/baseui/glass-wallet-card-baseui.tsx"
+import { GlassWalletCard } from "components/components/cards/baseui/glass-wallet-card-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { GlassWalletCard } from "components/components/cards/baseui/glass-wallet
 
 - **Category**: cards
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassWalletCard } from "components/components/cards/baseui/glass-wallet-card-baseui.tsx"
+import { GlassWalletCard } from "components/components/cards/baseui/glass-wallet-card-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassWalletCard />
-  )
+  return <GlassWalletCard />;
 }
 ```
 

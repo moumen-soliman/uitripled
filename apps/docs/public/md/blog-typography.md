@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BlogTypography } from "@/components/components/blog/blog-typography.tsx"
+import { BlogTypography } from "@/components/components/blog/blog-typography.tsx";
 
 export function BlogTypographyDemo() {
-  return (
-    <BlogTypography />
-  )
+  return <BlogTypography />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Blog Typography` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { BlogTypography } from "@/components/components/blog/blog-typography.tsx"
+import { BlogTypography } from "@/components/components/blog/blog-typography.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { BlogTypography } from "@/components/components/blog/blog-typography.tsx
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BlogTypography } from "@/components/components/blog/blog-typography.tsx"
+import { BlogTypography } from "@/components/components/blog/blog-typography.tsx";
 
 export function BasicExample() {
-  return (
-    <BlogTypography />
-  )
+  return <BlogTypography />;
 }
 ```
 

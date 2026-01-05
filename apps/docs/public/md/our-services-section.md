@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx"
+import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx";
 
 export function OurServicesDemo() {
-  return (
-    <OurServices />
-  )
+  return <OurServices />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Our Services` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx"
+import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { OurServices } from "@/components/sections/shadcnui/our-services-section
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -110,16 +110,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx"
+import { OurServices } from "@/components/sections/shadcnui/our-services-section.tsx";
 
 export function BasicExample() {
-  return (
-    <OurServices />
-  )
+  return <OurServices />;
 }
 ```
 

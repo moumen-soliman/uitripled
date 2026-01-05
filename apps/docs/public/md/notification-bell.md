@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NotificationBell } from "@/components/motion-core/notification-bell.tsx"
+import { NotificationBell } from "@/components/motion-core/notification-bell.tsx";
 
 export function NotificationBellDemo() {
-  return (
-    <NotificationBell />
-  )
+  return <NotificationBell />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/notification-bell
 ## Usage
 
 ```tsx showLineNumbers
-import { NotificationBell } from "@/components/motion-core/notification-bell.tsx"
+import { NotificationBell } from "@/components/motion-core/notification-bell.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { NotificationBell } from "@/components/motion-core/notification-bell.tsx
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
@@ -96,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NotificationBell } from "@/components/motion-core/notification-bell.tsx"
+import { NotificationBell } from "@/components/motion-core/notification-bell.tsx";
 
 export function BasicExample() {
-  return (
-    <NotificationBell />
-  )
+  return <NotificationBell />;
 }
 ```
 

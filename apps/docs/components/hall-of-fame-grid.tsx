@@ -1,6 +1,10 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
 import { motion } from "framer-motion";
 import { ExternalLink, Star } from "lucide-react";
 import Link from "next/link";

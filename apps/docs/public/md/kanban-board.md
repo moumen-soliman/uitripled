@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { KanbanBoard } from "@/components/components/kanban/kanban-board.tsx"
+import { KanbanBoard } from "@/components/components/kanban/kanban-board.tsx";
 
 export function KanbanBoardDemo() {
-  return (
-    <KanbanBoard />
-  )
+  return <KanbanBoard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Kanban Board` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { KanbanBoard } from "@/components/components/kanban/kanban-board.tsx"
+import { KanbanBoard } from "@/components/components/kanban/kanban-board.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { KanbanBoard } from "@/components/components/kanban/kanban-board.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { KanbanBoard } from "@/components/components/kanban/kanban-board.tsx"
+import { KanbanBoard } from "@/components/components/kanban/kanban-board.tsx";
 
 export function BasicExample() {
-  return (
-    <KanbanBoard />
-  )
+  return <KanbanBoard />;
 }
 ```
 

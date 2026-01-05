@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismCTA } from "@/components/sections/shadcnui/glassmorphism-cta-block.tsx"
+import { GlassmorphismCTA } from "@/components/sections/shadcnui/glassmorphism-cta-block.tsx";
 
 export function GlassmorphismCTADemo() {
-  return (
-    <GlassmorphismCTA />
-  )
+  return <GlassmorphismCTA />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Glassmorphism CTA` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismCTA } from "@/components/sections/shadcnui/glassmorphism-cta-block.tsx"
+import { GlassmorphismCTA } from "@/components/sections/shadcnui/glassmorphism-cta-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { GlassmorphismCTA } from "@/components/sections/shadcnui/glassmorphism-c
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismCTA } from "@/components/sections/shadcnui/glassmorphism-cta-block.tsx"
+import { GlassmorphismCTA } from "@/components/sections/shadcnui/glassmorphism-cta-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismCTA />
-  )
+  return <GlassmorphismCTA />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { WizardForm } from "@/components/forms/wizard-form.tsx"
+import { WizardForm } from "@/components/forms/wizard-form.tsx";
 
 export function WizardFormDemo() {
-  return (
-    <WizardForm />
-  )
+  return <WizardForm />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Wizard Form` component uses the following components. Make sure you have th
 ## Usage
 
 ```tsx showLineNumbers
-import { WizardForm } from "@/components/forms/wizard-form.tsx"
+import { WizardForm } from "@/components/forms/wizard-form.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,11 +74,13 @@ import { WizardForm } from "@/components/forms/wizard-form.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - input
 - label
@@ -111,16 +111,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { WizardForm } from "@/components/forms/wizard-form.tsx"
+import { WizardForm } from "@/components/forms/wizard-form.tsx";
 
 export function BasicExample() {
-  return (
-    <WizardForm />
-  )
+  return <WizardForm />;
 }
 ```
 

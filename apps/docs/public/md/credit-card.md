@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx"
+import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx";
 
 export function CreditCardDemo() {
-  return (
-    <CreditCard />
-  )
+  return <CreditCard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Credit Card` component uses the following components. Make sure you have th
 ## Usage
 
 ```tsx showLineNumbers
-import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx"
+import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.t
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx"
+import { CreditCard } from "@/components/components/cards/shadcnui/credit-card.tsx";
 
 export function BasicExample() {
-  return (
-    <CreditCard />
-  )
+  return <CreditCard />;
 }
 ```
 

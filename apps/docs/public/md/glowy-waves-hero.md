@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlowyWavesHero } from "@/components/sections/shadcnui/glowy-waves-hero.tsx"
+import { GlowyWavesHero } from "@/components/sections/shadcnui/glowy-waves-hero.tsx";
 
 export function GlowyWavesHeroDemo() {
-  return (
-    <GlowyWavesHero />
-  )
+  return <GlowyWavesHero />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Glowy Waves Hero` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { GlowyWavesHero } from "@/components/sections/shadcnui/glowy-waves-hero.tsx"
+import { GlowyWavesHero } from "@/components/sections/shadcnui/glowy-waves-hero.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { GlowyWavesHero } from "@/components/sections/shadcnui/glowy-waves-hero.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlowyWavesHero } from "@/components/sections/shadcnui/glowy-waves-hero.tsx"
+import { GlowyWavesHero } from "@/components/sections/shadcnui/glowy-waves-hero.tsx";
 
 export function BasicExample() {
-  return (
-    <GlowyWavesHero />
-  )
+  return <GlowyWavesHero />;
 }
 ```
 

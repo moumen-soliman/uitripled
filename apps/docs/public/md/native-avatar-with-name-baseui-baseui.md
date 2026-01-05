@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeAvatarWithName } from "components/native/baseui/native-avatar-with-name-baseui.tsx"
+import { NativeAvatarWithName } from "components/native/baseui/native-avatar-with-name-baseui.tsx";
 
 export function NativeAvatarWithNameDemo() {
-  return (
-    <NativeAvatarWithName />
-  )
+  return <NativeAvatarWithName />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Avatar With Name` component uses the following components. Make sure
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeAvatarWithName } from "components/native/baseui/native-avatar-with-name-baseui.tsx"
+import { NativeAvatarWithName } from "components/native/baseui/native-avatar-with-name-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeAvatarWithName } from "components/native/baseui/native-avatar-wit
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeAvatarWithName } from "components/native/baseui/native-avatar-with-name-baseui.tsx"
+import { NativeAvatarWithName } from "components/native/baseui/native-avatar-with-name-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeAvatarWithName />
-  )
+  return <NativeAvatarWithName />;
 }
 ```
 

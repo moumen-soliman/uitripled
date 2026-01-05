@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { PreviewDetailsCard } from "@/components/micro/links/preview-details-card.tsx"
+import { PreviewDetailsCard } from "@/components/micro/links/preview-details-card.tsx";
 
 export function PreviewDetailsCardDemo() {
-  return (
-    <PreviewDetailsCard />
-  )
+  return <PreviewDetailsCard />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/preview-details-card
 ## Usage
 
 ```tsx showLineNumbers
-import { PreviewDetailsCard } from "@/components/micro/links/preview-details-card.tsx"
+import { PreviewDetailsCard } from "@/components/micro/links/preview-details-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { PreviewDetailsCard } from "@/components/micro/links/preview-details-car
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
@@ -96,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { PreviewDetailsCard } from "@/components/micro/links/preview-details-card.tsx"
+import { PreviewDetailsCard } from "@/components/micro/links/preview-details-card.tsx";
 
 export function BasicExample() {
-  return (
-    <PreviewDetailsCard />
-  )
+  return <PreviewDetailsCard />;
 }
 ```
 

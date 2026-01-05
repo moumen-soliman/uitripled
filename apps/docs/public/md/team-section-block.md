@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TeamSectionBlock } from "@/components/sections/shadcnui/team-section-block.tsx"
+import { TeamSectionBlock } from "@/components/sections/shadcnui/team-section-block.tsx";
 
 export function TeamSectionBlockDemo() {
-  return (
-    <TeamSectionBlock />
-  )
+  return <TeamSectionBlock />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Team Section Block` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { TeamSectionBlock } from "@/components/sections/shadcnui/team-section-block.tsx"
+import { TeamSectionBlock } from "@/components/sections/shadcnui/team-section-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,11 +74,13 @@ import { TeamSectionBlock } from "@/components/sections/shadcnui/team-section-bl
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -111,16 +111,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TeamSectionBlock } from "@/components/sections/shadcnui/team-section-block.tsx"
+import { TeamSectionBlock } from "@/components/sections/shadcnui/team-section-block.tsx";
 
 export function BasicExample() {
-  return (
-    <TeamSectionBlock />
-  )
+  return <TeamSectionBlock />;
 }
 ```
 

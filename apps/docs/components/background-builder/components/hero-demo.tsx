@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@uitripled/react-shadcn/ui/button";
-import { ArrowRight, Github } from "lucide-react";
 import { motion } from "framer-motion";
+import { ArrowRight, Github } from "lucide-react";
 
 export interface HeroDemoProps {
   textColor?: string;
@@ -43,8 +43,8 @@ export function HeroDemo({
           className="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed opacity-90"
           style={{ color: textColor }}
         >
-          Create stunning, animated gradients and patterns for your next project.
-          Export compatible code with a single click.
+          Create stunning, animated gradients and patterns for your next
+          project. Export compatible code with a single click.
         </motion.p>
 
         <motion.div
@@ -58,7 +58,7 @@ export function HeroDemo({
             className="rounded-full h-12 px-8 text-base shadow-lg shadow-primary/20"
             style={{
               backgroundColor: buttonColor,
-              color: buttonColor === "#ffffff" ? "#000000" : "#ffffff" // Simple contrast check
+              color: buttonColor === "#ffffff" ? "#000000" : "#ffffff", // Simple contrast check
             }}
           >
             Get Started <ArrowRight className="ml-2 w-4 h-4" />
@@ -69,7 +69,7 @@ export function HeroDemo({
             className="rounded-full h-12 px-8 text-base bg-background/50 backdrop-blur-sm border-white/20 hover:bg-background/80"
             style={{
               color: textColor,
-              borderColor: textColor ? `${textColor}40` : undefined
+              borderColor: textColor ? `${textColor}40` : undefined,
             }}
           >
             <Github className="mr-2 w-4 h-4" /> View on GitHub

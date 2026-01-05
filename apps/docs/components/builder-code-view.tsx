@@ -1,6 +1,8 @@
 "use client";
 
 import { useUILibrary } from "@/components/ui-library-provider";
+import { mergeComponentImports } from "@/lib/merge-imports";
+import type { BuilderComponent, BuilderProjectPage } from "@/types/builder";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import {
   Dialog,
@@ -12,8 +14,6 @@ import {
 } from "@uitripled/react-shadcn/ui/dialog";
 import { Input } from "@uitripled/react-shadcn/ui/input";
 import { Label } from "@uitripled/react-shadcn/ui/label";
-import { mergeComponentImports } from "@/lib/merge-imports";
-import type { BuilderComponent, BuilderProjectPage } from "@/types/builder";
 import { motion } from "framer-motion";
 import {
   Check,

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CTAHeroBlock } from "@/components/sections/shadcnui/cta-hero-block.tsx"
+import { CTAHeroBlock } from "@/components/sections/shadcnui/cta-hero-block.tsx";
 
 export function CTAHeroBlockDemo() {
-  return (
-    <CTAHeroBlock />
-  )
+  return <CTAHeroBlock />;
 }
 ```
 
@@ -62,7 +60,7 @@ The `CTA Hero Block` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { CTAHeroBlock } from "@/components/sections/shadcnui/cta-hero-block.tsx"
+import { CTAHeroBlock } from "@/components/sections/shadcnui/cta-hero-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -77,11 +75,13 @@ import { CTAHeroBlock } from "@/components/sections/shadcnui/cta-hero-block.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -113,16 +113,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CTAHeroBlock } from "@/components/sections/shadcnui/cta-hero-block.tsx"
+import { CTAHeroBlock } from "@/components/sections/shadcnui/cta-hero-block.tsx";
 
 export function BasicExample() {
-  return (
-    <CTAHeroBlock />
-  )
+  return <CTAHeroBlock />;
 }
 ```
 

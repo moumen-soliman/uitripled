@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedTabs } from "@/components/components/tabs/animated-tabs.tsx"
+import { AnimatedTabs } from "@/components/components/tabs/animated-tabs.tsx";
 
 export function AnimatedTabsDemo() {
-  return (
-    <AnimatedTabs />
-  )
+  return <AnimatedTabs />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Tabs` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedTabs } from "@/components/components/tabs/animated-tabs.tsx"
+import { AnimatedTabs } from "@/components/components/tabs/animated-tabs.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { AnimatedTabs } from "@/components/components/tabs/animated-tabs.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - tabs
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedTabs } from "@/components/components/tabs/animated-tabs.tsx"
+import { AnimatedTabs } from "@/components/components/tabs/animated-tabs.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedTabs />
-  )
+  return <AnimatedTabs />;
 }
 ```
 

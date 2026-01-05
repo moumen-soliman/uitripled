@@ -1,7 +1,12 @@
 "use client";
 
 import { Badge } from "@uitripled/react-shadcn/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@uitripled/react-shadcn/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@uitripled/react-shadcn/ui/card";
 import {
   Dialog,
   DialogContent,

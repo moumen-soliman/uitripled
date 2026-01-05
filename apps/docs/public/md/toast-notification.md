@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ToastNotification } from "@/components/page/notifications/toast-notification.tsx"
+import { ToastNotification } from "@/components/page/notifications/toast-notification.tsx";
 
 export function ToastNotificationDemo() {
-  return (
-    <ToastNotification />
-  )
+  return <ToastNotification />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Toast Notification` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { ToastNotification } from "@/components/page/notifications/toast-notification.tsx"
+import { ToastNotification } from "@/components/page/notifications/toast-notification.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { ToastNotification } from "@/components/page/notifications/toast-notific
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ToastNotification } from "@/components/page/notifications/toast-notification.tsx"
+import { ToastNotification } from "@/components/page/notifications/toast-notification.tsx";
 
 export function BasicExample() {
-  return (
-    <ToastNotification />
-  )
+  return <ToastNotification />;
 }
 ```
 

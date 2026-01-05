@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MultipleAccountsSwitcher } from "@/components/components/account-switcher/multiple-accounts.tsx"
+import { MultipleAccountsSwitcher } from "@/components/components/account-switcher/multiple-accounts.tsx";
 
 export function MultipleAccountsSwitcherDemo() {
-  return (
-    <MultipleAccountsSwitcher />
-  )
+  return <MultipleAccountsSwitcher />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Multiple Accounts Switcher` component uses the following components. Make s
 ## Usage
 
 ```tsx showLineNumbers
-import { MultipleAccountsSwitcher } from "@/components/components/account-switcher/multiple-accounts.tsx"
+import { MultipleAccountsSwitcher } from "@/components/components/account-switcher/multiple-accounts.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { MultipleAccountsSwitcher } from "@/components/components/account-switch
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MultipleAccountsSwitcher } from "@/components/components/account-switcher/multiple-accounts.tsx"
+import { MultipleAccountsSwitcher } from "@/components/components/account-switcher/multiple-accounts.tsx";
 
 export function BasicExample() {
-  return (
-    <MultipleAccountsSwitcher />
-  )
+  return <MultipleAccountsSwitcher />;
 }
 ```
 

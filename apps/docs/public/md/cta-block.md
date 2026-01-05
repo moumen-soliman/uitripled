@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx"
+import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx";
 
 export function CTABlockDemo() {
-  return (
-    <CTABlock />
-  )
+  return <CTABlock />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `CTA Block` component uses the following components. Make sure you have them
 ## Usage
 
 ```tsx showLineNumbers
-import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx"
+import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx"
+import { CTABlock } from "@/components/sections/shadcnui/cta-block.tsx";
 
 export function BasicExample() {
-  return (
-    <CTABlock />
-  )
+  return <CTABlock />;
 }
 ```
 

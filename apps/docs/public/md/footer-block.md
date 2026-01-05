@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx"
+import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx";
 
 export function FooterBlockDemo() {
-  return (
-    <FooterBlock />
-  )
+  return <FooterBlock />;
 }
 ```
 
@@ -62,7 +60,7 @@ The `Footer Block` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx"
+import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -77,10 +75,12 @@ import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -112,16 +112,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx"
+import { FooterBlock } from "@/components/sections/shadcnui/footer-block.tsx";
 
 export function BasicExample() {
-  return (
-    <FooterBlock />
-  )
+  return <FooterBlock />;
 }
 ```
 

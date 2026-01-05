@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NotionBlogPage } from "@/components/sections/shadcnui/notion-blog-page.tsx"
+import { NotionBlogPage } from "@/components/sections/shadcnui/notion-blog-page.tsx";
 
 export function NotionBlogPageDemo() {
-  return (
-    <NotionBlogPage />
-  )
+  return <NotionBlogPage />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Notion Blog Page` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { NotionBlogPage } from "@/components/sections/shadcnui/notion-blog-page.tsx"
+import { NotionBlogPage } from "@/components/sections/shadcnui/notion-blog-page.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { NotionBlogPage } from "@/components/sections/shadcnui/notion-blog-page.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NotionBlogPage } from "@/components/sections/shadcnui/notion-blog-page.tsx"
+import { NotionBlogPage } from "@/components/sections/shadcnui/notion-blog-page.tsx";
 
 export function BasicExample() {
-  return (
-    <NotionBlogPage />
-  )
+  return <NotionBlogPage />;
 }
 ```
 

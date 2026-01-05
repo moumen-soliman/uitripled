@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProfessionalResume } from "components/components/resumes/baseui/professional-resume-baseui.tsx"
+import { ProfessionalResume } from "components/components/resumes/baseui/professional-resume-baseui.tsx";
 
 export function ProfessionalResumeDemo() {
-  return (
-    <ProfessionalResume />
-  )
+  return <ProfessionalResume />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Professional Resume` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { ProfessionalResume } from "components/components/resumes/baseui/professional-resume-baseui.tsx"
+import { ProfessionalResume } from "components/components/resumes/baseui/professional-resume-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { ProfessionalResume } from "components/components/resumes/baseui/profess
 
 - **Category**: resumes
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProfessionalResume } from "components/components/resumes/baseui/professional-resume-baseui.tsx"
+import { ProfessionalResume } from "components/components/resumes/baseui/professional-resume-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <ProfessionalResume />
-  )
+  return <ProfessionalResume />;
 }
 ```
 

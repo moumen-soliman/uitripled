@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx"
+import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx";
 
 export function NewsletterSignupBlockDemo() {
-  return (
-    <NewsletterSignupBlock />
-  )
+  return <NewsletterSignupBlock />;
 }
 ```
 
@@ -62,7 +60,7 @@ The `Newsletter Signup Block` component uses the following components. Make sure
 ## Usage
 
 ```tsx showLineNumbers
-import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx"
+import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -77,11 +75,13 @@ import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -113,16 +113,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx"
+import { NewsletterSignupBlock } from "@/components/sections/shadcnui/newsletter-signup-block.tsx";
 
 export function BasicExample() {
-  return (
-    <NewsletterSignupBlock />
-  )
+  return <NewsletterSignupBlock />;
 }
 ```
 

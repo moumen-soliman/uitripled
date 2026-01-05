@@ -1,9 +1,5 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
-import { Badge } from "@uitripled/react-shadcn/ui/badge";
-import { Button } from "@uitripled/react-shadcn/ui/button";
-import { Input } from "@uitripled/react-shadcn/ui/input";
 import { cn } from "@/lib/utils";
 import {
   closestCorners,
@@ -28,6 +24,14 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
+import { Badge } from "@uitripled/react-shadcn/ui/badge";
+import { Button } from "@uitripled/react-shadcn/ui/button";
+import { Input } from "@uitripled/react-shadcn/ui/input";
 import {
   Clock,
   Filter,

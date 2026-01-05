@@ -2,7 +2,12 @@
 
 import { Badge } from "@uitripled/react-shadcn/ui/badge";
 import { Button } from "@uitripled/react-shadcn/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@uitripled/react-shadcn/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@uitripled/react-shadcn/ui/tabs";
 import { motion } from "framer-motion";
 import { ChevronRight, Folder } from "lucide-react";
 import type React from "react";

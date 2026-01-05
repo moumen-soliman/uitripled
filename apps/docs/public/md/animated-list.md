@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedList } from "@/components/components/lists/animated-list.tsx"
+import { AnimatedList } from "@/components/components/lists/animated-list.tsx";
 
 export function AnimatedListDemo() {
-  return (
-    <AnimatedList />
-  )
+  return <AnimatedList />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated List` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedList } from "@/components/components/lists/animated-list.tsx"
+import { AnimatedList } from "@/components/components/lists/animated-list.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { AnimatedList } from "@/components/components/lists/animated-list.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedList } from "@/components/components/lists/animated-list.tsx"
+import { AnimatedList } from "@/components/components/lists/animated-list.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedList />
-  )
+  return <AnimatedList />;
 }
 ```
 

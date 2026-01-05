@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeButton } from "components/native/baseui/native-button-baseui.tsx"
+import { NativeButton } from "components/native/baseui/native-button-baseui.tsx";
 
 export function NativeButtonDemo() {
-  return (
-    <NativeButton />
-  )
+  return <NativeButton />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Button` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeButton } from "components/native/baseui/native-button-baseui.tsx"
+import { NativeButton } from "components/native/baseui/native-button-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeButton } from "components/native/baseui/native-button-baseui.tsx"
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeButton } from "components/native/baseui/native-button-baseui.tsx"
+import { NativeButton } from "components/native/baseui/native-button-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeButton />
-  )
+  return <NativeButton />;
 }
 ```
 

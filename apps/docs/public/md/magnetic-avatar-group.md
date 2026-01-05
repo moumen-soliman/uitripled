@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-group.tsx"
+import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-group.tsx";
 
 export function MagneticAvatarGroupDemo() {
-  return (
-    <MagneticAvatarGroup />
-  )
+  return <MagneticAvatarGroup />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Magnetic Avatar Group` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-group.tsx"
+import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-group.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-gr
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-group.tsx"
+import { MagneticAvatarGroup } from "@/components/motion-core/magnetic-avatar-group.tsx";
 
 export function BasicExample() {
-  return (
-    <MagneticAvatarGroup />
-  )
+  return <MagneticAvatarGroup />;
 }
 ```
 

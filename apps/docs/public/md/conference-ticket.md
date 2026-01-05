@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx"
+import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx";
 
 export function ConferenceTicketDemo() {
-  return (
-    <ConferenceTicket />
-  )
+  return <ConferenceTicket />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/conference-ticket
 ## Usage
 
 ```tsx showLineNumbers
-import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx"
+import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { ConferenceTicket } from "@/components/sections/shadcnui/conference-tick
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx"
+import { ConferenceTicket } from "@/components/sections/shadcnui/conference-ticket.tsx";
 
 export function BasicExample() {
-  return (
-    <ConferenceTicket />
-  )
+  return <ConferenceTicket />;
 }
 ```
 

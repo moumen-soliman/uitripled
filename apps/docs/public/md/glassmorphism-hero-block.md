@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismHero } from "@/components/sections/shadcnui/glassmorphism-hero-block.tsx"
+import { GlassmorphismHero } from "@/components/sections/shadcnui/glassmorphism-hero-block.tsx";
 
 export function GlassmorphismHeroDemo() {
-  return (
-    <GlassmorphismHero />
-  )
+  return <GlassmorphismHero />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Glassmorphism Hero` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismHero } from "@/components/sections/shadcnui/glassmorphism-hero-block.tsx"
+import { GlassmorphismHero } from "@/components/sections/shadcnui/glassmorphism-hero-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,9 +72,11 @@ import { GlassmorphismHero } from "@/components/sections/shadcnui/glassmorphism-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `lucide-react`
 
 **UI Components**:
+
 - button
 
 This component is built on top of **shadcn/ui** component primitives.
@@ -103,16 +103,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismHero } from "@/components/sections/shadcnui/glassmorphism-hero-block.tsx"
+import { GlassmorphismHero } from "@/components/sections/shadcnui/glassmorphism-hero-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismHero />
-  )
+  return <GlassmorphismHero />;
 }
 ```
 

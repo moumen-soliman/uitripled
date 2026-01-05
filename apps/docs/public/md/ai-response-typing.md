@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIResponseTypingStream } from "@/components/motion-core/ai-response-typing.tsx"
+import { AIResponseTypingStream } from "@/components/motion-core/ai-response-typing.tsx";
 
 export function AIResponseTypingStreamDemo() {
-  return (
-    <AIResponseTypingStream />
-  )
+  return <AIResponseTypingStream />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `AI Response Typing Stream` component uses the following components. Make su
 ## Usage
 
 ```tsx showLineNumbers
-import { AIResponseTypingStream } from "@/components/motion-core/ai-response-typing.tsx"
+import { AIResponseTypingStream } from "@/components/motion-core/ai-response-typing.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { AIResponseTypingStream } from "@/components/motion-core/ai-response-typ
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIResponseTypingStream } from "@/components/motion-core/ai-response-typing.tsx"
+import { AIResponseTypingStream } from "@/components/motion-core/ai-response-typing.tsx";
 
 export function BasicExample() {
-  return (
-    <AIResponseTypingStream />
-  )
+  return <AIResponseTypingStream />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeImageCheckbox } from "components/native/baseui/native-image-checkbox-baseui.tsx"
+import { NativeImageCheckbox } from "components/native/baseui/native-image-checkbox-baseui.tsx";
 
 export function NativeImageCheckboxDemo() {
-  return (
-    <NativeImageCheckbox />
-  )
+  return <NativeImageCheckbox />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Image Checkbox` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeImageCheckbox } from "components/native/baseui/native-image-checkbox-baseui.tsx"
+import { NativeImageCheckbox } from "components/native/baseui/native-image-checkbox-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeImageCheckbox } from "components/native/baseui/native-image-check
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeImageCheckbox } from "components/native/baseui/native-image-checkbox-baseui.tsx"
+import { NativeImageCheckbox } from "components/native/baseui/native-image-checkbox-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeImageCheckbox />
-  )
+  return <NativeImageCheckbox />;
 }
 ```
 

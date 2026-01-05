@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx"
+import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx";
 
 export function GlassmorphismPricingDemo() {
-  return (
-    <GlassmorphismPricing />
-  )
+  return <GlassmorphismPricing />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Glassmorphism Pricing` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx"
+import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,9 +73,11 @@ import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphi
 ### Technical Specifications
 
 **Dependencies**:
+
 - `lucide-react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -105,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx"
+import { GlassmorphismPricing } from "@/components/sections/shadcnui/glassmorphism-pricing-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismPricing />
-  )
+  return <GlassmorphismPricing />;
 }
 ```
 

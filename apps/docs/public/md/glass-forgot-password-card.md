@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassForgotPasswordCard } from "@/components/components/forms/glass-forgot-password.tsx"
+import { GlassForgotPasswordCard } from "@/components/components/forms/glass-forgot-password.tsx";
 
 export function GlassForgotPasswordCardDemo() {
-  return (
-    <GlassForgotPasswordCard />
-  )
+  return <GlassForgotPasswordCard />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Glass Forgot Password Card` component uses the following components. Make s
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassForgotPasswordCard } from "@/components/components/forms/glass-forgot-password.tsx"
+import { GlassForgotPasswordCard } from "@/components/components/forms/glass-forgot-password.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { GlassForgotPasswordCard } from "@/components/components/forms/glass-for
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 - input
 - label
@@ -110,16 +110,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassForgotPasswordCard } from "@/components/components/forms/glass-forgot-password.tsx"
+import { GlassForgotPasswordCard } from "@/components/components/forms/glass-forgot-password.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassForgotPasswordCard />
-  )
+  return <GlassForgotPasswordCard />;
 }
 ```
 

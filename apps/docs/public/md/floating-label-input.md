@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingLabelInput } from "@/components/components/inputs/floating-label-input.tsx"
+import { FloatingLabelInput } from "@/components/components/inputs/floating-label-input.tsx";
 
 export function FloatingLabelInputDemo() {
-  return (
-    <FloatingLabelInput />
-  )
+  return <FloatingLabelInput />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Floating Label Input` component uses the following components. Make sure yo
 ## Usage
 
 ```tsx showLineNumbers
-import { FloatingLabelInput } from "@/components/components/inputs/floating-label-input.tsx"
+import { FloatingLabelInput } from "@/components/components/inputs/floating-label-input.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { FloatingLabelInput } from "@/components/components/inputs/floating-labe
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - input
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FloatingLabelInput } from "@/components/components/inputs/floating-label-input.tsx"
+import { FloatingLabelInput } from "@/components/components/inputs/floating-label-input.tsx";
 
 export function BasicExample() {
-  return (
-    <FloatingLabelInput />
-  )
+  return <FloatingLabelInput />;
 }
 ```
 

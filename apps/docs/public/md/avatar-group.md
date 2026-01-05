@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AvatarGroup } from "@/components/avatars/avatar-group.tsx"
+import { AvatarGroup } from "@/components/avatars/avatar-group.tsx";
 
 export function AvatarGroupDemo() {
-  return (
-    <AvatarGroup />
-  )
+  return <AvatarGroup />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Avatar Group` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { AvatarGroup } from "@/components/avatars/avatar-group.tsx"
+import { AvatarGroup } from "@/components/avatars/avatar-group.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { AvatarGroup } from "@/components/avatars/avatar-group.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AvatarGroup } from "@/components/avatars/avatar-group.tsx"
+import { AvatarGroup } from "@/components/avatars/avatar-group.tsx";
 
 export function BasicExample() {
-  return (
-    <AvatarGroup />
-  )
+  return <AvatarGroup />;
 }
 ```
 

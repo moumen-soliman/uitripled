@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx"
+import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx";
 
 export function StatsCounterBlockDemo() {
-  return (
-    <StatsCounterBlock />
-  )
+  return <StatsCounterBlock />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Stats Counter Block` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx"
+import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx"
+import { StatsCounterBlock } from "@/components/sections/shadcnui/stats-counter-block.tsx";
 
 export function BasicExample() {
-  return (
-    <StatsCounterBlock />
-  )
+  return <StatsCounterBlock />;
 }
 ```
 

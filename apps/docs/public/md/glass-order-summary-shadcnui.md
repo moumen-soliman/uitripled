@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassOrderSummary } from "components/components/cards/shadcnui/glass-order-summary.tsx"
+import { GlassOrderSummary } from "components/components/cards/shadcnui/glass-order-summary.tsx";
 
 export function GlassOrderSummaryDemo() {
-  return (
-    <GlassOrderSummary />
-  )
+  return <GlassOrderSummary />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/glass-order-summary-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassOrderSummary } from "components/components/cards/shadcnui/glass-order-summary.tsx"
+import { GlassOrderSummary } from "components/components/cards/shadcnui/glass-order-summary.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { GlassOrderSummary } from "components/components/cards/shadcnui/glass-or
 
 - **Category**: cards
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassOrderSummary } from "components/components/cards/shadcnui/glass-order-summary.tsx"
+import { GlassOrderSummary } from "components/components/cards/shadcnui/glass-order-summary.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassOrderSummary />
-  )
+  return <GlassOrderSummary />;
 }
 ```
 

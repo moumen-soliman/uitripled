@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HeartFavorite } from "@/components/micro/icons/heart-favorite.tsx"
+import { HeartFavorite } from "@/components/micro/icons/heart-favorite.tsx";
 
 export function HeartFavoriteDemo() {
-  return (
-    <HeartFavorite />
-  )
+  return <HeartFavorite />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/heart-favorite
 ## Usage
 
 ```tsx showLineNumbers
-import { HeartFavorite } from "@/components/micro/icons/heart-favorite.tsx"
+import { HeartFavorite } from "@/components/micro/icons/heart-favorite.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { HeartFavorite } from "@/components/micro/icons/heart-favorite.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
@@ -96,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HeartFavorite } from "@/components/micro/icons/heart-favorite.tsx"
+import { HeartFavorite } from "@/components/micro/icons/heart-favorite.tsx";
 
 export function BasicExample() {
-  return (
-    <HeartFavorite />
-  )
+  return <HeartFavorite />;
 }
 ```
 

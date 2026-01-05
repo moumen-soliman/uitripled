@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BlogBlock } from "@/components/sections/shadcnui/blog-block.tsx"
+import { BlogBlock } from "@/components/sections/shadcnui/blog-block.tsx";
 
 export function BlogBlockDemo() {
-  return (
-    <BlogBlock />
-  )
+  return <BlogBlock />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Blog Block` component uses the following components. Make sure you have the
 ## Usage
 
 ```tsx showLineNumbers
-import { BlogBlock } from "@/components/sections/shadcnui/blog-block.tsx"
+import { BlogBlock } from "@/components/sections/shadcnui/blog-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { BlogBlock } from "@/components/sections/shadcnui/blog-block.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -110,16 +110,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { BlogBlock } from "@/components/sections/shadcnui/blog-block.tsx"
+import { BlogBlock } from "@/components/sections/shadcnui/blog-block.tsx";
 
 export function BasicExample() {
-  return (
-    <BlogBlock />
-  )
+  return <BlogBlock />;
 }
 ```
 

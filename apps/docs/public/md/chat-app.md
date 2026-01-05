@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ChatApp } from "@/components/components/chat/chat-app.tsx"
+import { ChatApp } from "@/components/components/chat/chat-app.tsx";
 
 export function ChatAppDemo() {
-  return (
-    <ChatApp />
-  )
+  return <ChatApp />;
 }
 ```
 
@@ -62,7 +60,7 @@ The `Chat App` component uses the following components. Make sure you have them 
 ## Usage
 
 ```tsx showLineNumbers
-import { ChatApp } from "@/components/components/chat/chat-app.tsx"
+import { ChatApp } from "@/components/components/chat/chat-app.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -77,11 +75,13 @@ import { ChatApp } from "@/components/components/chat/chat-app.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 - input
@@ -113,16 +113,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ChatApp } from "@/components/components/chat/chat-app.tsx"
+import { ChatApp } from "@/components/components/chat/chat-app.tsx";
 
 export function BasicExample() {
-  return (
-    <ChatApp />
-  )
+  return <ChatApp />;
 }
 ```
 

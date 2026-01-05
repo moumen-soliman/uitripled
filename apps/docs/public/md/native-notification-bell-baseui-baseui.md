@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeNotificationBell } from "components/native/baseui/native-notification-bell-baseui.tsx"
+import { NativeNotificationBell } from "components/native/baseui/native-notification-bell-baseui.tsx";
 
 export function NativeNotificationBellDemo() {
-  return (
-    <NativeNotificationBell />
-  )
+  return <NativeNotificationBell />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Notification Bell` component uses the following components. Make sur
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeNotificationBell } from "components/native/baseui/native-notification-bell-baseui.tsx"
+import { NativeNotificationBell } from "components/native/baseui/native-notification-bell-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeNotificationBell } from "components/native/baseui/native-notifica
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeNotificationBell } from "components/native/baseui/native-notification-bell-baseui.tsx"
+import { NativeNotificationBell } from "components/native/baseui/native-notification-bell-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeNotificationBell />
-  )
+  return <NativeNotificationBell />;
 }
 ```
 

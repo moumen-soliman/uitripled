@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeDialog } from "components/native/baseui/native-dialog-baseui.tsx"
+import { NativeDialog } from "components/native/baseui/native-dialog-baseui.tsx";
 
 export function NativeDialogDemo() {
-  return (
-    <NativeDialog />
-  )
+  return <NativeDialog />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Dialog` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeDialog } from "components/native/baseui/native-dialog-baseui.tsx"
+import { NativeDialog } from "components/native/baseui/native-dialog-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeDialog } from "components/native/baseui/native-dialog-baseui.tsx"
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeDialog } from "components/native/baseui/native-dialog-baseui.tsx"
+import { NativeDialog } from "components/native/baseui/native-dialog-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeDialog />
-  )
+  return <NativeDialog />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx"
+import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx";
 
 export function NewHeroSectionDemo() {
-  return (
-    <NewHeroSection />
-  )
+  return <NewHeroSection />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `New Hero Section` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx"
+import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx"
+import { NewHeroSection } from "@/components/sections/shadcnui/new-hero-section.tsx";
 
 export function BasicExample() {
-  return (
-    <NewHeroSection />
-  )
+  return <NewHeroSection />;
 }
 ```
 

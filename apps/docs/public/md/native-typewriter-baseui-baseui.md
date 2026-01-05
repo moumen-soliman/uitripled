@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTypewriter } from "components/native/baseui/native-typewriter-baseui.tsx"
+import { NativeTypewriter } from "components/native/baseui/native-typewriter-baseui.tsx";
 
 export function NativeTypewriterDemo() {
-  return (
-    <NativeTypewriter />
-  )
+  return <NativeTypewriter />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Typewriter` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeTypewriter } from "components/native/baseui/native-typewriter-baseui.tsx"
+import { NativeTypewriter } from "components/native/baseui/native-typewriter-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeTypewriter } from "components/native/baseui/native-typewriter-bas
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTypewriter } from "components/native/baseui/native-typewriter-baseui.tsx"
+import { NativeTypewriter } from "components/native/baseui/native-typewriter-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeTypewriter />
-  )
+  return <NativeTypewriter />;
 }
 ```
 

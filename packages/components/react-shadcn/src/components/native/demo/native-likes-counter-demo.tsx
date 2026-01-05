@@ -25,7 +25,7 @@ const USERS = [
 function Container({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={cn(
-      "h-[400px] w-full flex items-center justify-center bg-gray-50/50 dark:bg-neutral-900/50 rounded-xl relative transition-colors border border-border/50",
+      "h-[400px] w-full flex items-center justify-center rounded-xl relative transition-colors",
       className
     )}>
       <div className="relative z-10">

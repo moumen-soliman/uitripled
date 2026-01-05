@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover.tsx"
+import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover.tsx";
 
 export function ScaleHoverButtonDemo() {
-  return (
-    <ScaleHoverButton />
-  )
+  return <ScaleHoverButton />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/scale-hover-button
 ## Usage
 
 ```tsx showLineNumbers
-import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover.tsx"
+import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -94,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover.tsx"
+import { ScaleHoverButton } from "@/components/micro/buttons/scale-hover.tsx";
 
 export function BasicExample() {
-  return (
-    <ScaleHoverButton />
-  )
+  return <ScaleHoverButton />;
 }
 ```
 

@@ -39,4 +39,3 @@ export function getPatternSize(pattern: string): string {
       return "20px 20px";
   }
 }
-

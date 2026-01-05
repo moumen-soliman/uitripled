@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx"
+import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx";
 
 export function TestimonialSectionDemo() {
-  return (
-    <TestimonialSection />
-  )
+  return <TestimonialSection />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Testimonial Section` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx"
+import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-s
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx"
+import { TestimonialSection } from "@/components/sections/shadcnui/testimonial-section.tsx";
 
 export function BasicExample() {
-  return (
-    <TestimonialSection />
-  )
+  return <TestimonialSection />;
 }
 ```
 

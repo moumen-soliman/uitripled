@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FeatureComparisonTable } from "@/components/sections/shadcnui/feature-comparison-block.tsx"
+import { FeatureComparisonTable } from "@/components/sections/shadcnui/feature-comparison-block.tsx";
 
 export function FeatureComparisonTableDemo() {
-  return (
-    <FeatureComparisonTable />
-  )
+  return <FeatureComparisonTable />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Feature Comparison Table` component uses the following components. Make sur
 ## Usage
 
 ```tsx showLineNumbers
-import { FeatureComparisonTable } from "@/components/sections/shadcnui/feature-comparison-block.tsx"
+import { FeatureComparisonTable } from "@/components/sections/shadcnui/feature-comparison-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,11 +74,13 @@ import { FeatureComparisonTable } from "@/components/sections/shadcnui/feature-c
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -111,16 +111,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FeatureComparisonTable } from "@/components/sections/shadcnui/feature-comparison-block.tsx"
+import { FeatureComparisonTable } from "@/components/sections/shadcnui/feature-comparison-block.tsx";
 
 export function BasicExample() {
-  return (
-    <FeatureComparisonTable />
-  )
+  return <FeatureComparisonTable />;
 }
 ```
 

@@ -1,6 +1,11 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
+import { cn } from "@/lib/utils";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import {
   Select,
@@ -9,7 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@uitripled/react-shadcn/ui/select";
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import {
   Brain,

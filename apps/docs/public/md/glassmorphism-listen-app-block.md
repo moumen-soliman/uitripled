@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismListenApp } from "@/components/sections/shadcnui/glassmorphism-listen-app-block.tsx"
+import { GlassmorphismListenApp } from "@/components/sections/shadcnui/glassmorphism-listen-app-block.tsx";
 
 export function GlassmorphismListenAppDemo() {
-  return (
-    <GlassmorphismListenApp />
-  )
+  return <GlassmorphismListenApp />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Glassmorphism Listen App` component uses the following components. Make sur
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismListenApp } from "@/components/sections/shadcnui/glassmorphism-listen-app-block.tsx"
+import { GlassmorphismListenApp } from "@/components/sections/shadcnui/glassmorphism-listen-app-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { GlassmorphismListenApp } from "@/components/sections/shadcnui/glassmorp
 ### Technical Specifications
 
 **Dependencies**:
+
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismListenApp } from "@/components/sections/shadcnui/glassmorphism-listen-app-block.tsx"
+import { GlassmorphismListenApp } from "@/components/sections/shadcnui/glassmorphism-listen-app-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismListenApp />
-  )
+  return <GlassmorphismListenApp />;
 }
 ```
 

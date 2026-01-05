@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ContactForm } from "@/components/sections/shadcnui/contact-form-section.tsx"
+import { ContactForm } from "@/components/sections/shadcnui/contact-form-section.tsx";
 
 export function ContactFormDemo() {
-  return (
-    <ContactForm />
-  )
+  return <ContactForm />;
 }
 ```
 
@@ -63,7 +61,7 @@ The `Contact Form` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { ContactForm } from "@/components/sections/shadcnui/contact-form-section.tsx"
+import { ContactForm } from "@/components/sections/shadcnui/contact-form-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -78,11 +76,13 @@ import { ContactForm } from "@/components/sections/shadcnui/contact-form-section
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 - input
@@ -115,16 +115,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ContactForm } from "@/components/sections/shadcnui/contact-form-section.tsx"
+import { ContactForm } from "@/components/sections/shadcnui/contact-form-section.tsx";
 
 export function BasicExample() {
-  return (
-    <ContactForm />
-  )
+  return <ContactForm />;
 }
 ```
 

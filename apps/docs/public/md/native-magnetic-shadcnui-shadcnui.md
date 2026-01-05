@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeMagnetic } from "components/native/shadcnui/native-magnetic-shadcnui.tsx"
+import { NativeMagnetic } from "components/native/shadcnui/native-magnetic-shadcnui.tsx";
 
 export function NativeMagneticDemo() {
-  return (
-    <NativeMagnetic />
-  )
+  return <NativeMagnetic />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-magnetic-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeMagnetic } from "components/native/shadcnui/native-magnetic-shadcnui.tsx"
+import { NativeMagnetic } from "components/native/shadcnui/native-magnetic-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeMagnetic } from "components/native/shadcnui/native-magnetic-shadc
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeMagnetic } from "components/native/shadcnui/native-magnetic-shadcnui.tsx"
+import { NativeMagnetic } from "components/native/shadcnui/native-magnetic-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeMagnetic />
-  )
+  return <NativeMagnetic />;
 }
 ```
 

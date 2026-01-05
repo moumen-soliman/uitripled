@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTabs } from "components/native/baseui/native-tabs-baseui.tsx"
+import { NativeTabs } from "components/native/baseui/native-tabs-baseui.tsx";
 
 export function NativeTabsDemo() {
-  return (
-    <NativeTabs />
-  )
+  return <NativeTabs />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Tabs` component uses the following components. Make sure you have th
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeTabs } from "components/native/baseui/native-tabs-baseui.tsx"
+import { NativeTabs } from "components/native/baseui/native-tabs-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeTabs } from "components/native/baseui/native-tabs-baseui.tsx"
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTabs } from "components/native/baseui/native-tabs-baseui.tsx"
+import { NativeTabs } from "components/native/baseui/native-tabs-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeTabs />
-  )
+  return <NativeTabs />;
 }
 ```
 

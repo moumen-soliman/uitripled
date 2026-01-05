@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedProgressBar } from "@/components/data/progress/animated-progress.tsx"
+import { AnimatedProgressBar } from "@/components/data/progress/animated-progress.tsx";
 
 export function AnimatedProgressBarDemo() {
-  return (
-    <AnimatedProgressBar />
-  )
+  return <AnimatedProgressBar />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Progress Bar` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedProgressBar } from "@/components/data/progress/animated-progress.tsx"
+import { AnimatedProgressBar } from "@/components/data/progress/animated-progress.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { AnimatedProgressBar } from "@/components/data/progress/animated-progres
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedProgressBar } from "@/components/data/progress/animated-progress.tsx"
+import { AnimatedProgressBar } from "@/components/data/progress/animated-progress.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedProgressBar />
-  )
+  return <AnimatedProgressBar />;
 }
 ```
 

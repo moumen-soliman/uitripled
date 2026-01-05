@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx"
+import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx";
 
 export function PricingSectionDemo() {
-  return (
-    <PricingSection />
-  )
+  return <PricingSection />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Pricing Section` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx"
+import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,11 +74,13 @@ import { PricingSection } from "@/components/sections/shadcnui/pricing-section.t
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -111,16 +111,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx"
+import { PricingSection } from "@/components/sections/shadcnui/pricing-section.tsx";
 
 export function BasicExample() {
-  return (
-    <PricingSection />
-  )
+  return <PricingSection />;
 }
 ```
 

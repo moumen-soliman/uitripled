@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeFollowCursor } from "@/components/native/carbon/native-follow-cursor-carbon.tsx"
+import { NativeFollowCursor } from "@/components/native/carbon/native-follow-cursor-carbon.tsx";
 
 export function NativeFollowCursorDemo() {
-  return (
-    <NativeFollowCursor />
-  )
+  return <NativeFollowCursor />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-follow-cursor-carbon
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeFollowCursor } from "@/components/native/carbon/native-follow-cursor-carbon.tsx"
+import { NativeFollowCursor } from "@/components/native/carbon/native-follow-cursor-carbon.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeFollowCursor } from "@/components/native/carbon/native-follow-cur
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeFollowCursor } from "@/components/native/carbon/native-follow-cursor-carbon.tsx"
+import { NativeFollowCursor } from "@/components/native/carbon/native-follow-cursor-carbon.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeFollowCursor />
-  )
+  return <NativeFollowCursor />;
 }
 ```
 

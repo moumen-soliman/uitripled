@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FeatureCardsGrid } from "@/components/sections/shadcnui/feature-cards-block.tsx"
+import { FeatureCardsGrid } from "@/components/sections/shadcnui/feature-cards-block.tsx";
 
 export function FeatureCardsGridDemo() {
-  return (
-    <FeatureCardsGrid />
-  )
+  return <FeatureCardsGrid />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Feature Cards Grid` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { FeatureCardsGrid } from "@/components/sections/shadcnui/feature-cards-block.tsx"
+import { FeatureCardsGrid } from "@/components/sections/shadcnui/feature-cards-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,9 +72,11 @@ import { FeatureCardsGrid } from "@/components/sections/shadcnui/feature-cards-b
 ### Technical Specifications
 
 **Dependencies**:
+
 - `lucide-react`
 
 **UI Components**:
+
 - card
 
 This component is built on top of **shadcn/ui** component primitives.
@@ -103,16 +103,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FeatureCardsGrid } from "@/components/sections/shadcnui/feature-cards-block.tsx"
+import { FeatureCardsGrid } from "@/components/sections/shadcnui/feature-cards-block.tsx";
 
 export function BasicExample() {
-  return (
-    <FeatureCardsGrid />
-  )
+  return <FeatureCardsGrid />;
 }
 ```
 

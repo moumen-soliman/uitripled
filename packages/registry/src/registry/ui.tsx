@@ -589,7 +589,7 @@ export const uiComponents: Component[] = [
     codePath: "@uitripled/react-shadcn/src/components/components/cards/shadcnui/animated-card-stack.tsx",
     duration: "300ms",
     easing: "spring",
-    display: true,
+    display: false, // People think its useless
     availableIn: ["shadcnui", "baseui"],
   },
   {
@@ -603,7 +603,7 @@ export const uiComponents: Component[] = [
     codePath: "@uitripled/react-shadcn/src/components/components/cards/shadcnui/credit-card.tsx",
     duration: "600ms",
     easing: "easeInOut",
-    display: true,
+    display: false, // People think its useless
     availableIn: ["shadcnui", "baseui"],
   },
   {
@@ -1022,7 +1022,7 @@ export const uiComponents: Component[] = [
     codePath: "@uitripled/react-shadcn/src/components/avatars/avatar-group.tsx",
     duration: "200ms",
     easing: "spring",
-    display: true,
+    display: false, // People think its useless
   },
   {
     id: "animated-checkbox",
@@ -1193,7 +1193,7 @@ export const uiComponents: Component[] = [
     codePath: "@uitripled/react-shadcn/src/components/search/mac-searchbar.tsx",
     duration: "300ms",
     easing: "easeOut",
-    display: true,
+    display: false, // People think its useless
   },
   {
     id: "context-menu",
@@ -1561,7 +1561,7 @@ export const uiComponents: Component[] = [
     codePath: "@uitripled/react-shadcn/src/components/motion-core/ai-loading-skeleton.tsx",
     duration: "1500ms",
     easing: "linear",
-    display: true,
+    display: false, // People think its useless
   },
   {
     id: "animated-quote-block",
@@ -1729,7 +1729,7 @@ export const uiComponents: Component[] = [
     codePath: "@uitripled/react-shadcn/src/components/motion-core/ai-glow-input.tsx",
     duration: "300ms",
     easing: "spring",
-    display: true,
+    display: false, // People think its useless
   },
   {
     id: "ai-response-typing",

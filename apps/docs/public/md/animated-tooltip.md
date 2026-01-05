@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedTooltip } from "@/components/tooltips/animated-tooltip.tsx"
+import { AnimatedTooltip } from "@/components/tooltips/animated-tooltip.tsx";
 
 export function AnimatedTooltipDemo() {
-  return (
-    <AnimatedTooltip />
-  )
+  return <AnimatedTooltip />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Tooltip` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedTooltip } from "@/components/tooltips/animated-tooltip.tsx"
+import { AnimatedTooltip } from "@/components/tooltips/animated-tooltip.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { AnimatedTooltip } from "@/components/tooltips/animated-tooltip.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedTooltip } from "@/components/tooltips/animated-tooltip.tsx"
+import { AnimatedTooltip } from "@/components/tooltips/animated-tooltip.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedTooltip />
-  )
+  return <AnimatedTooltip />;
 }
 ```
 

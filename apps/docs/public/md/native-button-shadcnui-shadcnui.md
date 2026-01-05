@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx"
+import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx";
 
 export function NativeButtonDemo() {
-  return (
-    <NativeButton />
-  )
+  return <NativeButton />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-button-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx"
+import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx"
+import { NativeButton } from "components/native/shadcnui/native-button-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeButton />
-  )
+  return <NativeButton />;
 }
 ```
 

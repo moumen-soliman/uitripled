@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { VolumeComponent } from "@/components/components/sliders/volume-component.tsx"
+import { VolumeComponent } from "@/components/components/sliders/volume-component.tsx";
 
 export function VolumeComponentDemo() {
-  return (
-    <VolumeComponent />
-  )
+  return <VolumeComponent />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Volume Component` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { VolumeComponent } from "@/components/components/sliders/volume-component.tsx"
+import { VolumeComponent } from "@/components/components/sliders/volume-component.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { VolumeComponent } from "@/components/components/sliders/volume-componen
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { VolumeComponent } from "@/components/components/sliders/volume-component.tsx"
+import { VolumeComponent } from "@/components/components/sliders/volume-component.tsx";
 
 export function BasicExample() {
-  return (
-    <VolumeComponent />
-  )
+  return <VolumeComponent />;
 }
 ```
 

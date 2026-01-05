@@ -1,6 +1,10 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { ChevronRight, LogOut, Settings, TrendingUp, User } from "lucide-react";

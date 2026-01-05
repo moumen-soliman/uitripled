@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx"
+import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx";
 
 export function StatsSectionDemo() {
-  return (
-    <StatsSection />
-  )
+  return <StatsSection />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Stats Section` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx"
+import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx"
+import { StatsSection } from "@/components/sections/shadcnui/stats-section.tsx";
 
 export function BasicExample() {
-  return (
-    <StatsSection />
-  )
+  return <StatsSection />;
 }
 ```
 

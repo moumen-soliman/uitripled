@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismStatisticsCard } from "@/components/sections/shadcnui/glassmorphism-statistics-card.tsx"
+import { GlassmorphismStatisticsCard } from "@/components/sections/shadcnui/glassmorphism-statistics-card.tsx";
 
 export function GlassmorphismStatisticsCardDemo() {
-  return (
-    <GlassmorphismStatisticsCard />
-  )
+  return <GlassmorphismStatisticsCard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Glassmorphism Statistics Card` component uses the following components. Mak
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismStatisticsCard } from "@/components/sections/shadcnui/glassmorphism-statistics-card.tsx"
+import { GlassmorphismStatisticsCard } from "@/components/sections/shadcnui/glassmorphism-statistics-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { GlassmorphismStatisticsCard } from "@/components/sections/shadcnui/glas
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismStatisticsCard } from "@/components/sections/shadcnui/glassmorphism-statistics-card.tsx"
+import { GlassmorphismStatisticsCard } from "@/components/sections/shadcnui/glassmorphism-statistics-card.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismStatisticsCard />
-  )
+  return <GlassmorphismStatisticsCard />;
 }
 ```
 

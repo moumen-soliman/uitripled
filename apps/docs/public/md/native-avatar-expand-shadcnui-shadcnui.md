@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx"
+import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx";
 
 export function NativeAvatarExpandDemo() {
-  return (
-    <NativeAvatarExpand />
-  )
+  return <NativeAvatarExpand />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-avatar-expand-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx"
+import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-exp
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx"
+import { NativeAvatarExpand } from "components/native/shadcnui/native-avatar-expand-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeAvatarExpand />
-  )
+  return <NativeAvatarExpand />;
 }
 ```
 

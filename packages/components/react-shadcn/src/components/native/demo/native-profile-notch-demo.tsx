@@ -4,7 +4,7 @@ import { NativeProfileNotch } from "../native-profile-notch-shadcnui";
 
 export function NativeProfileNotchDefault() {
   return (
-    <div className="h-[500px] w-full flex items-center justify-center bg-gray-50/50 dark:bg-neutral-900/50 rounded-xl relative">
+    <div className="h-[500px] w-full flex items-center justify-center   rounded-xl relative">
       <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
       <NativeProfileNotch
         imageSrc="https://github.com/shadcn.png"
@@ -36,7 +36,7 @@ export function NativeProfileNotchDefault() {
 
 export function NativeProfileNotchOverlay() {
   return (
-    <div className="h-[500px] w-full flex items-center justify-center bg-gray-50/50 dark:bg-neutral-900/50 rounded-xl relative">
+    <div className="h-[500px] w-full flex items-center justify-center   rounded-xl relative">
       <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
 
       {/* Background content to demonstrate overlay behavior */}

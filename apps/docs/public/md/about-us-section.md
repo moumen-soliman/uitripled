@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AboutUs } from "@/components/sections/shadcnui/about-us-section.tsx"
+import { AboutUs } from "@/components/sections/shadcnui/about-us-section.tsx";
 
 export function AboutUsDemo() {
-  return (
-    <AboutUs />
-  )
+  return <AboutUs />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `About Us` component uses the following components. Make sure you have them 
 ## Usage
 
 ```tsx showLineNumbers
-import { AboutUs } from "@/components/sections/shadcnui/about-us-section.tsx"
+import { AboutUs } from "@/components/sections/shadcnui/about-us-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { AboutUs } from "@/components/sections/shadcnui/about-us-section.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - card
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AboutUs } from "@/components/sections/shadcnui/about-us-section.tsx"
+import { AboutUs } from "@/components/sections/shadcnui/about-us-section.tsx";
 
 export function BasicExample() {
-  return (
-    <AboutUs />
-  )
+  return <AboutUs />;
 }
 ```
 

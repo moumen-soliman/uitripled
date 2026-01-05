@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block.tsx"
+import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block.tsx";
 
 export function ProjectsBlockDemo() {
-  return (
-    <ProjectsBlock />
-  )
+  return <ProjectsBlock />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Projects Block` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block.tsx"
+import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block.tsx
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - card
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block.tsx"
+import { ProjectsBlock } from "@/components/sections/shadcnui/projects-block.tsx";
 
 export function BasicExample() {
-  return (
-    <ProjectsBlock />
-  )
+  return <ProjectsBlock />;
 }
 ```
 

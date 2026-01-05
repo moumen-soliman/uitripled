@@ -1,5 +1,7 @@
 "use client";
 
+import { extractSavedPages } from "@/lib/builder-utils";
+import type { SavedProject } from "@/types/builder";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import { Card } from "@uitripled/react-shadcn/ui/card";
 import {
@@ -10,8 +12,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@uitripled/react-shadcn/ui/dialog";
-import { extractSavedPages } from "@/lib/builder-utils";
-import type { SavedProject } from "@/types/builder";
 import { Eye, Trash2 } from "lucide-react";
 
 type LoadProjectDialogProps = {

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx"
+import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx";
 
 export function TimelineBlockDemo() {
-  return (
-    <TimelineBlock />
-  )
+  return <TimelineBlock />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Timeline Block` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx"
+import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx"
+import { TimelineBlock } from "@/components/sections/shadcnui/timeline-block.tsx";
 
 export function BasicExample() {
-  return (
-    <TimelineBlock />
-  )
+  return <TimelineBlock />;
 }
 ```
 

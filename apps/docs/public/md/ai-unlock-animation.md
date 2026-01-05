@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIUnlockAnimation } from "@/components/motion-core/ai-unlock-animation.tsx"
+import { AIUnlockAnimation } from "@/components/motion-core/ai-unlock-animation.tsx";
 
 export function AIUnlockAnimationDemo() {
-  return (
-    <AIUnlockAnimation />
-  )
+  return <AIUnlockAnimation />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/ai-unlock-animation
 ## Usage
 
 ```tsx showLineNumbers
-import { AIUnlockAnimation } from "@/components/motion-core/ai-unlock-animation.tsx"
+import { AIUnlockAnimation } from "@/components/motion-core/ai-unlock-animation.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { AIUnlockAnimation } from "@/components/motion-core/ai-unlock-animation.
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AIUnlockAnimation } from "@/components/motion-core/ai-unlock-animation.tsx"
+import { AIUnlockAnimation } from "@/components/motion-core/ai-unlock-animation.tsx";
 
 export function BasicExample() {
-  return (
-    <AIUnlockAnimation />
-  )
+  return <AIUnlockAnimation />;
 }
 ```
 

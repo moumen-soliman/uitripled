@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx"
+import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx";
 
 export function ServicesGridDemo() {
-  return (
-    <ServicesGrid />
-  )
+  return <ServicesGrid />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Services Grid` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx"
+import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -110,16 +110,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx"
+import { ServicesGrid } from "@/components/sections/shadcnui/services-grid-block.tsx";
 
 export function BasicExample() {
-  return (
-    <ServicesGrid />
-  )
+  return <ServicesGrid />;
 }
 ```
 

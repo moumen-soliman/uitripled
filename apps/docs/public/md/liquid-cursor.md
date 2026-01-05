@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { LiquidCursor } from "@/components/liquid-cursor.tsx"
+import { LiquidCursor } from "@/components/liquid-cursor.tsx";
 
 export function LiquidCursorDemo() {
-  return (
-    <LiquidCursor />
-  )
+  return <LiquidCursor />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/liquid-cursor
 ## Usage
 
 ```tsx showLineNumbers
-import { LiquidCursor } from "@/components/liquid-cursor.tsx"
+import { LiquidCursor } from "@/components/liquid-cursor.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { LiquidCursor } from "@/components/liquid-cursor.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { LiquidCursor } from "@/components/liquid-cursor.tsx"
+import { LiquidCursor } from "@/components/liquid-cursor.tsx";
 
 export function BasicExample() {
-  return (
-    <LiquidCursor />
-  )
+  return <LiquidCursor />;
 }
 ```
 

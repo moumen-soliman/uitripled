@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTooltip } from "components/native/baseui/native-tooltip-baseui.tsx"
+import { NativeTooltip } from "components/native/baseui/native-tooltip-baseui.tsx";
 
 export function NativeTooltipDemo() {
-  return (
-    <NativeTooltip />
-  )
+  return <NativeTooltip />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Tooltip` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeTooltip } from "components/native/baseui/native-tooltip-baseui.tsx"
+import { NativeTooltip } from "components/native/baseui/native-tooltip-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeTooltip } from "components/native/baseui/native-tooltip-baseui.ts
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeTooltip } from "components/native/baseui/native-tooltip-baseui.tsx"
+import { NativeTooltip } from "components/native/baseui/native-tooltip-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeTooltip />
-  )
+  return <NativeTooltip />;
 }
 ```
 

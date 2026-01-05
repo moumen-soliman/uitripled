@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx"
+import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx";
 
 export function NativeDialogDemo() {
-  return (
-    <NativeDialog />
-  )
+  return <NativeDialog />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-dialog-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx"
+import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx"
+import { NativeDialog } from "components/native/shadcnui/native-dialog-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeDialog />
-  )
+  return <NativeDialog />;
 }
 ```
 

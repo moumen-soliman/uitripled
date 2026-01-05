@@ -77,11 +77,13 @@ import { GlassSign-InCard } from "@/components/components/forms/glass-sign-in.ts
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - checkbox
 - input

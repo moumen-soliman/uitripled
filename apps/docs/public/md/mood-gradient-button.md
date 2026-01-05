@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MoodGradientButton } from "@/components/motion-core/mood-gradient-button.tsx"
+import { MoodGradientButton } from "@/components/motion-core/mood-gradient-button.tsx";
 
 export function MoodGradientButtonDemo() {
-  return (
-    <MoodGradientButton />
-  )
+  return <MoodGradientButton />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/mood-gradient-button
 ## Usage
 
 ```tsx showLineNumbers
-import { MoodGradientButton } from "@/components/motion-core/mood-gradient-button.tsx"
+import { MoodGradientButton } from "@/components/motion-core/mood-gradient-button.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { MoodGradientButton } from "@/components/motion-core/mood-gradient-butto
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MoodGradientButton } from "@/components/motion-core/mood-gradient-button.tsx"
+import { MoodGradientButton } from "@/components/motion-core/mood-gradient-button.tsx";
 
 export function BasicExample() {
-  return (
-    <MoodGradientButton />
-  )
+  return <MoodGradientButton />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { InteractiveLogsTable } from "@/components/sections/shadcnui/interactive-logs-table.tsx"
+import { InteractiveLogsTable } from "@/components/sections/shadcnui/interactive-logs-table.tsx";
 
 export function InteractiveLogsTableDemo() {
-  return (
-    <InteractiveLogsTable />
-  )
+  return <InteractiveLogsTable />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Interactive Logs Table` component uses the following components. Make sure 
 ## Usage
 
 ```tsx showLineNumbers
-import { InteractiveLogsTable } from "@/components/sections/shadcnui/interactive-logs-table.tsx"
+import { InteractiveLogsTable } from "@/components/sections/shadcnui/interactive-logs-table.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,11 +74,13 @@ import { InteractiveLogsTable } from "@/components/sections/shadcnui/interactive
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - input
@@ -111,16 +111,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { InteractiveLogsTable } from "@/components/sections/shadcnui/interactive-logs-table.tsx"
+import { InteractiveLogsTable } from "@/components/sections/shadcnui/interactive-logs-table.tsx";
 
 export function BasicExample() {
-  return (
-    <InteractiveLogsTable />
-  )
+  return <InteractiveLogsTable />;
 }
 ```
 

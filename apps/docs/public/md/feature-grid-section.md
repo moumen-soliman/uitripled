@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx"
+import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx";
 
 export function FeatureGridSectionDemo() {
-  return (
-    <FeatureGridSection />
-  )
+  return <FeatureGridSection />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Feature Grid Section` component uses the following components. Make sure yo
 ## Usage
 
 ```tsx showLineNumbers
-import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx"
+import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx"
+import { FeatureGridSection } from "@/components/sections/shadcnui/feature-grid-section.tsx";
 
 export function BasicExample() {
-  return (
-    <FeatureGridSection />
-  )
+  return <FeatureGridSection />;
 }
 ```
 

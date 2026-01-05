@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { LearningRoadmap } from "@/components/components/roadmap/roadmap-component.tsx"
+import { LearningRoadmap } from "@/components/components/roadmap/roadmap-component.tsx";
 
 export function LearningRoadmapDemo() {
-  return (
-    <LearningRoadmap />
-  )
+  return <LearningRoadmap />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Learning Roadmap` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { LearningRoadmap } from "@/components/components/roadmap/roadmap-component.tsx"
+import { LearningRoadmap } from "@/components/components/roadmap/roadmap-component.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { LearningRoadmap } from "@/components/components/roadmap/roadmap-compone
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { LearningRoadmap } from "@/components/components/roadmap/roadmap-component.tsx"
+import { LearningRoadmap } from "@/components/components/roadmap/roadmap-component.tsx";
 
 export function BasicExample() {
-  return (
-    <LearningRoadmap />
-  )
+  return <LearningRoadmap />;
 }
 ```
 

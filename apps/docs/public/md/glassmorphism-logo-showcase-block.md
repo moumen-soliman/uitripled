@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismLogoShowcase } from "@/components/sections/shadcnui/glassmorphism-logo-showcase-block.tsx"
+import { GlassmorphismLogoShowcase } from "@/components/sections/shadcnui/glassmorphism-logo-showcase-block.tsx";
 
 export function GlassmorphismLogoShowcaseDemo() {
-  return (
-    <GlassmorphismLogoShowcase />
-  )
+  return <GlassmorphismLogoShowcase />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Glassmorphism Logo Showcase` component uses the following components. Make 
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismLogoShowcase } from "@/components/sections/shadcnui/glassmorphism-logo-showcase-block.tsx"
+import { GlassmorphismLogoShowcase } from "@/components/sections/shadcnui/glassmorphism-logo-showcase-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { GlassmorphismLogoShowcase } from "@/components/sections/shadcnui/glassm
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismLogoShowcase } from "@/components/sections/shadcnui/glassmorphism-logo-showcase-block.tsx"
+import { GlassmorphismLogoShowcase } from "@/components/sections/shadcnui/glassmorphism-logo-showcase-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismLogoShowcase />
-  )
+  return <GlassmorphismLogoShowcase />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProjectCard } from "components/components/cards/baseui/project-card-baseui.tsx"
+import { ProjectCard } from "components/components/cards/baseui/project-card-baseui.tsx";
 
 export function ProjectCardDemo() {
-  return (
-    <ProjectCard />
-  )
+  return <ProjectCard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Project Card` component uses the following components. Make sure you have t
 ## Usage
 
 ```tsx showLineNumbers
-import { ProjectCard } from "components/components/cards/baseui/project-card-baseui.tsx"
+import { ProjectCard } from "components/components/cards/baseui/project-card-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { ProjectCard } from "components/components/cards/baseui/project-card-bas
 
 - **Category**: cards
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProjectCard } from "components/components/cards/baseui/project-card-baseui.tsx"
+import { ProjectCard } from "components/components/cards/baseui/project-card-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <ProjectCard />
-  )
+  return <ProjectCard />;
 }
 ```
 

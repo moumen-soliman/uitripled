@@ -1,19 +1,36 @@
 "use client";
 
-import { parseAsFloat, parseAsInteger, parseAsString, useQueryState } from "nuqs";
-import { COLOR_PRESETS, ShaderType } from "./components/shader/constants";
+import {
+  parseAsFloat,
+  parseAsInteger,
+  parseAsString,
+  useQueryState,
+} from "nuqs";
+import { useEffect, useState } from "react";
+import { COLOR_PRESETS } from "./components/shader/constants";
 import { ShaderControls } from "./components/shader/shader-controls";
 import { ShaderPreview } from "./components/shader/shader-preview";
-import { useEffect, useState } from "react";
 
 export function ShaderBuilder() {
   // URL-synced state using nuqs
-  const [activeShader, setActiveShader] = useQueryState("shader", parseAsString.withDefault("mesh"));
-  const [activePreset, setActivePreset] = useQueryState("preset", parseAsString.withDefault("ruby"));
+  const [activeShader, setActiveShader] = useQueryState(
+    "shader",
+    parseAsString.withDefault("mesh")
+  );
+  const [activePreset, setActivePreset] = useQueryState(
+    "preset",
+    parseAsString.withDefault("ruby")
+  );
 
   // Common Controls - URL synced
-  const [speed, setSpeed] = useQueryState("speed", parseAsFloat.withDefault(0.3));
-  const [opacity, setOpacity] = useQueryState("opacity", parseAsFloat.withDefault(1));
+  const [speed, setSpeed] = useQueryState(
+    "speed",
+    parseAsFloat.withDefault(0.3)
+  );
+  const [opacity, setOpacity] = useQueryState(
+    "opacity",
+    parseAsFloat.withDefault(1)
+  );
   const [scale, setScale] = useQueryState("scale", parseAsFloat.withDefault(1));
 
   // Colors - stored in local state, initialized from preset
@@ -26,33 +43,90 @@ export function ShaderBuilder() {
   ]);
 
   // Liquid Specific - URL synced
-  const [liquidBg, setLiquidBg] = useQueryState("liquidBg", parseAsString.withDefault("#000000"));
-  const [liquidBlob, setLiquidBlob] = useQueryState("liquidBlob", parseAsString.withDefault("circle"));
-  const [liquidDistortion, setLiquidDistortion] = useQueryState("liquidDistortion", parseAsFloat.withDefault(0.0));
-  const [liquidSoftness, setLiquidSoftness] = useQueryState("liquidSoftness", parseAsFloat.withDefault(0.5));
+  const [liquidBg, setLiquidBg] = useQueryState(
+    "liquidBg",
+    parseAsString.withDefault("#000000")
+  );
+  const [liquidBlob, setLiquidBlob] = useQueryState(
+    "liquidBlob",
+    parseAsString.withDefault("circle")
+  );
+  const [liquidDistortion, setLiquidDistortion] = useQueryState(
+    "liquidDistortion",
+    parseAsFloat.withDefault(0.0)
+  );
+  const [liquidSoftness, setLiquidSoftness] = useQueryState(
+    "liquidSoftness",
+    parseAsFloat.withDefault(0.5)
+  );
 
   // Waves Specific - URL synced
-  const [wavesBg, setWavesBg] = useQueryState("wavesBg", parseAsString.withDefault("#000000"));
-  const [wavesColorFront, setWavesColorFront] = useQueryState("wavesColorFront", parseAsString.withDefault("#dc2626"));
-  const [wavesShape, setWavesShape] = useQueryState("wavesShape", parseAsInteger.withDefault(1));
-  const [wavesFreq, setWavesFreq] = useQueryState("wavesFreq", parseAsFloat.withDefault(1.0));
-  const [wavesAmp, setWavesAmp] = useQueryState("wavesAmp", parseAsFloat.withDefault(0.5));
+  const [wavesBg, setWavesBg] = useQueryState(
+    "wavesBg",
+    parseAsString.withDefault("#000000")
+  );
+  const [wavesColorFront, setWavesColorFront] = useQueryState(
+    "wavesColorFront",
+    parseAsString.withDefault("#dc2626")
+  );
+  const [wavesShape, setWavesShape] = useQueryState(
+    "wavesShape",
+    parseAsInteger.withDefault(1)
+  );
+  const [wavesFreq, setWavesFreq] = useQueryState(
+    "wavesFreq",
+    parseAsFloat.withDefault(1.0)
+  );
+  const [wavesAmp, setWavesAmp] = useQueryState(
+    "wavesAmp",
+    parseAsFloat.withDefault(0.5)
+  );
 
   // Grain Specific - URL synced
-  const [grainBg, setGrainBg] = useQueryState("grainBg", parseAsString.withDefault("#000000"));
-  const [grainShape, setGrainShape] = useQueryState("grainShape", parseAsString.withDefault("wave"));
-  const [grainNoise, setGrainNoise] = useQueryState("grainNoise", parseAsFloat.withDefault(0.1));
-  const [grainIntensity, setGrainIntensity] = useQueryState("grainIntensity", parseAsFloat.withDefault(0.5));
+  const [grainBg, setGrainBg] = useQueryState(
+    "grainBg",
+    parseAsString.withDefault("#000000")
+  );
+  const [grainShape, setGrainShape] = useQueryState(
+    "grainShape",
+    parseAsString.withDefault("wave")
+  );
+  const [grainNoise, setGrainNoise] = useQueryState(
+    "grainNoise",
+    parseAsFloat.withDefault(0.1)
+  );
+  const [grainIntensity, setGrainIntensity] = useQueryState(
+    "grainIntensity",
+    parseAsFloat.withDefault(0.5)
+  );
 
   // Neuro Specific - URL synced
-  const [neuroBrightness, setNeuroBrightness] = useQueryState("neuroBrightness", parseAsFloat.withDefault(1.0));
+  const [neuroBrightness, setNeuroBrightness] = useQueryState(
+    "neuroBrightness",
+    parseAsFloat.withDefault(1.0)
+  );
 
   // Background colors - URL synced
-  const [metaballsBg, setMetaballsBg] = useQueryState("metaballsBg", parseAsString.withDefault("#000000"));
-  const [voronoiBg, setVoronoiBg] = useQueryState("voronoiBg", parseAsString.withDefault("#000000"));
-  const [godraysBg, setGodraysBg] = useQueryState("godraysBg", parseAsString.withDefault("#000000"));
-  const [swirlBg, setSwirlBg] = useQueryState("swirlBg", parseAsString.withDefault("#000000"));
-  const [spiralBg, setSpiralBg] = useQueryState("spiralBg", parseAsString.withDefault("#000000"));
+  const [metaballsBg, setMetaballsBg] = useQueryState(
+    "metaballsBg",
+    parseAsString.withDefault("#000000")
+  );
+  const [voronoiBg, setVoronoiBg] = useQueryState(
+    "voronoiBg",
+    parseAsString.withDefault("#000000")
+  );
+  const [godraysBg, setGodraysBg] = useQueryState(
+    "godraysBg",
+    parseAsString.withDefault("#000000")
+  );
+  const [swirlBg, setSwirlBg] = useQueryState(
+    "swirlBg",
+    parseAsString.withDefault("#000000")
+  );
+  const [spiralBg, setSpiralBg] = useQueryState(
+    "spiralBg",
+    parseAsString.withDefault("#000000")
+  );
 
   // Load preset colors from URL on mount
   useEffect(() => {

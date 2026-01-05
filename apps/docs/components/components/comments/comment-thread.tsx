@@ -1,6 +1,11 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
+import { cn } from "@/lib/utils";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import {
   DropdownMenu,
@@ -9,7 +14,6 @@ import {
   DropdownMenuTrigger,
 } from "@uitripled/react-shadcn/ui/dropdown-menu";
 import { Textarea } from "@uitripled/react-shadcn/ui/textarea";
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   CornerDownRight,

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MorphingActionButton } from "@/components/motion-core/morphing-action-button.tsx"
+import { MorphingActionButton } from "@/components/motion-core/morphing-action-button.tsx";
 
 export function MorphingActionButtonDemo() {
-  return (
-    <MorphingActionButton />
-  )
+  return <MorphingActionButton />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/morphing-action-button
 ## Usage
 
 ```tsx showLineNumbers
-import { MorphingActionButton } from "@/components/motion-core/morphing-action-button.tsx"
+import { MorphingActionButton } from "@/components/motion-core/morphing-action-button.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { MorphingActionButton } from "@/components/motion-core/morphing-action-b
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
@@ -96,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { MorphingActionButton } from "@/components/motion-core/morphing-action-button.tsx"
+import { MorphingActionButton } from "@/components/motion-core/morphing-action-button.tsx";
 
 export function BasicExample() {
-  return (
-    <MorphingActionButton />
-  )
+  return <MorphingActionButton />;
 }
 ```
 

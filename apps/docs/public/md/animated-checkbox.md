@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCheckbox } from "@/components/forms/animated-checkbox.tsx"
+import { AnimatedCheckbox } from "@/components/forms/animated-checkbox.tsx";
 
 export function AnimatedCheckboxDemo() {
-  return (
-    <AnimatedCheckbox />
-  )
+  return <AnimatedCheckbox />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Checkbox` component uses the following components. Make sure you h
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedCheckbox } from "@/components/forms/animated-checkbox.tsx"
+import { AnimatedCheckbox } from "@/components/forms/animated-checkbox.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { AnimatedCheckbox } from "@/components/forms/animated-checkbox.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCheckbox } from "@/components/forms/animated-checkbox.tsx"
+import { AnimatedCheckbox } from "@/components/forms/animated-checkbox.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedCheckbox />
-  )
+  return <AnimatedCheckbox />;
 }
 ```
 

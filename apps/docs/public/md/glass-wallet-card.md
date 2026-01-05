@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassWalletCard } from "@/components/components/cards/shadcnui/glass-wallet-card.tsx"
+import { GlassWalletCard } from "@/components/components/cards/shadcnui/glass-wallet-card.tsx";
 
 export function GlassWalletCardDemo() {
-  return (
-    <GlassWalletCard />
-  )
+  return <GlassWalletCard />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/glass-wallet-card
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassWalletCard } from "@/components/components/cards/shadcnui/glass-wallet-card.tsx"
+import { GlassWalletCard } from "@/components/components/cards/shadcnui/glass-wallet-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { GlassWalletCard } from "@/components/components/cards/shadcnui/glass-wa
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassWalletCard } from "@/components/components/cards/shadcnui/glass-wallet-card.tsx"
+import { GlassWalletCard } from "@/components/components/cards/shadcnui/glass-wallet-card.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassWalletCard />
-  )
+  return <GlassWalletCard />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu.tsx"
+import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu.tsx";
 
 export function AnimatedProfileMenuDemo() {
-  return (
-    <AnimatedProfileMenu />
-  )
+  return <AnimatedProfileMenu />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Profile Menu` component uses the following components. Make sure y
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu.tsx"
+import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,11 +72,13 @@ import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-me
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - avatar
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -107,16 +107,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu.tsx"
+import { AnimatedProfileMenu } from "@/components/navigation/animated-profile-menu.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedProfileMenu />
-  )
+  return <AnimatedProfileMenu />;
 }
 ```
 

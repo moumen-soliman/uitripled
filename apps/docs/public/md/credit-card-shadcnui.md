@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CreditCard } from "components/components/cards/shadcnui/credit-card.tsx"
+import { CreditCard } from "components/components/cards/shadcnui/credit-card.tsx";
 
 export function CreditCardDemo() {
-  return (
-    <CreditCard />
-  )
+  return <CreditCard />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/credit-card-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { CreditCard } from "components/components/cards/shadcnui/credit-card.tsx"
+import { CreditCard } from "components/components/cards/shadcnui/credit-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { CreditCard } from "components/components/cards/shadcnui/credit-card.tsx
 
 - **Category**: cards
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CreditCard } from "components/components/cards/shadcnui/credit-card.tsx"
+import { CreditCard } from "components/components/cards/shadcnui/credit-card.tsx";
 
 export function BasicExample() {
-  return (
-    <CreditCard />
-  )
+  return <CreditCard />;
 }
 ```
 

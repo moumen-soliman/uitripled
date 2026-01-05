@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeStartNow } from "components/native/baseui/native-start-now-baseui.tsx"
+import { NativeStartNow } from "components/native/baseui/native-start-now-baseui.tsx";
 
 export function NativeStartNowDemo() {
-  return (
-    <NativeStartNow />
-  )
+  return <NativeStartNow />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Native Start Now` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeStartNow } from "components/native/baseui/native-start-now-baseui.tsx"
+import { NativeStartNow } from "components/native/baseui/native-start-now-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { NativeStartNow } from "components/native/baseui/native-start-now-baseui
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeStartNow } from "components/native/baseui/native-start-now-baseui.tsx"
+import { NativeStartNow } from "components/native/baseui/native-start-now-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeStartNow />
-  )
+  return <NativeStartNow />;
 }
 ```
 

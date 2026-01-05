@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProjectCard } from "@/components/components/cards/shadcnui/project-card.tsx"
+import { ProjectCard } from "@/components/components/cards/shadcnui/project-card.tsx";
 
 export function ProjectCardDemo() {
-  return (
-    <ProjectCard />
-  )
+  return <ProjectCard />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/project-card
 ## Usage
 
 ```tsx showLineNumbers
-import { ProjectCard } from "@/components/components/cards/shadcnui/project-card.tsx"
+import { ProjectCard } from "@/components/components/cards/shadcnui/project-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { ProjectCard } from "@/components/components/cards/shadcnui/project-card
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +96,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ProjectCard } from "@/components/components/cards/shadcnui/project-card.tsx"
+import { ProjectCard } from "@/components/components/cards/shadcnui/project-card.tsx";
 
 export function BasicExample() {
-  return (
-    <ProjectCard />
-  )
+  return <ProjectCard />;
 }
 ```
 

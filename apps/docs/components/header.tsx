@@ -2,9 +2,9 @@
 
 import type React from "react";
 
-import { ChristmasDecoration } from "@/components/christmas-decoration";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useUILibrary } from "@/components/ui-library-provider";
+import type { UILibrary } from "@/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,7 +19,6 @@ import {
   SelectValue,
 } from "@uitripled/react-shadcn/ui/select";
 import { Separator } from "@uitripled/react-shadcn/ui/separator";
-import type { UILibrary } from "@/types";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   ChevronDown,
@@ -47,13 +46,6 @@ const uiLibraries = [
     logoLight: "/logos/baseui_white.svg",
     logoDark: "/logos/baseui_dark.svg",
     description: "Unstyled React components",
-  },
-  {
-    id: "carbon",
-    name: "Carbon",
-    logoLight: "/logos/carbon_white.svg",
-    logoDark: "/logos/carbon_dark.svg",
-    description: "IBM Carbon Design System",
   },
 ];
 
@@ -113,7 +105,6 @@ export function Header() {
                 height={70}
                 className="hidden dark:block"
               />
-              <ChristmasDecoration className="-top-2 left-0 z-10" />
 
               {/* <Badge
                 variant="outline"

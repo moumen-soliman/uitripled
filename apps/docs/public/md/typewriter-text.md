@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TypewriterEffect } from "@/components/decorative/text/typewriter.tsx"
+import { TypewriterEffect } from "@/components/decorative/text/typewriter.tsx";
 
 export function TypewriterEffectDemo() {
-  return (
-    <TypewriterEffect />
-  )
+  return <TypewriterEffect />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/typewriter-text
 ## Usage
 
 ```tsx showLineNumbers
-import { TypewriterEffect } from "@/components/decorative/text/typewriter.tsx"
+import { TypewriterEffect } from "@/components/decorative/text/typewriter.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { TypewriterEffect } from "@/components/decorative/text/typewriter.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -94,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { TypewriterEffect } from "@/components/decorative/text/typewriter.tsx"
+import { TypewriterEffect } from "@/components/decorative/text/typewriter.tsx";
 
 export function BasicExample() {
-  return (
-    <TypewriterEffect />
-  )
+  return <TypewriterEffect />;
 }
 ```
 

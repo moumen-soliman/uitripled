@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassProfileSettingsCard } from "@/components/components/forms/glass-profile-settings.tsx"
+import { GlassProfileSettingsCard } from "@/components/components/forms/glass-profile-settings.tsx";
 
 export function GlassProfileSettingsCardDemo() {
-  return (
-    <GlassProfileSettingsCard />
-  )
+  return <GlassProfileSettingsCard />;
 }
 ```
 
@@ -65,7 +63,7 @@ The `Glass Profile Settings Card` component uses the following components. Make 
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassProfileSettingsCard } from "@/components/components/forms/glass-profile-settings.tsx"
+import { GlassProfileSettingsCard } from "@/components/components/forms/glass-profile-settings.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -80,11 +78,13 @@ import { GlassProfileSettingsCard } from "@/components/components/forms/glass-pr
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - avatar
 - badge
 - button
@@ -119,16 +119,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassProfileSettingsCard } from "@/components/components/forms/glass-profile-settings.tsx"
+import { GlassProfileSettingsCard } from "@/components/components/forms/glass-profile-settings.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassProfileSettingsCard />
-  )
+  return <GlassProfileSettingsCard />;
 }
 ```
 

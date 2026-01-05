@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StandardResume } from "components/components/resumes/shadcnui/standard-resume.tsx"
+import { StandardResume } from "components/components/resumes/shadcnui/standard-resume.tsx";
 
 export function StandardResumeDemo() {
-  return (
-    <StandardResume />
-  )
+  return <StandardResume />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/standard-resume-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { StandardResume } from "components/components/resumes/shadcnui/standard-resume.tsx"
+import { StandardResume } from "components/components/resumes/shadcnui/standard-resume.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { StandardResume } from "components/components/resumes/shadcnui/standard-
 
 - **Category**: resumes
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -97,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StandardResume } from "components/components/resumes/shadcnui/standard-resume.tsx"
+import { StandardResume } from "components/components/resumes/shadcnui/standard-resume.tsx";
 
 export function BasicExample() {
-  return (
-    <StandardResume />
-  )
+  return <StandardResume />;
 }
 ```
 

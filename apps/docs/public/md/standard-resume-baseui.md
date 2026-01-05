@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StandardResume } from "components/components/resumes/baseui/standard-resume-baseui.tsx"
+import { StandardResume } from "components/components/resumes/baseui/standard-resume-baseui.tsx";
 
 export function StandardResumeDemo() {
-  return (
-    <StandardResume />
-  )
+  return <StandardResume />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Standard Resume` component uses the following components. Make sure you hav
 ## Usage
 
 ```tsx showLineNumbers
-import { StandardResume } from "components/components/resumes/baseui/standard-resume-baseui.tsx"
+import { StandardResume } from "components/components/resumes/baseui/standard-resume-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { StandardResume } from "components/components/resumes/baseui/standard-re
 
 - **Category**: resumes
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StandardResume } from "components/components/resumes/baseui/standard-resume-baseui.tsx"
+import { StandardResume } from "components/components/resumes/baseui/standard-resume-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <StandardResume />
-  )
+  return <StandardResume />;
 }
 ```
 

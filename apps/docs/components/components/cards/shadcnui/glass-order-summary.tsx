@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import { Card } from "@uitripled/react-shadcn/ui/card";
 import { Separator } from "@uitripled/react-shadcn/ui/separator";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight, CreditCard, ShoppingBag } from "lucide-react";
 

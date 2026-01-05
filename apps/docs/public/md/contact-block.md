@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx"
+import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx";
 
 export function ContactBlockDemo() {
-  return (
-    <ContactBlock />
-  )
+  return <ContactBlock />;
 }
 ```
 
@@ -63,7 +61,7 @@ The `Contact Block` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx"
+import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -78,10 +76,12 @@ import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - button
 - card
 - input
@@ -114,16 +114,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx"
+import { ContactBlock } from "@/components/sections/shadcnui/contact-block.tsx";
 
 export function BasicExample() {
-  return (
-    <ContactBlock />
-  )
+  return <ContactBlock />;
 }
 ```
 

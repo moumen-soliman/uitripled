@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeNotificationBell } from "components/native/shadcnui/native-notification-bell-shadcnui.tsx"
+import { NativeNotificationBell } from "components/native/shadcnui/native-notification-bell-shadcnui.tsx";
 
 export function NativeNotificationBellDemo() {
-  return (
-    <NativeNotificationBell />
-  )
+  return <NativeNotificationBell />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/native-notification-bell-shadcnui-shadcnui
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeNotificationBell } from "components/native/shadcnui/native-notification-bell-shadcnui.tsx"
+import { NativeNotificationBell } from "components/native/shadcnui/native-notification-bell-shadcnui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -64,10 +62,10 @@ import { NativeNotificationBell } from "components/native/shadcnui/native-notifi
 
 - **Category**: native
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NativeNotificationBell } from "components/native/shadcnui/native-notification-bell-shadcnui.tsx"
+import { NativeNotificationBell } from "components/native/shadcnui/native-notification-bell-shadcnui.tsx";
 
 export function BasicExample() {
-  return (
-    <NativeNotificationBell />
-  )
+  return <NativeNotificationBell />;
 }
 ```
 

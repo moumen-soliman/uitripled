@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HeroBlock } from "@/components/sections/shadcnui/hero-block.tsx"
+import { HeroBlock } from "@/components/sections/shadcnui/hero-block.tsx";
 
 export function HeroBlockDemo() {
-  return (
-    <HeroBlock />
-  )
+  return <HeroBlock />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Hero Block` component uses the following components. Make sure you have the
 ## Usage
 
 ```tsx showLineNumbers
-import { HeroBlock } from "@/components/sections/shadcnui/hero-block.tsx"
+import { HeroBlock } from "@/components/sections/shadcnui/hero-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { HeroBlock } from "@/components/sections/shadcnui/hero-block.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { HeroBlock } from "@/components/sections/shadcnui/hero-block.tsx"
+import { HeroBlock } from "@/components/sections/shadcnui/hero-block.tsx";
 
 export function BasicExample() {
-  return (
-    <HeroBlock />
-  )
+  return <HeroBlock />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { InteractiveTimeline } from "@/components/motion-core/interactive-timeline.tsx"
+import { InteractiveTimeline } from "@/components/motion-core/interactive-timeline.tsx";
 
 export function InteractiveTimelineDemo() {
-  return (
-    <InteractiveTimeline />
-  )
+  return <InteractiveTimeline />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Interactive Timeline` component uses the following components. Make sure yo
 ## Usage
 
 ```tsx showLineNumbers
-import { InteractiveTimeline } from "@/components/motion-core/interactive-timeline.tsx"
+import { InteractiveTimeline } from "@/components/motion-core/interactive-timeline.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { InteractiveTimeline } from "@/components/motion-core/interactive-timeli
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { InteractiveTimeline } from "@/components/motion-core/interactive-timeline.tsx"
+import { InteractiveTimeline } from "@/components/motion-core/interactive-timeline.tsx";
 
 export function BasicExample() {
-  return (
-    <InteractiveTimeline />
-  )
+  return <InteractiveTimeline />;
 }
 ```
 

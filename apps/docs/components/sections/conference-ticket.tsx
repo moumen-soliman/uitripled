@@ -1,6 +1,10 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
 import { Badge } from "@uitripled/react-shadcn/ui/badge";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, QrCode, Sparkles } from "lucide-react";

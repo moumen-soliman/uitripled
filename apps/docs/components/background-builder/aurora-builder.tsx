@@ -1,7 +1,12 @@
 "use client";
 
 import { Button } from "@uitripled/react-shadcn/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@uitripled/react-shadcn/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@uitripled/react-shadcn/ui/tabs";
 import {
   AnimatePresence,
   motion,
@@ -9,9 +14,15 @@ import {
   useSpring,
 } from "framer-motion";
 import { Check, Copy, Info, Pause, Play, RotateCcw } from "lucide-react";
+import {
+  createParser,
+  parseAsFloat,
+  parseAsInteger,
+  parseAsString,
+  useQueryState,
+} from "nuqs";
 import type React from "react";
 import { useEffect, useState } from "react";
-import { createParser, parseAsFloat, parseAsInteger, parseAsString, useQueryState } from "nuqs";
 
 import {
   BACKGROUND_PRESETS,
@@ -49,28 +60,61 @@ const parseAsLayers = createParser<GradientLayer[]>({
 
 export function AuroraBuilder() {
   // Layers - URL synced
-  const [layers, setLayers] = useQueryState("layers", parseAsLayers.withDefault(INITIAL_LAYERS));
+  const [layers, setLayers] = useQueryState(
+    "layers",
+    parseAsLayers.withDefault(INITIAL_LAYERS)
+  );
   const [activeLayerId, setActiveLayerId] = useState<string | null>(
     INITIAL_LAYERS[0].id
   );
 
   // URL-synced state using nuqs
-  const [activePreset, setActivePreset] = useQueryState("preset", parseAsString.withDefault("aurora"));
+  const [activePreset, setActivePreset] = useQueryState(
+    "preset",
+    parseAsString.withDefault("aurora")
+  );
 
   // Base Gradient
-  const [bgStart, setBgStart] = useQueryState("bgStart", parseAsString.withDefault(DEFAULT_BG_START));
-  const [bgEnd, setBgEnd] = useQueryState("bgEnd", parseAsString.withDefault(DEFAULT_BG_END));
-  const [bgAngle, setBgAngle] = useQueryState("bgAngle", parseAsInteger.withDefault(180));
+  const [bgStart, setBgStart] = useQueryState(
+    "bgStart",
+    parseAsString.withDefault(DEFAULT_BG_START)
+  );
+  const [bgEnd, setBgEnd] = useQueryState(
+    "bgEnd",
+    parseAsString.withDefault(DEFAULT_BG_END)
+  );
+  const [bgAngle, setBgAngle] = useQueryState(
+    "bgAngle",
+    parseAsInteger.withDefault(180)
+  );
 
   // Effects
-  const [noiseOpacity, setNoiseOpacity] = useQueryState("noise", parseAsFloat.withDefault(0.05));
-  const [vignette, setVignette] = useQueryState("vignette", parseAsFloat.withDefault(0));
-  const [saturation, setSaturation] = useQueryState("saturation", parseAsInteger.withDefault(100));
+  const [noiseOpacity, setNoiseOpacity] = useQueryState(
+    "noise",
+    parseAsFloat.withDefault(0.05)
+  );
+  const [vignette, setVignette] = useQueryState(
+    "vignette",
+    parseAsFloat.withDefault(0)
+  );
+  const [saturation, setSaturation] = useQueryState(
+    "saturation",
+    parseAsInteger.withDefault(100)
+  );
 
   // Patterns
-  const [activePattern, setActivePattern] = useQueryState("pattern", parseAsString.withDefault("none"));
-  const [patternOpacity, setPatternOpacity] = useQueryState("patternOpacity", parseAsFloat.withDefault(0.1));
-  const [patternColor, setPatternColor] = useQueryState("patternColor", parseAsString.withDefault("#000000"));
+  const [activePattern, setActivePattern] = useQueryState(
+    "pattern",
+    parseAsString.withDefault("none")
+  );
+  const [patternOpacity, setPatternOpacity] = useQueryState(
+    "patternOpacity",
+    parseAsFloat.withDefault(0.1)
+  );
+  const [patternColor, setPatternColor] = useQueryState(
+    "patternColor",
+    parseAsString.withDefault("#000000")
+  );
 
   const [copied, setCopied] = useState(false);
   const [showInfo, setShowInfo] = useState(false);

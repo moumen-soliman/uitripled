@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx"
+import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx";
 
 export function EcommerceHighlightCardDemo() {
-  return (
-    <EcommerceHighlightCard />
-  )
+  return <EcommerceHighlightCard />;
 }
 ```
 
@@ -62,7 +60,7 @@ The `Ecommerce Highlight Card` component uses the following components. Make sur
 ## Usage
 
 ```tsx showLineNumbers
-import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx"
+import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -77,11 +75,13 @@ import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/e
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -113,16 +113,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx"
+import { EcommerceHighlightCard } from "@/components/components/cards/shadcnui/ecommerce-highlight-card.tsx";
 
 export function BasicExample() {
-  return (
-    <EcommerceHighlightCard />
-  )
+  return <EcommerceHighlightCard />;
 }
 ```
 

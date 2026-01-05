@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx"
+import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx";
 
 export function ScrollRevealDemo() {
-  return (
-    <ScrollReveal />
-  )
+  return <ScrollReveal />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/scroll-reveal
 ## Usage
 
 ```tsx showLineNumbers
-import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx"
+import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
@@ -96,16 +95,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx"
+import { ScrollReveal } from "@/components/sections/shadcnui/scroll-reveal.tsx";
 
 export function BasicExample() {
-  return (
-    <ScrollReveal />
-  )
+  return <ScrollReveal />;
 }
 ```
 

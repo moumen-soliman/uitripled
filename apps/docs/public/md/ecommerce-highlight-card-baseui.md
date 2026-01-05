@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { EcommerceHighlightCard } from "components/components/cards/baseui/ecommerce-highlight-card-baseui.tsx"
+import { EcommerceHighlightCard } from "components/components/cards/baseui/ecommerce-highlight-card-baseui.tsx";
 
 export function EcommerceHighlightCardDemo() {
-  return (
-    <EcommerceHighlightCard />
-  )
+  return <EcommerceHighlightCard />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Ecommerce Highlight Card` component uses the following components. Make sur
 ## Usage
 
 ```tsx showLineNumbers
-import { EcommerceHighlightCard } from "components/components/cards/baseui/ecommerce-highlight-card-baseui.tsx"
+import { EcommerceHighlightCard } from "components/components/cards/baseui/ecommerce-highlight-card-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { EcommerceHighlightCard } from "components/components/cards/baseui/ecomm
 
 - **Category**: cards
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { EcommerceHighlightCard } from "components/components/cards/baseui/ecommerce-highlight-card-baseui.tsx"
+import { EcommerceHighlightCard } from "components/components/cards/baseui/ecommerce-highlight-card-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <EcommerceHighlightCard />
-  )
+  return <EcommerceHighlightCard />;
 }
 ```
 

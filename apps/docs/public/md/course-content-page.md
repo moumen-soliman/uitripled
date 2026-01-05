@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CourseContentPage } from "@/components/components/course-content/course-content-page.tsx"
+import { CourseContentPage } from "@/components/components/course-content/course-content-page.tsx";
 
 export function CourseContentPageDemo() {
-  return (
-    <CourseContentPage />
-  )
+  return <CourseContentPage />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Course Content Page` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { CourseContentPage } from "@/components/components/course-content/course-content-page.tsx"
+import { CourseContentPage } from "@/components/components/course-content/course-content-page.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { CourseContentPage } from "@/components/components/course-content/course
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CourseContentPage } from "@/components/components/course-content/course-content-page.tsx"
+import { CourseContentPage } from "@/components/components/course-content/course-content-page.tsx";
 
 export function BasicExample() {
-  return (
-    <CourseContentPage />
-  )
+  return <CourseContentPage />;
 }
 ```
 

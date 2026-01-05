@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-block.tsx"
+import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-block.tsx";
 
 export function AnimatedQuoteBlockDemo() {
-  return (
-    <AnimatedQuoteBlock />
-  )
+  return <AnimatedQuoteBlock />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/animated-quote-block
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-block.tsx"
+import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-bloc
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-block.tsx"
+import { AnimatedQuoteBlock } from "@/components/motion-core/animated-quote-block.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedQuoteBlock />
-  )
+  return <AnimatedQuoteBlock />;
 }
 ```
 

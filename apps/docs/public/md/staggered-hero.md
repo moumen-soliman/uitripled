@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StaggeredTextHero } from "@/components/page/hero/staggered-text.tsx"
+import { StaggeredTextHero } from "@/components/page/hero/staggered-text.tsx";
 
 export function StaggeredTextHeroDemo() {
-  return (
-    <StaggeredTextHero />
-  )
+  return <StaggeredTextHero />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/staggered-hero
 ## Usage
 
 ```tsx showLineNumbers
-import { StaggeredTextHero } from "@/components/page/hero/staggered-text.tsx"
+import { StaggeredTextHero } from "@/components/page/hero/staggered-text.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { StaggeredTextHero } from "@/components/page/hero/staggered-text.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -94,16 +93,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { StaggeredTextHero } from "@/components/page/hero/staggered-text.tsx"
+import { StaggeredTextHero } from "@/components/page/hero/staggered-text.tsx";
 
 export function BasicExample() {
-  return (
-    <StaggeredTextHero />
-  )
+  return <StaggeredTextHero />;
 }
 ```
 

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassOrderSummary } from "components/components/cards/baseui/glass-order-summary-baseui.tsx"
+import { GlassOrderSummary } from "components/components/cards/baseui/glass-order-summary-baseui.tsx";
 
 export function GlassOrderSummaryDemo() {
-  return (
-    <GlassOrderSummary />
-  )
+  return <GlassOrderSummary />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Glass Order Summary` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassOrderSummary } from "components/components/cards/baseui/glass-order-summary-baseui.tsx"
+import { GlassOrderSummary } from "components/components/cards/baseui/glass-order-summary-baseui.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -70,14 +68,15 @@ import { GlassOrderSummary } from "components/components/cards/baseui/glass-orde
 
 - **Category**: cards
 
-
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassOrderSummary } from "components/components/cards/baseui/glass-order-summary-baseui.tsx"
+import { GlassOrderSummary } from "components/components/cards/baseui/glass-order-summary-baseui.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassOrderSummary />
-  )
+  return <GlassOrderSummary />;
 }
 ```
 

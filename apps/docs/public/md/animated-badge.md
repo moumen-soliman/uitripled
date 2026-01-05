@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedBadge } from "@/components/micro/badges/animated-badge.tsx"
+import { AnimatedBadge } from "@/components/micro/badges/animated-badge.tsx";
 
 export function AnimatedBadgeDemo() {
-  return (
-    <AnimatedBadge />
-  )
+  return <AnimatedBadge />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Badge` component uses the following components. Make sure you have
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedBadge } from "@/components/micro/badges/animated-badge.tsx"
+import { AnimatedBadge } from "@/components/micro/badges/animated-badge.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,10 +72,12 @@ import { AnimatedBadge } from "@/components/micro/badges/animated-badge.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -106,16 +106,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedBadge } from "@/components/micro/badges/animated-badge.tsx"
+import { AnimatedBadge } from "@/components/micro/badges/animated-badge.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedBadge />
-  )
+  return <AnimatedBadge />;
 }
 ```
 

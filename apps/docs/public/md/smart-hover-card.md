@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SmartHoverCard } from "@/components/motion-core/smart-hover-card.tsx"
+import { SmartHoverCard } from "@/components/motion-core/smart-hover-card.tsx";
 
 export function SmartHoverCardDemo() {
-  return (
-    <SmartHoverCard />
-  )
+  return <SmartHoverCard />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Smart Hover Card` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { SmartHoverCard } from "@/components/motion-core/smart-hover-card.tsx"
+import { SmartHoverCard } from "@/components/motion-core/smart-hover-card.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,10 +73,12 @@ import { SmartHoverCard } from "@/components/motion-core/smart-hover-card.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -108,16 +108,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { SmartHoverCard } from "@/components/motion-core/smart-hover-card.tsx"
+import { SmartHoverCard } from "@/components/motion-core/smart-hover-card.tsx";
 
 export function BasicExample() {
-  return (
-    <SmartHoverCard />
-  )
+  return <SmartHoverCard />;
 }
 ```
 

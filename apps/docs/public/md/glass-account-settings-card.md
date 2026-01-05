@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassAccountSettingsCard } from "@/components/components/forms/glass-account-settings.tsx"
+import { GlassAccountSettingsCard } from "@/components/components/forms/glass-account-settings.tsx";
 
 export function GlassAccountSettingsCardDemo() {
-  return (
-    <GlassAccountSettingsCard />
-  )
+  return <GlassAccountSettingsCard />;
 }
 ```
 
@@ -62,7 +60,7 @@ The `Glass Account Settings Card` component uses the following components. Make 
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassAccountSettingsCard } from "@/components/components/forms/glass-account-settings.tsx"
+import { GlassAccountSettingsCard } from "@/components/components/forms/glass-account-settings.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -77,11 +75,13 @@ import { GlassAccountSettingsCard } from "@/components/components/forms/glass-ac
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - label
@@ -113,16 +113,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassAccountSettingsCard } from "@/components/components/forms/glass-account-settings.tsx"
+import { GlassAccountSettingsCard } from "@/components/components/forms/glass-account-settings.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassAccountSettingsCard />
-  )
+  return <GlassAccountSettingsCard />;
 }
 ```
 

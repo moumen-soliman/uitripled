@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@uitripled/react-shadcn/ui/button";
 import type { BuilderProjectPage } from "@/types/builder";
+import { Button } from "@uitripled/react-shadcn/ui/button";
 import { Edit3, Plus, Trash2 } from "lucide-react";
 
 type PageTabsProps = {

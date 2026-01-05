@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx"
+import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx";
 
 export function GlassmorphismProductUpdatesDemo() {
-  return (
-    <GlassmorphismProductUpdates />
-  )
+  return <GlassmorphismProductUpdates />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `Glassmorphism Product Updates` component uses the following components. Mak
 ## Usage
 
 ```tsx showLineNumbers
-import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx"
+import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,10 +74,12 @@ import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glas
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -110,16 +110,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx"
+import { GlassmorphismProductUpdates } from "@/components/sections/shadcnui/glassmorphism-product-update-block.tsx";
 
 export function BasicExample() {
-  return (
-    <GlassmorphismProductUpdates />
-  )
+  return <GlassmorphismProductUpdates />;
 }
 ```
 

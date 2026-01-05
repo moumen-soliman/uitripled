@@ -93,4 +93,3 @@ export function DemoSettingsButton({
     </div>
   );
 }
-

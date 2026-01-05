@@ -1,6 +1,10 @@
 "use client";
 
 import { AnimationsSidebar } from "@/components/animation-sidebar";
+import {
+  componentsRegistry,
+  getComponentById,
+} from "@/lib/components-registry";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import {
   Dialog,
@@ -8,10 +12,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@uitripled/react-shadcn/ui/dialog";
-import {
-  componentsRegistry,
-  getComponentById,
-} from "@/lib/components-registry";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
 import { useParams, usePathname, useRouter } from "next/navigation";

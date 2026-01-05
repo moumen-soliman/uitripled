@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCounter } from "@/components/data/progress/counter-up.tsx"
+import { AnimatedCounter } from "@/components/data/progress/counter-up.tsx";
 
 export function AnimatedCounterDemo() {
-  return (
-    <AnimatedCounter />
-  )
+  return <AnimatedCounter />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/counter-up
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedCounter } from "@/components/data/progress/counter-up.tsx"
+import { AnimatedCounter } from "@/components/data/progress/counter-up.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { AnimatedCounter } from "@/components/data/progress/counter-up.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCounter } from "@/components/data/progress/counter-up.tsx"
+import { AnimatedCounter } from "@/components/data/progress/counter-up.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedCounter />
-  )
+  return <AnimatedCounter />;
 }
 ```
 

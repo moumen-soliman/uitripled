@@ -27,6 +27,8 @@ function transformImportsForRegistry(content) {
     /import\s+["']@uitripled\/utils["']/g,
     'import "@/lib/utils"'
   );
+  // Catch any other occurrences (docs/manual content)
+  transformed = transformed.replace(/@uitripled\/utils/g, "@/lib/utils");
 
   // Transform @/components/native/shadcnui/component-name to @/components/uitripled/component-name
   transformed = transformed.replace(
@@ -120,7 +122,7 @@ function generateRegistryFiles() {
                 filePath.replace("@uitripled/react-carbon/", "")
               );
             } else {
-               filePath = path.join(__dirname, "..", file.path);
+              filePath = path.join(__dirname, "..", file.path);
             }
 
             // Check if file exists

@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx"
+import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx";
 
 export function AnimatedCardStackDemo() {
-  return (
-    <AnimatedCardStack />
-  )
+  return <AnimatedCardStack />;
 }
 ```
 
@@ -59,7 +57,7 @@ The `Animated Card Stack` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx"
+import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -74,9 +72,11 @@ import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animat
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 
 **UI Components**:
+
 - card
 
 This component uses **Framer Motion** for animations and motion effects.
@@ -105,16 +105,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx"
+import { AnimatedCardStack } from "@/components/components/cards/shadcnui/animated-card-stack.tsx";
 
 export function BasicExample() {
-  return (
-    <AnimatedCardStack />
-  )
+  return <AnimatedCardStack />;
 }
 ```
 

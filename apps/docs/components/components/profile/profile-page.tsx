@@ -1,8 +1,12 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@uitripled/react-shadcn/ui/avatar";
-import { Button } from "@uitripled/react-shadcn/ui/button";
 import { cn } from "@/lib/utils";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@uitripled/react-shadcn/ui/avatar";
+import { Button } from "@uitripled/react-shadcn/ui/button";
 import { motion } from "framer-motion";
 import {
   Calendar,

@@ -3,6 +3,8 @@
 import { CodeBlock } from "@/components/code-block";
 import { LiveEditor } from "@/components/live-editor";
 import { useUILibrary } from "@/components/ui-library-provider";
+import { getComponentById } from "@/lib/components-registry";
+import { categoryNames, uiLibraryLabels, type UILibrary } from "@/types";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import { ScrollArea } from "@uitripled/react-shadcn/ui/scroll-area";
 import {
@@ -12,9 +14,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@uitripled/react-shadcn/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@uitripled/react-shadcn/ui/tabs";
-import { getComponentById } from "@/lib/components-registry";
-import { categoryNames, uiLibraryLabels, type UILibrary } from "@/types";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@uitripled/react-shadcn/ui/tabs";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertTriangle,
@@ -736,19 +741,9 @@ export default function AnimationDetailPageClient({
                     </div>
                   </div>
 
-                  <div className="relative min-h-[320px] py-6 md:min-h-[50vh] border border-border rounded-lg flex items-center justify-center bg-background/50">
+                  <div className="relative min-h-[320px] py-6 md:min-h-[500px] border border-border rounded-lg flex items-center justify-center bg-background/50">
                     {isLoadingComponent ? (
                       <div className="flex flex-col items-center justify-center gap-4 p-8">
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                        >
-                          <RefreshCw className="h-8 w-8 text-muted-foreground" />
-                        </motion.div>
                         <p className="text-sm text-muted-foreground">
                           Loading component...
                         </p>

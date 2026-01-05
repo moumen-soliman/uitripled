@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FAQAccordion } from "@/components/sections/shadcnui/faq-accordion-block.tsx"
+import { FAQAccordion } from "@/components/sections/shadcnui/faq-accordion-block.tsx";
 
 export function FAQAccordionDemo() {
-  return (
-    <FAQAccordion />
-  )
+  return <FAQAccordion />;
 }
 ```
 
@@ -61,7 +59,7 @@ The `FAQ Accordion` component uses the following components. Make sure you have 
 ## Usage
 
 ```tsx showLineNumbers
-import { FAQAccordion } from "@/components/sections/shadcnui/faq-accordion-block.tsx"
+import { FAQAccordion } from "@/components/sections/shadcnui/faq-accordion-block.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -76,11 +74,13 @@ import { FAQAccordion } from "@/components/sections/shadcnui/faq-accordion-block
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - badge
 - button
 - card
@@ -111,16 +111,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { FAQAccordion } from "@/components/sections/shadcnui/faq-accordion-block.tsx"
+import { FAQAccordion } from "@/components/sections/shadcnui/faq-accordion-block.tsx";
 
 export function BasicExample() {
-  return (
-    <FAQAccordion />
-  )
+  return <FAQAccordion />;
 }
 ```
 

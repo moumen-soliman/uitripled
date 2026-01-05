@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { RippleClickEffect } from "@/components/micro/buttons/ripple-click.tsx"
+import { RippleClickEffect } from "@/components/micro/buttons/ripple-click.tsx";
 
 export function RippleClickEffectDemo() {
-  return (
-    <RippleClickEffect />
-  )
+  return <RippleClickEffect />;
 }
 ```
 
@@ -53,7 +51,7 @@ npx shadcn@latest add @uitripled/ripple-click-button
 ## Usage
 
 ```tsx showLineNumbers
-import { RippleClickEffect } from "@/components/micro/buttons/ripple-click.tsx"
+import { RippleClickEffect } from "@/components/micro/buttons/ripple-click.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -68,6 +66,7 @@ import { RippleClickEffect } from "@/components/micro/buttons/ripple-click.tsx"
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `react`
 
@@ -95,16 +94,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { RippleClickEffect } from "@/components/micro/buttons/ripple-click.tsx"
+import { RippleClickEffect } from "@/components/micro/buttons/ripple-click.tsx";
 
 export function BasicExample() {
-  return (
-    <RippleClickEffect />
-  )
+  return <RippleClickEffect />;
 }
 ```
 

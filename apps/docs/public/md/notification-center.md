@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NotificationCenter } from "@/components/components/notifications/notification-center.tsx"
+import { NotificationCenter } from "@/components/components/notifications/notification-center.tsx";
 
 export function NotificationCenterDemo() {
-  return (
-    <NotificationCenter />
-  )
+  return <NotificationCenter />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `Notification Center` component uses the following components. Make sure you
 ## Usage
 
 ```tsx showLineNumbers
-import { NotificationCenter } from "@/components/components/notifications/notification-center.tsx"
+import { NotificationCenter } from "@/components/components/notifications/notification-center.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { NotificationCenter } from "@/components/components/notifications/notifi
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { NotificationCenter } from "@/components/components/notifications/notification-center.tsx"
+import { NotificationCenter } from "@/components/components/notifications/notification-center.tsx";
 
 export function BasicExample() {
-  return (
-    <NotificationCenter />
-  )
+  return <NotificationCenter />;
 }
 ```
 

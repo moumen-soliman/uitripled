@@ -5,16 +5,14 @@ component: true
 ---
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx"
+import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx";
 
 export function CTABannerSectionDemo() {
-  return (
-    <CTABannerSection />
-  )
+  return <CTABannerSection />;
 }
 ```
 
@@ -60,7 +58,7 @@ The `CTA Banner Section` component uses the following components. Make sure you 
 ## Usage
 
 ```tsx showLineNumbers
-import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx"
+import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx";
 ```
 
 ```tsx showLineNumbers
@@ -75,11 +73,13 @@ import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-sect
 ### Technical Specifications
 
 **Dependencies**:
+
 - `framer-motion`
 - `lucide-react`
 - `react`
 
 **UI Components**:
+
 - button
 - card
 
@@ -109,16 +109,14 @@ The component follows accessibility best practices:
 ### Basic Example
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx"
+import { CTABannerSection } from "@/components/sections/shadcnui/cta-banner-section.tsx";
 
 export function BasicExample() {
-  return (
-    <CTABannerSection />
-  )
+  return <CTABannerSection />;
 }
 ```
 

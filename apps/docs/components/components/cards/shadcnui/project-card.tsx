@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Badge } from "@uitripled/react-shadcn/ui/badge";
 import { Card } from "@uitripled/react-shadcn/ui/card";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 

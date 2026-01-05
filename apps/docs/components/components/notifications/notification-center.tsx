@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import { Card } from "@uitripled/react-shadcn/ui/card";
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   AlertCircle,
