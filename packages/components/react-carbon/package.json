@@ -23,16 +23,17 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@uitripled/react-shadcn": "*",
-    "@uitripled/utils": "*",
+    "@uitripled/react-shadcn": "workspace:*",
+    "@uitripled/utils": "workspace:*",
     "framer-motion": "^12.23.24",
-    "lucide-react": "^0.553.0"
+    "lucide-react": "^0.553.0",
+    "class-variance-authority": "^0.7.1"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@uitripled/eslint-config": "*",
-    "@uitripled/typescript-config": "*",
+    "@uitripled/eslint-config": "workspace:*",
+    "@uitripled/typescript-config": "workspace:*",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0"
   },

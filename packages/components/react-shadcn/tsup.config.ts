@@ -9,8 +9,8 @@ export default defineConfig({
     "src/lib/**/*.ts",
   ],
   format: ["esm"],
-  dts: true,
+  dts: false,
   clean: true,
-  sourcemap: true,
+  sourcemap: false,
   external: ["react", "react-dom", "framer-motion", "@uitripled/utils", "lucide-react", "@uitripled/react-baseui", "@uitripled/react-carbon"],
 });

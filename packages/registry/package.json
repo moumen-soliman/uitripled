@@ -13,16 +13,16 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@uitripled/react-shadcn": "*",
-    "@uitripled/react-baseui": "*",
-    "@uitripled/react-carbon": "*",
-    "@uitripled/utils": "*",
+    "@uitripled/react-shadcn": "workspace:*",
+    "@uitripled/react-baseui": "workspace:*",
+    "@uitripled/react-carbon": "workspace:*",
+    "@uitripled/utils": "workspace:*",
     "react": "^19.0.0",
     "framer-motion": "^12.23.24"
   },
   "devDependencies": {
-    "@uitripled/typescript-config": "*",
-    "@uitripled/eslint-config": "*",
+    "@uitripled/typescript-config": "workspace:*",
+    "@uitripled/eslint-config": "workspace:*",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
     "@types/react": "^19.0.0"

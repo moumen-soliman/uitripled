@@ -28,7 +28,7 @@
     "@types/prompts": "^2.4.0",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
-    "@uitripled/eslint-config": "*",
-    "@uitripled/typescript-config": "*"
+    "@uitripled/eslint-config": "workspace:*",
+    "@uitripled/typescript-config": "workspace:*"
   }
 }

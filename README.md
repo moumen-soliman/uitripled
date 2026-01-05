@@ -36,13 +36,13 @@
 
 ## Turbo Monorepo
 
-- Managed with Turborepo and Yarn workspaces
-- Run tasks via `turbo run <script>` (e.g., `yarn dev --filter=uitripled` for the docs app)
+- Managed with Turborepo and pnpm workspaces
+- Run tasks via `turbo run <script>` (e.g., `pnpm dev --filter=uitripled` for the docs app)
 - Node.js 18+ is required
 
 ## Tech Stack
 
-- [Turborepo](https://turbo.build/repo) + Yarn Workspaces
+- [Turborepo](https://turbo.build/repo) + pnpm Workspaces
 - [Next.js](https://nextjs.org) 16
 - [React](https://react.dev) 19
 - [TypeScript](https://www.typescriptlang.org)
@@ -86,13 +86,13 @@
 Install dependencies:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 Run the development server:
 
 ```bash
-yarn dev --filter=uitripled
+pnpm dev --filter=uitripled
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.

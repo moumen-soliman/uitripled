@@ -46,7 +46,11 @@ export async function getComponentCode(filePath: string): Promise<string> {
       : join(process.cwd(), resolvedPath);
 
     const content = readFileSync(absolutePath, "utf-8");
-    return content;
+
+    // Replace @uitripled/utils with @/lib/utils for display
+    const transformedContent = content.replace(/@uitripled\/utils/g, "@/lib/utils");
+
+    return transformedContent;
   } catch (error) {
     throw new Error(
       `Failed to read file at ${filePath}: ${error instanceof Error ? error.message : String(error)}`

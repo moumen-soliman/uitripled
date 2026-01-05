@@ -9,6 +9,7 @@
     "generate-component-markdown": "node scripts/generate-component-markdown.js",
     "dev": "npm run generate-scripts && next dev --port 3001",
     "build": "next build",
+    "build:full": "npm run generate-scripts && next build",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix .",
@@ -52,11 +53,11 @@
     "recharts": "^3.4.1",
     "server-only": "^0.0.1",
     "tailwind-merge": "^3.4.0",
-    "@uitripled/utils": "*",
-    "@uitripled/react-shadcn": "*",
-    "@uitripled/react-baseui": "*",
-    "@uitripled/react-carbon": "*",
-    "@uitripled/registry": "*"
+    "@uitripled/utils": "workspace:*",
+    "@uitripled/react-shadcn": "workspace:*",
+    "@uitripled/react-baseui": "workspace:*",
+    "@uitripled/react-carbon": "workspace:*",
+    "@uitripled/registry": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

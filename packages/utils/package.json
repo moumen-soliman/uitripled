@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
-    "@uitripled/typescript-config": "*",
-    "@uitripled/eslint-config": "*",
+    "@uitripled/typescript-config": "workspace:*",
+    "@uitripled/eslint-config": "workspace:*",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0"
   },

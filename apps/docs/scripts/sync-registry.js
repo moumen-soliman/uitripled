@@ -16,7 +16,7 @@ function syncRegistry() {
         `❌ Source registry file not found at: ${SOURCE_REGISTRY_PATH}`
       );
       console.log(
-        "⚠️  Ensure you have run 'yarn registry:generate' or built the registry package."
+        "⚠️  Ensure you have run 'pnpm registry:generate' or built the registry package."
       );
       // Do not exit with error to avoid crashing dev server if race condition,
       // but warn heavily. User might need to build registry once.

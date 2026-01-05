@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "vercel-build": "turbo run build --filter=uitripled",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
@@ -18,14 +19,7 @@
     "turbo": "^2.0.0",
     "typescript": "^5.3.0"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "packages/components/*",
-    "packages/config/*",
-    "tooling/*"
-  ],
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=18.0.0"
   }
