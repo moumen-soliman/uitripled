@@ -27,11 +27,9 @@
 ## Features
 
 - **Production-Ready Components** - Carefully crafted UI components built with shadcn/ui & Framer Motion
-- **Visual Builder** - Drag-and-drop interface for building and previewing components
 - **Landing Builder** - Drag-and-drop shadcn/ui blocks to assemble full landing pages in seconds
 - **Background Builder** - Shader-powered and animated Aurora backgrounds, fast to tweak and export
 - **Grid Generator** - Compose complex Tailwind CSS grid layouts with just a few clicks
-- **Copy & Paste** - One-click code copying for seamless integration
 - **TypeScript Support** - Full type safety throughout
 
 ## Turbo Monorepo
