@@ -9,6 +9,7 @@ import { InstructionsBanner } from "@/components/builder/instructions-banner";
 import { LoadProjectDialog } from "@/components/builder/load-project-dialog";
 import { PageTabs } from "@/components/builder/page-tabs";
 import { TextEditingBanner } from "@/components/builder/text-editing-banner";
+import { useUILibrary } from "@/components/ui-library-provider";
 import {
   createPage,
   extractSavedPages,
@@ -29,7 +30,7 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export default function BuilderPage() {
   const [pages, setPages] = useState<BuilderProjectPage[]>(() => {
@@ -43,6 +44,22 @@ export default function BuilderPage() {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [savedProjects, setSavedProjects] = useState<SavedProject[]>([]);
   const [isTextEditing, setIsTextEditing] = useState(false);
+
+  const { selectedLibrary } = useUILibrary();
+  const previousLibraryRef = useRef(selectedLibrary);
+
+  // Reset builder canvas when library changes
+  useEffect(() => {
+    if (previousLibraryRef.current !== selectedLibrary) {
+      // Library changed - reset canvas to empty state
+      const newPage = createPage("Landing", []);
+      setPages([newPage]);
+      setActivePageId(newPage.id);
+      setActiveId(null);
+      setIsTextEditing(false);
+      previousLibraryRef.current = selectedLibrary;
+    }
+  }, [selectedLibrary]);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {

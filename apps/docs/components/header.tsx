@@ -113,7 +113,7 @@ export function Header() {
                 BETA
               </Badge> */}
             </Link>
-            {currentURL.includes("/components") && (
+            {(currentURL.includes("/components") || currentURL.includes("/builder")) && (
               <>
                 <Separator
                   orientation="vertical"

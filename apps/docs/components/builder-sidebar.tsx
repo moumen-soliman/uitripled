@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { useMemo, useState } from "react";
 
+import { useUILibrary } from "@/components/ui-library-provider";
 import { componentsRegistry } from "@/lib/components-registry";
 import { cn } from "@/lib/utils";
 import { categoryNames } from "@/types";
@@ -99,6 +100,7 @@ export function BuilderSidebar({
   allowDrag = true,
 }: BuilderSidebarProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const { selectedLibrary } = useUILibrary();
 
   const filteredAnimations = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -109,6 +111,13 @@ export function BuilderSidebar({
           component.display !== false && component.category === "blocks"
       )
       .filter((component) => {
+        // Filter by library: show if availableIn includes selectedLibrary, or if not specified (show all)
+        if (!component.availableIn || component.availableIn.length === 0) {
+          return true;
+        }
+        return component.availableIn.includes(selectedLibrary);
+      })
+      .filter((component) => {
         if (!query) return true;
         return (
           component.name.toLowerCase().includes(query) ||
@@ -116,7 +125,7 @@ export function BuilderSidebar({
           component.tags.some((tag) => tag.toLowerCase().includes(query))
         );
       });
-  }, [searchQuery]);
+  }, [searchQuery, selectedLibrary]);
 
   return (
     <div className={cn("flex h-full flex-col bg-card", className)}>

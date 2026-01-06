@@ -109,11 +109,20 @@ const buildPageCode = async (
     // If code is not available, fetch it from the API
     if (!animationCode && component.animation.id) {
       try {
-        // Try library-specific variant first (e.g., detail-task-card-shadcnui)
+        // Prefer static registry files served from /public/r (no serverless cost on Vercel).
+        // Try library-specific variant first (e.g., detail-task-card-shadcnui.json)
         const libraryId = `${component.animation.id}-${selectedLibrary}`;
-        let response = await fetch(`/api/registry/${libraryId}`);
+        let response = await fetch(`/r/${libraryId}.json`);
 
         // Fallback to base ID if library-specific variant doesn't exist
+        if (!response.ok) {
+          response = await fetch(`/r/${component.animation.id}.json`);
+        }
+
+        // Final fallback: try the API route (serverless function)
+        if (!response.ok) {
+          response = await fetch(`/api/registry/${libraryId}`);
+        }
         if (!response.ok) {
           response = await fetch(`/api/registry/${component.animation.id}`);
         }
