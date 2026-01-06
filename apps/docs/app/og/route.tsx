@@ -1,11 +1,5 @@
-import registryIndex from "@/registry.json";
+import { componentsRegistry } from "@uitripled/registry";
 import { ImageResponse } from "next/og";
-
-// Edge runtime is required for ImageResponse, but we'll add aggressive caching
-export const runtime = "edge";
-
-// Cache for 1 year, revalidate weekly to reduce edge invocations
-export const revalidate = 604800; // 7 days in seconds
 
 const DEFAULT_OG_IMAGE =
   "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtAc2cc4nrC37b1yitXR5Fm2HP6TVsYEDNGcjO";
@@ -154,22 +148,19 @@ export async function GET(request: Request) {
 
     const faviconUrl = LOGO_URL;
 
-    // IMPORTANT: This route runs on the Edge runtime.
-    // Avoid importing the full component registry (which pulls in many React components and Node-only code),
-    // and instead use the lightweight local `registry.json` for metadata.
-    const registryItems = Array.isArray((registryIndex as any).items)
-      ? ((registryIndex as any).items as any[])
-      : (Object.values((registryIndex as any).items || {}) as any[]);
-
-    const item = registryItems.find(
-      (it) => typeof it?.name === "string" && it.name === componentId
-    );
+    const item =
+      componentsRegistry.find(
+        (it) => typeof it?.id === "string" && it.id === componentId
+      ) ||
+      componentsRegistry.find(
+        (it) => typeof it?.id === "string" && it.id.startsWith(componentId)
+      );
 
     const metadata = item
       ? {
           name:
-            typeof item.title === "string" && item.title.trim().length > 0
-              ? item.title
+            typeof item.name === "string" && item.name.trim().length > 0
+              ? item.name.replaceAll("(Base UI)", "").trim()
               : componentId,
           description:
             typeof item.description === "string" ? item.description : undefined,

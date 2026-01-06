@@ -45,6 +45,10 @@ const SPONSORS = [
     logo: "https://ts-assets.b-cdn.net/ss-assets/logo/logo.svg",
   },
   {
+    username: "shadcnblocks",
+    url: "https://shadcnblocks.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+  },
+  {
     username: "shadcraft",
     url: "https://shadcraft.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
   },

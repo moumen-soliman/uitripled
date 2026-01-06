@@ -69,6 +69,13 @@
       <strong><a href="https://shadcraft.com">Shadcraft</a></strong>
     </td>
     <td align="center">
+      <a href="https://shadcnblocks.com">
+        <img width="70" height="70" alt="ShadcnBlocks" src="https://github.com/shadcnblocks.png" style="border-radius: 100%;" />
+      </a>
+      <br />
+      <strong><a href="https://shadcnblocks.com">Shadcnblocks.com</a></strong>
+    </td>
+    <td align="center">
       <a href="https://github.com/DavidHDev">
         <img width="70" height="70" alt="DavidHDev" src="https://github.com/DavidHDev.png" style="border-radius: 100%;" />
       </a>
