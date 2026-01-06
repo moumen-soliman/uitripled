@@ -37,7 +37,9 @@ function StarButtonFallback() {
 
 const SPONSORS = [
   {
-    username: "DavidHDev",
+    username: "ReactBits",
+    url: "https://reactbits.dev?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtd7oHoWu8kXBdOAypChQmW2xzMgu5YERnZaGF",
   },
   {
     username: "shadcn/studio",

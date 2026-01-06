@@ -76,11 +76,11 @@
       <strong><a href="https://shadcnblocks.com">Shadcnblocks.com</a></strong>
     </td>
     <td align="center">
-      <a href="https://github.com/DavidHDev">
-        <img width="70" height="70" alt="DavidHDev" src="https://github.com/DavidHDev.png" style="border-radius: 100%;" />
+      <a href="https://reactbits.dev">
+        <img width="70" height="70" alt="ReactBits" src="https://github.com/DavidHDev/react-bits/blob/main/public/android-chrome-192x192.png" style="border-radius: 100%;" />
       </a>
       <br />
-      <strong><a href="https://github.com/DavidHDev">DavidHDev</a></strong>
+      <strong><a href="https://reactbits.dev">ReactBits</a></strong>
     </td>
   </tr>
 </table>
