@@ -97,7 +97,7 @@ pnpm install
 Run the development server:
 
 ```bash
-pnpm dev --filter=uitripled
+pnpm dev --filter=uitripled-docs
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
