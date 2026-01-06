@@ -181,46 +181,6 @@ importers:
         specifier: ^5
         version: 5.9.3
 
-  packages/cli:
-    dependencies:
-      commander:
-        specifier: ^11.0.0
-        version: 11.1.0
-      kleur:
-        specifier: ^4.1.5
-        version: 4.1.5
-      node-fetch:
-        specifier: ^3.3.2
-        version: 3.3.2
-      ora:
-        specifier: ^8.0.0
-        version: 8.2.0
-      prompts:
-        specifier: ^2.4.2
-        version: 2.4.2
-      zod:
-        specifier: ^3.22.0
-        version: 3.25.76
-    devDependencies:
-      '@types/node':
-        specifier: ^20.0.0
-        version: 20.19.27
-      '@types/prompts':
-        specifier: ^2.4.0
-        version: 2.4.9
-      '@uitripled/eslint-config':
-        specifier: workspace:*
-        version: link:../config/eslint-config
-      '@uitripled/typescript-config':
-        specifier: workspace:*
-        version: link:../config/typescript-config
-      tsup:
-        specifier: ^8.0.0
-        version: 8.5.1(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)
-      typescript:
-        specifier: ^5.0.0
-        version: 5.9.3
-
   packages/components/react-baseui:
     dependencies:
       '@base-ui/react':
@@ -469,6 +429,46 @@ importers:
       '@uitripled/eslint-config':
         specifier: workspace:*
         version: link:../config/eslint-config
+
+  packages/uitripled:
+    dependencies:
+      commander:
+        specifier: ^11.0.0
+        version: 11.1.0
+      kleur:
+        specifier: ^4.1.5
+        version: 4.1.5
+      node-fetch:
+        specifier: ^3.3.2
+        version: 3.3.2
+      ora:
+        specifier: ^8.0.0
+        version: 8.2.0
+      prompts:
+        specifier: ^2.4.2
+        version: 2.4.2
+      zod:
+        specifier: ^3.22.0
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.19.27
+      '@types/prompts':
+        specifier: ^2.4.0
+        version: 2.4.9
+      '@uitripled/eslint-config':
+        specifier: workspace:*
+        version: link:../config/eslint-config
+      '@uitripled/typescript-config':
+        specifier: workspace:*
+        version: link:../config/typescript-config
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
 
   packages/utils:
     dependencies:

@@ -1,5 +1,5 @@
 {
-  "name": "@uitripled/cli",
+  "name": "uitripled",
   "version": "1.1.0",
   "description": "CLI to add animated UI components from uitripled registry",
   "type": "module",
