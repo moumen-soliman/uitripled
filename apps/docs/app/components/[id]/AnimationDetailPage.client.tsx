@@ -859,8 +859,13 @@ export default function AnimationDetailPageClient({
                 {/* Usage & Source Section */}
                 <div className="space-y-12">
                   <div className="space-y-3">
-                    <h2 className="text-lg font-semibold">Usage</h2>
+                    <h2 className="text-lg font-semibold">
+                      {relatedComponents && relatedComponents.length > 0
+                        ? "Usage"
+                        : "Manual"}
+                    </h2>
                     <CodeBlock
+                      expandable={!relatedComponents || relatedComponents.length === 0}
                       code={(() => {
                         if (
                           component.category === "native" &&
@@ -890,7 +895,7 @@ export default function AnimationDetailPageClient({
                           Source code for {component.name}
                         </span>
                       </div>
-                      <CodeBlock code={displayCode} />
+                      <CodeBlock code={displayCode} expandable={true} />
                     </div>
                   )}
                 </div>
