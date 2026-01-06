@@ -771,7 +771,6 @@ export default function AnimationDetailPageClient({
                     </div>
 
                     <div className="relative flex min-h-[350px] items-center justify-center overflow-hidden rounded-xl border border-border bg-background/50 py-6 md:min-h-[500px]">
-                      <div className="absolute inset-0 z-0 bg-grid-white/[0.02] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]" />
                       {isLoadingComponent ? (
                         <div className="flex flex-col items-center justify-center gap-4 p-8">
                           <p className="text-sm text-muted-foreground">
