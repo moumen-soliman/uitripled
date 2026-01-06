@@ -8,7 +8,7 @@ export function ConditionalFooter() {
 
   // Hide footer on builder and background-builder pages
   const hideFooter =
-    pathname === "/builder" || pathname === "/background-builder";
+    pathname === "/builder" || pathname === "/background-builder" || pathname.includes("/components");
 
   if (hideFooter) {
     return null;

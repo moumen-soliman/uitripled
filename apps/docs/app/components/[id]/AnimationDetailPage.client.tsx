@@ -581,8 +581,9 @@ export default function AnimationDetailPageClient({
 
   return (
     <main className="flex h-full flex-1 flex-col overflow-hidden">
-      <ScrollArea className="flex-1">
-        <div className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 md:py-8">
+      <ScrollArea className="flex-1 h-full">
+        <div className="flex flex-1 items-start justify-center gap-10 px-6 py-6 sm:px-10 md:py-10">
+          <div className="w-full flex-1">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -1091,6 +1092,7 @@ export default function AnimationDetailPageClient({
               </TabsContent>
             )}
           </Tabs>
+          </div>
         </div>
       </ScrollArea>
     </main>

@@ -6,12 +6,6 @@ import {
   getComponentById,
 } from "@/lib/components-registry";
 import { Button } from "@uitripled/react-shadcn/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@uitripled/react-shadcn/ui/dialog";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -123,32 +117,25 @@ function ComponentsLayoutContent({ children }: { children: React.ReactNode }) {
   }, [selectedAnimation, previousAnimation, nextAnimation, handleNavigate]);
 
   return (
-    <div className="relative flex h-[calc(100vh-3.5rem)] overflow-hidden px-4">
+    <div className="relative flex h-[calc(100vh)] overflow-hidden">
       {/* Sidebar */}
       <AnimatePresence>
         {sidebarOpen && (
           <motion.aside
             initial={{ width: 0, opacity: 0 }}
-            animate={{ width: 320, opacity: 1 }}
+            animate={{ width: 260, opacity: 1 }}
             exit={{ width: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="hidden md:block shrink-0 border-r border-border overflow-hidden"
+            className="hidden md:block shrink-0 border-r border-border bg-background"
           >
             <div className="flex h-full flex-col">
-              <div className="flex items-center justify-between border-b border-border px-4 py-3">
-                <div>
-                  <p className="text-sm font-semibold">
-                    {selectedAnimation
-                      ? selectedAnimation.name
-                      : "All components"}
-                  </p>
-                </div>
+              <div className="relative">
                 <button
                   type="button"
                   onClick={() => setSidebarOpen(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background shadow-sm transition-colors hover:bg-muted"
+                  className="absolute right-4 top-4 z-10 flex h-6 w-6 items-center justify-center rounded-md border border-border bg-background shadow-sm transition-colors hover:bg-muted md:flex"
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronLeft className="h-3 w-3" />
                   <span className="sr-only">Close sidebar</span>
                 </button>
               </div>
@@ -217,49 +204,72 @@ function ComponentsLayoutContent({ children }: { children: React.ReactNode }) {
       </AnimatePresence>
 
       <div className="flex flex-1 flex-col overflow-hidden">
-        {/* Mobile Header */}
-        <Dialog
-          open={mobileSidebarOpen}
-          onOpenChange={handleMobileSidebarChange}
-        >
-          <div className="flex items-center justify-between border-b border-border bg-background px-4 py-3 md:hidden">
-            <div className="min-w-0">
-              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                Components
-              </p>
-              <p className="truncate text-sm font-semibold">
-                {selectedAnimation ? selectedAnimation.name : "Browse library"}
-              </p>
-            </div>
-            <DialogTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-2">
-                <Menu className="h-4 w-4" />
-                Browse
-              </Button>
-            </DialogTrigger>
-          </div>
-          <DialogContent className="md:hidden inset-x-0 bottom-0 left-0 right-0 top-auto flex h-[calc(100vh-5rem)] max-w-none translate-x-0 translate-y-0 flex-col rounded-t-3xl border border-border bg-background p-0 pb-4 shadow-xl data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom sm:rounded-t-3xl">
-            <DialogTitle className="sr-only">Mobile Navigation</DialogTitle>
-            <div className="flex items-center justify-between border-b border-border px-4 py-3">
-              <div>
-                <p className="text-sm font-semibold">
-                  {selectedAnimation
-                    ? selectedAnimation.name
-                    : "All components"}
-                </p>
-              </div>
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <AnimationsSidebar
-                selectedComponent={selectedAnimation}
-                onSelectComponent={(component) =>
-                  handleMobileSelect(component.id)
-                }
-                target={target}
+        {/* Mobile Sidebar */}
+        <AnimatePresence>
+          {mobileSidebarOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setMobileSidebarOpen(false)}
+                className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] md:hidden"
               />
-            </div>
-          </DialogContent>
-        </Dialog>
+              {/* Sidebar Content */}
+              <motion.aside
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="fixed inset-y-0 left-0 z-50 flex w-[280px] flex-col border-r border-border bg-background shadow-2xl md:hidden"
+              >
+                <div className="flex items-center justify-between border-b border-border px-4 py-4">
+                  <p className="text-sm font-semibold text-foreground">
+                    Browse Components
+                  </p>
+                  <button
+                    onClick={() => setMobileSidebarOpen(false)}
+                    className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background hover:bg-muted"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    <span className="sr-only">Close sidebar</span>
+                  </button>
+                </div>
+                <div className="flex-1 overflow-hidden">
+                  <AnimationsSidebar
+                    selectedComponent={selectedAnimation}
+                    onSelectComponent={(component) =>
+                      handleMobileSelect(component.id)
+                    }
+                    target={target}
+                  />
+                </div>
+              </motion.aside>
+            </>
+          )}
+        </AnimatePresence>
+
+        {/* Mobile Header */}
+        <div className="flex items-center justify-between border-b border-border bg-background px-4 py-3 md:hidden">
+          <div className="min-w-0">
+            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              Components
+            </p>
+            <p className="truncate text-sm font-semibold">
+              {selectedAnimation ? selectedAnimation.name : "Browse library"}
+            </p>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2"
+            onClick={() => setMobileSidebarOpen(true)}
+          >
+            <Menu className="h-4 w-4" />
+            Browse
+          </Button>
+        </div>
 
         <div className="flex-1 overflow-hidden">{children}</div>
       </div>
