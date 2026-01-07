@@ -607,7 +607,7 @@ export default function AnimationDetailPageClient({
                 </span>
               )}
             </div>
-            <div className="mb-2 flex items-start justify-between gap-4">
+            <div className="mb-2 flex flex-col items-start gap-4 sm:flex-row sm:justify-between">
               <div className="flex-1">
                 <h1 className="mb-2 text-3xl font-semibold sm:text-4xl">
                   {component.name}
@@ -620,19 +620,35 @@ export default function AnimationDetailPageClient({
                 variant="outline"
                 size="sm"
                 onClick={handleCopyMarkdown}
-                className="gap-2"
+                className="gap-2 mb-2 sm:mb-0"
               >
-                {copiedMarkdown ? (
-                  <>
-                    <Check className="h-4 w-4" />
-                    Copied .md
-                  </>
-                ) : (
-                  <>
-                    <FileText className="h-4 w-4" />
-                    Copy .md
-                  </>
-                )}
+                <AnimatePresence mode="wait" initial={false}>
+                  {copiedMarkdown ? (
+                    <motion.span
+                      key="copied"
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, filter: "blur(2px)" }}
+                      animate={{ opacity: 1, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, filter: "blur(2px)" }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      <Check className="h-4 w-4" />
+                      Copied .md
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="copy"
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, filter: "blur(2px)" }}
+                      animate={{ opacity: 1, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, filter: "blur(2px)" }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      <FileText className="h-4 w-4" />
+                      Copy .md
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </Button>
             </div>
             <div className="flex flex-wrap gap-1.5">
@@ -687,7 +703,7 @@ export default function AnimationDetailPageClient({
                 <div className="group relative">
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-wrap items-center justify-between gap-4">
-                      <div className="flex flex-wrap items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
                         <div className="flex items-center overflow-hidden rounded-md border border-border bg-muted/50 transition-all hover:ring-1 hover:ring-border">
                           <Select
                             value={installMethod}
@@ -790,7 +806,7 @@ export default function AnimationDetailPageClient({
                       </div>
                     </div>
 
-                    <div className="relative flex min-h-[350px] items-center justify-center overflow-hidden rounded-xl border border-border bg-background/50 py-6 md:min-h-[500px]">
+                    <div className="relative flex min-h-[350px] items-center justify-center rounded-xl border border-border bg-background/50 py-6 md:min-h-[500px]">
                       {isLoadingComponent ? (
                         <div className="flex flex-col items-center justify-center gap-4 p-8">
                           <p className="text-sm text-muted-foreground">

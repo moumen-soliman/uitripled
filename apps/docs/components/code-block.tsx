@@ -73,9 +73,10 @@ export function ScaleHoverButton() {
               {copied ? (
                 <motion.div
                   key="check"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
+                  initial={{ opacity: 0, filter: "blur(2px)" }}
+                  animate={{ opacity: 1, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, filter: "blur(2px)" }}
+                  transition={{ duration: 0.1 }}
                   className="flex items-center gap-1.5"
                 >
                   <Check className="h-3 w-3" />
@@ -84,10 +85,11 @@ export function ScaleHoverButton() {
               ) : (
                 <motion.div
                   key="copy"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
-                  className="flex items-center gap-1.5"
+                  initial={{ opacity: 0, filter: "blur(2px)" }}
+                  animate={{ opacity: 1, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, filter: "blur(2px)" }}
+                  transition={{ duration: 0.1 }}
+                  className="flex items-center cursor-pointer gap-1.5"
                 >
                   <Copy className="h-3 w-3" />
                   Copy
