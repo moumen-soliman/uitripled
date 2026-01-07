@@ -700,7 +700,7 @@ export default function AnimationDetailPageClient({
             <TabsContent value="view" className="space-y-6">
               <div className="space-y-12">
                 {/* Preview Section */}
-                <div className="group relative">
+                <div className="relative">
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-wrap items-center justify-between gap-4">
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
@@ -709,7 +709,7 @@ export default function AnimationDetailPageClient({
                             value={installMethod}
                             onValueChange={(v: "uitripled" | "shadcn") => setInstallMethod(v)}
                           >
-                            <SelectTrigger className="h-7 w-fit border-none bg-transparent px-2 text-[10px] font-medium transition-colors hover:bg-muted focus:ring-0 focus:ring-offset-0">
+                            <SelectTrigger className="h-8 w-fit border-none bg-transparent px-2 text-[10px] font-medium transition-colors hover:bg-muted focus:ring-0 focus:ring-offset-0">
                                <SelectValue />
                             </SelectTrigger>
                             <SelectContent align="start" className="min-w-[100px]">
@@ -727,7 +727,7 @@ export default function AnimationDetailPageClient({
                                 "npx"
                               )
                             }
-                            className="flex items-center gap-1 rounded-md px-2.5 py-1 font-mono text-[10px] transition-colors"
+                            className="flex h-8 items-center gap-1 rounded-md px-2.5 py-1 font-mono text-[10px] transition-colors"
                             title="Copy install command"
                           >
                             <span className="text-muted-foreground/70">
@@ -763,7 +763,7 @@ export default function AnimationDetailPageClient({
                             </div>
                           </button>
                         </div>
-                        <OpenInV0Button name={installId} className="h-7 rounded-md px-3 text-[10px]" />
+                        <OpenInV0Button name={installId} className="h-8 rounded-md px-3 text-[10px]" />
                       </div>
 
                       <div className="flex items-center gap-2">

@@ -88,16 +88,16 @@ const SocialLoginButton = ({
   };
 
   return (
-    <motion.div {...getAnimationProps()} className="relative group block w-fit">
+    <motion.div {...getAnimationProps()} className="relative group/social inline-block">
       {/* Glow Effect */}
       {animation === "glow" && (
-        <div className="absolute inset-0 rounded-md bg-current opacity-0 blur-lg group-hover:opacity-40 transition-opacity duration-500 text-inherit" />
+        <div className="absolute inset-0 rounded-md bg-current opacity-0 blur-lg group-hover/social:opacity-40 transition-opacity duration-500 text-inherit" />
       )}
 
       <Button className={cn(baseStyles, "overflow-hidden")} {...props}>
         {/* Shine Effect */}
         {animation === "shine" && (
-          <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-10 ease-in-out" />
+          <div className="absolute inset-0 -translate-x-full group-hover/social:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-10 ease-in-out" />
         )}
 
         <div className="flex items-center justify-center gap-3 w-full relative z-10">
@@ -105,7 +105,7 @@ const SocialLoginButton = ({
             className={cn(
               "flex-shrink-0",
               animation === "slide" &&
-                "transition-transform duration-300 group-hover:-translate-x-1"
+                "transition-transform duration-300 group-hover/social:-translate-x-1"
             )}
           >
             <Icon className="w-5 h-5" />
@@ -113,7 +113,7 @@ const SocialLoginButton = ({
           <span
             className={cn(
               animation === "slide" &&
-                "transition-transform duration-300 group-hover:translate-x-1"
+                "transition-transform duration-300 group-hover/social:translate-x-1"
             )}
           >
             {children || config.label}

@@ -9,7 +9,7 @@ export function OpenInV0Button({
     <Button
       aria-label="Open in v0"
       className={cn(
-        "flex items-center gap-2 rounded-md border border-border bg-muted/50 px-2.5 py-1 text-[10px] font-medium text-foreground transition-all hover:bg-muted hover:ring-1 hover:ring-border dark:bg-muted/50 dark:text-foreground dark:hover:bg-muted",
+        "flex h-8 items-center gap-2 rounded-md border border-border bg-muted/50 px-2.5 text-[10px] font-medium text-foreground transition-all hover:bg-muted hover:ring-1 hover:ring-border dark:bg-muted/50 dark:text-foreground dark:hover:bg-muted",
         className
       )}
       variant="ghost"
