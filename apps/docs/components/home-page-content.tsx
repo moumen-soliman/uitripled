@@ -51,6 +51,11 @@ const SPONSORS = [
     url: "https://shadcnblocks.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
   },
   {
+    username: "lucide-animated",
+    url: "https://lucide-animated.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "/logos/sponsors/lucide-animated.svg",
+  },
+  {
     username: "shadcraft",
     url: "https://shadcraft.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
   },

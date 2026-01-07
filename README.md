@@ -76,6 +76,13 @@
       <strong><a href="https://shadcnblocks.com">Shadcnblocks.com</a></strong>
     </td>
     <td align="center">
+      <a href="https://lucide-animated.com">
+        <img width="70" height="70" alt="Lucide Animated" src="apps/docs/public/logos/sponsors/lucide-animated.svg" />
+      </a>
+      <br />
+      <strong><a href="https://lucide-animated.com">lucide-animated</a></strong>
+    </td>
+    <td align="center">
       <a href="https://reactbits.dev">
         <img width="70" height="70" alt="ReactBits" src="https://github.com/DavidHDev/react-bits/blob/main/public/android-chrome-192x192.png" style="border-radius: 100%;" />
       </a>
