@@ -687,7 +687,7 @@ export default function AnimationDetailPageClient({
                 <div className="group relative">
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-wrap items-center justify-between gap-4">
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <div className="flex items-center overflow-hidden rounded-md border border-border bg-muted/50 transition-all hover:ring-1 hover:ring-border">
                           <Select
                             value={installMethod}
