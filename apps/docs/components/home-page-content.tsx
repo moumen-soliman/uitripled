@@ -141,7 +141,7 @@ export default function HomePageContent() {
             <span className="text-xs font-medium text-muted-foreground/80">
               Sponsored by
             </span>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               {SPONSORS.map((sponsor, index) => (
                 <motion.div
                   key={sponsor.username}
