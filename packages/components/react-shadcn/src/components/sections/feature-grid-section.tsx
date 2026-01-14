@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Code, Globe, Lock, Shield, Sparkles, Zap } from "lucide-react";
 import { useRef } from "react";
 
@@ -15,118 +15,83 @@ const features = [
   {
     icon: Code,
     title: "Developer Friendly",
-    description: "Built with TypeScript and modern React patterns",
+    description: "Built with TypeScript and modern React patterns for a superior developer experience.",
   },
   {
     icon: Zap,
     title: "Lightning Fast",
-    description: "Optimized animations that never lag",
+    description: "Optimized animations and code splitting that ensures your app never lags.",
   },
   {
     icon: Shield,
     title: "Production Ready",
-    description: "Tested and ready for your next project",
+    description: "Fully tested components that are ready for your next big project launch.",
   },
   {
     icon: Globe,
     title: "Responsive",
-    description: "Works perfectly on all devices",
+    description: "Layouts that adapt perfectly to any screen size, from mobile to desktop.",
   },
   {
     icon: Lock,
-    title: "Secure",
-    description: "Built with security best practices",
+    title: "Secure By Default",
+    description: "Implementation following best security practices to keep your data safe.",
   },
   {
     icon: Sparkles,
-    title: "Modern",
-    description: "Using the latest web technologies",
+    title: "Modern Design",
+    description: "Crafted with the latest web technologies and aesthetic trends in mind.",
   },
 ];
 
 export function FeatureGridSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div ref={ref} className="w-full px-4 py-16">
+    <section
+      ref={ref}
+      className="relative w-full overflow-hidden bg-background px-4 py-12 sm:py-16 md:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 sm:mb-16 md:mb-20 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+          <h2 className="mb-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Why Choose Us
           </h2>
-          <p className="text-sm text-[var(--foreground)]/70 sm:text-base md:text-lg">
-            Everything you need to build amazing applications
+          <p className="mx-auto max-w-2xl px-4 text-base text-foreground/70 sm:text-lg">
+            Everything you need to build amazing applications, faster and better.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <motion.div key={feature.title} variants={itemVariants}>
-                <Card className="h-full  bg-[var(--card-bg)] transition-all hover:shadow-lg">
-                  <CardHeader>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8, rotate: -60 }}
-                      animate={
-                        isInView
-                          ? { opacity: 1, scale: 1, rotate: 0 }
-                          : { opacity: 0, scale: 0.8, rotate: -60 }
-                      }
-                      transition={{
-                        delay: index * 0.1 + 0.3,
-                        type: "spring",
-                        stiffness: 120,
-                        damping: 18,
-                        mass: 0.6,
-                      }}
-                      className="mb-4 inline-flex"
-                    >
-                      <Icon
-                        className="h-6 w-6 text-[var(--muted-foreground)]"
-                        aria-hidden="true"
-                      />
-                    </motion.div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex"
+              >
+                <Card className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border/40 bg-background/60 backdrop-blur transition-all duration-300 hover:border-border/60 hover:shadow-lg hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  <CardHeader className="relative pb-4 z-10">
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/20 text-primary transition-colors">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <CardTitle className="text-xl font-semibold tracking-tight text-foreground">
+                      {feature.title}
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
+                  <CardContent className="relative z-10">
+                    <CardDescription className="text-base text-foreground/70 transition-colors">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -134,8 +99,8 @@ export function FeatureGridSection() {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
