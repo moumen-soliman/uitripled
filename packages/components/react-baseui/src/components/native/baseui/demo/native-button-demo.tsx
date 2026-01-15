@@ -3,12 +3,12 @@
 import { NativeButton } from "../native-button-baseui";
 
 export function NativeButtonDefault() {
-  return <NativeButton className="uppercase">Get Started</NativeButton>;
+  return <NativeButton>Click</NativeButton>;
 }
 
 export function NativeButtonGlow() {
   return (
-    <NativeButton glow className="uppercase">
+    <NativeButton glow>
       Glow Effect
     </NativeButton>
   );
@@ -16,7 +16,7 @@ export function NativeButtonGlow() {
 
 export function NativeButtonOutline() {
   return (
-    <NativeButton variant="outline" className="uppercase">
+    <NativeButton variant="outline">
       Learn More
     </NativeButton>
   );
@@ -24,7 +24,7 @@ export function NativeButtonOutline() {
 
 export function NativeButtonLoading() {
   return (
-    <NativeButton loading className="uppercase">
+    <NativeButton loading>
       Processing...
     </NativeButton>
   );
@@ -32,7 +32,7 @@ export function NativeButtonLoading() {
 
 export function NativeButtonDisabled() {
   return (
-    <NativeButton disabled className="uppercase">
+    <NativeButton disabled>
       Disabled
     </NativeButton>
   );

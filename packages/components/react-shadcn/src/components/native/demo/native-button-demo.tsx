@@ -3,7 +3,7 @@
 import { NativeButton } from "../native-button-shadcnui";
 
 export function NativeButtonDefault() {
-  return <NativeButton>Get Started</NativeButton>;
+  return <NativeButton>Click</NativeButton>;
 }
 
 export function NativeButtonGlow() {

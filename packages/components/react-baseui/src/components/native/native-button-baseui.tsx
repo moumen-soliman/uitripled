@@ -5,7 +5,7 @@ import {
   Button,
   type ButtonProps as BaseButtonProps,
 } from "@base-ui/react/button";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import * as React from "react";
 import { ReactNode } from "react";
@@ -40,15 +40,21 @@ const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
     },
     ref
   ) => {
+    const shouldReduceMotion = useReducedMotion();
+
     const buttonContent = (
       <>
         {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
         <motion.span
           className={cn("flex justify-center items-center gap-2 w-full")}
-          animate={loading ? { opacity: [1, 0.5, 1] } : { opacity: 1 }}
-          transition={
+          animate={
             loading
-              ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+              ? { opacity: shouldReduceMotion ? 1 : [1, 0.5, 1] }
+              : { opacity: 1 }
+          }
+          transition={
+            loading && !shouldReduceMotion
+              ? { duration: 1, repeat: Infinity, ease: "easeInOut" }
               : { duration: 0.2 }
           }
         >
@@ -82,48 +88,67 @@ const NativeButton = React.forwardRef<HTMLButtonElement, NativeButtonProps>(
       "cursor-pointer h-12 rounded-md text-sm relative overflow-hidden",
       !glow && "shadow-md hover:shadow-lg",
       glow &&
-        "shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300",
+        "shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-[box-shadow,background-color,color,opacity] duration-200",
       variant === "outline" && "text-foreground/80 hover:bg-foreground/5",
       (disabled || loading) && "opacity-50 cursor-not-allowed grayscale",
       className
     );
 
-    // We remove the motion.div wrapper to prevent nested button issues when used in asChild.
-    // Ideally we would use motion.button but we want to keep using Base UI Button.
-    // For now, we sacrifice the scale tap/hover effect on the wrapper for correctness,
-    // or we could use a different approach if critical.
-    // The glow effect moves inside.
+    // We restore the motion.div wrapper to ensure parity with Shadcn version.
+    // This allows for scale effects on hover and tap.
 
     if (props.href) {
       return (
-        <a
-          ref={ref as React.Ref<HTMLAnchorElement>}
+        <motion.div
+          whileHover={
+            !disabled && !loading && !shouldReduceMotion ? { scale: 1.02 } : {}
+          }
+          whileTap={
+            !disabled && !loading && !shouldReduceMotion ? { scale: 0.98 } : {}
+          }
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          className="relative block w-fit"
+        >
+          <a
+            ref={ref as React.Ref<HTMLAnchorElement>}
+            className={glassmorphismClassName}
+            aria-disabled={disabled || loading}
+            {...(props as any)}
+          >
+            {glow && !disabled && !loading && (
+              <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            )}
+            {buttonContent}
+          </a>
+        </motion.div>
+      );
+    }
+
+    return (
+      <motion.div
+        whileHover={
+          !disabled && !loading && !shouldReduceMotion ? { scale: 1.02 } : {}
+        }
+        whileTap={
+          !disabled && !loading && !shouldReduceMotion ? { scale: 0.98 } : {}
+        }
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        className="relative block w-fit"
+      >
+        <Button
+          ref={ref}
+          nativeButton
           className={glassmorphismClassName}
-          aria-disabled={disabled || loading}
-          {...(props as any)}
+          disabled={disabled || loading}
+          aria-busy={loading}
+          {...props}
         >
           {glow && !disabled && !loading && (
             <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
           )}
           {buttonContent}
-        </a>
-      );
-    }
-
-    return (
-      <Button
-        ref={ref}
-        nativeButton
-        className={glassmorphismClassName}
-        disabled={disabled || loading}
-        aria-busy={loading}
-        {...props}
-      >
-        {glow && !disabled && !loading && (
-          <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-        )}
-        {buttonContent}
-      </Button>
+        </Button>
+      </motion.div>
     );
   }
 );
