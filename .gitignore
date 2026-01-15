@@ -12,6 +12,7 @@ node_modules/
 .npmrc
 .turbo
 .next
+.turbo-reports
 
 # build outputs
 dist/
