@@ -141,7 +141,7 @@ export function createMetadata({
   const imageUrl =
     image ||
     (path.startsWith("/components/")
-      ? `${siteConfig.url}/og?component=${path.split("/").pop()}`
+      ? `${siteConfig.url}/og?component=${path.split("/").pop()}&v=2`
       : DEFAULT_OG_IMAGE);
 
   return {
