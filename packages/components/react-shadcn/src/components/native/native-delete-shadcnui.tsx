@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import { Trash2, X } from "lucide-react";
+import { Check, Trash2, X } from "lucide-react";
 import { useState } from "react";
 
 export interface NativeDeleteProps {
@@ -111,7 +111,7 @@ export function NativeDelete({
             size="default"
             className={cn(
               sizeVariants[size],
-              "shadow-md hover:shadow-lg transition-shadow text-white",
+              "cursor-pointer transition-shadow text-white",
               disabled && "opacity-50 cursor-not-allowed"
             )}
             onClick={isExpanded ? handleConfirm : handleDeleteClick}
@@ -119,16 +119,20 @@ export function NativeDelete({
             aria-label={isExpanded ? confirmText : buttonText}
           >
             <AnimatePresence mode="wait" initial={false}>
-              {showIcon && !isExpanded && (
+              {showIcon && (
                 <motion.span
-                  key="trash-icon"
+                  key={isExpanded ? "check-icon" : "trash-icon"}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.15 }}
                   className="mr-2 flex items-center"
                 >
-                  <Trash2 className={iconSizeVariants[size]} />
+                  {isExpanded ? (
+                    <Check className={iconSizeVariants[size]} />
+                  ) : (
+                    <Trash2 className={iconSizeVariants[size]} />
+                  )}
                 </motion.span>
               )}
             </AnimatePresence>
@@ -163,7 +167,7 @@ export function NativeDelete({
                 size="icon"
                 className={cn(
                   cancelButtonSizes[size],
-                  "shadow-md hover:shadow-lg transition-shadow"
+                  "cursor-pointer transition-shadow"
                 )}
                 onClick={handleCancel}
                 aria-label="Cancel delete"
