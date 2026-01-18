@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { Trash2, X } from "lucide-react";
 import { useState } from "react";
 
@@ -57,6 +57,19 @@ const iconSizeVariants = {
   lg: "h-5 w-5",
 };
 
+const cancelButtonSizes = {
+  sm: "h-8 w-8",
+  md: "h-10 w-10",
+  lg: "h-12 w-12",
+};
+
+// Smooth spring preset for natural feel
+const smoothSpring = {
+  type: "spring" as const,
+  bounce: 0,
+  duration: 0.35,
+};
+
 export function NativeDelete({
   onConfirm,
   onDelete,
@@ -86,35 +99,13 @@ export function NativeDelete({
   };
 
   return (
-    <div className={cn("relative inline-flex items-center gap-2", className)}>
+    <MotionConfig transition={smoothSpring}>
       <motion.div
-        animate={
-          isExpanded
-            ? {
-                filter: ["blur(0px)", "blur(3px)", "blur(0px)"],
-                x: [0, -2, 2, -2, 2, 0],
-              }
-            : {
-                filter: "blur(0px)",
-                x: 0,
-              }
-        }
-        transition={
-          isExpanded
-            ? {
-                filter: { duration: 0.3 },
-                x: { duration: 0.4, times: [0, 0.2, 0.4, 0.6, 0.8, 1] },
-              }
-            : {
-                duration: 0.2,
-              }
-        }
+        layout
+        className={cn("relative inline-flex items-center gap-2", className)}
       >
-        <motion.div
-          whileHover={!disabled ? { scale: 1.02 } : {}}
-          whileTap={!disabled ? { scale: 0.98 } : {}}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        >
+        {/* Main Delete/Confirm button */}
+        <motion.div layout whileHover={!disabled ? { scale: 1.02 } : undefined} whileTap={!disabled ? { scale: 0.98 } : undefined}>
           <Button
             variant="destructive"
             size="default"
@@ -125,52 +116,64 @@ export function NativeDelete({
             )}
             onClick={isExpanded ? handleConfirm : handleDeleteClick}
             disabled={disabled}
+            aria-label={isExpanded ? confirmText : buttonText}
           >
-            {showIcon && !isExpanded && (
-              <Trash2 className={cn(iconSizeVariants[size], "mr-2")} />
-            )}
-            {isExpanded ? confirmText : buttonText}
+            <AnimatePresence mode="wait" initial={false}>
+              {showIcon && !isExpanded && (
+                <motion.span
+                  key="trash-icon"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.15 }}
+                  className="mr-2 flex items-center"
+                >
+                  <Trash2 className={iconSizeVariants[size]} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={isExpanded ? "confirm" : "delete"}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.15 }}
+              >
+                {isExpanded ? confirmText : buttonText}
+              </motion.span>
+            </AnimatePresence>
           </Button>
         </motion.div>
-      </motion.div>
 
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: -10 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.8, x: -10 }}
-            transition={{
-              delay: 0.3,
-              type: "spring",
-              stiffness: 300,
-              damping: 25,
-            }}
-          >
+        {/* Cancel button */}
+        <AnimatePresence mode="popLayout">
+          {isExpanded && (
             <motion.div
+              key="cancel-button"
+              layout
+              initial={{ opacity: 0, scale: 0.8, x: -8 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.8, x: -8 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <Button
                 variant="outline"
                 size="icon"
                 className={cn(
-                  "shadow-md hover:shadow-lg transition-shadow",
-                  size === "sm"
-                    ? "h-8 w-8"
-                    : size === "md"
-                      ? "h-10 w-10"
-                      : "h-12 w-12"
+                  cancelButtonSizes[size],
+                  "shadow-md hover:shadow-lg transition-shadow"
                 )}
                 onClick={handleCancel}
+                aria-label="Cancel delete"
               >
                 <X className={iconSizeVariants[size]} />
               </Button>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </MotionConfig>
   );
 }
