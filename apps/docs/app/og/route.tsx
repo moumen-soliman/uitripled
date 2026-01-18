@@ -2,13 +2,13 @@ import { componentsRegistry } from "@uitripled/registry";
 import { ImageResponse } from "next/og";
 
 const DEFAULT_OG_IMAGE =
-  "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtAc2cc4nrC37b1yitXR5Fm2HP6TVsYEDNGcjO";
+  "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtrDdNxsib920zRingEy8GoSLBITJVjwbtYFxm";
 
 const LOGO_URL =
-  "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtXWAYjrHwTNEZVzK0s4lnUf7pOv2j3R5PaHAY";
+  "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtX33qaxnHwTNEZVzK0s4lnUf7pOv2j3R5PaHA";
 
 const DEFAULT_BACKGROUND_IMAGE =
-  "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtXtenaQHwTNEZVzK0s4lnUf7pOv2j3R5PaHAY";
+  "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtShIYIwggGZ3rC8N4kMKvLszb2IcpJ71muYAl";
 
 function NotFoundOGImage(componentId: string, faviconUrl: string) {
   return (
@@ -44,7 +44,7 @@ function NotFoundOGImage(componentId: string, faviconUrl: string) {
           style={{
             fontSize: "72px",
             fontWeight: "bold",
-            color: "#FFFFFF",
+            color: "#000000",
             margin: "0 0 24px 0",
             lineHeight: 1.1,
             maxWidth: "800px",
@@ -57,7 +57,7 @@ function NotFoundOGImage(componentId: string, faviconUrl: string) {
         <p
           style={{
             fontSize: "32px",
-            color: "#FFFFFF",
+            color: "#000000",
             margin: "0",
             lineHeight: 1.4,
             maxWidth: "600px",
@@ -109,7 +109,7 @@ function ComponentOGImage(
           style={{
             fontSize: "72px",
             fontWeight: "bold",
-            color: "#FFFFFF",
+            color: "#000000",
             margin: "0 0 24px 0",
             lineHeight: 1.1,
             maxWidth: "800px",
@@ -122,7 +122,7 @@ function ComponentOGImage(
         <p
           style={{
             fontSize: "32px",
-            color: "#FFFFFF",
+            color: "#000000",
             margin: "0",
             lineHeight: 1.4,
             maxWidth: "600px",
