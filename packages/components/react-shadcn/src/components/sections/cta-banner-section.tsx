@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 const motionPresets = {
   smooth: { type: "spring" as const, bounce: 0.3, duration: 0.4 },
   bounce: { type: "spring" as const, bounce: 0.5, duration: 0.35 },
-  fade: { type: "tween" as const, ease: [0.26, 0.08, 0.25, 1], duration: 0.2 },
+  fade: { type: "tween" as const, ease: [0.26, 0.08, 0.25, 1] as const, duration: 0.2 },
 };
 
 
