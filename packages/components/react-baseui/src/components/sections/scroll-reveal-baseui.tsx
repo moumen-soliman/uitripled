@@ -1,13 +1,21 @@
 "use client";
 
 import {
+  AnimatePresence,
   motion,
+  MotionConfig,
   useInView,
   useReducedMotion,
   type Variants,
 } from "framer-motion";
 import { Rocket, Shield, Zap } from "lucide-react";
 import { useId, useMemo, useRef } from "react";
+
+const motionPresets = {
+  smooth: { type: "spring" as const, bounce: 0.3, duration: 0.4 },
+  bounce: { type: "spring" as const, bounce: 0.5, duration: 0.35 },
+  fade: { type: "tween" as const, ease: [0.26, 0.08, 0.25, 1] as const, duration: 0.2 },
+};
 
 const features = [
   {
@@ -30,7 +38,15 @@ const features = [
   },
 ];
 
-export function ScrollRevealBaseui() {
+interface ScrollRevealBaseuiProps {
+  motionPreset?: keyof typeof motionPresets;
+  className?: string;
+}
+
+export function ScrollRevealBaseui({
+  motionPreset = "smooth",
+  className = "",
+}: ScrollRevealBaseuiProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "-15% 0px" });
   const shouldReduceMotion = useReducedMotion();
@@ -38,191 +54,168 @@ export function ScrollRevealBaseui() {
   const headingId = useId();
   const descriptionId = useMemo(() => `${headingId}-description`, [headingId]);
 
+  const reducedMotionVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   const containerVariants: Variants = useMemo(
-    (): Variants => ({
-      hidden: {
-        opacity: shouldReduceMotion ? 1 : 0,
-        y: shouldReduceMotion ? 0 : 24,
-      },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: shouldReduceMotion
-          ? { duration: 0 }
-          : {
-              duration: 0.6,
-              ease: "easeOut",
-              staggerChildren: 0.14,
-              delayChildren: 0.12,
+    () =>
+      shouldReduceMotion
+        ? reducedMotionVariants
+        : {
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+              },
             },
-      },
-    }),
+          },
     [shouldReduceMotion]
   );
 
-  const cardVariants: Variants = useMemo(
-    () => ({
-      hidden: {
-        opacity: shouldReduceMotion ? 1 : 0,
-        y: shouldReduceMotion ? 0 : 28,
-        filter: shouldReduceMotion ? "none" : "blur(6px)",
-      },
-      visible: {
-        opacity: 1,
-        y: 0,
-        filter: "none",
-        transition: shouldReduceMotion
-          ? { duration: 0 }
-          : { type: "spring", stiffness: 160, damping: 22, mass: 0.8 },
-      },
-    }),
+  const itemVariants: Variants = useMemo(
+    () =>
+      shouldReduceMotion
+        ? reducedMotionVariants
+        : {
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.4 },
+            },
+          },
     [shouldReduceMotion]
   );
+
+  const cardVariants: Variants = {
+    idle: { y: 0 },
+    hover: { y: -4 },
+  };
 
   const iconVariants: Variants = useMemo(
-    () => ({
-      hidden: {
-        scale: shouldReduceMotion ? 1 : 0.6,
-        opacity: shouldReduceMotion ? 1 : 0,
-      },
-      visible: {
-        scale: 1,
-        opacity: 1,
-        transition: shouldReduceMotion
-          ? { duration: 0 }
-          : { duration: 0.45, ease: [0.18, 0.89, 0.32, 1.28] },
-      },
-    }),
+    () =>
+      shouldReduceMotion
+        ? reducedMotionVariants
+        : {
+            hidden: { scale: 0.6, opacity: 0 },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: { duration: 0.4, ease: [0.18, 0.89, 0.32, 1.28] },
+            },
+          },
     [shouldReduceMotion]
   );
 
   return (
-    <section
-      ref={ref}
-      aria-labelledby={headingId}
-      aria-describedby={descriptionId}
-      className="relative w-full px-4 py-20 sm:px-6 lg:px-8"
+    <MotionConfig
+      transition={shouldReduceMotion ? { duration: 0 } : motionPresets[motionPreset]}
+      reducedMotion="user"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      <section
+        ref={ref}
+        aria-labelledby={headingId}
+        aria-describedby={descriptionId}
+        className={`relative w-full overflow-hidden px-4 py-12 sm:px-6 md:px-8 md:py-16 lg:py-20 ${className}`}
       >
         <motion.div
-          className="absolute left-3 top-12 h-48 w-48 rounded-full bg-primary/25 blur-[120px]"
-          {...(shouldReduceMotion
-            ? {}
-            : {
-                animate: {
-                  opacity: [0.25, 0.6, 0.25],
-                  scale: [0.9, 1.1, 0.95],
-                },
-                transition: {
-                  duration: 9,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              })}
-        />
-        <motion.div
-          className="absolute bottom-0 right-8 h-64 w-64 rounded-full bg-emerald-400/15 blur-[150px]"
-          {...(shouldReduceMotion
-            ? {}
-            : {
-                animate: { opacity: [0.2, 0.45, 0.2], scale: [0.95, 1.05, 1] },
-                transition: { duration: 11, repeat: Infinity, ease: "linear" },
-              })}
-        />
-      </div>
-
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="mx-auto flex w-full max-w-5xl flex-col items-center text-center"
-      >
-        <motion.div className="space-y-4">
-          <motion.span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.32em] text-muted-foreground">
-            Core System
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          </motion.span>
-          <motion.h2
-            id={headingId}
-            className="text-3xl font-semibold text-foreground sm:text-4xl md:text-5xl"
-          >
-            Features that elevate every launch
-          </motion.h2>
-          <motion.p
-            id={descriptionId}
-            className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base md:text-lg"
-          >
-            A glassmorphic toolkit engineered for motion-rich dashboards,
-            glowing handoffs, and resilient product experiences at scale.
-          </motion.p>
-        </motion.div>
-
-        <motion.ul
           variants={containerVariants}
-          className="mt-14 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          role="list"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="mx-auto flex w-full max-w-5xl flex-col items-center text-center"
         >
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.li
-                key={feature.title}
-                variants={cardVariants}
-                transition={
-                  shouldReduceMotion
-                    ? { duration: 0 }
-                    : {
-                        delay: index * 0.08,
-                        type: "spring",
-                        stiffness: 160,
-                        damping: 20,
-                      }
-                }
-                className="relative overflow-hidden rounded-3xl border border-border/60 bg-card/80 p-6 text-left shadow-[0_25px_70px_-20px_rgba(15,23,42,0.55)] backdrop-blur-xl"
-              >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0"
-                >
-                  <motion.div
-                    className="absolute -right-8 top-4 h-32 w-32 rounded-full bg-primary/20 blur-[120px]"
-                    {...(shouldReduceMotion
-                      ? {}
-                      : {
-                          animate: {
-                            opacity: [0.2, 0.5, 0.2],
-                            rotate: [0, 12, 0],
-                          },
-                          transition: {
-                            duration: 8 + index,
-                            repeat: Infinity,
-                            ease: "linear",
-                          },
-                        })}
-                  />
-                </div>
-                <motion.div
-                  variants={iconVariants}
-                  className="relative mb-5 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-3 text-primary"
-                >
-                  <Icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden />
-                </motion.div>
-                <div className="relative space-y-3">
-                  <h3 className="text-lg font-semibold text-foreground sm:text-xl">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
-      </motion.div>
-    </section>
+          {/* Header section */}
+          <motion.div variants={itemVariants} className="space-y-3 md:space-y-4">
+            <motion.span
+              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/55 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-foreground/70 backdrop-blur sm:px-4 sm:py-1.5 sm:text-xs sm:tracking-[0.32em]"
+              whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
+            >
+              Core System
+              <motion.span
+                className="h-1.5 w-1.5 rounded-full bg-emerald-500 sm:h-2 sm:w-2"
+                aria-hidden
+                {...(shouldReduceMotion
+                  ? {}
+                  : {
+                      animate: { opacity: [1, 0.5, 1] },
+                      transition: { duration: 2, repeat: Infinity },
+                    })}
+              />
+            </motion.span>
+            <motion.h2
+              id={headingId}
+              className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl"
+            >
+              Features that elevate every launch
+            </motion.h2>
+            <motion.p
+              id={descriptionId}
+              className="mx-auto max-w-2xl text-sm text-foreground/70 sm:text-base md:text-lg"
+            >
+              A glassmorphic toolkit engineered for motion-rich dashboards,
+              glowing handoffs, and resilient product experiences at scale.
+            </motion.p>
+          </motion.div>
+
+          {/* Feature cards grid */}
+          <motion.ul
+            variants={itemVariants}
+            className="mt-8 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 md:mt-12 md:gap-4 lg:mt-14 lg:grid-cols-3 lg:gap-6"
+            role="list"
+            aria-label="Features"
+          >
+            <AnimatePresence mode="popLayout">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <motion.li
+                    key={feature.title}
+                    layout={!shouldReduceMotion}
+                    initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: shouldReduceMotion ? 0 : 0.3 + index * 0.1,
+                      duration: 0.4,
+                    }}
+                    whileHover={shouldReduceMotion ? {} : "hover"}
+                    variants={cardVariants}
+                    className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/60 p-4 text-left backdrop-blur transition-all hover:border-border/60 hover:shadow-lg md:rounded-2xl md:p-6"
+                  >
+                    {/* Hover gradient overlay */}
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                    {/* Icon container */}
+                    <motion.div
+                      variants={iconVariants}
+                      className="relative mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 md:mb-5 md:h-12 md:w-12"
+                    >
+                      <Icon
+                        className="h-4 w-4 text-primary md:h-5 md:w-5"
+                        aria-hidden
+                      />
+                    </motion.div>
+
+                    {/* Content */}
+                    <div className="relative space-y-1.5 md:space-y-2">
+                      <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-foreground sm:text-base sm:tracking-[0.15em] md:text-lg md:normal-case md:tracking-tight">
+                        {feature.title}
+                      </h3>
+                      <p className="text-xs leading-relaxed text-foreground/60 sm:text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.li>
+                );
+              })}
+            </AnimatePresence>
+          </motion.ul>
+        </motion.div>
+      </section>
+    </MotionConfig>
   );
 }
+

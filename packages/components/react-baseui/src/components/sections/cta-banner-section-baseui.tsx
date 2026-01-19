@@ -2,209 +2,274 @@
 
 import { Button } from "@base-ui/react/button";
 import {
+  AnimatePresence,
   motion,
+  MotionConfig,
   useInView,
   useReducedMotion,
   type Variants,
 } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { useId, useMemo, useRef } from "react";
+import { ArrowRight, ChevronRight, Sparkles, Zap } from "lucide-react";
+import { useId, useMemo, useRef, useState } from "react";
+
+const motionPresets = {
+  smooth: { type: "spring" as const, bounce: 0.3, duration: 0.4 },
+  bounce: { type: "spring" as const, bounce: 0.5, duration: 0.35 },
+  fade: { type: "tween" as const, ease: [0.26, 0.08, 0.25, 1] as const, duration: 0.2 },
+};
 
 const highlights = [
-  { id: "highlight-free", label: "Free Forever", tone: "bg-emerald-400" },
-  { id: "highlight-credit", label: "No Credit Card", tone: "bg-sky-400" },
-  { id: "highlight-oss", label: "Open Source", tone: "bg-slate-400" },
+  { id: "highlight-free", label: "Free Forever", icon: Zap },
+  { id: "highlight-credit", label: "No Credit Card", icon: Sparkles },
+  { id: "highlight-oss", label: "Open Source", icon: ChevronRight },
 ];
 
-export function CTABannerSectionBaseui() {
+interface CTABannerSectionBaseuiProps {
+  motionPreset?: keyof typeof motionPresets;
+  className?: string;
+}
+
+export function CTABannerSectionBaseui({
+  motionPreset = "smooth",
+  className = "",
+}: CTABannerSectionBaseuiProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
   const shouldReduceMotion = useReducedMotion();
+  const [hoveredButton, setHoveredButton] = useState<"primary" | "secondary" | null>(null);
 
   const titleId = useId();
   const descriptionId = useMemo(() => `${titleId}-description`, [titleId]);
 
+  const reducedMotionVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   const containerVariants: Variants = useMemo(
-    () => ({
-      hidden: {
-        opacity: shouldReduceMotion ? 1 : 0,
-        y: shouldReduceMotion ? 0 : 16,
-      },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: shouldReduceMotion
-          ? { duration: 0 }
-          : {
-              duration: 0.6,
-              ease: "easeOut",
-              staggerChildren: 0.18,
-              delayChildren: 0.12,
+    () =>
+      shouldReduceMotion
+        ? reducedMotionVariants
+        : {
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+              },
             },
-      },
-    }),
+          },
     [shouldReduceMotion]
   );
 
   const itemVariants: Variants = useMemo(
-    () => ({
-      hidden: {
-        opacity: shouldReduceMotion ? 1 : 0,
-        y: shouldReduceMotion ? 0 : 24,
-        filter: shouldReduceMotion ? "none" : "blur(4px)",
-      },
-      visible: {
-        opacity: 1,
-        y: 0,
-        filter: "none",
-        transition: shouldReduceMotion
-          ? { duration: 0 }
-          : { type: "spring", stiffness: 120, damping: 18, mass: 0.9 },
-      },
-    }),
+    () =>
+      shouldReduceMotion
+        ? reducedMotionVariants
+        : {
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.4 },
+            },
+          },
     [shouldReduceMotion]
   );
 
-  const arrowAnimation = shouldReduceMotion
-    ? {}
-    : {
-        animate: { x: [0, 5, 0] },
-        transition: { duration: 1.6, repeat: Infinity, ease: "easeInOut" },
-      };
+  // Button micro-interaction variants
+  const buttonVariants: Variants = {
+    idle: { y: 0 },
+    hover: { y: -4 },
+    tap: { y: 0, scale: 0.98 },
+  };
 
   return (
-    <section
-      ref={ref}
-      aria-labelledby={titleId}
-      aria-describedby={descriptionId}
-      className="w-full px-4 py-16 sm:px-6 lg:px-8"
+    <MotionConfig
+      transition={shouldReduceMotion ? { duration: 0 } : motionPresets[motionPreset]}
+      reducedMotion="user"
     >
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-card/80 text-card-foreground shadow-[0_10px_30px_rgba(2,6,23,0.7)] backdrop-blur-md transition-[transform,box-shadow] duration-500 hover:shadow-[0_25px_80px_rgba(15,23,36,0.45)]">
-            <div aria-hidden className="pointer-events-none absolute inset-0">
-              <motion.div
-                className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/30 blur-3xl"
-                {...(shouldReduceMotion
-                  ? {}
-                  : {
-                      animate: {
-                        opacity: [0.4, 0.75, 0.4],
-                        scale: [0.9, 1.05, 0.9],
-                      },
-                      transition: {
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    })}
-              />
-              <motion.div
-                className="absolute bottom-[-20%] right-[-10%] h-72 w-72 rounded-full bg-[rgba(59,130,246,0.45)] blur-[120px]"
-                {...(shouldReduceMotion
-                  ? {}
-                  : {
-                      animate: { opacity: [0.3, 0.6, 0.3], rotate: [0, 15, 0] },
-                      transition: {
-                        duration: 10,
-                        repeat: Infinity,
-                        ease: "linear",
-                      },
-                    })}
-              />
-            </div>
-            <div className="relative z-10 flex flex-col gap-10 p-8 text-center sm:p-12">
-              <motion.div
-                variants={itemVariants}
-                className="mx-auto inline-flex items-center gap-3 rounded-full border border-border/60 bg-white/5 px-6 py-3 text-sm font-medium text-muted-foreground backdrop-blur-sm"
-              >
-                <span
-                  aria-hidden
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20"
-                >
-                  <Sparkles className="h-5 w-5 text-primary" aria-hidden />
-                </span>
-                Build fluid, glassmorphic product experiences
-              </motion.div>
+      <section
+        ref={ref}
+        aria-labelledby={titleId}
+        aria-describedby={descriptionId}
+        className={`relative w-full overflow-hidden px-4 py-5 sm:px-6 md:px-8 lg:py-5 ${className}`}
+      >
+        <div className="mx-auto max-w-5xl">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="space-y-6 md:space-y-8 lg:space-y-12"
+          >
+            {/* Main CTA Card - Dashboard style */}
+            <motion.div
+              variants={itemVariants}
+              whileHover={shouldReduceMotion ? {} : { y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="group relative overflow-hidden rounded-2xl border border-border/40 bg-background/60 p-6 backdrop-blur transition-all hover:border-border/60 hover:shadow-lg sm:p-8 md:p-10 lg:p-12"
+              role="article"
+            >
+              {/* Hover gradient overlay - dashboard pattern */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-              <motion.div variants={itemVariants} className="space-y-4">
-                <h2
-                  id={titleId}
-                  className="text-3xl font-semibold text-foreground sm:text-4xl md:text-5xl"
-                >
-                  Ready to ship motion-rich UIs in minutes?
-                </h2>
-                <p
-                  id={descriptionId}
-                  className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg"
-                >
-                  Access a curated library of glassmorphic components,
-                  production-grade motion recipes, and accessibility-first
-                  patterns. Start building products that feel alive without
-                  sacrificing performance.
-                </p>
-              </motion.div>
-
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-              >
-                <Button className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-6 text-primary-foreground shadow-lg shadow-primary/30 transition-transform duration-300 hover:translate-y-[-2px] hover:shadow-xl">
-                  Get Started
-                  <motion.span
-                    aria-hidden
-                    className="inline-flex"
-                    {...(arrowAnimation as Variants)}
+              <div className="relative space-y-5 text-center md:space-y-6 lg:space-y-8">
+                {/* Status Badge - Dashboard style with live indicator */}
+                <motion.div variants={itemVariants} className="flex justify-center">
+                  <span
+                    className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/55 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-foreground/70 backdrop-blur sm:px-4 sm:py-1.5 sm:text-xs"
+                    aria-label="Component library status"
                   >
-                    <ArrowRight className="h-4 w-4" />
-                  </motion.span>
-                </Button>
-                <Button className="inline-flex items-center justify-center rounded-full border border-border/60 bg-white/5 px-8 py-6 text-muted-foreground transition-colors hover:bg-white/10">
-                  View Documentation
-                </Button>
-              </motion.div>
-
-              <motion.ul
-                variants={itemVariants}
-                className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
-              >
-                {highlights.map((item, index) => (
-                  <li key={item.id} className="flex items-center gap-3">
                     <motion.span
+                      className="h-1.5 w-1.5 rounded-full bg-emerald-500 sm:h-2 sm:w-2"
                       aria-hidden
-                      className={`inline-flex h-2.5 w-2.5 rounded-full ${item.tone}`}
                       {...(shouldReduceMotion
                         ? {}
                         : {
-                            initial: { scale: 0 },
-                            animate: { scale: 1 },
-                            transition: {
-                              delay: 0.4 + index * 0.12,
-                              type: "spring",
-                              stiffness: 220,
-                            },
+                            animate: { opacity: [1, 0.5, 1] },
+                            transition: { duration: 2, repeat: Infinity },
                           })}
                     />
-                    <span>{item.label}</span>
-                  </li>
-                ))}
-              </motion.ul>
+                    Ready to Ship
+                  </span>
+                </motion.div>
 
-              <motion.div
-                variants={itemVariants}
-                className="mx-auto max-w-xl text-xs text-muted-foreground/80"
-              >
-                Trusted by teams shipping dashboards, finance tools, and modern
-                SaaS experiences.
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+                {/* Heading - Vercel style typography */}
+                <motion.div variants={itemVariants} className="space-y-3 md:space-y-4">
+                  <h2
+                    id={titleId}
+                    className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl"
+                  >
+                    Ready to ship motion-rich UIs in minutes?
+                  </h2>
+                  <p
+                    id={descriptionId}
+                    className="mx-auto max-w-2xl text-sm text-foreground/70 sm:text-base md:text-lg"
+                  >
+                    Access a curated library of glassmorphic components,
+                    production-grade motion recipes, and accessibility-first
+                    patterns. Start building products that feel alive.
+                  </p>
+                </motion.div>
+
+                {/* CTA Buttons - Dashboard toolbar style */}
+                <motion.div
+                  variants={itemVariants}
+                  className="flex flex-col items-center justify-center gap-3 sm:flex-row"
+                  role="toolbar"
+                  aria-label="Call to action"
+                >
+                  <motion.div
+                    variants={buttonVariants}
+                    initial="idle"
+                    whileHover={shouldReduceMotion ? {} : "hover"}
+                    whileTap={shouldReduceMotion ? {} : "tap"}
+                    onHoverStart={() => setHoveredButton("primary")}
+                    onHoverEnd={() => setHoveredButton(null)}
+                    transition={{ duration: 0.2 }}
+                    className="w-full sm:w-auto"
+                  >
+                    <Button className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-5 text-background shadow-lg transition-all hover:shadow-xl sm:w-auto sm:px-8 sm:py-6">
+                      <span className="text-xs font-semibold uppercase tracking-[0.1em] sm:text-sm">
+                        Get Started
+                      </span>
+                      <motion.span
+                        aria-hidden
+                        className="inline-flex"
+                        animate={
+                          shouldReduceMotion
+                            ? {}
+                            : hoveredButton === "primary"
+                              ? { x: 4 }
+                              : { x: 0 }
+                        }
+                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                      >
+                        <ArrowRight className="h-4 w-4" />
+                      </motion.span>
+                    </Button>
+                  </motion.div>
+
+                  <motion.div
+                    variants={buttonVariants}
+                    initial="idle"
+                    whileHover={shouldReduceMotion ? {} : "hover"}
+                    whileTap={shouldReduceMotion ? {} : "tap"}
+                    transition={{ duration: 0.2 }}
+                    className="w-full sm:w-auto"
+                  >
+                    <Button className="inline-flex w-full items-center justify-center rounded-full border border-border/40 bg-background/60 px-6 py-5 text-foreground/70 backdrop-blur transition-all hover:border-border/60 hover:bg-background/70 hover:text-foreground sm:w-auto sm:px-8 sm:py-6">
+                      <span className="text-xs font-semibold uppercase tracking-[0.1em] sm:text-sm">
+                        View Docs
+                      </span>
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Feature highlights - Dashboard metric cards style */}
+            <motion.div
+              variants={itemVariants}
+              className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 md:gap-4"
+              role="list"
+              aria-label="Key features"
+            >
+              <AnimatePresence mode="popLayout">
+                {highlights.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={item.id}
+                      layout={!shouldReduceMotion}
+                      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        delay: shouldReduceMotion ? 0 : 0.4 + index * 0.1,
+                        duration: 0.4,
+                      }}
+                      whileHover={shouldReduceMotion ? {} : { y: -4 }}
+                      className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/60 p-4 backdrop-blur transition-all hover:border-border/60 hover:shadow-lg md:rounded-2xl md:p-6"
+                      role="listitem"
+                    >
+                      {/* Hover gradient */}
+                      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                      <div className="relative flex items-center gap-3 md:gap-4">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 md:h-10 md:w-10">
+                          <Icon
+                            className="h-4 w-4 text-primary md:h-5 md:w-5"
+                            aria-hidden
+                          />
+                        </div>
+                        <div className="min-w-0 space-y-0.5 md:space-y-1">
+                          <p className="truncate text-xs font-semibold uppercase tracking-[0.1em] text-foreground sm:text-sm sm:tracking-[0.15em]">
+                            {item.label}
+                          </p>
+                          <p className="text-[10px] text-foreground/60 sm:text-xs">
+                            No strings attached
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Trust statement - Vercel subtle footer */}
+            <motion.p
+              variants={itemVariants}
+              className="text-center text-[10px] uppercase tracking-[0.2em] text-foreground/40 sm:text-xs sm:tracking-[0.25em]"
+              aria-label="Trust statement"
+            >
+              Trusted by teams shipping dashboards, finance tools, and modern SaaS
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+    </MotionConfig>
   );
 }
+
