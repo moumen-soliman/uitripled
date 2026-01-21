@@ -9,6 +9,7 @@ import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { OpenPanelComponent } from '@openpanel/nextjs';
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -72,6 +73,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <OpenPanelComponent
+          clientId={process.env.NEXT_PUBLIC_OPEN_PANEL_CLIENT_ID as string}
+          trackScreenViews={true}
+          trackAttributes={true}
+          trackOutgoingLinks={true}
+        />
         {googleAnalyticsId && (
           <>
             <Script
@@ -88,12 +95,6 @@ export default function RootLayout({
             </Script>
           </>
         )}
-        <Script
-          src="https://cdn.databuddy.cc/databuddy.js"
-          data-client-id={process.env.NEXT_PUBLIC_DATABUDDY_CLIENT_ID}
-          crossOrigin="anonymous"
-          async
-        />
         <ThemeProvider>
           <ColorSchemeSync />
           <UILibraryProvider>
