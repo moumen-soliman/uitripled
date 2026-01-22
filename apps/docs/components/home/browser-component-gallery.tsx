@@ -139,24 +139,21 @@ export function BrowserComponentGallery() {
   return (
     <div className="w-full max-w-7xl mx-auto p-0 sm:p-4 md:p-8 z-10 relative">
       <div className="relative rounded-xl overflow-hidden border border-border bg-background shadow-2xl">
-        {/* Browser Header / Tab Bar */}
         <div className="bg-muted/30 border-b border-border flex flex-col pt-2">
 
-          {/* Top Bar with traffic lights & Tabs */}
           <div className="flex items-center pl-4 pr-3 gap-4 z-20 h-10">
-             {/* Traffic Lights */}
             <div className="hidden sm:flex gap-1.5 shrink-0">
               <div className="h-3 w-3 rounded-full bg-red-500/80 border border-black/5" />
               <div className="h-3 w-3 rounded-full bg-yellow-500/80 border border-black/5" />
               <div className="h-3 w-3 rounded-full bg-green-500/80 border border-black/5" />
             </div>
 
-            {/* Address Bar - Merged into Top Bar for "Arc" feel */}
-            <div className="flex-1 flex items-center justify-center min-w-0">
-                 <div className="flex items-center gap-0 bg-background/50 hover:bg-background/80 transition-colors border border-border/40 rounded-lg px-3 py-1.5 text-xs text-muted-foreground w-full max-w-md shadow-sm">
-                    <div className="flex items-center gap-2">
+            <div className="flex-1 flex items-center justify-center min-w-0 px-0">
+                 <div className="h-8 flex items-center gap-0 bg-background/50 hover:bg-background/80 transition-colors border border-border/40 rounded-md px-3 py-1.5 text-xs text-muted-foreground w-full max-w-md shadow-sm min-w-0">
+                    <div className="flex items-center gap-2 min-w-0">
                       <Lock className="w-3 h-3 text-muted-foreground/70 shrink-0" />
                       <span className="hidden sm:inline shrink-0">ui.tripled.work/components/<span className="text-foreground font-medium truncate">{activeComponent?.path}</span></span>
+                      <span className="sm:hidden text-foreground font-medium truncate">{activeComponent?.path}</span>
                     </div>
                  </div>
             </div>
@@ -168,7 +165,7 @@ export function BrowserComponentGallery() {
                   onValueChange={(value) => setSelectedLibrary(value as UILibrary)}
                 >
                   <SelectTrigger
-                    className="h-7 w-auto min-w-[110px] gap-2 border-border/50 bg-background/50 hover:bg-background/80 text-xs focus:ring-0 shadow-none px-2 rounded-md"
+                    className="h-8 w-auto min-w-[110px] gap-2 border-border/50 bg-background/50 hover:bg-background/80 text-xs focus:ring-0 shadow-none px-2 rounded-md"
                     aria-label="Select UI library"
                   >
                      {selectedLibrary && (
@@ -208,7 +205,6 @@ export function BrowserComponentGallery() {
             </div>
           </div>
 
-           {/* Tabs Bar - Separated below like a favorities bar or secondary tab bar */}
            <div className="mt-2 sm:mt-3 px-2 pb-2 overflow-hidden">
                 {/* Mobile Component Selector */}
                 <div className="sm:hidden px-1 pb-1">
