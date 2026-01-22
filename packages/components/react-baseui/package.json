@@ -27,6 +27,7 @@
     "@uitripled/react-shadcn": "workspace:*",
     "@uitripled/utils": "workspace:*",
     "framer-motion": "^12.23.24",
+    "recharts": "^3.4.1",
     "lucide-react": "^0.553.0"
   },
   "devDependencies": {
