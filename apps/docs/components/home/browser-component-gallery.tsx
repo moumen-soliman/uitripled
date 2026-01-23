@@ -90,7 +90,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 
 const components = [
-  { name: "Button", path: "native-button", Icon: MousePointerClick, Shadcn: NativeButtonShadcn, Base: NativeButtonBase },
+  { name: "Hover Card", path: "native-hover-card", Icon: CreditCard, Shadcn: NativeHoverCardShadcn, Base: NativeHoverCardBase },
   { name: "Delete", path: "native-delete", Icon: Trash2, Shadcn: NativeDeleteShadcn, Base: NativeDeleteBase },
   { name: "Dashboard", path: "dashboard", Icon: LayoutDashboard, Shadcn: DashboardShadcn, Base: DashboardBase },
   { name: "Avatar Expand", path: "native-avatar-expand", Icon: User, Shadcn: NativeAvatarExpandShadcn, Base: NativeAvatarExpandBase },
@@ -98,7 +98,6 @@ const components = [
   { name: "Avatar With Name", path: "native-avatar-with-name", Icon: User, Shadcn: NativeAvatarWithNameShadcn, Base: NativeAvatarWithNameBase },
   { name: "Profile Notch", path: "native-profile-notch", Icon: Smartphone, Shadcn: NativeProfileNotchShadcn, Base: NativeProfileNotchBase },
   { name: "Hero Block", path: "hero-block", Icon: LayoutTemplate, Shadcn: HeroBlockShadcn, Base: HeroBlockBase },
-  { name: "Hover Card", path: "native-hover-card", Icon: CreditCard, Shadcn: NativeHoverCardShadcn, Base: NativeHoverCardBase },
   { name: "Likes Counter", path: "native-likes-counter", Icon: Heart, Shadcn: NativeLikesCounterShadcn, Base: NativeLikesCounterBase },
   { name: "Social Login", path: "native-social-login", Icon: LogIn, Shadcn: SocialLoginButtonShadcn, Base: SocialLoginButtonBase },
   { name: "Typewriter", path: "native-typewriter", Icon: Type, Shadcn: NativeTypewriterShadcn, Base: NativeTypewriterBase },
