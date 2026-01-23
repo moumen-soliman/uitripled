@@ -200,8 +200,39 @@ import { NativeNestedList } from "@uitripled/react-shadcn/src/components/native/
 import { NativeProfileNotch } from "@uitripled/react-shadcn/src/components/native/native-profile-notch-shadcnui";
 import { NativeNotch } from "@uitripled/react-shadcn/src/components/native/native-notch-shadcnui";
 import { VerifiedBadge } from "@uitripled/react-shadcn/src/components/native/native-verified-badge-shadcnui";
+import { NativeUserCard } from "@uitripled/react-shadcn/src/components/native/native-user-card-shadcnui";
+import { NativeUserCard as NativeUserCardBaseUI } from "@uitripled/react-baseui/src/components/native/native-user-card-baseui";
+import { NativeUserCardDemo } from "@uitripled/react-shadcn/src/components/native/demo/native-user-card-demo";
 
 export const nativeComponents: Component[] = [
+  {
+    id: "native-user-card",
+    name: "Native User Card",
+    description: "A native-style user profile card with avatar, name, handle, and action button.",
+    category: "native",
+    tags: ["card", "user", "profile", "native", "avatar"],
+    component: NativeUserCard,
+    baseuiComponent: NativeUserCardBaseUI,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard user card",
+        component: NativeUserCardDemo,
+        code: `<NativeUserCard
+  imageSrc="https://github.com/shadcn.png"
+  name="shadcn"
+  handle="@shadcn"
+  href="https://twitter.com/shadcn"
+/>`,
+      },
+    ],
+    codePath: "@uitripled/react-shadcn/src/components/native/native-user-card-shadcnui.tsx",
+    duration: "200ms",
+    easing: "spring",
+    display: true,
+    availableIn: ["shadcnui", "baseui"],
+  },
   {
     id: "native-tooltip",
     name: "Native Tooltip",

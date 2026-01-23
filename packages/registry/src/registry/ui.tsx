@@ -160,6 +160,9 @@ import { StackedCardCarousel } from "@uitripled/react-shadcn/src/components/moti
 import { SyncedLyricCaptions } from "@uitripled/react-shadcn/src/components/motion-core/synced-lyric-captions";
 
 import { BlogTypography } from "@uitripled/react-shadcn/src/components/components/blog/blog-typography";
+// Native User Card Components
+import { NativeUserCard } from "@uitripled/react-shadcn/src/components/native/native-user-card-shadcnui";
+import { NativeUserCard as NativeUserCardBaseUI } from "@uitripled/react-baseui/src/components/native/native-user-card-baseui";
 import { FloatingChatWidget } from "@uitripled/react-shadcn/src/components/components/chat/floating-chat-widget";
 import { CommentThread } from "@uitripled/react-shadcn/src/components/components/comments/comment-thread";
 import { CourseContentPage } from "@uitripled/react-shadcn/src/components/components/course-content/course-content-page";
@@ -2361,5 +2364,20 @@ export const uiComponents: Component[] = [
     easing: "spring",
     display: true,
     availableIn: ["shadcnui"],
+  },
+  {
+    id: "native-user-card",
+    name: "Native User Card",
+    description:
+      "Compact user profile card with avatar, name, handle, and action button with spring animations",
+    category: "cards",
+    tags: ["user", "profile", "card", "avatar", "social", "animated"],
+    component: NativeUserCard,
+    baseuiComponent: NativeUserCardBaseUI,
+    codePath: "@uitripled/react-shadcn/src/components/native/native-user-card-shadcnui.tsx",
+    duration: "300ms",
+    easing: "spring",
+    display: true,
+    availableIn: ["shadcnui", "baseui"],
   },
 ];

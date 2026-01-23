@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-user-card-shadcnui",
+  "type": "registry:component",
+  "title": "Native User Card",
+  "description": "Compact user profile card with avatar, name, handle, and action button with spring animations.",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "@uitripled/react-shadcn/src/components/native/native-user-card-shadcnui.tsx",
+      "content": "\"use client\";\n\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\nimport { motion } from \"framer-motion\";\nimport { ArrowRight } from \"lucide-react\";\nimport Link from \"next/link\";\n\ninterface NativeUserCardProps {\n  imageSrc: string;\n  name: string;\n  handle: string;\n  href?: string;\n  onClick?: () => void;\n  className?: string;\n}\n\nexport function NativeUserCard({\n  imageSrc,\n  name,\n  handle,\n  href = \"#\",\n  onClick,\n  className,\n}: NativeUserCardProps) {\n  const CardContent = (\n    <motion.div\n      initial={{ opacity: 0, scale: 0.98, y: 5 }}\n      animate={{ opacity: 1, scale: 1, y: 0 }}\n      transition={{\n        type: \"spring\",\n        stiffness: 400,\n        damping: 30,\n      }}\n      className={cn(\n        \"group relative flex w-full max-w-full items-center justify-between gap-4 rounded-lg border border-border bg-card p-1 transition-all duration-300\",\n        className\n      )}\n    >\n      <div className=\"flex min-w-0 flex-1 items-center gap-2\">\n        <div className=\"relative h-10 w-10 shrink-0 overflow-hidden rounded-lg sm:h-12 sm:w-12\">\n          <Avatar className=\"h-full w-full rounded-lg\">\n            <AvatarImage src={imageSrc} alt={name} className=\"object-cover\" />\n            <AvatarFallback>{name.charAt(0)}</AvatarFallback>\n          </Avatar>\n        </div>\n\n        <div className=\"flex min-w-0 flex-col\">\n          <h3 className=\"truncate text-sm font-semibold leading-none tracking-tight text-foreground\">\n            {name}\n          </h3>\n          <p className=\"truncate text-xs font-medium text-muted-foreground\">\n            {handle}\n          </p>\n        </div>\n      </div>\n\n      <div className=\"relative shrink-0 pl-2\">\n        <Button\n          size=\"icon\"\n          className=\"h-10 w-10 shrink-0 rounded-lg bg-primary text-primary-foreground opacity-100 transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-12\"\n          asChild\n        >\n          <motion.div\n            whileTap={{ scale: 0.95 }}\n          >\n            <ArrowRight className=\"h-3 w-3\" />\n          </motion.div>\n        </Button>\n      </div>\n    </motion.div>\n  );\n\n  if (onClick) {\n    return (\n      <Button onClick={onClick} className=\"block w-full max-w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg h-auto p-0 hover:bg-transparent\">\n        {CardContent}\n      </Button>\n    );\n  }\n\n  return (\n    <Link href={href} className={cn(\"block w-full max-w-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg\")}>\n      {CardContent}\n    </Link>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/uitripled/native-user-card-shadcnui.tsx"
+    }
+  ]
+}

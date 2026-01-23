@@ -2,11 +2,11 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2026-01-23T16:41:14.047Z
+**Last Updated:** 2026-01-23T21:11:13.445Z
 
 ## Table of Contents
 
-- Components (158 items)
+- Components (160 items)
 - Blocks (74 items)
 - Pages (23 items)
 - UI Elements (19 items)
@@ -188,6 +188,8 @@
 - [Native Typewriter](https://ui.tripled.work/components/native-typewriter): Typewriter effect with speed control, looping, and blinking cursor.
 - [Native Typewriter](https://ui.tripled.work/components/native-typewriter-baseui): Typewriter effect with speed control, looping, and blinking cursor. (Base UI)
 - [Native Typewriter](https://ui.tripled.work/components/native-typewriter-shadcnui): Typewriter effect with speed control, looping, and blinking cursor.
+- [Native User Card](https://ui.tripled.work/components/native-user-card-baseui): Compact user profile card with avatar, name, handle, and action button with spring animations. (Base UI)
+- [Native User Card](https://ui.tripled.work/components/native-user-card-shadcnui): Compact user profile card with avatar, name, handle, and action button with spring animations.
 - [Native Verified Badge](https://ui.tripled.work/components/native-verified-badge-baseui): Verified badge component with multiple variants, sizes, and styles including outline and shield designs. (Base UI)
 - [Native Verified Badge](https://ui.tripled.work/components/native-verified-badge-shadcnui): Verified badge component with multiple variants, sizes, and styles including outline and shield designs.
 - [Social Login Button](https://ui.tripled.work/components/social-login-button-baseui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects. (Base UI)

@@ -1315,7 +1315,7 @@
       ],
       "files": [
         {
-          "path": "@uitripled/react-baseui/src/components/stocks-dashboard/dashboard-baseui.tsx",
+          "path": "@uitripled/react-baseui/src/components/components/stocks-dashboard/dashboard.tsx",
           "type": "registry:block",
           "target": "components/uitripled/dashboard-baseui.tsx"
         }
@@ -3652,7 +3652,7 @@
       ],
       "files": [
         {
-          "path": "@uitripled/react-carbon/src/components/native/native-flip-text-carbon-baseui.tsx",
+          "path": "@uitripled/react-baseui/src/components/native/native-flip-text-baseui.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-flip-text-baseui.tsx"
         }
@@ -4463,6 +4463,48 @@
           "path": "@uitripled/react-carbon/src/components/native/native-typewriter-carbon.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-typewriter-shadcnui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-user-card-baseui",
+      "type": "registry:component",
+      "title": "Native User Card",
+      "description": "Compact user profile card with avatar, name, handle, and action button with spring animations. (Base UI)",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-baseui/src/components/native/native-user-card-baseui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-user-card-baseui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-user-card-shadcnui",
+      "type": "registry:component",
+      "title": "Native User Card",
+      "description": "Compact user profile card with avatar, name, handle, and action button with spring animations.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-shadcn/src/components/native/native-user-card-shadcnui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-user-card-shadcnui.tsx"
         }
       ],
       "category": "native",
