@@ -173,6 +173,7 @@ import { VolumeComponent } from "@uitripled/react-shadcn/src/components/componen
 import { LiquidCursor } from "@uitripled/react-shadcn/src/components/liquid-cursor";
 import { BrowseFolder } from "@uitripled/react-shadcn/src/components/sections/browse-folder";
 import { GlowyWavesHero } from "@uitripled/react-shadcn/src/components/sections/glowy-waves-hero";
+import { FolderAnimation } from "@uitripled/react-carbon/src/components/native/folder-animation-carbon";
 import { WebPerformancePage } from "@uitripled/react-shadcn/src/components/web-performance/web-performance-page";
 
 export const uiComponents: Component[] = [
@@ -2379,5 +2380,19 @@ export const uiComponents: Component[] = [
     easing: "spring",
     display: true,
     availableIn: ["shadcnui", "baseui"],
+  },
+  {
+    id: "folder-animation",
+    name: "Folder Animation",
+    description:
+      "Animated folder card with motion blur effect, perfect for showcasing file operations or loading states",
+    category: "decorative",
+    tags: ["folder", "animation", "motion", "blur", "card", "file"],
+    component: FolderAnimation,
+    codePath: "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx",
+    duration: "4000ms",
+    easing: "easeInOut",
+    display: true,
+    availableIn: ["carbon"],
   },
 ];

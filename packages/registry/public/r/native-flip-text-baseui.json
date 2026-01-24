@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-flip-text-baseui",
+  "type": "registry:component",
+  "title": "Native Flip Text",
+  "description": "Text that flips through words with a 3D blur transition. (Base UI)",
+  "registryDependencies": [
+    "button"
+  ],
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "@uitripled/react-carbon/src/components/native/native-flip-text-carbon-baseui.tsx",
+      "content": "// Error: Could not read file @uitripled/react-carbon/src/components/native/native-flip-text-carbon-baseui.tsx\n// File not found: @uitripled/react-carbon/src/components/native/native-flip-text-carbon-baseui.tsx",
+      "type": "registry:component",
+      "target": "components/uitripled/native-flip-text-baseui.tsx"
+    }
+  ]
+}

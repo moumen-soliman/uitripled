@@ -7,9 +7,9 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
-    "registry:generate": "turbo run registry:generate",
-    "registry:sync": "turbo run registry:sync",
-    "registry:validate": "turbo run registry:validate",
+    "registry:generate": "pnpm dlx tsx packages/scripts/src/sync-registry.ts && pnpm dlx tsx packages/scripts/src/generate-registry-files.ts",
+    "registry:sync": "node apps/docs/scripts/sync-registry.js",
+    "registry:validate": "pnpm dlx tsx packages/scripts/src/validate-registry.ts",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=@uitripled/* && changeset publish"

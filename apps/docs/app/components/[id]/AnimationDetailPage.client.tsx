@@ -573,14 +573,20 @@ export default function AnimationDetailPageClient({
   ]);
 
   const installId = React.useMemo(() => {
-    if (
-      component.category === "native" ||
-      (component.availableIn && component.availableIn.length > 1)
-    ) {
+    const availableIn = component.availableIn || [];
+    const isMultiLibrary =
+      component.category === "native" || availableIn.length > 1;
+
+    if (isMultiLibrary) {
+      // Carbon-only components should always install the carbon variant,
+      // even if the UI library is shadcnui/baseui.
+      if (availableIn.includes("carbon") && !availableIn.includes(selectedLibrary)) {
+        return `${component.id}-carbon`;
+      }
       return `${component.id}-${selectedLibrary}`;
     }
     return component.id;
-  }, [component.id, component.category, selectedLibrary]);
+  }, [component.id, component.category, component.availableIn, selectedLibrary]);
 
   return (
     <main className="flex h-full flex-1 flex-col overflow-hidden">

@@ -2,14 +2,14 @@
 
 > Production-ready UI components, blocks, and pages built on top of shadcn/ui and Framer Motion.
 
-**Last Updated:** 2026-01-23T21:11:13.445Z
+**Last Updated:** 2026-01-24T20:17:43.190Z
 
 ## Table of Contents
 
-- Components (160 items)
+- Components (161 items)
 - Blocks (74 items)
 - Pages (23 items)
-- UI Elements (19 items)
+- UI Elements (20 items)
 
 ### Components
 
@@ -37,6 +37,8 @@
 - [Glass Wallet Card](https://ui.tripled.work/components/glass-wallet-card-shadcnui): Glassmorphism crypto wallet card with balance, trend, and action buttons
 - [Hover Expand Card](https://ui.tripled.work/components/hover-expand-card-baseui): Card that lifts and expands on hover (Base UI)
 - [Hover Expand Card](https://ui.tripled.work/components/hover-expand-card-shadcnui): Card that lifts and expands on hover
+- [Native User Card](https://ui.tripled.work/components/native-user-card-baseui): Compact user profile card with avatar, name, handle, and action button with spring animations (Base UI)
+- [Native User Card](https://ui.tripled.work/components/native-user-card-shadcnui): Compact user profile card with avatar, name, handle, and action button with spring animations
 - [Project Card](https://ui.tripled.work/components/project-card-baseui): Glassmorphism project card with links, tags, and hover effects (Base UI)
 - [Project Card](https://ui.tripled.work/components/project-card-shadcnui): Glassmorphism project card with links, tags, and hover effects
 - [Theater Ticket](https://ui.tripled.work/components/theater-ticket-baseui): Cinematic theater ticket with rip effect and barcode (Base UI)
@@ -133,6 +135,7 @@
 - [Wizard Form](https://ui.tripled.work/components/wizard-form-shadcnui): Multi-step wizard form with animated transitions, validation, and progress tracking
 
 - [Bottom Modal](https://ui.tripled.work/components/bottom-modal): Cute bottom-centered modal with smooth slide-up animation and glassmorphism design
+- [Folder Animation](https://ui.tripled.work/components/folder-animation-carbon): Animated folder card with motion blur effect, perfect for showcasing file operations or loading states.
 - [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-baseui): Avatar component that expands to reveal the name on click with smooth animations. (Base UI)
 - [Native Avatar Expand](https://ui.tripled.work/components/native-avatar-expand-shadcnui): Avatar component that expands to reveal the name on click with smooth animations.
 - [Native Avatar With Name](https://ui.tripled.work/components/native-avatar-with-name-baseui): Avatar component that displays a name tooltip on hover with directional animations. (Base UI)
@@ -188,8 +191,6 @@
 - [Native Typewriter](https://ui.tripled.work/components/native-typewriter): Typewriter effect with speed control, looping, and blinking cursor.
 - [Native Typewriter](https://ui.tripled.work/components/native-typewriter-baseui): Typewriter effect with speed control, looping, and blinking cursor. (Base UI)
 - [Native Typewriter](https://ui.tripled.work/components/native-typewriter-shadcnui): Typewriter effect with speed control, looping, and blinking cursor.
-- [Native User Card](https://ui.tripled.work/components/native-user-card-baseui): Compact user profile card with avatar, name, handle, and action button with spring animations. (Base UI)
-- [Native User Card](https://ui.tripled.work/components/native-user-card-shadcnui): Compact user profile card with avatar, name, handle, and action button with spring animations.
 - [Native Verified Badge](https://ui.tripled.work/components/native-verified-badge-baseui): Verified badge component with multiple variants, sizes, and styles including outline and shield designs. (Base UI)
 - [Native Verified Badge](https://ui.tripled.work/components/native-verified-badge-shadcnui): Verified badge component with multiple variants, sizes, and styles including outline and shield designs.
 - [Social Login Button](https://ui.tripled.work/components/social-login-button-baseui): A set of animated social login buttons for major platforms (Github, Google, X, etc.) with various effects. (Base UI)
@@ -341,6 +342,7 @@
 - [Animated Quote Block](https://ui.tripled.work/components/animated-quote-block-shadcnui): Quote that types itself in, pauses, then subtly breathes
 - [Dynamic Tag Cloud](https://ui.tripled.work/components/dynamic-tag-cloud-shadcnui): Floating cluster of tags that drift and rearrange when hovered
 - [Floating Info Panel](https://ui.tripled.work/components/floating-info-panel-shadcnui): Info tooltip that drifts up/down while fading in/out intermittently
+- [Folder Animation](https://ui.tripled.work/components/folder-animation): Animated folder card with motion blur effect, perfect for showcasing file operations or loading states
 - [Holographic Wall](https://ui.tripled.work/components/holographic-wall-shadcnui): Black wall with Pharaonic hieroglyphs and golden cursor light reflection
 - [Liquid Cursor](https://ui.tripled.work/components/liquid-cursor-shadcnui): A liquid-like cursor effect that mixes colors on movement
 - [Spotlight Section](https://ui.tripled.work/components/spotlight-section-shadcnui): Container where mouse creates soft radial spotlight following cursor

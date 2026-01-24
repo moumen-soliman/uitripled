@@ -1,25 +1,37 @@
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 
+const ROOT_DIR = path.join(__dirname, "../../..");
 const SOURCE_REGISTRY_PATH = path.join(
-  __dirname,
-  "../../../packages/registry/registry.json"
+  ROOT_DIR,
+  "packages/registry/registry.json"
 );
 const DEST_REGISTRY_PATH = path.join(__dirname, "../registry.json");
+
+function generateRegistry() {
+  try {
+    execSync("pnpm registry:generate", {
+      cwd: ROOT_DIR,
+      stdio: "inherit",
+    });
+  } catch (error) {
+    console.error("❌ Failed to generate registry files:", error);
+  }
+}
 
 function syncRegistry() {
   try {
     console.log("🔄 Syncing registry.json from packages/registry...");
 
+    generateRegistry();
     if (!fs.existsSync(SOURCE_REGISTRY_PATH)) {
       console.error(
         `❌ Source registry file not found at: ${SOURCE_REGISTRY_PATH}`
       );
       console.log(
-        "⚠️  Ensure you have run 'pnpm registry:generate' or built the registry package."
+        "⚠️  Ensure you have run 'pnpm registry:generate' from the repo root."
       );
-      // Do not exit with error to avoid crashing dev server if race condition,
-      // but warn heavily. User might need to build registry once.
       return;
     }
 

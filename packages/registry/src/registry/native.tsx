@@ -78,6 +78,17 @@ import {
   NativeFlipTextDefault,
 } from "@uitripled/react-carbon/src/components/native/carbon/demo/native-flip-text-demo";
 import {
+  FolderAnimationCustomIcon,
+  FolderAnimationDefault,
+  FolderAnimationFast,
+  FolderAnimationImageIcon,
+  FolderAnimationMusicIcon,
+  FolderAnimationNoFooter,
+  FolderAnimationSlow,
+  FolderAnimationWithActions,
+} from "@uitripled/react-carbon/src/components/native/demo/folder-animation-demo";
+import { FolderAnimation } from "@uitripled/react-carbon/src/components/native/folder-animation-carbon";
+import {
   NativeHoverCardBordered,
   NativeHoverCardCustomButton,
   NativeHoverCardCustomButtonText,
@@ -2696,5 +2707,172 @@ export const nativeComponents: Component[] = [
     easing: "spring",
     display: true,
     availableIn: ["shadcnui", "baseui"],
+  },
+  {
+    id: "folder-animation",
+    name: "Folder Animation",
+    description:
+      "Animated folder card with motion blur effect, perfect for showcasing file operations or loading states.",
+    category: "native",
+    tags: ["folder", "animation", "motion", "blur", "card", "file", "native"],
+    component: FolderAnimation,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Standard folder animation with footer content",
+        component: FolderAnimationDefault,
+        code: `<FolderAnimation>
+  <div className="space-y-2">
+    <h3 className="font-semibold text-lg">Organizing Your Files</h3>
+    <p className="text-sm text-muted-foreground">
+      Watch as files seamlessly move through your workspace.
+    </p>
+  </div>
+</FolderAnimation>`,
+      },
+      {
+        id: "fast",
+        name: "Fast",
+        description: "Faster animation cycle (2 seconds)",
+        component: FolderAnimationFast,
+        code: `<FolderAnimation animationDuration={2}>
+  <div className="space-y-2">
+    <h3 className="font-semibold text-lg">Quick Transfer</h3>
+    <p className="text-sm text-muted-foreground">
+      Faster animation for quick file operations.
+    </p>
+  </div>
+</FolderAnimation>`,
+      },
+      {
+        id: "slow",
+        name: "Slow",
+        description: "Slower animation cycle (6 seconds)",
+        component: FolderAnimationSlow,
+        code: `<FolderAnimation animationDuration={6}>
+  <div className="space-y-2">
+    <h3 className="font-semibold text-lg">Careful Handling</h3>
+    <p className="text-sm text-muted-foreground">
+      Slower animation for detailed file processing.
+    </p>
+  </div>
+</FolderAnimation>`,
+      },
+      {
+        id: "custom-icon",
+        name: "Custom (Doc)",
+        description: "Custom document icon",
+        component: FolderAnimationCustomIcon,
+        code: `<FolderAnimation
+  folderIcon={
+    <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-2xl">
+      <FileText className="w-12 h-12 text-white" />
+    </div>
+  }
+>
+  <div className="space-y-2">
+    <h3 className="font-semibold text-lg">Document Processing</h3>
+    <p className="text-sm text-muted-foreground">
+      Custom icon for document-specific operations.
+    </p>
+  </div>
+</FolderAnimation>`,
+      },
+      {
+        id: "image-icon",
+        name: "Custom (Image)",
+        description: "Custom image gallery icon",
+        component: FolderAnimationImageIcon,
+        code: `<FolderAnimation
+  folderIcon={
+    <div className="w-28 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-2xl overflow-hidden">
+      <Image className="w-12 h-12 text-white" />
+    </div>
+  }
+>
+  <div className="space-y-2">
+    <h3 className="font-semibold text-lg">Image Gallery</h3>
+    <p className="text-sm text-muted-foreground">
+      Organizing your photos with style.
+    </p>
+  </div>
+</FolderAnimation>`,
+      },
+      {
+        id: "music-icon",
+        name: "Custom (Music)",
+        description: "Custom music library icon with circular shape",
+        component: FolderAnimationMusicIcon,
+        code: `<FolderAnimation
+  folderIcon={
+    <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl">
+      <Music className="w-10 h-10 text-white" />
+    </div>
+  }
+  animationDuration={3}
+>
+  <div className="space-y-2">
+    <h3 className="font-semibold text-lg">Music Library</h3>
+    <p className="text-sm text-muted-foreground">
+      Your audio files in motion.
+    </p>
+  </div>
+</FolderAnimation>`,
+      },
+      {
+        id: "with-actions",
+        name: "With Actions",
+        description: "Animation card with action buttons in footer",
+        component: FolderAnimationWithActions,
+        code: `<FolderAnimation>
+  <div className="space-y-4">
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+        <Folder className="w-5 h-5 text-primary" />
+      </div>
+      <div className="flex-1">
+        <h3 className="font-semibold">File Transfer in Progress</h3>
+        <p className="text-xs text-muted-foreground">
+          Moving 24 files to destination
+        </p>
+      </div>
+    </div>
+    <div className="flex gap-2">
+      <Button variant="outline" size="sm" className="flex-1">
+        Cancel
+      </Button>
+      <Button size="sm" className="flex-1">
+        View Details
+      </Button>
+    </div>
+  </div>
+</FolderAnimation>`,
+      },
+      {
+        id: "no-footer",
+        name: "No Footer",
+        description: "Animation without footer content",
+        component: FolderAnimationNoFooter,
+        code: `<FolderAnimation />`,
+      },
+    ],
+    codePath: "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx",
+    duration: "4000ms",
+    easing: "easeInOut",
+    display: true,
+    availableIn: ["carbon"],
+  },
+  {
+    id: "folder-animation-carbon",
+    name: "Folder Animation",
+    description:
+      "Animated folder card with motion blur effect, perfect for showcasing file operations or loading states.",
+    category: "native",
+    tags: [],
+    component: FolderAnimation,
+    codePath: "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx",
+    display: false,
+    availableIn: ["carbon"],
   },
 ];

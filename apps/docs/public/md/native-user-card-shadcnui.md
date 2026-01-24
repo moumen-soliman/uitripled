@@ -1,6 +1,6 @@
 ---
 title: Native User Card
-description: Compact user profile card with avatar, name, handle, and action button with spring animations.
+description: Compact user profile card with avatar, name, handle, and action button with spring animations
 component: true
 ---
 
@@ -62,7 +62,7 @@ import { NativeUserCard } from "@uitripled/react-shadcn/src/components/native/na
 
 ## Component Details
 
-- **Category**: native
+- **Category**: cards
 
 
 ### Technical Specifications

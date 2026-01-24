@@ -1,6 +1,6 @@
 ---
-title: Native User Card
-description: Compact user profile card with avatar, name, handle, and action button with spring animations (Base UI)
+title: Folder Animation
+description: Animated folder card with motion blur effect, perfect for showcasing file operations or loading states
 component: true
 ---
 
@@ -9,11 +9,11 @@ component: true
 
 import * as React from "react"
 
-import { NativeUserCard } from "@uitripled/react-baseui/src/components/native/native-user-card-baseui.tsx"
+import { FolderAnimation } from "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx"
 
-export function NativeUserCardDemo() {
+export function FolderAnimationDemo() {
   return (
-    <NativeUserCard />
+    <FolderAnimation />
   )
 }
 ```
@@ -29,7 +29,7 @@ export function NativeUserCardDemo() {
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @uitripled/native-user-card-baseui
+npx shadcn@latest add @uitripled/folder-animation
 ```
 
 </TabsContent>
@@ -38,15 +38,9 @@ npx shadcn@latest add @uitripled/native-user-card-baseui
 
 <Steps>
 
-<Step>Add the required components to your project.</Step>
-
-The `Native User Card` component uses the following components. Make sure you have them installed in your project.
-
-- button
-
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="native-user-card-baseui" title="@uitripled/react-baseui/src/components/native/native-user-card-baseui.tsx" />
+<ComponentSource name="folder-animation" title="@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -59,16 +53,16 @@ The `Native User Card` component uses the following components. Make sure you ha
 ## Usage
 
 ```tsx showLineNumbers
-import { NativeUserCard } from "@uitripled/react-baseui/src/components/native/native-user-card-baseui.tsx"
+import { FolderAnimation } from "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx"
 ```
 
 ```tsx showLineNumbers
-<NativeUserCard />
+<FolderAnimation />
 ```
 
 ## Component Details
 
-- **Category**: cards
+- **Category**: decorative
 
 
 ### Technical Specifications
@@ -77,12 +71,7 @@ import { NativeUserCard } from "@uitripled/react-baseui/src/components/native/na
 - `framer-motion`
 - `react`
 
-**UI Components**:
-- button
-
 This component uses **Framer Motion** for animations and motion effects.
-
-This component is built on top of **shadcn/ui** component primitives.
 
 ## Customization
 
@@ -110,11 +99,11 @@ The component follows accessibility best practices:
 
 import * as React from "react"
 
-import { NativeUserCard } from "@uitripled/react-baseui/src/components/native/native-user-card-baseui.tsx"
+import { FolderAnimation } from "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx"
 
 export function BasicExample() {
   return (
-    <NativeUserCard />
+    <FolderAnimation />
   )
 }
 ```
@@ -132,4 +121,4 @@ This component is part of the UI TripleD component library, a collection of prod
 
 ## Related Components
 
-- [button](/docs/components/button)
+No related components.

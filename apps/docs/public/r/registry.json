@@ -1315,7 +1315,7 @@
       ],
       "files": [
         {
-          "path": "@uitripled/react-baseui/src/components/components/stocks-dashboard/dashboard.tsx",
+          "path": "@uitripled/react-baseui/src/components/stocks-dashboard/dashboard-baseui.tsx",
           "type": "registry:block",
           "target": "components/uitripled/dashboard-baseui.tsx"
         }
@@ -1899,6 +1899,46 @@
       ],
       "category": "components",
       "subcategory": "modal"
+    },
+    {
+      "name": "folder-animation",
+      "type": "registry:ui",
+      "title": "Folder Animation",
+      "description": "Animated folder card with motion blur effect, perfect for showcasing file operations or loading states",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx",
+          "type": "registry:ui",
+          "target": "components/uitripled/folder-animation-carbon.tsx"
+        }
+      ],
+      "category": "decorative",
+      "subcategory": null
+    },
+    {
+      "name": "folder-animation-carbon",
+      "type": "registry:component",
+      "title": "Folder Animation",
+      "description": "Animated folder card with motion blur effect, perfect for showcasing file operations or loading states.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-carbon/src/components/native/folder-animation-carbon.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/folder-animation-carbon.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
     },
     {
       "name": "footer-block-baseui",
@@ -3652,7 +3692,7 @@
       ],
       "files": [
         {
-          "path": "@uitripled/react-baseui/src/components/native/native-flip-text-baseui.tsx",
+          "path": "@uitripled/react-carbon/src/components/native/native-flip-text-carbon-baseui.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-flip-text-baseui.tsx"
         }
@@ -4472,7 +4512,7 @@
       "name": "native-user-card-baseui",
       "type": "registry:component",
       "title": "Native User Card",
-      "description": "Compact user profile card with avatar, name, handle, and action button with spring animations. (Base UI)",
+      "description": "Compact user profile card with avatar, name, handle, and action button with spring animations (Base UI)",
       "registryDependencies": [
         "button"
       ],
@@ -4487,14 +4527,14 @@
           "target": "components/uitripled/native-user-card-baseui.tsx"
         }
       ],
-      "category": "native",
+      "category": "cards",
       "subcategory": null
     },
     {
       "name": "native-user-card-shadcnui",
       "type": "registry:component",
       "title": "Native User Card",
-      "description": "Compact user profile card with avatar, name, handle, and action button with spring animations.",
+      "description": "Compact user profile card with avatar, name, handle, and action button with spring animations",
       "registryDependencies": [],
       "dependencies": [
         "framer-motion",
@@ -4507,7 +4547,7 @@
           "target": "components/uitripled/native-user-card-shadcnui.tsx"
         }
       ],
-      "category": "native",
+      "category": "cards",
       "subcategory": null
     },
     {
