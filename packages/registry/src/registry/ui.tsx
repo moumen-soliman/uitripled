@@ -2110,7 +2110,7 @@ export const uiComponents: Component[] = [
       "@uitripled/react-shadcn/src/components/sections/glassmorphism-listen-app-block.tsx",
     duration: "400ms",
     easing: "easeOut",
-    display: true,
+    display: false, // need fix
     availableIn: ["shadcnui", "baseui"],
   },
   {
