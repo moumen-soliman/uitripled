@@ -2,7 +2,6 @@
   <a href="https://github.com/moumen-soliman/uitripled">
     <img width="100" height="100" alt="UI TripleD Logo" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtl1pW0d6xiLckpa7VobAKthYDjBuwMy6zmGSe" />
   </a>
-
 </p>
 
 <h1 align="center">UI TripleD</h1>
@@ -12,6 +11,13 @@
 </p>
 
 <p align="center">
+    
+<br />
+<a align="center" href="https://vercel.com/oss">
+  <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
+</a>
+<br />
+<br />
   <a href="https://ui.tripled.work/components">Docs</a> ·
   <a href="https://github.com/moumen-soliman/uitripled/issues/new?template=bug_report.md">Report a bug</a> ·
   <a href="https://github.com/moumen-soliman/uitripled/issues/new?template=feature_request.md">Feature request</a> ·
