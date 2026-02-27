@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    
+
 <br />
 <a align="center" href="https://vercel.com/oss">
   <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
@@ -75,6 +75,15 @@
       <strong><a href="https://shadcraft.com">Shadcraft</a></strong>
     </td>
     <td align="center">
+      <a href="https://shadcnspace.com">
+        <img width="70" height="70" alt="shadcnspace" src="apps/docs/public/logos/sponsors/shadcnspace.webp" />
+      </a>
+      <br />
+      <strong><a href="https://shadcnspace.com">shadcnspace</a></strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
       <a href="https://shadcnblocks.com">
         <img width="70" height="70" alt="ShadcnBlocks" src="https://github.com/shadcnblocks.png" style="border-radius: 100%;" />
       </a>
@@ -95,6 +104,8 @@
       <br />
       <strong><a href="https://lucide-animated.com">lucide-animated</a></strong>
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://reactbits.dev">
         <img width="70" height="70" alt="ReactBits" src="https://github.com/DavidHDev/react-bits/blob/main/public/android-chrome-192x192.png" style="border-radius: 100%;" />

@@ -1,6 +1,9 @@
 "use client";
 
-import { GithubStarButton, StarButtonFallback } from "@/components/github-star-button";
+import {
+  GithubStarButton,
+  StarButtonFallback,
+} from "@/components/github-star-button";
 import { BrowserComponentGallery } from "@/components/home/browser-component-gallery";
 import { HeroFlip } from "@/components/home/hero-flip";
 import { TweetsSlider } from "@/components/home/tweets-slider";
@@ -21,6 +24,11 @@ const SPONSORS = [
     username: "shadcn/studio",
     url: "https://shadcnstudio.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
     logo: "https://ts-assets.b-cdn.net/ss-assets/logo/logo.svg",
+  },
+  {
+    username: "shadcnspace",
+    url: "https://shadcnspace.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "/logos/sponsors/shadcnspace.webp",
   },
   {
     username: "shadcnblocks",
@@ -60,14 +68,23 @@ export function Hero() {
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 border border-border/50">
               <span>Built on top of</span>
               <div className="flex items-center gap-1.5 text-foreground">
-                <svg viewBox="0 0 1103 386" className="h-3 w-auto" aria-label="Motion">
-                  <path fill="#FFF312" d="M416.473 0 198.54 385.66H0L170.17 84.522C196.549 37.842 262.377 0 317.203 0Zm486.875 96.415c0-53.249 44.444-96.415 99.27-96.415 54.826 0 99.27 43.166 99.27 96.415 0 53.248-44.444 96.415-99.27 96.415-54.826 0-99.27-43.167-99.27-96.415ZM453.699 0h198.54L434.306 385.66h-198.54Zm234.492 0h198.542L716.56 301.138c-26.378 46.68-92.207 84.522-147.032 84.522h-99.27Z" />
+                <svg
+                  viewBox="0 0 1103 386"
+                  className="h-3 w-auto"
+                  aria-label="Motion"
+                >
+                  <path
+                    fill="#FFF312"
+                    d="M416.473 0 198.54 385.66H0L170.17 84.522C196.549 37.842 262.377 0 317.203 0Zm486.875 96.415c0-53.249 44.444-96.415 99.27-96.415 54.826 0 99.27 43.166 99.27 96.415 0 53.248-44.444 96.415-99.27 96.415-54.826 0-99.27-43.167-99.27-96.415ZM453.699 0h198.54L434.306 385.66h-198.54Zm234.492 0h198.542L716.56 301.138c-26.378 46.68-92.207 84.522-147.032 84.522h-99.27Z"
+                  />
                 </svg>
                 <span>Motion</span>
               </div>
             </div>
 
-            <span className="hidden md:inline dark:text-neutral-700 text-neutral-300">/</span>
+            <span className="hidden md:inline dark:text-neutral-700 text-neutral-300">
+              /
+            </span>
 
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 border border-border/50">
               <span>Core available in</span>
@@ -76,7 +93,11 @@ export function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
-            <Button asChild size="lg" className="min-w-[160px] h-12 rounded-full text-base px-8 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300">
+            <Button
+              asChild
+              size="lg"
+              className="min-w-[160px] h-12 rounded-full text-base px-8 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+            >
               <Link href="/components">
                 Browse Components
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -132,7 +153,11 @@ export function Hero() {
               className="flex h-10 w-10 items-center justify-center rounded-full border border-dashed bg-background transition-all hover:bg-muted border-border focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Become a sponsor"
             >
-              <Plus className="h-3 w-3 text-foreground" strokeWidth={3} aria-hidden="true" />
+              <Plus
+                className="h-3 w-3 text-foreground"
+                strokeWidth={3}
+                aria-hidden="true"
+              />
             </Link>
           </div>
         </motion.div>
