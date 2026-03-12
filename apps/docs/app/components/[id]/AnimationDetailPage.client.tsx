@@ -119,6 +119,22 @@ export default function AnimationDetailPageClient({
     }));
   };
 
+  const installId = React.useMemo(() => {
+    const availableIn = component.availableIn || [];
+    const isMultiLibrary =
+      component.category === "native" || availableIn.length > 1;
+
+    if (isMultiLibrary) {
+      // Carbon-only components should always install the carbon variant,
+      // even if the UI library is shadcnui/baseui.
+      if (availableIn.includes("carbon") && !availableIn.includes(selectedLibrary)) {
+        return `${component.id}-carbon`;
+      }
+      return `${component.id}-${selectedLibrary}`;
+    }
+    return component.id;
+  }, [component.id, component.category, component.availableIn, selectedLibrary]);
+
   const handleCopyInstall = async (command: string, type: string) => {
     await navigator.clipboard.writeText(command);
     setCopiedInstall(type);
@@ -127,7 +143,7 @@ export default function AnimationDetailPageClient({
 
   const handleCopyMarkdown = async () => {
     try {
-      const response = await fetch(`/md/${component.id}.md`);
+      const response = await fetch(`/md/${installId}.md`);
       if (response.ok) {
         const markdownContent = await response.text();
         await navigator.clipboard.writeText(markdownContent);
@@ -572,22 +588,6 @@ export default function AnimationDetailPageClient({
     carbonCode,
   ]);
 
-  const installId = React.useMemo(() => {
-    const availableIn = component.availableIn || [];
-    const isMultiLibrary =
-      component.category === "native" || availableIn.length > 1;
-
-    if (isMultiLibrary) {
-      // Carbon-only components should always install the carbon variant,
-      // even if the UI library is shadcnui/baseui.
-      if (availableIn.includes("carbon") && !availableIn.includes(selectedLibrary)) {
-        return `${component.id}-carbon`;
-      }
-      return `${component.id}-${selectedLibrary}`;
-    }
-    return component.id;
-  }, [component.id, component.category, component.availableIn, selectedLibrary]);
-
   return (
     <main className="flex h-full flex-1 flex-col overflow-hidden">
       <ScrollArea className="flex-1 h-full">
@@ -626,29 +626,29 @@ export default function AnimationDetailPageClient({
                 variant="outline"
                 size="sm"
                 onClick={handleCopyMarkdown}
-                className="gap-2 mb-2 sm:mb-0"
+                className="gap-2 mb-2 sm:mb-0 w-28 cursor-pointer"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {copiedMarkdown ? (
                     <motion.span
                       key="copied"
                       className="flex items-center gap-2"
-                      initial={{ opacity: 0, filter: "blur(2px)" }}
-                      animate={{ opacity: 1, filter: "blur(0px)" }}
-                      exit={{ opacity: 0, filter: "blur(2px)" }}
-                      transition={{ duration: 0.1 }}
+                      initial={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                      exit={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      transition={{ duration: 0.15 }}
                     >
-                      <Check className="h-4 w-4" />
+                      <Check className="h-4 w-4 text-emerald-500" />
                       Copied .md
                     </motion.span>
                   ) : (
                     <motion.span
                       key="copy"
                       className="flex items-center gap-2"
-                      initial={{ opacity: 0, filter: "blur(2px)" }}
-                      animate={{ opacity: 1, filter: "blur(0px)" }}
-                      exit={{ opacity: 0, filter: "blur(2px)" }}
-                      transition={{ duration: 0.1 }}
+                      initial={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                      exit={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      transition={{ duration: 0.15 }}
                     >
                       <FileText className="h-4 w-4" />
                       Copy .md
