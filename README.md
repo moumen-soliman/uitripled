@@ -61,6 +61,13 @@
 <table align="center">
   <tr>
     <td align="center">
+      <a href="https://vercel.com">
+        <img width="70" height="70" alt="vercel" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtuqajWzprxyYW6bihoVlEHGRpePK59zqZ4DLQ" style="border-radius: 100%;" />
+      </a>
+      <br />
+      <strong><a href="https://vercel.com">Vercel</a></strong>
+    </td>
+    <td align="center">
       <a href="https://shadcnstudio.com">
         <img width="70" height="70" alt="shadcn/studio" src="https://ts-assets.b-cdn.net/ss-assets/logo/logo.png" style="border-radius: 100%;" />
       </a>
@@ -73,13 +80,6 @@
       </a>
       <br />
       <strong><a href="https://shadcraft.com">Shadcraft</a></strong>
-    </td>
-    <td align="center">
-      <a href="https://shadcnspace.com">
-        <img width="70" height="70" alt="shadcnspace" src="apps/docs/public/logos/sponsors/shadcnspace.webp" />
-      </a>
-      <br />
-      <strong><a href="https://shadcnspace.com">shadcnspace</a></strong>
     </td>
   </tr>
   <tr>
@@ -112,6 +112,13 @@
       </a>
       <br />
       <strong><a href="https://reactbits.dev">ReactBits</a></strong>
+    </td>
+    <td align="center">
+      <a href="https://shadcnspace.com">
+        <img width="70" height="70" alt="shadcnspace" src="apps/docs/public/logos/sponsors/shadcnspace.webp" />
+      </a>
+      <br />
+      <strong><a href="https://shadcnspace.com">shadcnspace</a></strong>
     </td>
   </tr>
 </table>

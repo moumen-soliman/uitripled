@@ -35,6 +35,11 @@ const SPONSORS = [
     url: "https://shadcnblocks.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
   },
   {
+    username: "Vercel",
+    url: "https://vercel.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtuqajWzprxyYW6bihoVlEHGRpePK59zqZ4DLQ",
+  },
+  {
     username: "OpenPanel",
     url: "https://openpanel.dev?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
     logo: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtZSdcHpLMoTtqyenU7vkYSxEW4uPQlw3ps6NX",
