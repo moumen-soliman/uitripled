@@ -50,8 +50,8 @@ const SPONSORS = [
     logo: "/logos/sponsors/lucide-animated.svg",
   },
   {
-    username: "shadcraft",
-    url: "https://shadcraft.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    username: "Shadcncraft",
+    url: "https://shadcncraft.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
   },
 ];
 

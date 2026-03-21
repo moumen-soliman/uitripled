@@ -75,11 +75,11 @@
       <strong><a href="https://shadcnstudio.com">shadcn/studio</a></strong>
     </td>
     <td align="center">
-      <a href="https://shadcraft.com">
-        <img width="70" height="70" alt="Shadcraft" src="https://github.com/shadcraft.png" style="border-radius: 100%;" />
+      <a href="https://shadcncraft.com">
+        <img width="70" height="70" alt="Shadcncraft" src="https://github.com/shadcncraft.png" style="border-radius: 100%;" />
       </a>
       <br />
-      <strong><a href="https://shadcraft.com">Shadcraft</a></strong>
+      <strong><a href="https://shadcncraft.com">Shadcncraft</a></strong>
     </td>
   </tr>
   <tr>
