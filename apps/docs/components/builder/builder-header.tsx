@@ -1,6 +1,7 @@
 "use client";
 
 import { BuilderSidebar } from "@/components/builder-sidebar";
+import type { BuilderLayoutMode } from "@/types/builder";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import {
   Dialog,
@@ -8,6 +9,11 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@uitripled/react-shadcn/ui/dialog";
+import {
+  BreakpointSwitcher,
+  type Breakpoint,
+} from "./breakpoint-switcher";
+import { UndoRedoButtons } from "./undo-redo-buttons";
 import { FolderOpen, Menu, X } from "lucide-react";
 
 type BuilderHeaderProps = {
@@ -18,6 +24,13 @@ type BuilderHeaderProps = {
   isTextEditing: boolean;
   activeComponentCount: number;
   onMobileComponentSelect: (animationId: string) => void;
+  layoutMode?: BuilderLayoutMode;
+  canUndo?: boolean;
+  canRedo?: boolean;
+  onUndo?: () => void;
+  onRedo?: () => void;
+  activeBreakpoint?: Breakpoint;
+  onBreakpointChange?: (breakpoint: Breakpoint) => void;
 };
 
 export function BuilderHeader({
@@ -28,6 +41,13 @@ export function BuilderHeader({
   isTextEditing,
   activeComponentCount,
   onMobileComponentSelect,
+  layoutMode = "stack",
+  canUndo = false,
+  canRedo = false,
+  onUndo,
+  onRedo,
+  activeBreakpoint = "desktop",
+  onBreakpointChange,
 }: BuilderHeaderProps) {
   return (
     <div className="border-b border-border bg-card px-4 py-3 sm:px-6">
@@ -61,12 +81,27 @@ export function BuilderHeader({
                   allowDrag={false}
                   className="flex h-full flex-col bg-background"
                   onSelectComponent={onMobileComponentSelect}
+                  layoutMode={layoutMode}
                 />
               </div>
             </DialogContent>
           </Dialog>
         </div>
         <div className="flex items-center gap-2">
+          {onUndo && onRedo && (
+            <UndoRedoButtons
+              canUndo={canUndo}
+              canRedo={canRedo}
+              onUndo={onUndo}
+              onRedo={onRedo}
+            />
+          )}
+          {onBreakpointChange && (
+            <BreakpointSwitcher
+              activeBreakpoint={activeBreakpoint}
+              onChange={onBreakpointChange}
+            />
+          )}
           <Button variant="outline" size="sm" onClick={onLoadProjects}>
             <FolderOpen className="mr-2 h-4 w-4" />
             Load Project

@@ -1,8 +1,9 @@
 "use client";
 
-import type { BuilderProjectPage } from "@/types/builder";
+import type { BuilderLayoutMode, BuilderProjectPage } from "@/types/builder";
 import { Button } from "@uitripled/react-shadcn/ui/button";
-import { Edit3, Plus, Trash2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Edit3, Layers, LayoutGrid, Plus, Trash2 } from "lucide-react";
 
 type PageTabsProps = {
   pages: BuilderProjectPage[];
@@ -12,6 +13,8 @@ type PageTabsProps = {
   onRenamePage: (pageId: string) => void;
   onDeletePage: (pageId: string) => void;
   activeRoute: string;
+  layoutMode: BuilderLayoutMode;
+  onLayoutModeChange: (pageId: string, mode: BuilderLayoutMode) => void;
 };
 
 export function PageTabs({
@@ -22,6 +25,8 @@ export function PageTabs({
   onRenamePage,
   onDeletePage,
   activeRoute,
+  layoutMode,
+  onLayoutModeChange,
 }: PageTabsProps) {
   return (
     <div className="px-4 pb-4 md:px-6">
@@ -77,10 +82,45 @@ export function PageTabs({
         </Button>
       </div>
       {activePage && (
-        <p className="mt-2 text-xs text-muted-foreground">
-          Route:{" "}
-          <span className="font-mono text-foreground">{activeRoute}</span>
-        </p>
+        <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-muted-foreground">
+            Route:{" "}
+            <span className="font-mono text-foreground">{activeRoute}</span>
+          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-muted-foreground">
+              Layout
+            </span>
+            <div className="inline-flex rounded-lg border border-border bg-muted/40 p-0.5">
+              <Button
+                type="button"
+                size="sm"
+                variant="ghost"
+                className={cn(
+                  "h-8 gap-1 rounded-md px-2 text-xs",
+                  layoutMode === "stack" && "bg-background shadow-sm"
+                )}
+                onClick={() => onLayoutModeChange(activePage.id, "stack")}
+              >
+                <LayoutGrid className="h-3.5 w-3.5" />
+                Stack
+              </Button>
+              <Button
+                type="button"
+                size="sm"
+                variant="ghost"
+                className={cn(
+                  "h-8 gap-1 rounded-md px-2 text-xs",
+                  layoutMode === "free" && "bg-background shadow-sm"
+                )}
+                onClick={() => onLayoutModeChange(activePage.id, "free")}
+              >
+                <Layers className="h-3.5 w-3.5" />
+                Free canvas
+              </Button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

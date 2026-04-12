@@ -1,6 +1,7 @@
 "use client";
 
 import { useUILibrary } from "@/components/ui-library-provider";
+import { defaultFreeCanvasForIndex } from "@/lib/builder-utils";
 import { mergeComponentImports } from "@/lib/merge-imports";
 import type { BuilderComponent, BuilderProjectPage } from "@/types/builder";
 import { Button } from "@uitripled/react-shadcn/ui/button";
@@ -98,12 +99,14 @@ const buildPageCode = async (
   selectedLibrary: string = "shadcnui"
 ): Promise<string> => {
   const components = currentPage.components;
+  const isFreeLayout = currentPage.layoutMode === "free";
 
   const componentUsages: string[] = [];
   const allImports: string[] = [];
   const componentDefinitions: string[] = [];
 
-  for (const component of components) {
+  for (let index = 0; index < components.length; index++) {
+    const component = components[index];
     let animationCode = component.animation.code;
 
     // If code is not available, fetch it from the API
@@ -162,10 +165,29 @@ const buildPageCode = async (
       ? functionMatch[1]
       : component.animation.name.replace(/\s+/g, "");
 
-    componentUsages.push(`        {/* ${component.animation.name} */}
+    if (isFreeLayout) {
+      const fc =
+        component.freeCanvas ?? defaultFreeCanvasForIndex(index);
+      const stylePairs: string[] = [
+        `left: ${fc.x}`,
+        `top: ${fc.y}`,
+      ];
+      if (fc.zIndex !== undefined && fc.zIndex !== null) {
+        stylePairs.push(`zIndex: ${fc.zIndex}`);
+      }
+      if (fc.width !== undefined && fc.width !== null) {
+        stylePairs.push(`width: ${fc.width}`);
+      }
+      componentUsages.push(`        {/* ${component.animation.name} */}
+        <div className="absolute max-w-full" style={{ ${stylePairs.join(", ")} }}>
+          <${componentFunctionName} />
+        </div>`);
+    } else {
+      componentUsages.push(`        {/* ${component.animation.name} */}
         <section>
           <${componentFunctionName} />
         </section>`);
+    }
 
     const lines = codeWithOverrides.split("\n");
 
@@ -242,10 +264,26 @@ const buildPageCode = async (
       ? `'use client'\n\n${allImports.join("\n")}`
       : `'use client'`;
 
-  const pageTemplate = `
-
-${componentDefinitions.join(componentDefinitions.length > 0 ? "\n\n" : "")}
-
+  let pageInner: string;
+  if (isFreeLayout) {
+    let minHeightPx = 720;
+    components.forEach((c, i) => {
+      const fc = c.freeCanvas ?? defaultFreeCanvasForIndex(i);
+      minHeightPx = Math.max(minHeightPx, fc.y + 420);
+    });
+    pageInner = `
+export default function Page() {
+  return (
+    <div
+      className="relative w-full bg-background"
+      style={{ minHeight: ${minHeightPx} }}
+    >
+${mainContent}
+    </div>
+  )
+}`;
+  } else {
+    pageInner = `
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
@@ -254,7 +292,13 @@ ${mainContent}
       </div>
     </div>
   )
-}
+}`;
+  }
+
+  const pageTemplate = `
+
+${componentDefinitions.join(componentDefinitions.length > 0 ? "\n\n" : "")}
+${pageInner}
 `;
 
   const mergedImports = mergeComponentImports(importsCode);
@@ -439,13 +483,23 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
     return pageArtifacts[0];
   }, [pageArtifacts, activePageId]);
 
+  const activePageForCode = useMemo(
+    () =>
+      pages.find((p) => p.id === activePageId) ??
+      pages[0] ??
+      null,
+    [pages, activePageId]
+  );
+
   const projectSignature = useMemo(
     () =>
       JSON.stringify(
         pages.map((page) => ({
+          layoutMode: page.layoutMode ?? "stack",
           components: page.components.map((component) => ({
             animationId: component.animationId,
             textContent: component.textContent ?? {},
+            freeCanvas: component.freeCanvas ?? null,
           })),
         }))
       ),
@@ -503,10 +557,14 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
         id: page.id,
         name: page.name,
         slug: page.slug,
+        layoutMode: page.layoutMode ?? "stack",
         components: page.components.map((component) => ({
           id: component.id,
           animationId: component.animationId,
           textContent: component.textContent ?? {},
+          ...(component.freeCanvas
+            ? { freeCanvas: component.freeCanvas }
+            : {}),
         })),
         code:
           pageCodeMap[page.id] ||
@@ -519,6 +577,7 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
       name: "Home",
       slug: "home",
       components: [],
+      layoutMode: "stack",
     };
     const fallbackCode = await buildPageCode(
       fallbackPage,
@@ -605,9 +664,11 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
 
       const signature = JSON.stringify(
         savedPages.map((page: any) => ({
+          layoutMode: page.layoutMode ?? "stack",
           components: (page.components ?? []).map((component: any) => ({
             animationId: component.animationId,
             textContent: component.textContent ?? {},
+            freeCanvas: component.freeCanvas ?? null,
           })),
         }))
       );
@@ -769,6 +830,7 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
           name: "Home",
           slug: "home",
           components: [],
+          layoutMode: "stack",
         };
         const code = await buildPageCode(
           fallbackPage,
@@ -802,6 +864,11 @@ export function BuilderCodeView({ pages, activePageId }: BuilderCodeViewProps) {
             {activeArtifact && (
               <span className="text-xs text-muted-foreground">
                 Showing: {activeArtifact.name}
+              </span>
+            )}
+            {activePageForCode?.layoutMode === "free" && (
+              <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-medium text-amber-800 dark:text-amber-200">
+                Free canvas → absolute layout in this file
               </span>
             )}
           </div>

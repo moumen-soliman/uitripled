@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-baseui",
+  "type": "registry:block",
+  "title": "Dashboard",
+  "description": "Interactive stock portfolio dashboard with status cards, data table, and detailed stock information modal (Base UI)",
+  "registryDependencies": [
+    "button"
+  ],
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "@uitripled/react-baseui/src/components/stocks-dashboard/dashboard-baseui.tsx",
+      "content": "// Error: Could not read file @uitripled/react-baseui/src/components/stocks-dashboard/dashboard-baseui.tsx\n// File not found: @uitripled/react-baseui/src/components/stocks-dashboard/dashboard-baseui.tsx",
+      "type": "registry:block",
+      "target": "components/uitripled/dashboard-baseui.tsx"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 
 import { CodeBlock } from "@/components/code-block";
 import { componentsRegistry } from "@/lib/components-registry";
+import { defaultFreeCanvasForIndex } from "@/lib/builder-utils";
 import { Button } from "@uitripled/react-shadcn/ui/button";
 import { Card } from "@uitripled/react-shadcn/ui/card";
 import { motion } from "framer-motion";
@@ -20,6 +21,12 @@ type SavedProjectComponent = {
       value: string;
     }
   >;
+  freeCanvas?: {
+    x: number;
+    y: number;
+    width?: number;
+    zIndex?: number;
+  };
 };
 
 type SavedProjectPage = {
@@ -28,6 +35,7 @@ type SavedProjectPage = {
   slug?: string;
   components?: SavedProjectComponent[];
   code?: string;
+  layoutMode?: "stack" | "free";
 };
 
 type SavedProject = {
@@ -52,6 +60,7 @@ type ComponentInstance = {
   id: string;
   animationId: string;
   textContent?: Record<string, TextContentEntry>;
+  freeCanvas?: SavedProjectComponent["freeCanvas"];
   component: ComponentType<any>;
 };
 
@@ -60,6 +69,7 @@ type PreviewProjectPage = {
   name: string;
   slug: string;
   code?: string;
+  layoutMode?: "stack" | "free";
   components: ComponentInstance[];
 };
 
@@ -148,6 +158,7 @@ function normalizeProject(project: SavedProject): NormalizedProject | null {
               : `component-${pageId}-${componentIndex}`,
           animationId: comp.animationId,
           textContent: comp.textContent,
+          ...(comp.freeCanvas ? { freeCanvas: comp.freeCanvas } : {}),
           component: animation.component,
         };
       })
@@ -165,6 +176,7 @@ function normalizeProject(project: SavedProject): NormalizedProject | null {
       name: safeName,
       slug,
       code: resolvedCode,
+      layoutMode: page.layoutMode === "free" ? "free" : "stack",
       components: componentInstances,
     };
   });
@@ -264,6 +276,14 @@ export default function PreviewProjectPageClient() {
     : null;
 
   const componentInstances: ComponentInstance[] = activePage?.components ?? [];
+  const isFreePreview = activePage?.layoutMode === "free";
+  let freePreviewMinHeight = 720;
+  if (isFreePreview) {
+    componentInstances.forEach((inst, i) => {
+      const fc = inst.freeCanvas ?? defaultFreeCanvasForIndex(i);
+      freePreviewMinHeight = Math.max(freePreviewMinHeight, fc.y + 420);
+    });
+  }
   const codeToDisplay = activePage?.code ?? "";
   const activeRoute =
     project && activePage
@@ -410,25 +430,56 @@ export default function PreviewProjectPageClient() {
       )}
 
       {/* Preview */}
-      <div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="space-y-8"
-        >
-          {componentInstances.map((instance, index) => (
-            <motion.div
-              key={instance.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="w-full"
-            >
-              <PreviewComponent instance={instance} />
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="px-4 pb-12">
+        {isFreePreview ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="relative w-full overflow-auto rounded-lg border border-border bg-muted/20"
+            style={{ minHeight: freePreviewMinHeight }}
+          >
+            {componentInstances.map((instance, index) => {
+              const fc = instance.freeCanvas ?? defaultFreeCanvasForIndex(index);
+              return (
+                <motion.div
+                  key={instance.id}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="absolute max-w-full"
+                  style={{
+                    left: fc.x,
+                    top: fc.y,
+                    zIndex: 10 + (fc.zIndex ?? 0),
+                    width: fc.width ?? undefined,
+                  }}
+                >
+                  <PreviewComponent instance={instance} />
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="space-y-8"
+          >
+            {componentInstances.map((instance, index) => (
+              <motion.div
+                key={instance.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="w-full"
+              >
+                <PreviewComponent instance={instance} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
     </div>
   );
