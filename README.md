@@ -120,6 +120,13 @@
       <br />
       <strong><a href="https://shadcnspace.com">shadcnspace</a></strong>
     </td>
+    <td align="center">
+      <a href="https://efferd.com">
+        <img width="70" height="70" alt="efferd" src="apps/docs/public/logos/sponsors/efferd.png" />
+      </a>
+      <br />
+      <strong><a href="https://efferd.com">Efferd</a></strong>
+    </td>
   </tr>
 </table>
 

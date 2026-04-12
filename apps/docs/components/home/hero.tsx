@@ -16,9 +16,9 @@ import { Suspense } from "react";
 
 const SPONSORS = [
   {
-    username: "ReactBits",
-    url: "https://reactbits.dev?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
-    logo: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtd7oHoWu8kXBdOAypChQmW2xzMgu5YERnZaGF",
+    username: "Efferd",
+    url: "https://efferd.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "/logos/sponsors/efferd.png",
   },
   {
     username: "shadcn/studio",
@@ -26,13 +26,13 @@ const SPONSORS = [
     logo: "https://ts-assets.b-cdn.net/ss-assets/logo/logo.svg",
   },
   {
-    username: "shadcnspace",
-    url: "https://shadcnspace.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
-    logo: "/logos/sponsors/shadcnspace.webp",
-  },
-  {
     username: "shadcnblocks",
     url: "https://shadcnblocks.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+  },
+  {
+    username: "ReactBits",
+    url: "https://reactbits.dev?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtd7oHoWu8kXBdOAypChQmW2xzMgu5YERnZaGF",
   },
   {
     username: "Vercel",
@@ -43,6 +43,11 @@ const SPONSORS = [
     username: "OpenPanel",
     url: "https://openpanel.dev?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
     logo: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtZSdcHpLMoTtqyenU7vkYSxEW4uPQlw3ps6NX",
+  },
+  {
+    username: "shadcnspace",
+    url: "https://shadcnspace.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "/logos/sponsors/shadcnspace.webp",
   },
   {
     username: "lucide-animated",
