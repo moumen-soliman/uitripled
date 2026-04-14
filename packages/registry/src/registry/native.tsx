@@ -214,6 +214,8 @@ import { VerifiedBadge } from "@uitripled/react-shadcn/src/components/native/nat
 import { NativeUserCard } from "@uitripled/react-shadcn/src/components/native/native-user-card-shadcnui";
 import { NativeUserCard as NativeUserCardBaseUI } from "@uitripled/react-baseui/src/components/native/native-user-card-baseui";
 import { NativeUserCardDemo } from "@uitripled/react-shadcn/src/components/native/demo/native-user-card-demo";
+import { NativeMarqueeDemo, NativeMarqueeVertical } from "@uitripled/react-shadcn/src/components/native/demo/native-marquee-demo";
+import { NativeMarquee } from "@uitripled/react-shadcn/src/components/native/native-marquee-shadcnui";
 
 export const nativeComponents: Component[] = [
   {
@@ -820,6 +822,41 @@ export const nativeComponents: Component[] = [
     display: true,
     availableIn: ["shadcnui", "carbon", "baseui"],
   },
+  {
+      id: "native-marquee",
+      name: "Native Marquee",
+      description: "A smooth, infinite scrolling marquee for logos or text.",
+      category: "native",
+      tags: ["marquee", "scroll", "animation", "infinite", "interactive", "native"],
+      component: NativeMarquee,
+      variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Default Double Horizontal Marquee",
+        component: NativeMarqueeDemo,
+      },
+      {
+        id: "vertical",
+        name: "Vertical",
+        description: "Double Vertical Marquee Demo",
+        component: NativeMarqueeVertical,
+        code: `
+<SideFadeGradients isVertical={true} />
+<NativeMarquee gap={8} pauseOnTouch={true} pauseOnHover={true} items={ITEMS} isVertical={true}/>
+<NativeMarquee gap={8} reverse={true} speed={5} items={ITEMS} isVertical={true}/>
+        `
+      }
+    ],
+      codePath:"@uitripled/react-shadcn/src/components/native/native-marquee-shadcnui.tsx",
+      duration: "1000ms",
+      easing: "linear",
+      display: true,
+      availableIn: ["shadcnui"],
+      author: {
+        username: "M4sayev"
+      }
+    },
   {
     id: "native-notification-bell",
     name: "Native Notification Bell",
