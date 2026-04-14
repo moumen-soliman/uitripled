@@ -2,6 +2,7 @@
 
 import { Component, categoryNames } from "@/types";
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -39,7 +40,7 @@ export function AnimationCard({ animation }: AnimationCardProps) {
           </div>
 
           {/* Content */}
-          <div className="p-4">
+          <div className="p-4 pb-3">
             <div className="mb-2 flex items-center gap-2">
               <span className="rounded border border-border bg-card px-2 py-0.5 text-xs font-medium text-muted-foreground">
                 {categoryNames[animation.category]}
@@ -73,6 +74,25 @@ export function AnimationCard({ animation }: AnimationCardProps) {
             </div>
           </div>
         </Link>
+        {animation.author?.username && (
+          <div className="flex items-center justify-end border-t border-border/60 px-4 py-2">
+            <a
+              href={`https://github.com/${animation.author.username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              aria-label={`View ${animation.author.username} on GitHub`}
+            >
+              <span>
+                By{" "}
+                <span className="font-medium text-foreground">
+                  @{animation.author.username}
+                </span>
+              </span>
+              <Github className="h-3 w-3" aria-hidden="true" />
+            </a>
+          </div>
+        )}
       </motion.div>
     </>
   );

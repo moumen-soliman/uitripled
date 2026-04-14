@@ -30,6 +30,7 @@ import {
   ChevronDown,
   Copy,
   FileText,
+  Github,
   Info,
   RefreshCw,
 } from "lucide-react";
@@ -621,6 +622,23 @@ export default function AnimationDetailPageClient({
                 <p className="mb-4 text-sm text-muted-foreground sm:text-base">
                   {component.description}
                 </p>
+                {component.author?.username && (
+                  <a
+                    href={`https://github.com/${component.author.username}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-4 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    aria-label={`View ${component.author.username} on GitHub`}
+                  >
+                    <span>
+                      By{" "}
+                      <span className="font-medium text-foreground">
+                        @{component.author.username}
+                      </span>
+                    </span>
+                    <Github className="h-3.5 w-3.5" aria-hidden="true" />
+                  </a>
+                )}
               </div>
               <Button
                 variant="outline"

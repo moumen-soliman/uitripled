@@ -207,6 +207,12 @@ function parseRegistryFile(content: string, fileName: string) {
         }
       }
 
+      // Extract optional baseuiCodePath override used when generating
+      // the baseui variant. Without this, generateVariantEntries falls back
+      // to convertToBaseuiPath which can't handle non-shadcn codePaths.
+      const baseuiCodePathMatch = entryText.match(/baseuiCodePath:\s*["'](@uitripled\/[^"']+)["']/);
+      const baseuiCodePath = baseuiCodePathMatch ? baseuiCodePathMatch[1] : null;
+
       if (componentPath) {
         entries.push({
           id,
@@ -215,6 +221,7 @@ function parseRegistryFile(content: string, fileName: string) {
           category,
           componentName,
           componentPath,
+          baseuiCodePath,
           availableIn,
         });
       } else {
@@ -422,7 +429,7 @@ function getSubcategory(componentPath: string, category: string) {
  * @param {string|null} uiLibrary - The UI library variant (shadcnui, baseui, or null for pure)
  */
 function createRegistryEntry(componentData: any, uiLibrary: string | null = null) {
-  const { id, name, description, category, componentPath } = componentData;
+  const { id, name, description, category, componentPath, baseuiCodePath } = componentData;
   const registryCategory = CATEGORY_MAPPING[category] || category;
   const registryType = CATEGORY_TO_TYPE[category] || "registry:component";
 
@@ -443,8 +450,9 @@ function createRegistryEntry(componentData: any, uiLibrary: string | null = null
     entryName = id.endsWith("-baseui") ? id : `${id}-baseui`;
     entryTitle = name;
     entryDescription = description ? `${description} (Base UI)` : description;
-    // Convert to baseui path
-    entryPath = convertToBaseuiPath(componentPath, id);
+    // Prefer an explicit baseuiCodePath override when the entry declares one,
+    // since convertToBaseuiPath only knows how to rewrite react-shadcn paths.
+    entryPath = baseuiCodePath || convertToBaseuiPath(componentPath, id);
   }
 
   const entry: any = {

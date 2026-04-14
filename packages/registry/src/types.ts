@@ -18,4 +18,7 @@ export type Component = {
   easing?: string;
   baseuiComponent?: React.ComponentType<any>;
   baseuiCodePath?: string;
+  author?: {
+    username: string;
+  };
 };

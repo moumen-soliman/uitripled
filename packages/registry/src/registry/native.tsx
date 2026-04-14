@@ -823,13 +823,13 @@ export const nativeComponents: Component[] = [
     availableIn: ["shadcnui", "carbon", "baseui"],
   },
   {
-      id: "native-marquee",
-      name: "Native Marquee",
-      description: "A smooth, infinite scrolling marquee for logos or text.",
-      category: "native",
-      tags: ["marquee", "scroll", "animation", "infinite", "interactive", "native"],
-      component: NativeMarquee,
-      variants: [
+    id: "native-marquee",
+    name: "Native Marquee",
+    description: "A smooth, infinite scrolling marquee for logos or text.",
+    category: "native",
+    tags: ["marquee", "scroll", "animation", "infinite", "interactive", "native"],
+    component: NativeMarquee,
+    variants: [
       {
         id: "default",
         name: "Default",
@@ -845,18 +845,18 @@ export const nativeComponents: Component[] = [
 <SideFadeGradients isVertical={true} />
 <NativeMarquee gap={8} pauseOnTouch={true} pauseOnHover={true} items={ITEMS} isVertical={true}/>
 <NativeMarquee gap={8} reverse={true} speed={5} items={ITEMS} isVertical={true}/>
-        `
-      }
+        `,
+      },
     ],
-      codePath:"@uitripled/react-shadcn/src/components/native/native-marquee-shadcnui.tsx",
-      duration: "1000ms",
-      easing: "linear",
-      display: true,
-      availableIn: ["shadcnui"],
-      author: {
-        username: "M4sayev"
-      }
+    codePath: "@uitripled/react-shadcn/src/components/native/native-marquee-shadcnui.tsx",
+    duration: "1000ms",
+    easing: "linear",
+    display: true,
+    availableIn: ["shadcnui", "baseui"],
+    author: {
+      username: "M4sayev",
     },
+  },
   {
     id: "native-notification-bell",
     name: "Native Notification Bell",

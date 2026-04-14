@@ -3692,7 +3692,7 @@
       ],
       "files": [
         {
-          "path": "@uitripled/react-baseui/src/components/native/native-flip-text-baseui.tsx",
+          "path": "@uitripled/react-carbon/src/components/native/native-flip-text-carbon-baseui.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-flip-text-baseui.tsx"
         }

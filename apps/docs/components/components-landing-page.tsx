@@ -6,7 +6,7 @@ import { Component, ComponentCategory, categoryNames } from "@/types";
 import { Input } from "@uitripled/react-shadcn/ui/input";
 import { ScrollArea } from "@uitripled/react-shadcn/ui/scroll-area";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, Github, Search } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -18,10 +18,11 @@ const ComponentCard = ({ component }: { component: Component }) => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.2 }}
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card/50 transition-all hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-md"
     >
       <Link
         href={`/components/${component.id}`}
-        className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card/50 p-4 transition-all hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-md"
+        className="flex flex-1 flex-col p-4"
       >
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-2">
@@ -56,6 +57,25 @@ const ComponentCard = ({ component }: { component: Component }) => {
           </div>
         )}
       </Link>
+      {component.author?.username && (
+        <div className="flex items-center justify-end border-t border-border/60 px-4 py-2">
+          <a
+            href={`https://github.com/${component.author.username}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+            aria-label={`View ${component.author.username} on GitHub`}
+          >
+            <span>
+              By{" "}
+              <span className="font-medium text-foreground">
+                @{component.author.username}
+              </span>
+            </span>
+            <Github className="h-3 w-3" aria-hidden="true" />
+          </a>
+        </div>
+      )}
     </motion.div>
   );
 };

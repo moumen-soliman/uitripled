@@ -45,6 +45,9 @@ export type Component = {
   isFree?: boolean;
   display?: boolean;
   availableIn?: UILibrary[]; // Which UI libraries have this component implemented
+  author?: {
+    username: string; // GitHub username — rendered as a credit link on component cards
+  };
 };
 
 export const categoryNames: Record<ComponentCategory, string> = {
