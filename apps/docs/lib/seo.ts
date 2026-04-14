@@ -197,6 +197,21 @@ export const sitemapEntries: SitemapEntry[] = [
     priority: 0.7,
   },
   {
+    url: `${siteConfig.url}/background-builder`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${siteConfig.url}/grid-generator`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${siteConfig.url}/hall-of-fame`,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  },
+  {
     url: `${siteConfig.url}/deploy`,
     changeFrequency: "monthly",
     priority: 0.7,
