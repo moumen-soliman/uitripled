@@ -128,6 +128,15 @@
       <strong><a href="https://efferd.com">Efferd</a></strong>
     </td>
   </tr>
+  <tr>
+    <td align="center">
+      <a href="https://shoogle.dev">
+        <img width="70" height="70" alt="shoogle" src="apps/docs/public/logos/sponsors/shoogle.jpg" />
+      </a>
+      <br />
+      <strong><a href="https://shoogle.dev">Shoogle</a></strong>
+    </td>
+  </tr>
 </table>
 
 

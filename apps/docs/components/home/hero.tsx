@@ -30,6 +30,11 @@ const SPONSORS = [
     url: "https://shadcnblocks.com?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
   },
   {
+    username: "Shoogle",
+    url: "https://shoogle.dev?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
+    logo: "/logos/sponsors/shoogle.jpg",
+  },
+  {
     username: "ReactBits",
     url: "https://reactbits.dev?utm_source=uitripled&utm_medium=referral&utm_campaign=sponsors",
     logo: "https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtd7oHoWu8kXBdOAypChQmW2xzMgu5YERnZaGF",
