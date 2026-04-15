@@ -3,15 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion, useAnimate } from "framer-motion";
 
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-
-
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 interface NativeMarqueeItem {
   id: string;
@@ -31,13 +23,14 @@ interface NativeMarqueeProps {
 }
 
 function NativeMarquee({
+  items,
   speed = 10,
   gap = 2,
   isVertical = false,
   reverse = false,
   pauseOnHover = false,
   pauseOnTouch = false,
-  items,
+  className = "",
 }: NativeMarqueeProps) {
   const { containerRef, marqueeRef, multiplier, isMounted } = useMarquee({
     isVertical,
@@ -81,8 +74,8 @@ function NativeMarquee({
         {items.map((item) => (
           <li
             key={item.id}
-            className={
-              cn("flex items-center gap-2 ",
+            className={cn(
+              "flex items-center gap-2 ",
               "border border-border bg-background px-4 py-2 rounded-full text-sm text-muted-foreground whitespace-nowrap",
               "hover:bg-muted hover:border-foreground/20",
               isVertical ? "w-full justify-center" : ""
@@ -94,7 +87,7 @@ function NativeMarquee({
         ))}
       </ul>
     ),
-    [items]
+    [items, isVertical]
   );
 
   const copies = useCallback(
@@ -135,7 +128,8 @@ function NativeMarquee({
       ref={containerRef}
       className={cn(
         "flex shrink-0 grow-0 basis-auto overflow-hidden",
-        isVertical ? "flex-col h-full" : "w-full "
+        isVertical ? "flex-col h-full" : "w-full ",
+        className
       )}
       {...hoverProps}
       {...touchProps}
@@ -249,4 +243,4 @@ function SideFadeGradients({ isVertical = false }: { isVertical?: boolean }) {
     </>
   );
 }
-export { NativeMarquee, useMarquee, SideFadeGradients };
+export { NativeMarquee, SideFadeGradients, useMarquee };
