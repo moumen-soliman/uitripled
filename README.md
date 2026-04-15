@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/moumen-soliman/uitripled">
-    <img width="100" height="100" alt="UI TripleD Logo" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtl1pW0d6xiLckpa7VobAKthYDjBuwMy6zmGSe" />
+    <img width="100" alt="UI TripleD Logo" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtl1pW0d6xiLckpa7VobAKthYDjBuwMy6zmGSe" />
   </a>
 </p>
 
@@ -28,7 +28,7 @@
   <a href="https://github.com/moumen-soliman/uitripled/issues"><img src="https://img.shields.io/github/issues/moumen-soliman/uitripled" alt="Issues" /></a>
 </p>
 
-<img width="2800" height="2044" alt="UI TripleD" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtmjnFn4EXoBagjvOt2MCq0xnsViJcwbWR4PEp" />
+<img width="2800" alt="UI TripleD" src="https://iimydr2b8o.ufs.sh/f/Zqn6AViLMoTtmjnFn4EXoBagjvOt2MCq0xnsViJcwbWR4PEp" />
 
 ## Features
 
