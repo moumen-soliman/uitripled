@@ -43,7 +43,7 @@ export function NativeMarqueeVertical() {
     <div className="flex overflow-hidden gap-2 relative h-96">
       <SideFadeGradients isVertical={true} />
       <NativeMarquee gap={8} pauseOnTouch={true} pauseOnHover={true} items={ITEMS} isVertical={true}/>
-      <NativeMarquee gap={8} reverse={true} speed={5} items={ITEMS} isVertical={true}/>
+      <NativeMarquee gap={8} reverse={true} speed={5} items={ITEMS} isVertical={true} className="hidden sm:flex"/>
     </div>
   );
 }

@@ -844,7 +844,7 @@ export const nativeComponents: Component[] = [
         code: `
 <SideFadeGradients isVertical={true} />
 <NativeMarquee gap={8} pauseOnTouch={true} pauseOnHover={true} items={ITEMS} isVertical={true}/>
-<NativeMarquee gap={8} reverse={true} speed={5} items={ITEMS} isVertical={true}/>
+<NativeMarquee gap={8} reverse={true} speed={5} items={ITEMS} isVertical={true} className="hidden sm:flex"/>
         `,
       },
     ],
