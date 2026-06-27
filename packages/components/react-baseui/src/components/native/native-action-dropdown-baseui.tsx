@@ -7,6 +7,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -126,6 +127,15 @@ const HIGHLIGHT_SPRING = {
   bounce: 0.2,
 } as const;
 
+// Beside-the-row submenu sizing, used for viewport collision checks.
+const SUBMENU_W = 256; // w-64
+const GAP = 8; // ml-2 / mr-2
+type SubmenuSide = "right" | "left" | "below";
+
+// useLayoutEffect on the client (no flash), useEffect on the server.
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export function NativeActionDropdownBaseUI({
   items,
   value,
@@ -142,6 +152,9 @@ export function NativeActionDropdownBaseUI({
 
   const [isOpen, setIsOpen] = useState(false);
   const [cols, setCols] = useState<number[]>([0]);
+  // Collision-aware placement (recomputed on open / drill / resize).
+  const [submenuSide, setSubmenuSide] = useState<SubmenuSide>("right");
+  const [panelAbove, setPanelAbove] = useState(false);
 
   const listboxId = useId();
   const shouldReduceMotion = useReducedMotion();
@@ -229,6 +242,43 @@ export function NativeActionDropdownBaseUI({
   useEffect(() => {
     if (isOpen) listboxRef.current?.focus();
   }, [isOpen]);
+
+  // Keep the panel and submenu inside the viewport: flip the panel above the
+  // trigger near the bottom, and open the submenu left / below when there's no
+  // room on the right (full-width "below" doubles as the small-screen layout).
+  const computePlacement = useCallback(() => {
+    if (typeof window === "undefined") return;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    const trigger = triggerRef.current?.getBoundingClientRect();
+    if (trigger) {
+      const roomBelow = vh - trigger.bottom;
+      const roomAbove = trigger.top;
+      setPanelAbove(
+        roomBelow < Math.min(360, roomAbove) && roomAbove > roomBelow
+      );
+    }
+
+    const panel = listboxRef.current?.getBoundingClientRect();
+    if (panel) {
+      const need = SUBMENU_W + GAP;
+      if (vw < 480 || (vw - panel.right < need && panel.left < need)) {
+        setSubmenuSide("below");
+      } else if (vw - panel.right >= need) {
+        setSubmenuSide("right");
+      } else {
+        setSubmenuSide("left");
+      }
+    }
+  }, []);
+
+  useIsoLayoutEffect(() => {
+    if (!isOpen) return;
+    computePlacement();
+    window.addEventListener("resize", computePlacement);
+    return () => window.removeEventListener("resize", computePlacement);
+  }, [isOpen, depth, computePlacement]);
 
   const handleTriggerKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
@@ -421,16 +471,32 @@ export function NativeActionDropdownBaseUI({
   const renderSubmenu = () => {
     const parent =
       depth > 0 ? columns[depth - 1].items[base[depth - 1]] : undefined;
+    const sideClass =
+      submenuSide === "right"
+        ? "left-full top-0 ml-2 w-64"
+        : submenuSide === "left"
+          ? "right-full top-0 mr-2 w-64"
+          : "left-0 top-full mt-1 w-full"; // below: full-width sheet (mobile)
+    const sideOrigin =
+      submenuSide === "right"
+        ? "left top"
+        : submenuSide === "left"
+          ? "right top"
+          : "top center";
+    const enterX =
+      reduce || submenuSide === "below" ? 0 : submenuSide === "left" ? 6 : -6;
+    const enterY = !reduce && submenuSide === "below" ? -6 : 0;
     return (
       <motion.div
         key="submenu"
         role="group"
         aria-label={parent ? `${parent.name} options` : "Submenu"}
-        initial={{ opacity: 0, x: reduce ? 0 : -6, scale: reduce ? 1 : 0.98 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
+        initial={{ opacity: 0, x: enterX, y: enterY, scale: reduce ? 1 : 0.98 }}
+        animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
         exit={{
           opacity: 0,
-          x: reduce ? 0 : -4,
+          x: enterX === 0 ? 0 : enterX > 0 ? 4 : -4,
+          y: enterY === 0 ? 0 : -4,
           scale: reduce ? 1 : 0.98,
           transition: reduce
             ? { duration: 0 }
@@ -439,8 +505,11 @@ export function NativeActionDropdownBaseUI({
         transition={
           reduce ? { duration: 0 } : { duration: 0.14, ease: EASE_OUT }
         }
-        style={{ transformOrigin: "left top" }}
-        className="absolute left-full top-0 z-50 ml-2 w-64 rounded-xl border border-border bg-popover p-1 text-popover-foreground shadow-xl ring-1 ring-black/[0.02]"
+        style={{ transformOrigin: sideOrigin }}
+        className={cn(
+          "absolute z-50 rounded-xl border border-border bg-popover p-1 text-popover-foreground shadow-xl ring-1 ring-black/[0.02]",
+          sideClass
+        )}
       >
         <div className="flex flex-wrap items-center gap-x-0.5 gap-y-0.5 px-1.5 pb-1.5 pt-1">
           <AnimatePresence initial={false} mode="popLayout">
@@ -492,7 +561,7 @@ export function NativeActionDropdownBaseUI({
           </AnimatePresence>
         </div>
 
-        <div className="relative overflow-hidden border-t border-border pt-1">
+        <div className="relative max-h-[min(60vh,18rem)] overflow-y-auto border-t border-border pt-1">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
               key={depth}
@@ -586,19 +655,26 @@ export function NativeActionDropdownBaseUI({
               onKeyDown={handleListboxKeyDown}
               initial={{
                 opacity: 0,
-                y: reduce ? 0 : -6,
+                y: reduce ? 0 : panelAbove ? 6 : -6,
                 scale: reduce ? 1 : 0.97,
               }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{
                 opacity: 0,
-                y: reduce ? 0 : -4,
+                y: reduce ? 0 : panelAbove ? 4 : -4,
                 scale: reduce ? 1 : 0.98,
                 transition: reduce ? { duration: 0 } : PANEL_EXIT,
               }}
               transition={reduce ? { duration: 0 } : PANEL_SPRING}
-              style={{ transformOrigin: "top center" }}
-              className="absolute left-0 z-50 mt-2 w-full origin-top rounded-xl border border-border bg-popover p-1.5 text-popover-foreground shadow-xl outline-none ring-1 ring-black/[0.02]"
+              style={{
+                transformOrigin: panelAbove ? "bottom center" : "top center",
+              }}
+              className={cn(
+                "absolute left-0 z-50 w-full rounded-xl border border-border bg-popover p-1.5 text-popover-foreground shadow-xl outline-none ring-1 ring-black/[0.02]",
+                panelAbove
+                  ? "bottom-full mb-2 origin-bottom"
+                  : "top-full mt-2 origin-top"
+              )}
             >
               <div role="none" className="px-2 pb-1.5 pt-2">
                 <p className="text-sm font-medium">{label}</p>
