@@ -2,7 +2,7 @@
 
 > Production-ready UI components, blocks, and full pages available in shadcn/ui and Base UI, powered by Framer Motion. Copy-paste components — not an installable npm package.
 
-**Last Updated:** 2026-04-14T15:39:21.142Z
+**Last Updated:** 2026-06-27T21:06:40.803Z
 
 - Components come in **shadcn/ui**, **Base UI**, and **Carbon** variants (the suffix in the name indicates the style system, e.g. `-shadcnui`, `-baseui`, `-carbon`)
 - **Copy-paste model** — browse the docs, preview a component, then copy its code directly into your project
@@ -17,7 +17,7 @@
 
 ## Table of Contents
 
-- Components (161 items)
+- Components (165 items)
 - Blocks (74 items)
 - Pages (23 items)
 - UI Elements (20 items)
@@ -147,6 +147,8 @@
 
 - [Bottom Modal](https://ui.tripled.work/md/bottom-modal.md): Cute bottom-centered modal with smooth slide-up animation and glassmorphism design
 - [Folder Animation](https://ui.tripled.work/md/folder-animation-carbon.md): Animated folder card with motion blur effect, perfect for showcasing file operations or loading states.
+- [Native Action Dropdown](https://ui.tripled.work/md/native-action-dropdown-baseui.md): A click-driven action picker whose multi-level submenu opens beside the row and drills in place with an animated breadcrumb at a fixed width. (Base UI)
+- [Native Action Dropdown](https://ui.tripled.work/md/native-action-dropdown-shadcnui.md): A click-driven action picker whose multi-level submenu opens beside the row, jumps straight to the selected item, and drills in place with an animated breadcrumb at a fixed width.
 - [Native Avatar Expand](https://ui.tripled.work/md/native-avatar-expand-baseui.md): Avatar component that expands to reveal the name on click with smooth animations. (Base UI)
 - [Native Avatar Expand](https://ui.tripled.work/md/native-avatar-expand-shadcnui.md): Avatar component that expands to reveal the name on click with smooth animations.
 - [Native Avatar With Name](https://ui.tripled.work/md/native-avatar-with-name-baseui.md): Avatar component that displays a name tooltip on hover with directional animations. (Base UI)
@@ -180,6 +182,8 @@
 - [Native Magnetic](https://ui.tripled.work/md/native-magnetic-baseui.md): Magnetic wrapper that applies a cursor-following effect to any content. (Base UI)
 - [Native Magnetic](https://ui.tripled.work/md/native-magnetic-carbon.md): Magnetic wrapper that applies a cursor-following effect to any content.
 - [Native Magnetic](https://ui.tripled.work/md/native-magnetic-shadcnui.md): Magnetic wrapper that applies a cursor-following effect to any content.
+- [Native Marquee](https://ui.tripled.work/md/native-marquee-baseui.md): A smooth, infinite scrolling marquee for logos or text. (Base UI)
+- [Native Marquee](https://ui.tripled.work/md/native-marquee-shadcnui.md): A smooth, infinite scrolling marquee for logos or text.
 - [Native Morphing Button](https://ui.tripled.work/md/native-morphing-button-baseui.md): Floating action button that morphs into a menu of actions. (Base UI)
 - [Native Morphing Button](https://ui.tripled.work/md/native-morphing-button-carbon.md): Floating action button that morphs into a menu of actions.
 - [Native Morphing Button](https://ui.tripled.work/md/native-morphing-button-shadcnui.md): Floating action button that morphs into a menu of actions.

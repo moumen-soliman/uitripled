@@ -198,6 +198,9 @@ import { NativeNestedListBaseUI } from "@uitripled/react-baseui/src/components/n
 import { NativeProfileNotch as NativeProfileNotchBaseUI } from "@uitripled/react-baseui/src/components/native/native-profile-notch-baseui";
 import { NativeNotch as NativeNotchBaseUI } from "@uitripled/react-baseui/src/components/native/native-notch-baseui";
 import { NativeNestedListDemo } from "@uitripled/react-shadcn/src/components/native/demo/native-nested-list-demo";
+import { NativeActionDropdownDemo } from "@uitripled/react-shadcn/src/components/native/demo/native-action-dropdown-demo";
+import { NativeActionDropdown } from "@uitripled/react-shadcn/src/components/native/native-action-dropdown-shadcnui";
+import { NativeActionDropdownBaseUI } from "@uitripled/react-baseui/src/components/native/native-action-dropdown-baseui";
 import {
   NativeProfileNotchDefault,
   NativeProfileNotchOverlay,
@@ -625,6 +628,8 @@ export const nativeComponents: Component[] = [
       },
     ],
     codePath: "@uitripled/react-carbon/src/components/native/native-typewriter-carbon.tsx",
+    baseuiCodePath:
+      "@uitripled/react-baseui/src/components/native/native-typewriter-baseui.tsx",
     duration: "variable",
     easing: "linear",
     display: true,
@@ -665,6 +670,8 @@ export const nativeComponents: Component[] = [
       },
     ],
     codePath: "@uitripled/react-carbon/src/components/native/native-flip-text-carbon.tsx", // Main component source
+    baseuiCodePath:
+      "@uitripled/react-baseui/src/components/native/native-flip-text-baseui.tsx",
     duration: "2000ms",
     easing: "spring",
     display: true,
@@ -817,6 +824,8 @@ export const nativeComponents: Component[] = [
       },
     ],
     codePath: "@uitripled/react-carbon/src/components/native/native-magnetic-carbon.tsx",
+    baseuiCodePath:
+      "@uitripled/react-baseui/src/components/native/native-magnetic-baseui.tsx",
     duration: "spring",
     easing: "spring",
     display: true,
@@ -2483,6 +2492,72 @@ export const nativeComponents: Component[] = [
     easing: "spring",
     display: true,
     availableIn: ["shadcnui", "baseui"],
+  },
+  {
+    id: "native-action-dropdown",
+    name: "Native Action Dropdown",
+    description:
+      "A click-driven action picker whose multi-level submenu opens beside the row, jumps straight to the selected item, and drills in place with an animated breadcrumb at a fixed width.",
+    category: "native",
+    tags: [
+      "dropdown",
+      "menu",
+      "select",
+      "nested",
+      "submenu",
+      "breadcrumb",
+      "native",
+      "keyboard",
+    ],
+    component: NativeActionDropdown,
+    variants: [
+      {
+        id: "default",
+        name: "Default",
+        description: "Nested action modes with a deep default selection",
+        component: NativeActionDropdownDemo,
+        code: `<NativeActionDropdown
+  items={[
+    { id: "design-review", name: "Design review", summary: "Balanced UI critique", meta: "Best default", group: "Suggested" },
+    {
+      id: "deep-audit",
+      name: "Deep audit",
+      meta: "3 areas",
+      group: "More modes",
+      children: [
+        {
+          id: "audit-a11y",
+          name: "Accessibility",
+          children: [
+            { id: "a11y-aria", name: "ARIA roles", detail: "Roles, names, and states." },
+          ],
+        },
+      ],
+    },
+  ]}
+  defaultValue="a11y-aria"
+  label="Choose action mode"
+  description="Click a mode with a chevron to open its submenu beside it."
+/>`,
+      },
+    ],
+    codePath: "@uitripled/react-shadcn/src/components/native/native-action-dropdown-shadcnui.tsx",
+    duration: "340ms",
+    easing: "spring",
+    display: true,
+    availableIn: ["shadcnui", "baseui"],
+  },
+  {
+    id: "native-action-dropdown-baseui",
+    name: "Native Action Dropdown",
+    description:
+      "A click-driven action picker whose multi-level submenu opens beside the row and drills in place with an animated breadcrumb at a fixed width.",
+    category: "native",
+    tags: [],
+    component: NativeActionDropdownBaseUI,
+    codePath: "@uitripled/react-baseui/src/components/native/native-action-dropdown-baseui.tsx",
+    display: false,
+    availableIn: ["baseui"],
   },
   {
     id: "native-nested-list-baseui",

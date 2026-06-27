@@ -122,19 +122,33 @@ export default function AnimationDetailPageClient({
 
   const installId = React.useMemo(() => {
     const availableIn = component.availableIn || [];
-    const isMultiLibrary =
-      component.category === "native" || availableIn.length > 1;
 
-    if (isMultiLibrary) {
-      // Carbon-only components should always install the carbon variant,
-      // even if the UI library is shadcnui/baseui.
-      if (availableIn.includes("carbon") && !availableIn.includes(selectedLibrary)) {
-        return `${component.id}-carbon`;
-      }
-      return `${component.id}-${selectedLibrary}`;
+    // Pure components (no library variants) are published under their plain id.
+    if (availableIn.length === 0) {
+      return component.id;
     }
-    return component.id;
-  }, [component.id, component.category, component.availableIn, selectedLibrary]);
+
+    // Pick the variant to install: the selected library when the component is
+    // available in it, otherwise fall back to the carbon (cross-library) build,
+    // and finally to the first available library.
+    const library = availableIn.includes(selectedLibrary)
+      ? selectedLibrary
+      : availableIn.includes("carbon")
+        ? "carbon"
+        : availableIn[0];
+
+    // Mirror the registry naming scheme (packages/scripts/src/sync-registry.ts):
+    // the carbon variant ships under the plain id, while shadcnui/baseui variants
+    // are suffixed with the library name. This MUST match the published
+    // `/r/{name}.json` file names or `shadcn add` fails with "not found".
+    if (library === "carbon") {
+      return component.id;
+    }
+    const suffix = `-${library}`;
+    return component.id.endsWith(suffix)
+      ? component.id
+      : `${component.id}${suffix}`;
+  }, [component.id, component.availableIn, selectedLibrary]);
 
   const handleCopyInstall = async (command: string, type: string) => {
     await navigator.clipboard.writeText(command);

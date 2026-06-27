@@ -1315,7 +1315,7 @@
       ],
       "files": [
         {
-          "path": "@uitripled/react-baseui/src/components/stocks-dashboard/dashboard-baseui.tsx",
+          "path": "@uitripled/react-baseui/src/components/components/stocks-dashboard/dashboard.tsx",
           "type": "registry:block",
           "target": "components/uitripled/dashboard-baseui.tsx"
         }
@@ -3369,6 +3369,48 @@
       "subcategory": null
     },
     {
+      "name": "native-action-dropdown-baseui",
+      "type": "registry:component",
+      "title": "Native Action Dropdown",
+      "description": "A click-driven action picker whose multi-level submenu opens beside the row and drills in place with an animated breadcrumb at a fixed width. (Base UI)",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-baseui/src/components/native/native-action-dropdown-baseui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-action-dropdown-baseui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-action-dropdown-shadcnui",
+      "type": "registry:component",
+      "title": "Native Action Dropdown",
+      "description": "A click-driven action picker whose multi-level submenu opens beside the row, jumps straight to the selected item, and drills in place with an animated breadcrumb at a fixed width.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-shadcn/src/components/native/native-action-dropdown-shadcnui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-action-dropdown-shadcnui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
       "name": "native-avatar-expand-baseui",
       "type": "registry:component",
       "title": "Native Avatar Expand",
@@ -3692,7 +3734,7 @@
       ],
       "files": [
         {
-          "path": "@uitripled/react-carbon/src/components/native/native-flip-text-carbon-baseui.tsx",
+          "path": "@uitripled/react-baseui/src/components/native/native-flip-text-baseui.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-flip-text-baseui.tsx"
         }
@@ -4045,6 +4087,48 @@
           "path": "@uitripled/react-shadcn/src/components/native/native-magnetic-shadcnui.tsx",
           "type": "registry:component",
           "target": "components/uitripled/native-magnetic-shadcnui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-marquee-baseui",
+      "type": "registry:component",
+      "title": "Native Marquee",
+      "description": "A smooth, infinite scrolling marquee for logos or text. (Base UI)",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-baseui/src/components/native/native-marquee-baseui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-marquee-baseui.tsx"
+        }
+      ],
+      "category": "native",
+      "subcategory": null
+    },
+    {
+      "name": "native-marquee-shadcnui",
+      "type": "registry:component",
+      "title": "Native Marquee",
+      "description": "A smooth, infinite scrolling marquee for logos or text.",
+      "registryDependencies": [],
+      "dependencies": [
+        "framer-motion",
+        "react"
+      ],
+      "files": [
+        {
+          "path": "@uitripled/react-shadcn/src/components/native/native-marquee-shadcnui.tsx",
+          "type": "registry:component",
+          "target": "components/uitripled/native-marquee-shadcnui.tsx"
         }
       ],
       "category": "native",
