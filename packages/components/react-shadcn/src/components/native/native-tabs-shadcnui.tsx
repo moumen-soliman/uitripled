@@ -38,7 +38,7 @@ export function NativeTabs({
         onValueChange={handleValueChange}
         className={cn("w-full max-w-md", className)}
       >
-        <TabsList className="relative flex w-full items-center gap-1 rounded-xl bg-muted/50 p-1 border border-black/5 dark:border-white/5">
+        <TabsList className="relative flex h-auto w-full items-center gap-1 rounded-xl bg-muted/50 p-1 border border-black/5 dark:border-white/5">
           {items.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
