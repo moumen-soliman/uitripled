@@ -1,9 +1,8 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -16,6 +15,15 @@ interface NativeUserCardProps {
   className?: string;
 }
 
+const transition = {
+  type: "spring" as const,
+  stiffness: 400,
+  damping: 30,
+};
+
+const wrapperClassName =
+  "group block w-full max-w-full rounded-xl text-left outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
 export function NativeUserCard({
   imageSrc,
   name,
@@ -24,76 +32,70 @@ export function NativeUserCard({
   onClick,
   className,
 }: NativeUserCardProps) {
-  const CardContent = (
+  const card = (
     <motion.div
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      variants={{
-        initial: { opacity: 0, scale: 0.98, y: 5 },
-        animate: { opacity: 1, scale: 1, y: 0 },
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 400,
-        damping: 30,
-      }}
+      initial={{ opacity: 0, scale: 0.98, y: 5 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      whileTap={{ scale: 0.98 }}
       className={cn(
-        "group relative flex w-full max-w-full items-center justify-between gap-4 rounded-lg border border-border bg-card p-1 transition-all duration-300",
+        "flex w-full max-w-full items-center justify-between gap-4 rounded-xl border border-border bg-card p-1",
+        "transition-colors duration-200 group-hover:bg-accent/50",
         className
       )}
     >
       <div className="flex min-w-0 flex-1 items-center gap-2">
-        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg sm:h-12 sm:w-12">
+        <div
+          aria-hidden="true"
+          className="relative h-10 w-10 shrink-0 sm:h-12 sm:w-12"
+        >
           <Avatar className="h-full w-full rounded-lg">
-            <AvatarImage src={imageSrc} alt={name} className="object-cover" />
-            <AvatarFallback className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground font-semibold">{name.charAt(0)}</AvatarFallback>
+            <AvatarImage src={imageSrc} alt="" className="object-cover" />
+            <AvatarFallback className="flex h-full w-full items-center justify-center rounded-lg bg-muted font-semibold text-muted-foreground">
+              {name.charAt(0).toUpperCase()}
+            </AvatarFallback>
           </Avatar>
+          <span className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 dark:ring-white/10" />
         </div>
 
         <div className="flex min-w-0 flex-col">
-          <h3 className="truncate text-sm font-semibold leading-none tracking-tight text-foreground">
+          <p className="truncate text-sm font-semibold leading-tight tracking-tight text-foreground">
             {name}
-          </h3>
+          </p>
           <p className="truncate text-xs font-medium text-muted-foreground">
             {handle}
           </p>
         </div>
       </div>
 
-      <div className="relative shrink-0 pl-2">
-        <Button
-          size="icon"
-          className="h-10 w-10 shrink-0 rounded-lg bg-primary text-primary-foreground opacity-100 transition-transform duration-300 sm:h-12 sm:w-12"
-          asChild
-        >
-          <motion.div whileTap={{ scale: 0.95 }}>
-            <motion.span
-              className="inline-block"
-              variants={{
-                hover: { x: 3 },
-              }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            >
-              <ArrowRight className="h-3 w-3" />
-            </motion.span>
-          </motion.div>
-        </Button>
-      </div>
+      <span
+        aria-hidden="true"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground sm:h-12 sm:w-12"
+      >
+        <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-safe:group-hover:translate-x-[3px]" />
+      </span>
     </motion.div>
   );
 
-  if (onClick) {
-    return (
-      <Button onClick={onClick} className="block w-full max-w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg h-auto p-0 hover:bg-transparent">
-        {CardContent}
-      </Button>
-    );
-  }
-
   return (
-    <Link href={href} className={cn("block w-full max-w-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg")}>
-      {CardContent}
-    </Link>
+    <MotionConfig transition={transition} reducedMotion="user">
+      {onClick ? (
+        <button
+          type="button"
+          onClick={onClick}
+          aria-label={`View ${name}'s profile`}
+          className={wrapperClassName}
+        >
+          {card}
+        </button>
+      ) : (
+        <Link
+          href={href}
+          aria-label={`View ${name}'s profile`}
+          className={wrapperClassName}
+        >
+          {card}
+        </Link>
+      )}
+    </MotionConfig>
   );
 }

@@ -4,23 +4,21 @@ import type React from "react";
 
 import { LibrarySelector } from "@/components/library-selector";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { useUILibrary } from "@/components/ui-library-provider";
-import type { UILibrary } from "@/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@uitripled/react-shadcn/ui/dropdown-menu";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@uitripled/react-shadcn/ui/select";
 import { Separator } from "@uitripled/react-shadcn/ui/separator";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  MotionConfig,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import {
   ChevronDown,
   GithubIcon,
@@ -32,27 +30,171 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const uiLibraries = [
+const navLinkClass =
+  "text-xs font-medium text-muted-foreground transition-colors hover:text-foreground rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring";
+
+const iconLinkClass =
+  "text-muted-foreground transition-colors hover:text-foreground rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring";
+
+// --- Aurora hover effect for the Background Builder menu item ---
+
+type WaveConfig = {
+  height: number;
+  bottomRange: [number, number];
+  blur: number;
+  xKeyframes: string[];
+  duration: number;
+};
+
+const WAVES: WaveConfig[] = [
   {
-    id: "shadcnui",
-    name: "shadcn/ui",
-    logoLight: "/logos/shadcnui_dark.svg",
-    logoDark: "/logos/shadcnui_white.svg",
-    description: "Beautifully designed components",
-    badge: "Popular",
+    height: 60,
+    bottomRange: [-10, 5],
+    blur: 8,
+    xKeyframes: ["-25%", "0%", "-25%"],
+    duration: 8,
   },
   {
-    id: "baseui",
-    name: "Base UI",
-    logoLight: "/logos/baseui_white.svg",
-    logoDark: "/logos/baseui_dark.svg",
-    description: "Unstyled React components",
+    height: 50,
+    bottomRange: [15, 30],
+    blur: 6,
+    xKeyframes: ["0%", "-25%", "0%"],
+    duration: 6,
+  },
+  {
+    height: 40,
+    bottomRange: [35, 50],
+    blur: 4,
+    xKeyframes: ["-10%", "-35%", "-10%"],
+    duration: 10,
   },
 ];
 
+type AuroraPalette = {
+  base: string;
+  waves: [string, string, string];
+  blobs: [string, string];
+};
+
+const LIGHT_PALETTE: AuroraPalette = {
+  base: "linear-gradient(135deg, rgba(239, 246, 255, 0.6) 0%, rgba(219, 234, 254, 0.4) 50%, rgba(191, 219, 254, 0.3) 100%)",
+  waves: [
+    "linear-gradient(180deg, transparent 0%, rgba(191, 219, 254, 0.7) 40%, rgba(147, 197, 253, 0.5) 100%)",
+    "linear-gradient(180deg, transparent 0%, rgba(125, 211, 252, 0.5) 50%, rgba(191, 219, 254, 0.6) 100%)",
+    "linear-gradient(180deg, transparent 0%, rgba(219, 234, 254, 0.6) 60%, rgba(239, 246, 255, 0.4) 100%)",
+  ],
+  blobs: [
+    "radial-gradient(ellipse, rgba(219, 234, 254, 0.8) 0%, rgba(191, 219, 254, 0.4) 40%, transparent 70%)",
+    "radial-gradient(ellipse, rgba(125, 211, 252, 0.5) 0%, rgba(219, 234, 254, 0.3) 50%, transparent 70%)",
+  ],
+};
+
+const DARK_PALETTE: AuroraPalette = {
+  base: "linear-gradient(135deg, rgba(254, 202, 202, 0.9) 0%, rgba(252, 165, 165, 0.85) 50%, rgba(248, 113, 113, 0.75) 100%)",
+  waves: [
+    "linear-gradient(180deg, transparent 0%, rgba(254, 226, 226, 0.6) 40%, rgba(254, 202, 202, 0.5) 100%)",
+    "linear-gradient(180deg, transparent 0%, rgba(254, 205, 211, 0.5) 50%, rgba(251, 207, 232, 0.6) 100%)",
+    "linear-gradient(180deg, transparent 0%, rgba(255, 241, 242, 0.6) 60%, rgba(255, 228, 230, 0.4) 100%)",
+  ],
+  blobs: [
+    "radial-gradient(ellipse, rgba(254, 202, 202, 0.7) 0%, rgba(252, 165, 165, 0.4) 40%, transparent 70%)",
+    "radial-gradient(ellipse, rgba(254, 226, 226, 0.5) 0%, rgba(254, 202, 202, 0.3) 50%, transparent 70%)",
+  ],
+};
+
+function AuroraWave({
+  config,
+  gradient,
+  smoothMouseY,
+}: {
+  config: WaveConfig;
+  gradient: string;
+  smoothMouseY: MotionValue<number>;
+}) {
+  const bottom = useTransform(smoothMouseY, [0, 100], config.bottomRange);
+
+  return (
+    <motion.div
+      className="absolute w-[200%] left-[-50%]"
+      style={{
+        height: config.height,
+        bottom,
+        background: gradient,
+        borderRadius: "100% 100% 0 0",
+        filter: `blur(${config.blur}px)`,
+      }}
+      animate={{ x: config.xKeyframes }}
+      transition={{
+        duration: config.duration,
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "easeInOut",
+      }}
+    />
+  );
+}
+
+function AuroraWaves({
+  className,
+  palette,
+  smoothMouseX,
+  smoothMouseY,
+}: {
+  className: string;
+  palette: AuroraPalette;
+  smoothMouseX: MotionValue<number>;
+  smoothMouseY: MotionValue<number>;
+}) {
+  const largeBlobX = useTransform(smoothMouseX, [0, 320], [-40, 200]);
+  const largeBlobY = useTransform(smoothMouseY, [0, 100], [-30, 30]);
+  const smallBlobX = useTransform(smoothMouseX, [0, 320], [40, -60]);
+  const smallBlobY = useTransform(smoothMouseY, [0, 100], [10, -20]);
+
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden pointer-events-none ${className}`}
+    >
+      <div className="absolute inset-0" style={{ background: palette.base }} />
+
+      {WAVES.map((wave, index) => (
+        <AuroraWave
+          key={index}
+          config={wave}
+          gradient={palette.waves[index]}
+          smoothMouseY={smoothMouseY}
+        />
+      ))}
+
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: 180,
+          height: 100,
+          background: palette.blobs[0],
+          filter: "blur(20px)",
+          x: largeBlobX,
+          y: largeBlobY,
+        }}
+      />
+
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: 120,
+          height: 80,
+          background: palette.blobs[1],
+          filter: "blur(15px)",
+          right: 0,
+          x: smallBlobX,
+          y: smallBlobY,
+        }}
+      />
+    </div>
+  );
+}
+
 export function Header() {
   const currentURL = usePathname();
-  const { selectedLibrary, setSelectedLibrary } = useUILibrary();
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -79,18 +221,13 @@ export function Header() {
   }
 
   return (
-    <>
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="sticky top-0 z-50 border-border bg-background/80 backdrop-blur-lg"
-      >
+    <MotionConfig reducedMotion="user">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
         <div className="container-fluid md:max-w-[95rem] mx-auto flex h-16 px-6 items-center justify-between">
           <div className="flex items-center gap-3 relative">
             <Link
               href="/"
-              className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground relative mr-2"
+              className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground relative mr-2 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Image
                 src="/logos/logo-black.svg"
@@ -106,36 +243,31 @@ export function Header() {
                 height={70}
                 className="hidden dark:block"
               />
-
-              {/* <Badge
-                variant="outline"
-                className="text-[xs] backdrop-blur-sm border border-border bg-black/10 rounded-sm absolute top-0 left-[76px]"
-              >
-                BETA
-              </Badge> */}
             </Link>
-            {currentURL !== "/" && (currentURL.includes("/components") || currentURL.includes("/builder")) && (
-              <>
-                <Separator
-                  orientation="vertical"
-                  className="h-6 hidden md:block"
-                />
-                <LibrarySelector />
-              </>
-            )}
+            {currentURL !== "/" &&
+              (currentURL.includes("/components") ||
+                currentURL.includes("/builder")) && (
+                <>
+                  <Separator
+                    orientation="vertical"
+                    className="h-6 hidden md:block"
+                  />
+                  <LibrarySelector />
+                </>
+              )}
           </div>
           <div className="flex items-center gap-3">
             <nav className="hidden items-center gap-6 md:flex">
-              <Link
-                href="/components"
-                className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link href="/components" className={navLinkClass}>
                 Components
               </Link>
               <DropdownMenu>
-                <DropdownMenuTrigger className="cursor-pointer text-xs font-medium text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1 outline-none group">
+                <DropdownMenuTrigger className="cursor-pointer text-xs font-medium text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring group">
                   Builders
-                  <ChevronDown className="w-3 h-3 transition-transform group-data-[state=open]:rotate-180" />
+                  <ChevronDown
+                    aria-hidden="true"
+                    className="w-3 h-3 transition-transform group-data-[state=open]:rotate-180"
+                  />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="start"
@@ -174,252 +306,22 @@ export function Header() {
                         onMouseMove={handleMouseMove}
                         className="flex items-start gap-3 p-3 rounded-md select-none outline-none transition-all relative overflow-hidden"
                       >
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden pointer-events-none dark:hidden">
-                          <div
-                            className="absolute inset-0"
-                            style={{
-                              background:
-                                "linear-gradient(135deg, rgba(239, 246, 255, 0.6) 0%, rgba(219, 234, 254, 0.4) 50%, rgba(191, 219, 254, 0.3) 100%)",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute w-[200%] h-[60px] left-[-50%]"
-                            style={{
-                              bottom: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [-10, 5]
-                              ),
-                              background:
-                                "linear-gradient(180deg, transparent 0%, rgba(191, 219, 254, 0.7) 40%, rgba(147, 197, 253, 0.5) 100%)",
-                              borderRadius: "100% 100% 0 0",
-                              filter: "blur(8px)",
-                            }}
-                            animate={{
-                              x: ["-25%", "0%", "-25%"],
-                            }}
-                            transition={{
-                              duration: 8,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute w-[200%] h-[50px] left-[-50%]"
-                            style={{
-                              bottom: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [15, 30]
-                              ),
-                              background:
-                                "linear-gradient(180deg, transparent 0%, rgba(125, 211, 252, 0.5) 50%, rgba(191, 219, 254, 0.6) 100%)",
-                              borderRadius: "100% 100% 0 0",
-                              filter: "blur(6px)",
-                            }}
-                            animate={{
-                              x: ["0%", "-25%", "0%"],
-                            }}
-                            transition={{
-                              duration: 6,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute w-[200%] h-[40px] left-[-50%]"
-                            style={{
-                              bottom: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [35, 50]
-                              ),
-                              background:
-                                "linear-gradient(180deg, transparent 0%, rgba(219, 234, 254, 0.6) 60%, rgba(239, 246, 255, 0.4) 100%)",
-                              borderRadius: "100% 100% 0 0",
-                              filter: "blur(4px)",
-                            }}
-                            animate={{
-                              x: ["-10%", "-35%", "-10%"],
-                            }}
-                            transition={{
-                              duration: 10,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute rounded-full"
-                            style={{
-                              width: "180px",
-                              height: "100px",
-                              background:
-                                "radial-gradient(ellipse, rgba(219, 234, 254, 0.8) 0%, rgba(191, 219, 254, 0.4) 40%, transparent 70%)",
-                              filter: "blur(20px)",
-                              x: useTransform(
-                                smoothMouseX,
-                                [0, 320],
-                                [-40, 200]
-                              ),
-                              y: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [-30, 30]
-                              ),
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute rounded-full"
-                            style={{
-                              width: "120px",
-                              height: "80px",
-                              background:
-                                "radial-gradient(ellipse, rgba(125, 211, 252, 0.5) 0%, rgba(219, 234, 254, 0.3) 50%, transparent 70%)",
-                              filter: "blur(15px)",
-                              right: 0,
-                              x: useTransform(
-                                smoothMouseX,
-                                [0, 320],
-                                [40, -60]
-                              ),
-                              y: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [10, -20]
-                              ),
-                            }}
-                          />
-                        </div>
-
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden pointer-events-none hidden dark:block">
-                          <div
-                            className="absolute inset-0"
-                            style={{
-                              background:
-                                "linear-gradient(135deg, rgba(254, 202, 202, 0.9) 0%, rgba(252, 165, 165, 0.85) 50%, rgba(248, 113, 113, 0.75) 100%)",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute w-[200%] h-[60px] left-[-50%]"
-                            style={{
-                              bottom: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [-10, 5]
-                              ),
-                              background:
-                                "linear-gradient(180deg, transparent 0%, rgba(254, 226, 226, 0.6) 40%, rgba(254, 202, 202, 0.5) 100%)",
-                              borderRadius: "100% 100% 0 0",
-                              filter: "blur(8px)",
-                            }}
-                            animate={{
-                              x: ["-25%", "0%", "-25%"],
-                            }}
-                            transition={{
-                              duration: 8,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute w-[200%] h-[50px] left-[-50%]"
-                            style={{
-                              bottom: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [15, 30]
-                              ),
-                              background:
-                                "linear-gradient(180deg, transparent 0%, rgba(254, 205, 211, 0.5) 50%, rgba(251, 207, 232, 0.6) 100%)",
-                              borderRadius: "100% 100% 0 0",
-                              filter: "blur(6px)",
-                            }}
-                            animate={{
-                              x: ["0%", "-25%", "0%"],
-                            }}
-                            transition={{
-                              duration: 6,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute w-[200%] h-[40px] left-[-50%]"
-                            style={{
-                              bottom: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [35, 50]
-                              ),
-                              background:
-                                "linear-gradient(180deg, transparent 0%, rgba(255, 241, 242, 0.6) 60%, rgba(255, 228, 230, 0.4) 100%)",
-                              borderRadius: "100% 100% 0 0",
-                              filter: "blur(4px)",
-                            }}
-                            animate={{
-                              x: ["-10%", "-35%", "-10%"],
-                            }}
-                            transition={{
-                              duration: 10,
-                              repeat: Number.POSITIVE_INFINITY,
-                              ease: "easeInOut",
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute rounded-full"
-                            style={{
-                              width: "180px",
-                              height: "100px",
-                              background:
-                                "radial-gradient(ellipse, rgba(254, 202, 202, 0.7) 0%, rgba(252, 165, 165, 0.4) 40%, transparent 70%)",
-                              filter: "blur(20px)",
-                              x: useTransform(
-                                smoothMouseX,
-                                [0, 320],
-                                [-40, 200]
-                              ),
-                              y: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [-30, 30]
-                              ),
-                            }}
-                          />
-
-                          <motion.div
-                            className="absolute rounded-full"
-                            style={{
-                              width: "120px",
-                              height: "80px",
-                              background:
-                                "radial-gradient(ellipse, rgba(254, 226, 226, 0.5) 0%, rgba(254, 202, 202, 0.3) 50%, transparent 70%)",
-                              filter: "blur(15px)",
-                              right: 0,
-                              x: useTransform(
-                                smoothMouseX,
-                                [0, 320],
-                                [40, -60]
-                              ),
-                              y: useTransform(
-                                smoothMouseY,
-                                [0, 100],
-                                [10, -20]
-                              ),
-                            }}
-                          />
-                        </div>
+                        <AuroraWaves
+                          className="dark:hidden"
+                          palette={LIGHT_PALETTE}
+                          smoothMouseX={smoothMouseX}
+                          smoothMouseY={smoothMouseY}
+                        />
+                        <AuroraWaves
+                          className="hidden dark:block"
+                          palette={DARK_PALETTE}
+                          smoothMouseX={smoothMouseX}
+                          smoothMouseY={smoothMouseY}
+                        />
 
                         {/* Soft overlay shimmer */}
                         <motion.div
+                          aria-hidden="true"
                           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                           style={{
                             background:
@@ -473,29 +375,26 @@ export function Header() {
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Link
-                href="/hall-of-fame"
-                className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link href="/hall-of-fame" className={navLinkClass}>
                 GitHub Supporters
               </Link>
               <Link
                 href="https://x.com/moumensoliman"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground text-white"
-                aria-label="Twitter"
+                className={iconLinkClass}
+                aria-label="X (Twitter)"
               >
                 <Image
                   src="/logos/x-black.svg"
-                  alt="Twitter"
+                  alt=""
                   width={17}
                   height={17}
                   className="block dark:hidden"
                 />
                 <Image
                   src="/logos/x.svg"
-                  alt="Twitter"
+                  alt=""
                   width={17}
                   height={17}
                   className="hidden dark:block"
@@ -505,7 +404,7 @@ export function Header() {
                 href="https://github.com/moumen-soliman/uitripled"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className={iconLinkClass}
                 aria-label="GitHub"
               >
                 <GithubIcon className="h-4 w-4" />
@@ -515,7 +414,7 @@ export function Header() {
             <ThemeToggle />
           </div>
         </div>
-      </motion.header>
-    </>
+      </header>
+    </MotionConfig>
   );
 }

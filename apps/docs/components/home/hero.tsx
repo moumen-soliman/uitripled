@@ -9,7 +9,7 @@ import { HeroFlip } from "@/components/home/hero-flip";
 import { TweetsSlider } from "@/components/home/tweets-slider";
 import { NativeAvatarWithName } from "@/components/native/native-avatar-with-name-shadcnui";
 import { Button } from "@uitripled/react-shadcn/ui/button";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import { ArrowRight, Plus } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -67,6 +67,7 @@ const SPONSORS = [
 
 export function Hero() {
   return (
+    <MotionConfig reducedMotion="user">
     <div className="max-w-7xl mx-auto">
       <div className="text-center mb-10 space-y-8">
         <motion.div
@@ -111,11 +112,11 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="min-w-[160px] h-12 rounded-full text-base px-8 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+              className="min-w-[160px] h-12 rounded-full text-base px-8 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow duration-300"
             >
               <Link href="/components">
                 Browse Components
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight aria-hidden="true" className="ml-2 h-4 w-4" />
               </Link>
             </Button>
 
@@ -133,7 +134,7 @@ export function Hero() {
           role="region"
           aria-label="Sponsors"
         >
-          <span className="text-xs font-medium text-muted-foreground/80">
+          <span className="text-xs font-medium text-muted-foreground">
             Sponsored by
           </span>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -210,5 +211,6 @@ export function Hero() {
 
       <BrowserComponentGallery />
     </div>
+    </MotionConfig>
   );
 }

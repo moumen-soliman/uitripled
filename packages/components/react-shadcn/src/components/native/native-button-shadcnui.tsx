@@ -1,8 +1,5 @@
-"use client";
-
 import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -22,52 +19,42 @@ const NativeButton = ({
   disabled,
   ...props
 }: NativeButtonProps) => {
-  const shouldReduceMotion = useReducedMotion();
-
   const buttonContent = (
     <>
-      {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-      <motion.span
-        className={cn("flex items-center gap-2")}
-        animate={
-          loading
-            ? { opacity: shouldReduceMotion ? 1 : [1, 0.5, 1] }
-            : { opacity: 1 }
-        }
-        transition={
-          loading && !shouldReduceMotion
-            ? { duration: 1, repeat: Infinity, ease: "easeInOut" }
-            : { duration: 0.2 }
-        }
+      {loading && (
+        <Loader2 aria-hidden="true" className="w-4 h-4 mr-2 animate-spin" />
+      )}
+      <span
+        className={cn(
+          "flex items-center gap-2",
+          loading && "motion-safe:animate-[pulse_1s_ease-in-out_infinite]"
+        )}
       >
         {children}
-      </motion.span>
+      </span>
     </>
   );
 
   const glassmorphismClassName = cn(
     "cursor-pointer h-12 rounded-md px-7 text-sm relative overflow-hidden",
+    "transition-[scale,box-shadow,background-color,border-color,color] duration-200",
+    !disabled &&
+      !loading &&
+      "motion-safe:hover:scale-[1.02] motion-safe:active:scale-[0.98]",
     !glow && "shadow-md hover:shadow-lg",
-    glow &&
-      "shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-[box-shadow,background-color,color,opacity] duration-200",
+    glow && "shadow-lg shadow-primary/20 hover:shadow-primary/40",
     variant === "outline" && "text-foreground/80 hover:bg-foreground/5",
     (disabled || loading) && "opacity-50 cursor-not-allowed grayscale",
     className
   );
 
   return (
-    <motion.div
-      whileHover={
-        !disabled && !loading && !shouldReduceMotion ? { scale: 1.02 } : {}
-      }
-      whileTap={
-        !disabled && !loading && !shouldReduceMotion ? { scale: 0.98 } : {}
-      }
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="relative block w-fit"
-    >
+    <div className="group/native relative inline-block w-fit">
       {glow && !disabled && !loading && (
-        <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-md bg-primary/20 blur-xl opacity-0 group-hover/native:opacity-100 transition-opacity duration-500"
+        />
       )}
       <Button
         variant={variant}
@@ -79,7 +66,7 @@ const NativeButton = ({
       >
         {buttonContent}
       </Button>
-    </motion.div>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@
 
 import { cn } from "@uitripled/utils";
 import { Avatar } from "@base-ui/react/avatar";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { useState } from "react";
 
 export interface NativeAvatarExpandProps {
@@ -66,6 +66,7 @@ export function NativeAvatarExpand({
   const getInitials = (name: string) => {
     return name
       .split(" ")
+      .filter(Boolean)
       .map((n) => n[0])
       .join("")
       .toUpperCase()
@@ -73,69 +74,83 @@ export function NativeAvatarExpand({
   };
 
   return (
-    <motion.div
-      className={cn("inline-flex items-center cursor-pointer", className)}
-      layout
-      onClick={() => setIsExpanded(!isExpanded)}
-    >
-      <motion.div layout="position" className="relative">
-        <Avatar.Root
-          className={cn(
-            "relative flex shrink-0 overflow-hidden rounded-full",
-            avatar,
-            avatarClassName
-          )}
-        >
-          <Avatar.Image src={src || "/placeholder.svg"} alt={name} />
-          <Avatar.Fallback className="flex h-full w-full items-center justify-center rounded-full bg-muted">
-            {getInitials(name)}
-          </Avatar.Fallback>
-        </Avatar.Root>
-      </motion.div>
-
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ width: 0, opacity: 0, filter: "blur(4px)" }}
-            animate={{
-              width: "auto",
-              opacity: 1,
-              filter: "blur(0px)",
-            }}
-            exit={{
-              width: 0,
-              opacity: 0,
-              filter: "blur(4px)",
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 25,
-              opacity: { duration: 0.2 },
-              filter: { duration: 0.2 },
-            }}
-            className="overflow-hidden"
+    <MotionConfig reducedMotion="user">
+      <motion.button
+        type="button"
+        aria-expanded={isExpanded}
+        aria-label={name}
+        className={cn(
+          "inline-flex items-center cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          className
+        )}
+        layout
+        whileTap={{ scale: 0.97 }}
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <motion.div layout="position" className="relative">
+          <Avatar.Root
+            className={cn(
+              "relative flex shrink-0 overflow-hidden rounded-full",
+              avatar,
+              avatarClassName
+            )}
           >
-            <motion.span
-              initial={{ x: -20 }}
-              animate={{ x: 0 }}
-              exit={{ x: -20 }}
+            <Avatar.Image
+              src={src || "/placeholder.svg"}
+              alt=""
+              className="h-full w-full object-cover"
+            />
+            <Avatar.Fallback className="flex h-full w-full items-center justify-center rounded-full bg-muted">
+              {getInitials(name)}
+            </Avatar.Fallback>
+          </Avatar.Root>
+          <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 dark:ring-white/10" />
+        </motion.div>
+
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{ width: 0, opacity: 0, filter: "blur(4px)" }}
+              animate={{
+                width: "auto",
+                opacity: 1,
+                filter: "blur(0px)",
+              }}
+              exit={{
+                width: 0,
+                opacity: 0,
+                filter: "blur(4px)",
+              }}
               transition={{
                 type: "spring",
                 stiffness: 200,
                 damping: 25,
+                opacity: { duration: 0.2 },
+                filter: { duration: 0.2 },
               }}
-              className={cn(
-                "font-medium whitespace-nowrap ml-1",
-                text,
-                nameClassName
-              )}
+              className="overflow-hidden"
             >
-              {name}
-            </motion.span>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+              <motion.span
+                initial={{ x: -20 }}
+                animate={{ x: 0 }}
+                exit={{ x: -20 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 25,
+                }}
+                className={cn(
+                  "block font-medium whitespace-nowrap ml-1",
+                  text,
+                  nameClassName
+                )}
+              >
+                {name}
+              </motion.span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
+    </MotionConfig>
   );
 }

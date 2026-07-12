@@ -4,7 +4,7 @@ import type React from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 
@@ -39,7 +39,6 @@ export interface ListItem {
   onClick?: (e: React.MouseEvent) => void;
 }
 
-// ... existing props interface ...
 export interface NativeNestedListProps {
   items: ListItem[];
   activeId?: string;
@@ -101,28 +100,17 @@ function NestedItem({
   const props = item.href ? { href: item.href } : {};
 
   return (
-    <div>
+    <li className="list-none">
       <motion.div
         initial={false}
-        animate={{
-          x: 0,
-          backgroundColor: "transparent",
-        }}
-        whileHover={{
-          x: 4,
-          backgroundColor: "hsl(var(--accent) / 0.5)",
-        }}
+        whileHover={{ x: 4 }}
         transition={{
           type: "spring",
           stiffness: 300,
           damping: 25,
-          backgroundColor: {
-            delay: 0.05,
-            duration: 0.3,
-          },
         }}
         style={{ paddingLeft: `${level * indentSize}px` }}
-        className="relative"
+        className="relative rounded-md transition-colors duration-300 hover:bg-accent/50"
       >
         <motion.div
           whileTap={{ scale: 0.98 }}
@@ -132,9 +120,12 @@ function NestedItem({
             variant="ghost"
             size="default"
             asChild={!!item.href}
+            aria-expanded={hasChildren ? isExpanded : undefined}
+            aria-current={isActive ? "true" : undefined}
             className={cn(
               sizeVariants[size],
               "w-full justify-start gap-2 relative overflow-hidden rounded-md",
+              "hover:bg-transparent",
               isActive && "font-medium bg-accent/30"
             )}
             onClick={handleClick}
@@ -151,20 +142,17 @@ function NestedItem({
                   }}
                   className="flex-shrink-0"
                 >
-                  <ChevronRight className={iconSizeVariants[size]} />
+                  <ChevronRight
+                    aria-hidden="true"
+                    className={iconSizeVariants[size]}
+                  />
                 </motion.div>
               )}
               {showExpandIcon && !hasChildren && (
                 <div className={cn(iconSizeVariants[size], "flex-shrink-0")} />
               )}
               {item.icon && (
-                <motion.div
-                  className="flex-shrink-0"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  {item.icon}
-                </motion.div>
+                <div className="flex-shrink-0">{item.icon}</div>
               )}
               <span className="truncate">{item.label}</span>
             </Comp>
@@ -174,15 +162,16 @@ function NestedItem({
         <AnimatePresence>
           {isActive && (
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
+              aria-hidden="true"
+              initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
+              exit={{ scale: 0.5, opacity: 0 }}
               transition={{
                 type: "spring",
                 stiffness: 500,
                 damping: 30,
               }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-black rounded-full"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-foreground rounded-full"
             />
           )}
         </AnimatePresence>
@@ -207,23 +196,25 @@ function NestedItem({
             }}
             style={{ overflow: "hidden" }}
           >
-            {item.children!.map((child) => (
-              <NestedItem
-                key={child.id}
-                item={child}
-                level={level + 1}
-                activeId={activeId}
-                onItemClick={onItemClick}
-                size={size}
-                showExpandIcon={showExpandIcon}
-                defaultExpanded={defaultExpanded}
-                indentSize={indentSize}
-              />
-            ))}
+            <ul className="list-none">
+              {item.children!.map((child) => (
+                <NestedItem
+                  key={child.id}
+                  item={child}
+                  level={level + 1}
+                  activeId={activeId}
+                  onItemClick={onItemClick}
+                  size={size}
+                  showExpandIcon={showExpandIcon}
+                  defaultExpanded={defaultExpanded}
+                  indentSize={indentSize}
+                />
+              ))}
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </li>
   );
 }
 
@@ -238,20 +229,22 @@ export function NativeNestedList({
   indentSize = 16,
 }: NativeNestedListProps) {
   return (
-    <div className={cn("w-full space-y-1", className)}>
-      {items.map((item) => (
-        <NestedItem
-          key={item.id}
-          item={item}
-          level={0}
-          activeId={activeId}
-          onItemClick={onItemClick}
-          size={size}
-          showExpandIcon={showExpandIcon}
-          defaultExpanded={defaultExpanded}
-          indentSize={indentSize}
-        />
-      ))}
-    </div>
+    <MotionConfig reducedMotion="user">
+      <ul className={cn("w-full space-y-1 list-none", className)}>
+        {items.map((item) => (
+          <NestedItem
+            key={item.id}
+            item={item}
+            level={0}
+            activeId={activeId}
+            onItemClick={onItemClick}
+            size={size}
+            showExpandIcon={showExpandIcon}
+            defaultExpanded={defaultExpanded}
+            indentSize={indentSize}
+          />
+        ))}
+      </ul>
+    </MotionConfig>
   );
 }

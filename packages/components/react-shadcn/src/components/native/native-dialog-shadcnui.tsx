@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import { X } from "lucide-react";
 import * as React from "react";
 
@@ -47,25 +47,27 @@ const NativeDialogContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <NativeDialogPortal>
-    <NativeDialogOverlay />
-    <DialogPrimitive.Content ref={ref} asChild {...props}>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-        exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-        transition={{ type: "spring", duration: 0.5, bounce: 0 }}
-        className={cn(
-          "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl p-6 shadow-2xl sm:rounded-2xl",
-          className
-        )}
-      >
-        {children}
-        <DialogClose className="absolute right-4 top-4 rounded-full p-1 opacity-70 ring-offset-background transition-all hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-          <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
-        </DialogClose>
-      </motion.div>
-    </DialogPrimitive.Content>
+    <MotionConfig reducedMotion="user">
+      <NativeDialogOverlay />
+      <DialogPrimitive.Content ref={ref} asChild {...props}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+          transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+          className={cn(
+            "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl p-6 shadow-2xl sm:rounded-2xl",
+            className
+          )}
+        >
+          {children}
+          <DialogClose className="absolute right-4 top-4 rounded-full p-1 opacity-70 ring-offset-background transition-[opacity,background-color,scale] duration-150 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none after:absolute after:-inset-2">
+            <X aria-hidden="true" className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+        </motion.div>
+      </DialogPrimitive.Content>
+    </MotionConfig>
   </NativeDialogPortal>
 ));
 NativeDialogContent.displayName = DialogPrimitive.Content.displayName;

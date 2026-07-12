@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { Check, Copy, ChevronDown } from "lucide-react";
 import { useState, type ComponentType, useRef, useEffect } from "react";
 import type { SyntaxHighlighterProps } from "react-syntax-highlighter";
@@ -22,6 +22,7 @@ export function CodeBlock({ code, language = "tsx", expandable = false }: CodeBl
   const [isExpanded, setIsExpanded] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
+  const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (expandable && contentRef.current) {
@@ -29,10 +30,18 @@ export function CodeBlock({ code, language = "tsx", expandable = false }: CodeBl
     }
   }, [expandable, code]);
 
+  useEffect(
+    () => () => {
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+    },
+    []
+  );
+
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code || "");
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+    copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000);
   };
 
   const displayCode =
@@ -56,83 +65,109 @@ export function ScaleHoverButton() {
       : code || "";
 
   return (
-    <div className="relative group/code">
-      <div className={cn(
-        "rounded-lg border border-border bg-card transition-all duration-300 relative",
-        expandable && !isExpanded && hasOverflow && "max-h-[300px] overflow-hidden"
-      )}>
-        <div className="flex items-center justify-between border-b border-border px-4 py-2.5 bg-card">
-          <span className="text-xs font-medium text-muted-foreground">
-            TypeScript + React
-          </span>
-          <button
-            onClick={handleCopy}
-            className="flex items-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground"
-          >
-            <AnimatePresence mode="wait">
-              {copied ? (
-                <motion.div
-                  key="check"
-                  initial={{ opacity: 0, filter: "blur(2px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, filter: "blur(2px)" }}
-                  transition={{ duration: 0.1 }}
-                  className="flex items-center gap-1.5"
-                >
-                  <Check className="h-3 w-3" />
-                  Copied
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="copy"
-                  initial={{ opacity: 0, filter: "blur(2px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, filter: "blur(2px)" }}
-                  transition={{ duration: 0.1 }}
-                  className="flex items-center cursor-pointer gap-1.5"
-                >
-                  <Copy className="h-3 w-3" />
-                  Copy
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </button>
-        </div>
-        <div ref={contentRef} className="overflow-x-auto bg-card">
-          <PrismSyntaxHighlighter
-            language={language}
-            style={vscDarkPlus}
-            customStyle={{
-              margin: 0,
-              padding: "1rem",
-              fontSize: "0.75rem",
-              lineHeight: "1.5",
-              background: "transparent",
-            }}
-            codeTagProps={{
-              style: {
-                fontFamily: "inherit",
-              },
-            }}
-          >
-            {displayCode}
-          </PrismSyntaxHighlighter>
+    <MotionConfig reducedMotion="user">
+      <div className="relative">
+        <div
+          className={cn(
+            "rounded-lg border border-border bg-card relative",
+            expandable &&
+              !isExpanded &&
+              hasOverflow &&
+              "max-h-[300px] overflow-hidden"
+          )}
+        >
+          <div className="flex items-center justify-between border-b border-border px-4 py-2.5 bg-card">
+            <span className="text-xs font-medium text-muted-foreground">
+              TypeScript + React
+            </span>
+            <button
+              type="button"
+              onClick={handleCopy}
+              aria-live="polite"
+              className="flex min-w-[84px] cursor-pointer items-center justify-center gap-1.5 rounded border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-ring hover:text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <AnimatePresence mode="wait">
+                {copied ? (
+                  <motion.div
+                    key="check"
+                    initial={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
+                    animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                    exit={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="flex items-center gap-1.5"
+                  >
+                    <Check aria-hidden="true" className="h-3 w-3 text-emerald-500" />
+                    Copied
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="copy"
+                    initial={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
+                    animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                    exit={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="flex items-center gap-1.5"
+                  >
+                    <Copy aria-hidden="true" className="h-3 w-3" />
+                    Copy
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
+          </div>
+          <div ref={contentRef} className="overflow-x-auto bg-card">
+            <PrismSyntaxHighlighter
+              language={language}
+              style={vscDarkPlus}
+              customStyle={{
+                margin: 0,
+                padding: "1rem",
+                fontSize: "0.75rem",
+                lineHeight: "1.5",
+                background: "transparent",
+              }}
+              codeTagProps={{
+                style: {
+                  fontFamily: "inherit",
+                },
+              }}
+            >
+              {displayCode}
+            </PrismSyntaxHighlighter>
+          </div>
+
+          {expandable && !isExpanded && hasOverflow && (
+            <div className="absolute inset-x-0 bottom-0 flex h-40 items-end justify-center bg-gradient-to-t from-card via-card/95 via-card/70 to-transparent pb-6">
+              <button
+                type="button"
+                onClick={() => setIsExpanded(true)}
+                aria-expanded={false}
+                className="flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur-md px-4 py-1.5 text-xs font-medium shadow-sm transition-[background-color,box-shadow] hover:bg-muted hover:ring-1 hover:ring-ring outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <ChevronDown aria-hidden="true" className="h-3 w-3" />
+                Expand code
+              </button>
+            </div>
+          )}
         </div>
 
-        {expandable && !isExpanded && hasOverflow && (
-          <div className="absolute inset-x-0 bottom-0 flex h-40 items-end justify-center bg-gradient-to-t from-card via-card/95 via-card/70 to-transparent pb-6 transition-opacity">
+        {expandable && isExpanded && hasOverflow && (
+          <div className="flex justify-center pt-2">
             <button
-              onClick={() => setIsExpanded(true)}
-              className="flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur-md px-4 py-1.5 text-xs font-medium shadow-sm transition-all hover:bg-muted hover:ring-1 hover:ring-ring"
+              type="button"
+              onClick={() => setIsExpanded(false)}
+              aria-expanded={true}
+              className="flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur-md px-4 py-1.5 text-xs font-medium shadow-sm transition-[background-color,box-shadow] hover:bg-muted hover:ring-1 hover:ring-ring outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <ChevronDown className="h-3 w-3" />
-              Expand code
+              <ChevronDown
+                aria-hidden="true"
+                className="h-3 w-3 rotate-180"
+              />
+              Collapse code
             </button>
           </div>
         )}
       </div>
-    </div>
+    </MotionConfig>
   );
 }
-
-
