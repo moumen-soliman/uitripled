@@ -5,7 +5,9 @@ import {
   AnimatePresence,
   animate,
   motion,
+  MotionConfig,
   useMotionValue,
+  useReducedMotion,
   useSpring,
   useTransform,
 } from "framer-motion";
@@ -118,6 +120,9 @@ export function NativeNotch({
   const [internalExpanded, setInternalExpanded] = useState(defaultExpanded);
   const [isDragging, setIsDragging] = useState(false);
   const notchRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const wasExpanded = useRef(false);
+  const reduce = useReducedMotion() ?? false;
 
   const isControlled = controlledExpanded !== undefined;
   const isExpanded = isControlled ? controlledExpanded : internalExpanded;
@@ -159,8 +164,15 @@ export function NativeNotch({
   const springRadius = useSpring(notchRadius, { stiffness: 350, damping: 30, mass: 0.6 });
 
   useEffect(() => {
+    // Reduced motion: snap dimensions instantly, no staged choreography.
+    if (reduce) {
+      const target = isExpanded ? sizeConfig.expanded : sizeConfig.collapsed;
+      notchWidth.jump(target.width);
+      notchHeight.jump(target.height);
+      notchRadius.jump(target.radius);
+      return;
+    }
     if (isExpanded) {
-      // Logic from user's snippet
       animate(notchWidth, sizeConfig.expanded.width, { type: "spring", stiffness: 400, damping: 35, mass: 0.5 });
       animate(notchRadius, sizeConfig.expanded.radius, { type: "spring", stiffness: 350, damping: 30, mass: 0.5 });
       const timeout = setTimeout(() => {
@@ -175,12 +187,21 @@ export function NativeNotch({
       }, 60);
       return () => clearTimeout(timeout);
     }
-  }, [isExpanded, notchWidth, notchHeight, notchRadius, sizeConfig]);
+  }, [isExpanded, notchWidth, notchHeight, notchRadius, sizeConfig, reduce]);
+
+  // Move focus into the panel on expand, back to the notch on collapse.
+  useEffect(() => {
+    if (isExpanded) {
+      wasExpanded.current = true;
+      closeButtonRef.current?.focus();
+    } else if (wasExpanded.current) {
+      notchRef.current?.focus();
+    }
+  }, [isExpanded]);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     if (isExpanded || !draggable) return;
     setIsDragging(true);
-    // @ts-ignore
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
   };
 
@@ -204,7 +225,6 @@ export function NativeNotch({
   const handlePointerUp = (e: React.PointerEvent) => {
     if (!isDragging) return;
     setIsDragging(false);
-    // @ts-ignore
     (e.target as HTMLElement).releasePointerCapture(e.pointerId);
 
     // Snap back
@@ -223,10 +243,17 @@ export function NativeNotch({
   };
 
   return (
+    <MotionConfig reducedMotion="user">
     <motion.div
       ref={notchRef}
+      role={!isExpanded ? "button" : undefined}
+      tabIndex={!isExpanded ? 0 : -1}
+      aria-expanded={isExpanded}
+      aria-label={!isExpanded ? "Open notch" : undefined}
       className={cn(
         "fixed z-50 touch-none",
+        !isExpanded && "cursor-pointer",
+        "outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-full",
         positionStyles[position.align || "center"],
         className
       )}
@@ -235,8 +262,8 @@ export function NativeNotch({
         bottom: position.bottom,
         x: springX,
         y: springY,
-        rotate: isExpanded ? 0 : rotate,
-        scale: isExpanded ? 1 : scale,
+        rotate: isExpanded || reduce ? 0 : rotate,
+        scale: isExpanded || reduce ? 1 : scale,
       }}
       initial={false}
       onPointerDown={handlePointerDown}
@@ -244,6 +271,15 @@ export function NativeNotch({
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
       onClick={handleClick}
+      onKeyDown={(e) => {
+        if (!isExpanded && (e.key === "Enter" || e.key === " ")) {
+          e.preventDefault();
+          setExpanded(true);
+        }
+        if (isExpanded && e.key === "Escape") {
+          setExpanded(false);
+        }
+      }}
     >
       <motion.div
         className="relative bg-background text-foreground border border-accent/50 shadow-2xl overflow-hidden"
@@ -276,17 +312,23 @@ export function NativeNotch({
             >
               <div className="absolute top-2 right-2 z-10">
                 <motion.button
-                  initial={{ scale: 0, rotate: -90 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  exit={{ scale: 0, rotate: -90 }}
+                  ref={closeButtonRef}
+                  type="button"
+                  aria-label="Close notch"
+                  initial={{ scale: 0.5, opacity: 0, rotate: -90 }}
+                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                  exit={{ scale: 0.5, opacity: 0, rotate: -90 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   onClick={(e) => {
                     e.stopPropagation();
                     setExpanded(false);
                   }}
-                  className="p-1 rounded-full hover:bg-accent/10 transition-colors"
+                  className="relative p-1 rounded-full hover:bg-accent/10 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring after:absolute after:-inset-2"
                 >
-                  <X className="w-4 h-4 text-muted-foreground hover:text-foreground" />
+                  <X
+                    aria-hidden="true"
+                    className="w-4 h-4 text-muted-foreground hover:text-foreground"
+                  />
                 </motion.button>
               </div>
               <motion.div
@@ -302,5 +344,6 @@ export function NativeNotch({
         </AnimatePresence>
       </motion.div>
     </motion.div>
+    </MotionConfig>
   );
 }

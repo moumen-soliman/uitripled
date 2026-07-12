@@ -18,7 +18,7 @@ export function ComponentPreview({
 }: ComponentPreviewProps) {
   return (
     <div
-      className={`relative mx-auto overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-all duration-300 ease-out ${className || ""}`}
+      className={`relative mx-auto overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-[width] duration-300 ease-out ${className || ""}`}
       style={{
         width: previewWidth,
         minHeight: "400px",

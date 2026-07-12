@@ -4,7 +4,7 @@ import type React from "react";
 
 import { NativeButton } from "./native-button-baseui";
 import { cn } from "@uitripled/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 
@@ -96,32 +96,20 @@ function NestedItem({
     item.onClick?.(e);
   };
 
-  // @ts-ignore - NativeButton props might not explicitly include href but simpler to pass it through if supported by Base UI
   const extraProps = item.href ? { href: item.href } : {};
 
   return (
-    <div>
+    <li className="list-none">
       <motion.div
         initial={false}
-        animate={{
-          x: 0,
-          backgroundColor: "transparent",
-        }}
-        whileHover={{
-          x: 4,
-          backgroundColor: "hsl(var(--accent) / 0.5)",
-        }}
+        whileHover={{ x: 4 }}
         transition={{
           type: "spring",
           stiffness: 300,
           damping: 25,
-          backgroundColor: {
-            delay: 0.05,
-            duration: 0.3,
-          },
         }}
         style={{ paddingLeft: `${level * indentSize}px` }}
-        className="relative"
+        className="relative rounded-md transition-colors duration-300 hover:bg-accent/50"
       >
         <motion.div
           className="flex items-center"
@@ -131,9 +119,12 @@ function NestedItem({
           <NativeButton
             variant="ghost"
             size="default"
+            aria-expanded={hasChildren ? isExpanded : undefined}
+            aria-current={isActive ? "true" : undefined}
             className={cn(
               sizeVariants[size],
               "w-full justify-start gap-2 relative overflow-hidden rounded-md border-0 shadow-none hover:shadow-none bg-transparent hover:bg-transparent",
+              "motion-safe:hover:scale-100 motion-safe:active:scale-100",
               isActive && "font-medium bg-accent/30"
             )}
             onClick={handleClick}
@@ -150,20 +141,17 @@ function NestedItem({
                 }}
                 className="flex-shrink-0"
               >
-                <ChevronRight className={iconSizeVariants[size]} />
+                <ChevronRight
+                  aria-hidden="true"
+                  className={iconSizeVariants[size]}
+                />
               </motion.div>
             )}
             {showExpandIcon && !hasChildren && (
               <div className={cn(iconSizeVariants[size], "flex-shrink-0")} />
             )}
             {item.icon && (
-              <motion.div
-                className="flex-shrink-0"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                {item.icon}
-              </motion.div>
+              <div className="flex-shrink-0">{item.icon}</div>
             )}
             <span className="truncate">{item.label}</span>
           </NativeButton>
@@ -172,15 +160,16 @@ function NestedItem({
         <AnimatePresence>
           {isActive && (
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
+              aria-hidden="true"
+              initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
+              exit={{ scale: 0.5, opacity: 0 }}
               transition={{
                 type: "spring",
                 stiffness: 500,
                 damping: 30,
               }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-black rounded-full"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-foreground rounded-full"
             />
           )}
         </AnimatePresence>
@@ -205,23 +194,25 @@ function NestedItem({
             }}
             style={{ overflow: "hidden" }}
           >
-            {item.children!.map((child) => (
-              <NestedItem
-                key={child.id}
-                item={child}
-                level={level + 1}
-                activeId={activeId}
-                onItemClick={onItemClick}
-                size={size}
-                showExpandIcon={showExpandIcon}
-                defaultExpanded={defaultExpanded}
-                indentSize={indentSize}
-              />
-            ))}
+            <ul className="list-none">
+              {item.children!.map((child) => (
+                <NestedItem
+                  key={child.id}
+                  item={child}
+                  level={level + 1}
+                  activeId={activeId}
+                  onItemClick={onItemClick}
+                  size={size}
+                  showExpandIcon={showExpandIcon}
+                  defaultExpanded={defaultExpanded}
+                  indentSize={indentSize}
+                />
+              ))}
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </li>
   );
 }
 
@@ -236,20 +227,22 @@ export function NativeNestedListBaseUI({
   indentSize = 16,
 }: NativeNestedListProps) {
   return (
-    <div className={cn("w-full space-y-1", className)}>
-      {items.map((item) => (
-        <NestedItem
-          key={item.id}
-          item={item}
-          level={0}
-          activeId={activeId}
-          onItemClick={onItemClick}
-          size={size}
-          showExpandIcon={showExpandIcon}
-          defaultExpanded={defaultExpanded}
-          indentSize={indentSize}
-        />
-      ))}
-    </div>
+    <MotionConfig reducedMotion="user">
+      <ul className={cn("w-full space-y-1 list-none", className)}>
+        {items.map((item) => (
+          <NestedItem
+            key={item.id}
+            item={item}
+            level={0}
+            activeId={activeId}
+            onItemClick={onItemClick}
+            size={size}
+            showExpandIcon={showExpandIcon}
+            defaultExpanded={defaultExpanded}
+            indentSize={indentSize}
+          />
+        ))}
+      </ul>
+    </MotionConfig>
   );
 }

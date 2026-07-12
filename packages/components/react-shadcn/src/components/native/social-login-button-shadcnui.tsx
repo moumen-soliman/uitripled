@@ -1,6 +1,5 @@
 import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { Chrome, Github, Linkedin, Triangle, Twitter } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -54,6 +53,8 @@ const providerConfig: Record<
   },
 };
 
+const slideEase = "ease-[cubic-bezier(0.23,1,0.32,1)]";
+
 const SocialLoginButton = ({
   className,
   provider,
@@ -65,62 +66,54 @@ const SocialLoginButton = ({
   const Icon = config.icon;
 
   const baseStyles = cn(
-    "cursor-pointer relative h-12 rounded-md px-8 text-sm font-medium transition-all w-full md:w-auto min-w-[240px]",
+    "cursor-pointer relative h-12 rounded-md px-8 text-sm font-medium w-full md:w-auto min-w-[240px]",
+    "transition-[scale,background-color,border-color,color] duration-200",
+    "motion-safe:active:scale-[0.98]",
+    animation === "scale" && "motion-safe:hover:scale-[1.02]",
     config.bgClass,
     className
   );
 
-  // Animation variants
-  const getAnimationProps = () => {
-    switch (animation) {
-      case "scale":
-        return {
-          whileHover: { scale: 1.02 },
-          whileTap: { scale: 0.98 },
-        };
-      case "slide":
-        return {}; // Handled via CSS/State inside
-      default:
-        return {
-          whileTap: { scale: 0.98 },
-        };
-    }
-  };
-
   return (
-    <motion.div {...getAnimationProps()} className="relative group/social inline-block">
+    <div className="relative group/social inline-block w-full md:w-auto">
       {/* Glow Effect */}
       {animation === "glow" && (
-        <div className="absolute inset-0 rounded-md bg-current opacity-0 blur-lg group-hover/social:opacity-40 transition-opacity duration-500 text-inherit" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-md bg-current opacity-0 blur-lg group-hover/social:opacity-40 transition-opacity duration-500 text-inherit"
+        />
       )}
 
-      <Button className={cn(baseStyles, "overflow-hidden")} {...props}>
+      <Button type="button" className={cn(baseStyles, "overflow-hidden")} {...props}>
         {/* Shine Effect */}
         {animation === "shine" && (
-          <div className="absolute inset-0 -translate-x-full group-hover/social:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-10 ease-in-out" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -translate-x-full motion-safe:group-hover/social:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-10 ease-in-out"
+          />
         )}
 
         <div className="flex items-center justify-center gap-3 w-full relative z-10">
-          <motion.span
+          <span
             className={cn(
               "flex-shrink-0",
               animation === "slide" &&
-                "transition-transform duration-300 group-hover/social:-translate-x-1"
+                `transition-transform duration-200 ${slideEase} motion-safe:group-hover/social:-translate-x-1`
             )}
           >
-            <Icon className="w-5 h-5" />
-          </motion.span>
+            <Icon aria-hidden="true" className="w-5 h-5" />
+          </span>
           <span
             className={cn(
               animation === "slide" &&
-                "transition-transform duration-300 group-hover/social:translate-x-1"
+                `transition-transform duration-200 ${slideEase} motion-safe:group-hover/social:translate-x-1`
             )}
           >
             {children || config.label}
           </span>
         </div>
       </Button>
-    </motion.div>
+    </div>
   );
 };
 

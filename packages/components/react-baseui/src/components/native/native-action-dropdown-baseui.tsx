@@ -468,35 +468,58 @@ export function NativeActionDropdownBaseUI({
 
   // One bounded submenu beside the open root row. It drills in place; the path
   // is shown as a breadcrumb (not stacked cards), so depth never widens it.
+  // On small screens ("below") it renders IN FLOW as an accordion so it pushes
+  // the remaining rows down instead of covering them.
   const renderSubmenu = () => {
     const parent =
       depth > 0 ? columns[depth - 1].items[base[depth - 1]] : undefined;
+    const isInline = submenuSide === "below";
+
+    if (isInline) {
+      return (
+        <motion.div
+          key="submenu"
+          role="group"
+          aria-label={parent ? `${parent.name} options` : "Submenu"}
+          initial={reduce ? { opacity: 0 } : { opacity: 0, height: 0 }}
+          animate={reduce ? { opacity: 1 } : { opacity: 1, height: "auto" }}
+          exit={
+            reduce
+              ? { opacity: 0, transition: { duration: 0 } }
+              : {
+                  opacity: 0,
+                  height: 0,
+                  transition: { duration: 0.14, ease: EASE_OUT },
+                }
+          }
+          transition={
+            reduce ? { duration: 0 } : { duration: 0.18, ease: EASE_OUT }
+          }
+          className="overflow-hidden"
+        >
+          <div className="mt-1 w-full rounded-xl border border-border bg-popover p-1 text-popover-foreground shadow-sm ring-1 ring-black/[0.02]">
+            {renderSubmenuInner()}
+          </div>
+        </motion.div>
+      );
+    }
+
     const sideClass =
       submenuSide === "right"
         ? "left-full top-0 ml-2 w-64"
-        : submenuSide === "left"
-          ? "right-full top-0 mr-2 w-64"
-          : "left-0 top-full mt-1 w-full"; // below: full-width sheet (mobile)
-    const sideOrigin =
-      submenuSide === "right"
-        ? "left top"
-        : submenuSide === "left"
-          ? "right top"
-          : "top center";
-    const enterX =
-      reduce || submenuSide === "below" ? 0 : submenuSide === "left" ? 6 : -6;
-    const enterY = !reduce && submenuSide === "below" ? -6 : 0;
+        : "right-full top-0 mr-2 w-64";
+    const sideOrigin = submenuSide === "right" ? "left top" : "right top";
+    const enterX = reduce ? 0 : submenuSide === "left" ? 6 : -6;
     return (
       <motion.div
         key="submenu"
         role="group"
         aria-label={parent ? `${parent.name} options` : "Submenu"}
-        initial={{ opacity: 0, x: enterX, y: enterY, scale: reduce ? 1 : 0.98 }}
-        animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+        initial={{ opacity: 0, x: enterX, scale: reduce ? 1 : 0.98 }}
+        animate={{ opacity: 1, x: 0, scale: 1 }}
         exit={{
           opacity: 0,
           x: enterX === 0 ? 0 : enterX > 0 ? 4 : -4,
-          y: enterY === 0 ? 0 : -4,
           scale: reduce ? 1 : 0.98,
           transition: reduce
             ? { duration: 0 }
@@ -511,7 +534,14 @@ export function NativeActionDropdownBaseUI({
           sideClass
         )}
       >
-        <div className="flex flex-wrap items-center gap-x-0.5 gap-y-0.5 px-1.5 pb-1.5 pt-1">
+        {renderSubmenuInner()}
+      </motion.div>
+    );
+  };
+
+  const renderSubmenuInner = () => (
+    <>
+      <div className="flex flex-wrap items-center gap-x-0.5 gap-y-0.5 px-1.5 pb-1.5 pt-1">
           <AnimatePresence initial={false} mode="popLayout">
             {Array.from({ length: depth }).map((_, level) => {
               const crumb = columns[level].items[base[level]];
@@ -581,9 +611,8 @@ export function NativeActionDropdownBaseUI({
             </motion.div>
           </AnimatePresence>
         </div>
-      </motion.div>
-    );
-  };
+    </>
+  );
 
   const renderRootRow = (mode: ActionDropdownNode, flatIndex: number) => {
     const submenuOpen =

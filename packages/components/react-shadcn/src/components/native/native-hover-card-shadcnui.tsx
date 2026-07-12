@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { type ReactNode, useState } from "react";
 
 export interface NativeHoverCardProps {
@@ -72,6 +72,7 @@ const cardWidthVariants = {
 const getInitials = (name: string) => {
   return name
     .split(" ")
+    .filter(Boolean)
     .map((n) => n[0])
     .join("")
     .toUpperCase()
@@ -91,7 +92,7 @@ export function NativeHoverCard({
   className,
   variant = "default",
 }: NativeHoverCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const getVariantStyles = () => {
     switch (variant) {
@@ -107,140 +108,149 @@ export function NativeHoverCard({
   // Avatar component - renders a fresh instance to ensure updates/animations work
   const avatarElement = (
     <Avatar className="w-full h-full">
-      <AvatarImage
-        src={imageSrc || "/placeholder.svg"}
-        alt={imageAlt || name}
-      />
+      <AvatarImage src={imageSrc || "/placeholder.svg"} alt="" />
       <AvatarFallback>{getInitials(name)}</AvatarFallback>
     </Avatar>
   );
 
   return (
-    <motion.div
-      className={cn("relative inline-block", className)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      initial={false}
-      animate={{
-        width: isHovered ? "auto" : "fit-content",
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      }}
-    >
-      <motion.div
-        className={cn(
-          "relative rounded-full overflow-hidden",
-          imageSizeVariants[size]
-        )}
-        layout
-        animate={{
-          padding: isHovered ? "8px" : "0px",
+    <MotionConfig reducedMotion="user">
+      <div
+        className={cn("relative inline-block", className)}
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+        onFocus={() => setIsOpen(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+            setIsOpen(false);
+          }
         }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 30,
+        onKeyDown={(e) => {
+          if (e.key === "Escape") setIsOpen(false);
         }}
       >
-        {avatarElement}
-      </motion.div>
+        <motion.div
+          role="button"
+          tabIndex={0}
+          aria-expanded={isOpen}
+          aria-label={imageAlt || name}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setIsOpen((open) => !open);
+            }
+          }}
+          className={cn(
+            "relative rounded-full overflow-hidden cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+            imageSizeVariants[size]
+          )}
+          layout
+          animate={{
+            padding: isOpen ? "8px" : "0px",
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 30,
+          }}
+        >
+          {avatarElement}
+        </motion.div>
 
-      {/* Expanded Card Content */}
-      <AnimatePresence>
-        {isHovered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className={cn(
-              "absolute top-0 left-0 rounded-xl shadow-lg overflow-hidden z-10",
-              cardWidthVariants[size],
-              getVariantStyles()
-            )}
-            style={{ pointerEvents: "auto" }}
-          >
-            {/* Background with gradient overlay on image */}
-            <div className="relative">
-              <motion.div
-                className={cn("relative p-2", imageSizeVariants[size])}
-              >
-                {avatarElement}
-              </motion.div>
+        {/* Expanded Card Content */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className={cn(
+                "absolute top-0 left-0 rounded-xl shadow-lg overflow-hidden z-10",
+                cardWidthVariants[size],
+                getVariantStyles()
+              )}
+            >
+              {/* Background with gradient overlay on image */}
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className={cn("relative p-2", imageSizeVariants[size])}
+                >
+                  {avatarElement}
+                </div>
 
-              {/* Content Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                transition={{
-                  delay: 0.1,
-                  duration: 0.2,
-                }}
-                className="p-4 space-y-3"
-              >
-                {/* Name */}
-                <div>
-                  <motion.h3
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.15 }}
-                    className="text-lg font-bold text-foreground leading-tight"
-                  >
-                    {name}
-                  </motion.h3>
-
-                  {/* Username */}
-                  {username && (
+                {/* Content Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+                  transition={{
+                    delay: 0.1,
+                    duration: 0.2,
+                  }}
+                  className="p-4 space-y-3"
+                >
+                  {/* Name */}
+                  <div>
                     <motion.p
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.18 }}
-                      className="text-sm text-muted-foreground"
+                      transition={{ delay: 0.15 }}
+                      className="text-lg font-bold text-foreground leading-tight"
                     >
-                      @{username}
+                      {name}
+                    </motion.p>
+
+                    {/* Username */}
+                    {username && (
+                      <motion.p
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.18 }}
+                        className="text-sm text-muted-foreground"
+                      >
+                        @{username}
+                      </motion.p>
+                    )}
+                  </div>
+
+                  {/* Description */}
+                  {description && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="text-sm text-foreground/80 leading-relaxed line-clamp-2"
+                    >
+                      {description}
                     </motion.p>
                   )}
-                </div>
 
-                {/* Description */}
-                {description && (
-                  <motion.p
+                  {/* Button */}
+                  <motion.div
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-sm text-foreground/80 leading-relaxed line-clamp-2"
+                    transition={{ delay: 0.25 }}
                   >
-                    {description}
-                  </motion.p>
-                )}
-
-                {/* Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25 }}
-                >
-                  {buttonContent ? (
-                    buttonContent
-                  ) : (
-                    <Button
-                      onClick={onButtonClick}
-                      size="sm"
-                      className="w-full"
-                    >
-                      {buttonText}
-                    </Button>
-                  )}
+                    {buttonContent ? (
+                      buttonContent
+                    ) : (
+                      <Button
+                        onClick={onButtonClick}
+                        size="sm"
+                        className="w-full"
+                      >
+                        {buttonText}
+                      </Button>
+                    )}
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </MotionConfig>
   );
 }

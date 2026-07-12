@@ -1,10 +1,13 @@
 "use client";
 
+import {
+  NativeButton,
+  type NativeButtonProps,
+} from "./native-button-baseui";
 import { cn } from "@uitripled/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { NativeButton, type NativeButtonProps } from "./native-button-baseui";
 
 export interface NativeLiquidButtonProps
   extends Omit<NativeButtonProps, "onClick" | "loading"> {
@@ -34,7 +37,6 @@ export interface NativeLiquidButtonProps
    * Default: false
    */
   showPercentage?: boolean;
-  /**
   /**
    * Auto-simulate loading (for demo purposes)
    */
@@ -75,6 +77,7 @@ export function NativeLiquidButton({
 }: NativeLiquidButtonProps) {
   const [internalProgress, setInternalProgress] = useState(progress);
   const [isSimulating, setIsSimulating] = useState(false);
+  const shouldReduceMotion = useReducedMotion() ?? false;
 
   useEffect(() => {
     setInternalProgress(progress);
@@ -125,6 +128,8 @@ export function NativeLiquidButton({
   };
 
   const clampedProgress = Math.min(Math.max(internalProgress, 0), 100);
+  const isFilling = clampedProgress > 0 && clampedProgress < 100;
+  const showAmbient = !shouldReduceMotion && clampedProgress > 0;
 
   return (
     <div className="relative inline-block">
@@ -134,9 +139,10 @@ export function NativeLiquidButton({
         loading={false}
         disabled={disabled || loading}
         onClick={handleClick}
+        aria-busy={loading || isSimulating}
         className={cn(
           sizeVariants[size || "default"],
-          "relative overflow-hidden font-semibold transition-all duration-300",
+          "relative overflow-hidden font-semibold transition-[box-shadow,background-color,border-color,color] duration-300",
           "before:absolute before:inset-0 before:bg-background/20 before:pointer-events-none before:rounded-md",
           liquidVariant === "glow" &&
             !disabled &&
@@ -145,37 +151,46 @@ export function NativeLiquidButton({
         )}
         {...props}
       >
-        {/* Liquid fill effect */}
+        {/* Liquid fill — width-based so the liquid inside never distorts */}
         <motion.div
-          className={cn("absolute inset-0 origin-left", getLiquidColor())}
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: clampedProgress / 100 }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
-          }}
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-y-0 left-0 overflow-hidden transition-colors duration-300",
+            getLiquidColor()
+          )}
+          initial={false}
+          animate={{ width: `${clampedProgress}%` }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0.2, ease: "easeOut" }
+              : { type: "spring", stiffness: 100, damping: 20 }
+          }
         >
-          {/* Bubble effects */}
-          {liquidVariant === "default" && clampedProgress > 0 && (
+          {/* Meniscus — bright leading edge where the liquid meets air */}
+          {isFilling && (
+            <div className="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-white/30 to-transparent" />
+          )}
+
+          {/* Rising bubbles */}
+          {liquidVariant === "default" && showAmbient && (
             <>
-              {[...Array(3)].map((_, i) => (
+              {[...Array(4)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute bottom-0 w-2 h-2 bg-white/30 rounded-md"
+                  className="absolute bottom-0 h-1.5 w-1.5 rounded-full bg-white/40"
                   style={{
-                    left: `${20 + i * 25}%`,
+                    left: `${15 + i * 22}%`,
                   }}
                   animate={{
-                    y: [-10, -50, -10],
-                    opacity: [0, 1, 0],
-                    scale: [0.5, 1, 0.5],
+                    y: [2, -36],
+                    opacity: [0, 0.8, 0],
+                    scale: [0.6, 1, 0.7],
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 1.8,
                     repeat: Number.POSITIVE_INFINITY,
-                    delay: i * 0.4,
-                    ease: "easeInOut",
+                    delay: i * 0.45,
+                    ease: "easeOut",
                   }}
                 />
               ))}
@@ -183,7 +198,7 @@ export function NativeLiquidButton({
           )}
 
           {/* Shimmer effect for gradient */}
-          {liquidVariant === "gradient" && clampedProgress > 0 && (
+          {liquidVariant === "gradient" && showAmbient && (
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
               animate={{
@@ -198,6 +213,26 @@ export function NativeLiquidButton({
           )}
         </motion.div>
 
+        {/* Wave — a translucent surface layer sloshing around the fill edge */}
+        {liquidVariant === "wave" && showAmbient && isFilling && (
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 bg-white/15"
+            animate={{
+              width: [
+                `${Math.max(clampedProgress - 6, 0)}%`,
+                `${Math.min(clampedProgress + 4, 100)}%`,
+                `${Math.max(clampedProgress - 6, 0)}%`,
+              ],
+            }}
+            transition={{
+              duration: 2.2,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          />
+        )}
+
         {/* Button content */}
         <span className="relative z-10 flex items-center justify-center gap-2">
           <AnimatePresence mode="wait">
@@ -208,15 +243,19 @@ export function NativeLiquidButton({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <Loader2 className="w-4 h-4 animate-spin" />
+                <Loader2 aria-hidden="true" className="w-4 h-4 animate-spin" />
               </motion.div>
             )}
           </AnimatePresence>
 
           <motion.span
-            animate={loading ? { opacity: [1, 0.5, 1] } : { opacity: 1 }}
+            animate={
+              loading && !shouldReduceMotion
+                ? { opacity: [1, 0.5, 1] }
+                : { opacity: 1 }
+            }
             transition={
-              loading
+              loading && !shouldReduceMotion
                 ? {
                     duration: 1.5,
                     repeat: Number.POSITIVE_INFINITY,
@@ -229,21 +268,17 @@ export function NativeLiquidButton({
           </motion.span>
 
           {showPercentage && (
-            <motion.span
-              key={clampedProgress}
-              initial={{ scale: 1.2, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="text-xs font-mono"
-            >
+            <span className="text-xs tabular-nums">
               {Math.round(clampedProgress)}%
-            </motion.span>
+            </span>
           )}
         </span>
 
         {/* Glow effect */}
-        {liquidVariant === "glow" && !disabled && clampedProgress > 0 && (
+        {liquidVariant === "glow" && !disabled && showAmbient && (
           <motion.div
-            className="absolute inset-0 bg-primary/20 blur-xl"
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-primary/20 blur-xl"
             animate={{
               opacity: [0.3, 0.6, 0.3],
             }}
@@ -255,6 +290,18 @@ export function NativeLiquidButton({
           />
         )}
       </NativeButton>
+
+      {clampedProgress > 0 && (
+        <span
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(clampedProgress)}
+          className="sr-only"
+        >
+          {Math.round(clampedProgress)}%
+        </span>
+      )}
     </div>
   );
 }

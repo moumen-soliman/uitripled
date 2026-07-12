@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { useState } from "react";
 
 export interface NativeAvatarProps {
@@ -56,6 +56,36 @@ const nameSizeVariants = {
   xl: "text-lg px-5 py-2.5",
 };
 
+const directionVariants = {
+  top: {
+    initial: { y: 20, opacity: 0, filter: "blur(4px)" },
+    animate: { y: -8, opacity: 1, filter: "blur(0px)" },
+    exit: { y: 20, opacity: 0, filter: "blur(4px)" },
+  },
+  bottom: {
+    initial: { y: -20, opacity: 0, filter: "blur(4px)" },
+    animate: { y: 8, opacity: 1, filter: "blur(0px)" },
+    exit: { y: -20, opacity: 0, filter: "blur(4px)" },
+  },
+  left: {
+    initial: { x: 20, opacity: 0, filter: "blur(4px)" },
+    animate: { x: -8, opacity: 1, filter: "blur(0px)" },
+    exit: { x: 20, opacity: 0, filter: "blur(4px)" },
+  },
+  right: {
+    initial: { x: -20, opacity: 0, filter: "blur(4px)" },
+    animate: { x: 8, opacity: 1, filter: "blur(0px)" },
+    exit: { x: -20, opacity: 0, filter: "blur(4px)" },
+  },
+};
+
+const positionClasses = {
+  top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
+  bottom: "top-full left-1/2 -translate-x-1/2 mt-2",
+  left: "right-full top-1/2 -translate-y-1/2 mr-2",
+  right: "left-full top-1/2 -translate-y-1/2 ml-2",
+};
+
 export function NativeAvatarWithName({
   src,
   name,
@@ -66,99 +96,75 @@ export function NativeAvatarWithName({
   nameClassName,
   motionClassName,
 }: NativeAvatarProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const getInitials = (name: string) => {
     return name
       .split(" ")
+      .filter(Boolean)
       .map((n) => n[0])
       .join("")
       .toUpperCase()
       .slice(0, 2);
   };
 
-  const directionVariants = {
-    top: {
-      initial: { y: 20, opacity: 0, filter: "blur(4px)" },
-      animate: { y: -8, opacity: 1, filter: "blur(0px)" },
-      exit: { y: 20, opacity: 0, filter: "blur(4px)" },
-    },
-    bottom: {
-      initial: { y: -20, opacity: 0, filter: "blur(4px)" },
-      animate: { y: 8, opacity: 1, filter: "blur(0px)" },
-      exit: { y: -20, opacity: 0, filter: "blur(4px)" },
-    },
-    left: {
-      initial: { x: 20, opacity: 0, filter: "blur(4px)" },
-      animate: { x: -8, opacity: 1, filter: "blur(0px)" },
-      exit: { x: 20, opacity: 0, filter: "blur(4px)" },
-    },
-    right: {
-      initial: { x: -20, opacity: 0, filter: "blur(4px)" },
-      animate: { x: 8, opacity: 1, filter: "blur(0px)" },
-      exit: { x: -20, opacity: 0, filter: "blur(4px)" },
-    },
-  };
-
-  const positionClasses = {
-    top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
-    bottom: "top-full left-1/2 -translate-x-1/2 mt-2",
-    left: "right-full top-1/2 -translate-y-1/2 mr-2",
-    right: "left-full top-1/2 -translate-y-1/2 ml-2",
-  };
-
   return (
-    <div
-      className={cn(
-        "relative inline-flex items-center justify-center",
-        className
-      )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        className={motionClassName}
-      >
-        <Avatar
-          className={cn(
-            sizeVariants[size],
-            "cursor-pointer ring-2 ring-background shadow-lg"
-          )}
-        >
-          <AvatarImage src={src || "/placeholder.svg"} alt={name} />
-          <AvatarFallback className="text-muted-foreground font-semibold">
-            {fallback || getInitials(name)}
-          </AvatarFallback>
-        </Avatar>
-      </motion.div>
-
-      <AnimatePresence>
-        {isHovered && (
-          <motion.div
-            initial={directionVariants[direction].initial}
-            animate={directionVariants[direction].animate}
-            exit={directionVariants[direction].exit}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 25,
-              opacity: { duration: 0.2 },
-              filter: { duration: 0.2 },
-            }}
-            className={cn(
-              "absolute z-10 whitespace-nowrap rounded-md bg-popover text-popover-foreground shadow-lg border pointer-events-none",
-              nameSizeVariants[size],
-              positionClasses[direction],
-              nameClassName
-            )}
-          >
-            <span className="font-medium">{name}</span>
-          </motion.div>
+    <MotionConfig reducedMotion="user">
+      <div
+        className={cn(
+          "relative inline-flex items-center justify-center",
+          className
         )}
-      </AnimatePresence>
-    </div>
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
+        onFocus={() => setIsVisible(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+            setIsVisible(false);
+          }
+        }}
+      >
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          className={motionClassName}
+        >
+          <Avatar
+            className={cn(sizeVariants[size], "ring-2 ring-background shadow-lg")}
+          >
+            <AvatarImage src={src || "/placeholder.svg"} alt={name} />
+            <AvatarFallback className="text-muted-foreground font-semibold">
+              {fallback || getInitials(name)}
+            </AvatarFallback>
+          </Avatar>
+        </motion.div>
+
+        <AnimatePresence>
+          {isVisible && (
+            <motion.div
+              aria-hidden="true"
+              initial={directionVariants[direction].initial}
+              animate={directionVariants[direction].animate}
+              exit={directionVariants[direction].exit}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 25,
+                opacity: { duration: 0.2 },
+                filter: { duration: 0.2 },
+              }}
+              className={cn(
+                "absolute z-10 whitespace-nowrap rounded-md bg-popover text-popover-foreground shadow-lg border pointer-events-none",
+                nameSizeVariants[size],
+                positionClasses[direction],
+                nameClassName
+              )}
+            >
+              <span className="font-medium">{name}</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </MotionConfig>
   );
 }

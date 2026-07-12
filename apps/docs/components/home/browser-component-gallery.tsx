@@ -5,19 +5,14 @@ import { cn } from "@/lib/utils";
 import type { UILibrary } from "@/types";
 import { NativeAvatarExpandDemo as NativeAvatarExpandBase } from "@uitripled/react-baseui/components/native/demo/native-avatar-expand-demo";
 import { NativeAvatarWithNameDemo as NativeAvatarWithNameBase } from "@uitripled/react-baseui/components/native/demo/native-avatar-with-name-demo";
-import { NativeButtonDefault as NativeButtonBase } from "@uitripled/react-baseui/components/native/demo/native-button-demo";
 import { NativeDeleteDemo as NativeDeleteBase } from "@uitripled/react-baseui/components/native/demo/native-delete-demo";
-import { NativeDialogDemo as NativeDialogBase } from "@uitripled/react-baseui/components/native/demo/native-dialog-demo";
 import { NativeHoverCardDemo as NativeHoverCardBase } from "@uitripled/react-baseui/components/native/demo/native-hover-card-demo";
-import { NativeImageCheckboxDemo as NativeImageCheckboxBase } from "@uitripled/react-baseui/components/native/demo/native-image-checkbox-demo";
 import { NativeLikesCounterDemo as NativeLikesCounterBase } from "@uitripled/react-baseui/components/native/demo/native-likes-counter-demo";
 import { NativeLiquidButtonDemo as NativeLiquidButtonBase } from "@uitripled/react-baseui/components/native/demo/native-liquid-button-demo";
 import { NativeMagneticDefault as NativeMagneticBase } from "@uitripled/react-baseui/components/native/demo/native-magnetic-demo";
 import { NativeMorphingButtonDemo as NativeMorphingButtonBase } from "@uitripled/react-baseui/components/native/demo/native-morphing-button-demo";
 import { NativeNestedListBaseUIDemo as NativeNestedListBase } from "@uitripled/react-baseui/components/native/demo/native-nested-list-demo";
-import { NativeNotificationBellDemo as NativeNotificationBellBase } from "@uitripled/react-baseui/components/native/demo/native-notification-bell-demo";
 import { NativeProfileNotchDefault as NativeProfileNotchBase } from "@uitripled/react-baseui/components/native/demo/native-profile-notch-demo";
-import { NativeStartNowDemo as NativeStartNowBase } from "@uitripled/react-baseui/components/native/demo/native-start-now-demo";
 import { NativeTabsDemo as NativeTabsBase } from "@uitripled/react-baseui/components/native/demo/native-tabs-demo";
 import { NativeTooltipDemo as NativeTooltipBase } from "@uitripled/react-baseui/components/native/demo/native-tooltip-demo";
 import { NativeTypewriterLoop as NativeTypewriterBase } from "@uitripled/react-baseui/components/native/demo/native-typewriter-demo";
@@ -25,25 +20,19 @@ import { NativeVerifiedBadgeDemo as NativeVerifiedBadgeBase } from "@uitripled/r
 import { SocialButtonsSlide as SocialLoginButtonBase } from "@uitripled/react-baseui/components/native/demo/social-login-demo";
 import { NativeAvatarExpandDemo as NativeAvatarExpandShadcn } from "@uitripled/react-shadcn/components/native/demo/native-avatar-expand-demo";
 import { NativeAvatarWithNameDemo as NativeAvatarWithNameShadcn } from "@uitripled/react-shadcn/components/native/demo/native-avatar-with-name-demo";
-import { NativeButtonDefault as NativeButtonShadcn } from "@uitripled/react-shadcn/components/native/demo/native-button-demo";
 import { NativeDeleteDemo as NativeDeleteShadcn } from "@uitripled/react-shadcn/components/native/demo/native-delete-demo";
-import { NativeDialogDemo as NativeDialogShadcn } from "@uitripled/react-shadcn/components/native/demo/native-dialog-demo";
 import { NativeHoverCardDemo as NativeHoverCardShadcn } from "@uitripled/react-shadcn/components/native/demo/native-hover-card-demo";
-import { NativeImageCheckboxDemo as NativeImageCheckboxShadcn } from "@uitripled/react-shadcn/components/native/demo/native-image-checkbox-demo";
 import { NativeLikesCounterDemo as NativeLikesCounterShadcn } from "@uitripled/react-shadcn/components/native/demo/native-likes-counter-demo";
 import { NativeLiquidButtonDemo as NativeLiquidButtonShadcn } from "@uitripled/react-shadcn/components/native/demo/native-liquid-button-demo";
 import { NativeMagneticDefault as NativeMagneticShadcn } from "@uitripled/react-shadcn/components/native/demo/native-magnetic-demo";
 import { NativeMorphingButtonDemo as NativeMorphingButtonShadcn } from "@uitripled/react-shadcn/components/native/demo/native-morphing-button-demo";
 import { NativeNestedListDemo as NativeNestedListShadcn } from "@uitripled/react-shadcn/components/native/demo/native-nested-list-demo";
-import { NativeNotificationBellDemo as NativeNotificationBellShadcn } from "@uitripled/react-shadcn/components/native/demo/native-notification-bell-demo";
 import { NativeProfileNotchDefault as NativeProfileNotchShadcn } from "@uitripled/react-shadcn/components/native/demo/native-profile-notch-demo";
-import { NativeStartNowDemo as NativeStartNowShadcn } from "@uitripled/react-shadcn/components/native/demo/native-start-now-demo";
 import { NativeTabsDemo as NativeTabsShadcn } from "@uitripled/react-shadcn/components/native/demo/native-tabs-demo";
 import { NativeTooltipDemo as NativeTooltipShadcn } from "@uitripled/react-shadcn/components/native/demo/native-tooltip-demo";
 import { NativeTypewriterLoop as NativeTypewriterShadcn } from "@uitripled/react-shadcn/components/native/demo/native-typewriter-demo";
 import { NativeVerifiedBadgeDemo as NativeVerifiedBadgeShadcn } from "@uitripled/react-shadcn/components/native/demo/native-verified-badge-demo";
 import { SocialButtonsSlide as SocialLoginButtonShadcn } from "@uitripled/react-shadcn/components/native/demo/social-login-demo";
-import { MultipleAccounts as MultipleAccountsShadcn } from "@uitripled/react-shadcn/components/components/account-switcher/multiple-accounts";
 import { DashboardPage as DashboardShadcn } from "@uitripled/react-shadcn/components/components/stocks-dashboard/dashboard";
 import { DashboardPage as DashboardBase } from "@uitripled/react-baseui/components/components/stocks-dashboard/dashboard";
 import { CardsSlider as CardsSliderShadcn } from "@uitripled/react-shadcn/components/components/sliders/cards-slider";
@@ -57,11 +46,9 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@uitripled/react-shadcn/ui/select";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import {
   BadgeCheck,
-  Bell,
-  CheckSquare,
   CreditCard,
   Droplets,
   FolderTree,
@@ -71,23 +58,18 @@ import {
   LogIn,
   Magnet,
   MessageCircle,
-  MessageSquare,
-  MousePointerClick,
-  PlayCircle,
   RefreshCw,
   Smartphone,
   Trash2,
   Type,
   User,
-  Users,
-  X,
   LayoutDashboard,
   GalleryHorizontal,
   LayoutTemplate,
   Megaphone,
 } from "lucide-react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 
 const components = [
   { name: "Hover Card", path: "native-hover-card", Icon: CreditCard, Shadcn: NativeHoverCardShadcn, Base: NativeHoverCardBase },
@@ -130,18 +112,37 @@ export function BrowserComponentGallery() {
   const { selectedLibrary, setSelectedLibrary } = useUILibrary();
   const [activeTab, setActiveTab] = useState(components[0].name);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const pillLayoutId = useId();
 
   const activeComponent = components.find((c) => c.name === activeTab);
   const Component = selectedLibrary === "baseui" ? activeComponent?.Base : activeComponent?.Shadcn;
 
-  console.log(activeComponent);
+  const handleTablistKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = ["ArrowRight", "ArrowLeft", "Home", "End"];
+    if (!keys.includes(e.key)) return;
+    e.preventDefault();
+    const currentIndex = components.findIndex((c) => c.name === activeTab);
+    let nextIndex = currentIndex;
+    if (e.key === "ArrowRight")
+      nextIndex = (currentIndex + 1) % components.length;
+    if (e.key === "ArrowLeft")
+      nextIndex = (currentIndex - 1 + components.length) % components.length;
+    if (e.key === "Home") nextIndex = 0;
+    if (e.key === "End") nextIndex = components.length - 1;
+    setActiveTab(components[nextIndex].name);
+    scrollContainerRef.current
+      ?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
+      [nextIndex]?.focus();
+  };
+
   return (
+    <MotionConfig reducedMotion="user">
     <div className="w-full max-w-7xl mx-auto p-0 sm:p-4 md:p-8 z-10 relative">
       <div className="relative rounded-xl overflow-hidden border border-border bg-background shadow-2xl">
         <div className="bg-muted/30 border-b border-border flex flex-col pt-2">
 
           <div className="flex items-center pl-4 pr-3 gap-4 z-20 h-10">
-            <div className="hidden sm:flex gap-1.5 shrink-0">
+            <div aria-hidden="true" className="hidden sm:flex gap-1.5 shrink-0">
               <div className="h-3 w-3 rounded-full bg-red-500/80 border border-black/5" />
               <div className="h-3 w-3 rounded-full bg-yellow-500/80 border border-black/5" />
               <div className="h-3 w-3 rounded-full bg-green-500/80 border border-black/5" />
@@ -164,21 +165,21 @@ export function BrowserComponentGallery() {
                   onValueChange={(value) => setSelectedLibrary(value as UILibrary)}
                 >
                   <SelectTrigger
-                    className="h-8 w-auto min-w-[110px] gap-2 border-border/50 bg-background/50 hover:bg-background/80 text-xs focus:ring-0 shadow-none px-2 rounded-md"
+                    className="h-8 w-auto min-w-[110px] gap-2 border-border/50 bg-background/50 hover:bg-background/80 text-xs shadow-none px-2 rounded-md"
                     aria-label="Select UI library"
                   >
                      {selectedLibrary && (
                         <div className="flex items-center gap-2">
                           <Image
                             src={uiLibraries.find((lib) => lib.id === selectedLibrary)?.logoLight || ""}
-                            alt={uiLibraries.find((lib) => lib.id === selectedLibrary)?.name || ""}
+                            alt=""
                             width={14}
                             height={14}
                             className="block dark:hidden"
                           />
                           <Image
                             src={uiLibraries.find((lib) => lib.id === selectedLibrary)?.logoDark || ""}
-                            alt={uiLibraries.find((lib) => lib.id === selectedLibrary)?.name || ""}
+                            alt=""
                             width={14}
                             height={14}
                             className="hidden dark:block"
@@ -193,8 +194,8 @@ export function BrowserComponentGallery() {
                     {uiLibraries.map((lib) => (
                       <SelectItem key={lib.id} value={lib.id} className="text-xs">
                          <div className="flex items-center gap-2">
-                             <img src={lib.logoLight} alt={lib.name} className="w-4 h-4 block dark:hidden" />
-                             <img src={lib.logoDark} alt={lib.name} className="w-4 h-4 hidden dark:block" />
+                             <img src={lib.logoLight} alt="" className="w-4 h-4 block dark:hidden" />
+                             <img src={lib.logoDark} alt="" className="w-4 h-4 hidden dark:block" />
                              {lib.name}
                          </div>
                       </SelectItem>
@@ -208,7 +209,7 @@ export function BrowserComponentGallery() {
                 {/* Mobile Component Selector */}
                 <div className="sm:hidden px-1 pb-1">
                    <Select value={activeTab} onValueChange={setActiveTab}>
-                      <SelectTrigger className="h-9 w-full bg-background/50 hover:bg-background/80 border-border/40 text-xs focus:ring-0 shadow-none px-3">
+                      <SelectTrigger className="h-9 w-full bg-background/50 hover:bg-background/80 border-border/40 text-xs shadow-none px-3">
                          <div className="flex items-center gap-2 overflow-hidden">
                             {activeComponent && <activeComponent.Icon className="w-3.5 h-3.5 text-muted-foreground shrink-0" />}
                             <span className="font-medium truncate">{activeTab}</span>
@@ -233,19 +234,21 @@ export function BrowserComponentGallery() {
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     role="tablist"
                     aria-label="Component demos"
+                    onKeyDown={handleTablistKeyDown}
                 >
                 {components.map((item) => {
                     const isActive = activeTab === item.name;
                     return (
                     <button
                         key={item.name}
+                        type="button"
                         onClick={() => setActiveTab(item.name)}
                         role="tab"
                         aria-selected={isActive}
                         aria-controls="component-demo-panel"
                         tabIndex={isActive ? 0 : -1}
                         className={cn(
-                        "group relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 min-w-fit rounded-full text-xs font-medium transition-all duration-300 ease-out z-0 border border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
+                        "group relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 min-w-fit rounded-full text-xs font-medium transition-colors duration-200 z-0 border border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
                         isActive
                             ? "text-primary-foreground"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -253,9 +256,9 @@ export function BrowserComponentGallery() {
                     >
                         {isActive && (
                             <motion.div
-                                layoutId="activeTabBackground"
+                                layoutId={pillLayoutId}
                                 className="absolute inset-0 bg-primary rounded-full shadow-sm -z-10"
-                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                transition={{ type: "spring", duration: 0.45, bounce: 0.15 }}
                             />
                         )}
 
@@ -296,14 +299,6 @@ export function BrowserComponentGallery() {
         </div>
       </div>
     </div>
+    </MotionConfig>
   );
-}
-
-function Plus({ className }: { className?: string }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-             <path d="M5 12h14" />
-             <path d="M12 5v14" />
-        </svg>
-    )
 }

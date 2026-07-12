@@ -1,11 +1,10 @@
 "use client"
 
 import { cn } from "@uitripled/utils"
-// import { Avatar } from "@base-ui/react/avatar" // Using standard Avatar structure if BaseUI import is different or not setup, but following user request for "BaseUI avatar"
 import { Avatar } from "@base-ui/react/avatar"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, MotionConfig } from "framer-motion"
 import { Heart, Loader2 } from "lucide-react"
-import { useState, useCallback, useRef } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 
 export interface LikeUser {
   id: string
@@ -54,6 +53,12 @@ const sizeVariants = {
   },
 }
 
+const countVariants = {
+  enter: (direction: number) => ({ y: direction * -8, opacity: 0 }),
+  center: { y: 0, opacity: 1 },
+  exit: (direction: number) => ({ y: direction * 8, opacity: 0 }),
+}
+
 export function NativeLikesCounterBaseUI({
   count,
   users = [],
@@ -67,33 +72,54 @@ export function NativeLikesCounterBaseUI({
   maxVisibleInPopup = 5,
   className,
 }: NativeLikesCounterProps) {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isLiked, setIsLiked] = useState<boolean | undefined>(liked)
+  const [isOpen, setIsOpen] = useState(false)
+  const [isLiked, setIsLiked] = useState(liked)
   const [localCount, setLocalCount] = useState(count)
   const [loadedUsers, setLoadedUsers] = useState<LikeUser[]>(users)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [canLoadMore, setCanLoadMore] = useState(hasMore)
 
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const hasInteracted = useRef(false)
+  const countDirection = useRef(1)
+
+  useEffect(
+    () => () => {
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current)
+    },
+    [],
+  )
 
   const sizeConfig = sizeVariants[size]
   const displayUsers = loadedUsers.slice(0, maxAvatars)
 
-  const handleMouseEnter = () => {
+  const openPopup = () => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current)
       hoverTimeoutRef.current = null
     }
-    setIsHovered(true)
+    setIsOpen(true)
   }
 
   const handleMouseLeave = () => {
     hoverTimeoutRef.current = setTimeout(() => {
-      setIsHovered(false)
+      setIsOpen(false)
     }, 150) // Small delay to allow moving to popup
   }
 
+  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      setIsOpen(false)
+    }
+  }
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") setIsOpen(false)
+  }
+
   const handleLike = () => {
+    hasInteracted.current = true
+    countDirection.current = isLiked ? -1 : 1
     setIsLiked(!isLiked)
     setLocalCount((prev) => (isLiked ? prev - 1 : prev + 1))
     onLike?.()
@@ -118,7 +144,7 @@ export function NativeLikesCounterBaseUI({
   }, [onLoadMore, isLoadingMore])
 
   const getVariantStyles = () => {
-    const base = "transition-all duration-150"
+    const base = "transition-colors duration-150"
     switch (variant) {
       case "subtle":
         return cn(base, "bg-accent/50 hover:bg-accent", isLiked && "bg-accent")
@@ -143,148 +169,182 @@ export function NativeLikesCounterBaseUI({
   const totalRemaining = localCount - loadedUsers.length
 
   return (
-    <div className="relative inline-block" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <motion.button
-        onClick={handleLike}
-        className={cn(
-          "relative flex items-center rounded-md font-medium",
-          sizeConfig.container,
-          getVariantStyles(),
-          className,
-        )}
-        whileTap={{ scale: 0.98 }}
-        transition={{ duration: 0.1 }}
+    <MotionConfig reducedMotion="user">
+      <div
+        className="relative inline-block"
+        onMouseEnter={openPopup}
+        onMouseLeave={handleMouseLeave}
+        onFocus={openPopup}
+        onBlur={handleBlur}
+        onKeyDown={handleKeyDown}
       >
-        {/* Heart icon */}
-        <motion.div className="relative flex items-center justify-center">
-          <motion.div animate={isLiked ? { scale: [1, 1.15, 1] } : { scale: 1 }} transition={{ duration: 0.2 }}>
-            <Heart
-              className={cn(
-                sizeConfig.icon,
-                "transition-colors duration-150",
-                isLiked ? "fill-red-500 text-red-500" : "text-muted-foreground",
-              )}
-            />
-          </motion.div>
-        </motion.div>
+        <motion.button
+          type="button"
+          onClick={handleLike}
+          aria-pressed={isLiked}
+          className={cn(
+            "relative flex cursor-pointer items-center rounded-md font-medium",
+            "outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+            sizeConfig.container,
+            getVariantStyles(),
+            className,
+          )}
+          whileTap={{ scale: 0.98 }}
+          transition={{ duration: 0.1 }}
+        >
+          {/* Heart icon */}
+          <span aria-hidden="true" className="relative flex items-center justify-center">
+            <motion.span
+              className="flex"
+              animate={isLiked && hasInteracted.current ? { scale: [1, 1.15, 1] } : { scale: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Heart
+                className={cn(
+                  sizeConfig.icon,
+                  "transition-colors duration-150",
+                  isLiked ? "fill-red-500 text-red-500" : "text-muted-foreground",
+                )}
+              />
+            </motion.span>
+          </span>
 
-        <AnimatePresence mode="popLayout">
-          <motion.span
-            key={localCount}
-            initial={{ y: -8, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 8, opacity: 0 }}
-            transition={{ duration: 0.15 }}
-            className={cn("font-medium tabular-nums", isLiked ? "text-foreground" : "text-muted-foreground")}
-          >
-            {localCount.toLocaleString()}
-          </motion.span>
-        </AnimatePresence>
+          <AnimatePresence mode="popLayout" initial={false} custom={countDirection.current}>
+            <motion.span
+              key={localCount}
+              custom={countDirection.current}
+              variants={countVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
+              className={cn("font-medium tabular-nums", isLiked ? "text-foreground" : "text-muted-foreground")}
+            >
+              {localCount.toLocaleString()}
+            </motion.span>
+          </AnimatePresence>
+          <span className="sr-only">likes</span>
 
-        {users.length > 0 && variant !== "ghost" && (
-          <div className={cn("flex items-center", sizeConfig.avatarStack)}>
-            {users.slice(0, 3).map((user, index) => (
-              <motion.div
-                key={user.id}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: index * 0.03, duration: 0.15 }}
-              >
-                <Avatar.Root className={cn(sizeConfig.avatar, "relative flex shrink-0 overflow-hidden rounded-full border border-background ring-1 ring-border")}>
-                  <Avatar.Image src={user.avatar || "/placeholder.svg"} alt={user.name} className="h-full w-full object-cover" />
-                  <Avatar.Fallback className="flex h-full w-full items-center justify-center bg-accent text-[9px] text-muted-foreground">
-                    {user.name.charAt(0).toUpperCase()}
-                  </Avatar.Fallback>
-                </Avatar.Root>
-              </motion.div>
-            ))}
-          </div>
-        )}
-      </motion.button>
-
-      <AnimatePresence>
-        {isHovered && loadedUsers.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 4 }}
-            transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
-            className={cn(
-              "absolute left-1/2 -translate-x-1/2 bottom-full mb-1 z-[100]",
-              "bg-popover border border-border rounded-lg shadow-2xl",
-              "w-[240px]",
-              sizeConfig.popup,
-            )}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between mb-2 px-1">
-              <span className="text-xs font-medium text-muted-foreground">Liked by</span>
-              <span className="text-xs font-mono text-muted-foreground/60">{localCount.toLocaleString()}</span>
-            </div>
-
-            <div className="max-h-[140px] overflow-y-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
-              <div className="space-y-1 px-1">
-                {visibleUsersInPopup.map((user, index) => (
-                  <motion.div
-                    key={user.id}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: index * 0.02,
-                      duration: 0.15,
-                      ease: [0.23, 1, 0.32, 1],
-                    }}
-                    className="flex items-center gap-2 py-1 group"
-                  >
-                    <Avatar.Root className={cn(sizeConfig.popupAvatar, "relative flex shrink-0 overflow-hidden rounded-full border border-border")}>
-                      <Avatar.Image src={user.avatar || "/placeholder.svg"} alt={user.name} className="h-full w-full object-cover" />
-                      <Avatar.Fallback className="flex h-full w-full items-center justify-center bg-accent text-[10px] text-muted-foreground">
-                        {user.name.charAt(0).toUpperCase()}
-                      </Avatar.Fallback>
-                    </Avatar.Root>
-                    <span className="text-xs text-foreground/80 group-hover:text-foreground transition-colors truncate">
-                      {user.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {(canLoadMore || totalRemaining > 0) && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: visibleUsersInPopup.length * 0.02 }}
-                className="mt-2 pt-2 border-t border-border/50"
-              >
-                {onLoadMore && canLoadMore ? (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handleLoadMore()
-                    }}
-                    disabled={isLoadingMore}
-                    className="w-full flex items-center justify-center gap-1.5 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50"
-                  >
-                    {isLoadingMore ? (
-                      <>
-                        <Loader2 className="w-3 h-3 animate-spin" />
-                        <span>Loading...</span>
-                      </>
-                    ) : (
-                      <span>Load more {totalRemaining > 0 && `(${totalRemaining.toLocaleString()} more)`}</span>
+          {displayUsers.length > 0 && variant !== "ghost" && (
+            <div aria-hidden="true" className={cn("flex items-center", sizeConfig.avatarStack)}>
+              {displayUsers.map((user, index) => (
+                <motion.div
+                  key={user.id}
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: index * 0.03, duration: 0.15 }}
+                >
+                  <Avatar.Root
+                    className={cn(
+                      sizeConfig.avatar,
+                      "relative flex shrink-0 overflow-hidden rounded-full border border-background ring-1 ring-border",
                     )}
-                  </button>
-                ) : totalRemaining > 0 ? (
-                  <div className="flex items-center justify-center py-1">
-                    <span className="text-xs text-muted-foreground/60">+{totalRemaining.toLocaleString()} others</span>
-                  </div>
-                ) : null}
-              </motion.div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+                  >
+                    <Avatar.Image src={user.avatar || "/placeholder.svg"} alt="" className="h-full w-full object-cover" />
+                    <Avatar.Fallback className="flex h-full w-full items-center justify-center bg-accent text-[9px] text-muted-foreground">
+                      {user.name.charAt(0).toUpperCase()}
+                    </Avatar.Fallback>
+                  </Avatar.Root>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </motion.button>
+
+        <AnimatePresence>
+          {isOpen && loadedUsers.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 4 }}
+              transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
+              style={{ x: "-50%" }}
+              className={cn(
+                "absolute left-1/2 bottom-full mb-1 z-[100]",
+                "bg-popover border border-border rounded-lg shadow-2xl",
+                "w-[240px]",
+                sizeConfig.popup,
+              )}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-2 px-1">
+                <span className="text-xs font-medium text-muted-foreground">Liked by</span>
+                <span className="text-xs tabular-nums text-muted-foreground">{localCount.toLocaleString()}</span>
+              </div>
+
+              <div className="max-h-[140px] overflow-y-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+                <div className="space-y-1 px-1">
+                  {visibleUsersInPopup.map((user, index) => (
+                    <motion.div
+                      key={user.id}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: index * 0.02,
+                        duration: 0.15,
+                        ease: [0.23, 1, 0.32, 1],
+                      }}
+                      className="flex items-center gap-2 py-1 group"
+                    >
+                      <Avatar.Root
+                        className={cn(
+                          sizeConfig.popupAvatar,
+                          "relative flex shrink-0 overflow-hidden rounded-full border border-border",
+                        )}
+                      >
+                        <Avatar.Image src={user.avatar || "/placeholder.svg"} alt="" className="h-full w-full object-cover" />
+                        <Avatar.Fallback className="flex h-full w-full items-center justify-center bg-accent text-[10px] text-muted-foreground">
+                          {user.name.charAt(0).toUpperCase()}
+                        </Avatar.Fallback>
+                      </Avatar.Root>
+                      <span className="text-xs text-foreground/80 group-hover:text-foreground transition-colors truncate">
+                        {user.name}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {(canLoadMore || totalRemaining > 0) && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: visibleUsersInPopup.length * 0.02 }}
+                  className="mt-2 pt-2 border-t border-border/50"
+                >
+                  {onLoadMore && canLoadMore ? (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleLoadMore()
+                      }}
+                      disabled={isLoadingMore}
+                      aria-busy={isLoadingMore}
+                      className="w-full flex items-center justify-center gap-1.5 py-1.5 rounded-md text-xs text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      {isLoadingMore ? (
+                        <>
+                          <Loader2 aria-hidden="true" className="w-3 h-3 animate-spin" />
+                          <span>Loading...</span>
+                        </>
+                      ) : (
+                        <span>Load more {totalRemaining > 0 && `(${totalRemaining.toLocaleString()} more)`}</span>
+                      )}
+                    </button>
+                  ) : totalRemaining > 0 ? (
+                    <div className="flex items-center justify-center py-1">
+                      <span className="text-xs tabular-nums text-muted-foreground">
+                        +{totalRemaining.toLocaleString()} others
+                      </span>
+                    </div>
+                  ) : null}
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </MotionConfig>
   )
 }

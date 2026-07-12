@@ -6,7 +6,7 @@ import { Component, ComponentCategory, categoryNames } from "@/types";
 import { Input } from "@uitripled/react-shadcn/ui/input";
 import { ScrollArea } from "@uitripled/react-shadcn/ui/scroll-area";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, ChevronRight, Search } from "lucide-react";
+import { ChevronRight, Search } from "lucide-react";
 import Link from "next/link";
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 
@@ -46,7 +46,7 @@ const SidebarItem = memo(function SidebarItem({
 }: SidebarItemProps) {
   const showProBadge = false; // No pro badge shown currently
 
-  const itemClass = `flex w-full items-center justify-between rounded-[5px] px-2 py-1.5 text-left text-xs transition-colors ${
+  const itemClass = `flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring ${
     isSelected
       ? "bg-primary text-primary-foreground"
       : "text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -54,7 +54,11 @@ const SidebarItem = memo(function SidebarItem({
 
   if (useLinks) {
     return (
-      <Link href={`/components/${component.id}`} className={itemClass}>
+      <Link
+        href={`/components/${component.id}`}
+        className={itemClass}
+        aria-current={isSelected ? "page" : undefined}
+      >
         <span className="flex-1 truncate">{component.name}</span>
         {showProBadge && (
           <span
@@ -109,29 +113,34 @@ const SidebarCategory = memo(function SidebarCategory({
   return (
     <div className="mb-1">
       <button
+        type="button"
         onClick={() => onToggle(category)}
-        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        aria-expanded={isExpanded}
+        aria-controls={`sidebar-category-${category}`}
+        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
-        {isExpanded ? (
-          <ChevronDown className="h-4 w-4" />
-        ) : (
-          <ChevronRight className="h-4 w-4" />
-        )}
+        <ChevronRight
+          aria-hidden="true"
+          className={`h-4 w-4 transition-transform duration-200 ease-out ${
+            isExpanded ? "rotate-90" : ""
+          }`}
+        />
         <span className="flex-1 text-left">
           {category === "all" ? "All" : categoryNames[category]}
         </span>
-        <span className="text-xs text-muted-foreground/60">
+        <span className="text-xs tabular-nums text-muted-foreground">
           {animations.length}
         </span>
       </button>
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isExpanded && hasAnimations && (
           <motion.div
+            id={`sidebar-category-${category}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="overflow-hidden"
           >
             <div className="ml-4 mt-1 space-y-0.5 border-l border-border pl-2">
@@ -291,12 +300,22 @@ export function AnimationsSidebar({
       {/* Search */}
       <div className="border-b border-border p-3">
         <div className="relative">
-          <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/50" />
+          <Search
+            aria-hidden="true"
+            className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/50"
+          />
           <Input
             type="text"
             placeholder="Search components..."
+            aria-label="Search components"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape" && searchQuery) {
+                e.stopPropagation();
+                setSearchQuery("");
+              }
+            }}
             className="h-8 pl-8 text-xs"
             autoComplete="off"
             autoFocus={false}
@@ -308,18 +327,27 @@ export function AnimationsSidebar({
       {/* Categories List */}
       <ScrollArea className="flex-1">
         <div className="p-2 pb-8">
-          {categories.map((category) => (
-            <SidebarCategory
-              key={category}
-              category={category}
-              animations={animationsByCategory[category]}
-              isExpanded={expandedCategories.has(category)}
-              onToggle={toggleCategory}
-              selectedComponentId={selectedComponent?.id}
-              onSelectComponent={onSelectComponent}
-              useLinks={useLinks}
-            />
-          ))}
+          {searchQuery && filteredAnimations.length === 0 ? (
+            <p
+              role="status"
+              className="px-3 py-6 text-center text-xs text-muted-foreground"
+            >
+              No components match &ldquo;{searchQuery}&rdquo;
+            </p>
+          ) : (
+            categories.map((category) => (
+              <SidebarCategory
+                key={category}
+                category={category}
+                animations={animationsByCategory[category]}
+                isExpanded={expandedCategories.has(category)}
+                onToggle={toggleCategory}
+                selectedComponentId={selectedComponent?.id}
+                onSelectComponent={onSelectComponent}
+                useLinks={useLinks}
+              />
+            ))
+          )}
         </div>
       </ScrollArea>
     </div>

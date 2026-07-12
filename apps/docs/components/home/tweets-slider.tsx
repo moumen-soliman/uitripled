@@ -2,8 +2,6 @@
 
 import { TweetCard } from "@/components/components/cards/tweet-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -166,81 +164,29 @@ function TweetSkeleton() {
     <div className="w-[300px] sm:w-[350px] shrink-0 rounded-xl border border-border bg-background p-5 shadow-sm">
       <div className="flex flex-row items-start gap-4 pb-2">
         {/* Avatar skeleton */}
-        <motion.div
-          className="h-10 w-10 rounded-full bg-muted"
-          animate={{
-            opacity: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="h-10 w-10 rounded-full bg-muted animate-pulse" />
         <div className="flex flex-col gap-0.5 flex-1">
           <div className="flex flex-col items-start gap-0.5">
             {/* Name skeleton */}
             <div className="flex items-center gap-1.5">
-              <motion.div
-                className="h-4 w-24 rounded bg-muted"
-                animate={{
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.1,
-                }}
-              />
+              <div className="h-4 w-24 rounded bg-muted animate-pulse" />
             </div>
             {/* Handle skeleton */}
-            <motion.div
-              className="h-3 w-16 rounded bg-muted"
-              animate={{
-                opacity: [0.5, 1, 0.5],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.2,
-              }}
-            />
+            <div className="h-3 w-16 rounded bg-muted animate-pulse" />
           </div>
         </div>
         {/* X icon skeleton */}
-        <motion.div
-          className="ml-auto h-4 w-4 rounded bg-muted"
-          animate={{
-            opacity: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.3,
-          }}
-        />
+        <div className="ml-auto h-4 w-4 rounded bg-muted animate-pulse" />
       </div>
 
       {/* Content skeleton */}
       <div className="pt-2 space-y-2">
         {[1, 2, 3].map((index) => (
-          <motion.div
+          <div
             key={index}
-            className={`h-3 rounded bg-muted ${
+            className={`h-3 rounded bg-muted animate-pulse ${
               index === 3 ? "w-3/4" : "w-full"
             }`}
-            animate={{
-              opacity: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.1 * index + 0.4,
-            }}
           />
         ))}
       </div>
@@ -260,10 +206,10 @@ function LinkedInMessageCard({ message }: { message: LinkedInMessage }) {
   };
 
   return (
-    <div className="group relative w-[300px] sm:w-[350px] shrink-0 rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:shadow-md hover:border-foreground/20">
+    <div className="group relative w-[300px] sm:w-[350px] shrink-0 rounded-xl border border-border bg-background p-5 shadow-sm transition-[box-shadow,border-color] hover:shadow-md hover:border-foreground/20">
       <div className="flex flex-row items-start gap-4 pb-2">
         <Avatar className="h-10 w-10 border border-border/50">
-          <AvatarImage src={message.author.avatar} alt={message.author.name} />
+          <AvatarImage src={message.author.avatar} alt="" />
           <AvatarFallback>{message.author.name[0]}</AvatarFallback>
         </Avatar>
         <div className="flex flex-col gap-0.5 flex-1">
@@ -280,11 +226,15 @@ function LinkedInMessageCard({ message }: { message: LinkedInMessage }) {
         </div>
         {message.url && (
           <button
+            type="button"
             onClick={handleLinkedInClick}
-            className="ml-auto p-1.5 cursor-pointer rounded-lg hover:bg-foreground/5 transition-colors group/linkedin-icon"
-            aria-label="Open LinkedIn profile"
+            className="ml-auto p-1.5 cursor-pointer rounded-lg hover:bg-foreground/5 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring group/linkedin-icon"
+            aria-label={`Open ${message.author.name}'s LinkedIn profile`}
           >
-            <Linkedin className="h-4 w-4 text-blue-600 opacity-60 group-hover/linkedin-icon:opacity-100 transition-opacity" />
+            <Linkedin
+              aria-hidden="true"
+              className="h-4 w-4 text-blue-600 opacity-60 group-hover/linkedin-icon:opacity-100 transition-opacity"
+            />
           </button>
         )}
       </div>
@@ -334,6 +284,29 @@ export function TweetsSlider() {
     fetchContent();
   }, []);
 
+  const renderCards = (keySuffix: string) =>
+    content.map((item, index) => {
+      if ("type" in item && item.type === "linkedin") {
+        return (
+          <LinkedInMessageCard
+            key={`${item.id}-${keySuffix}-${index}`}
+            message={item}
+          />
+        );
+      } else {
+        const tweet = item as Tweet;
+        return (
+          <TweetCard
+            key={`${tweet.id}-${keySuffix}-${index}`}
+            author={tweet.author}
+            content={tweet.content}
+            url={tweet.url}
+            className="w-[300px] sm:w-[350px] h-[190px] shrink-0 rounded-xl border border-border bg-background p-5 shadow-sm transition-[box-shadow,border-color] hover:shadow-md hover:border-foreground/20 backdrop-blur-none"
+          />
+        );
+      }
+    });
+
   return (
     <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8 z-10 relative">
       <style jsx>{`
@@ -353,6 +326,12 @@ export function TweetsSlider() {
         .animate-scroll.paused {
           animation-play-state: paused;
         }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll {
+            animation: none;
+          }
+        }
       `}</style>
 
       <div className="relative">
@@ -361,52 +340,37 @@ export function TweetsSlider() {
           className="flex"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+              setIsPaused(false);
+            }
+          }}
         >
           <div
-            className={`flex gap-6 ${isPaused ? "paused" : ""} animate-scroll`}
+            className={`flex ${isPaused ? "paused" : ""} animate-scroll`}
             style={{ width: "max-content" }}
           >
             {isLoading ? (
-              <>
+              <div className="flex gap-6">
                 {/* Show multiple skeleton cards for better visual effect */}
                 {[...Array(4)].map((_, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: index * 0.1,
-                      duration: 0.3,
-                    }}
-                  >
-                    <TweetSkeleton />
-                  </motion.div>
+                  <TweetSkeleton key={index} />
                 ))}
-              </>
+              </div>
             ) : content.length > 0 ? (
               <>
-                {/* Duplicate content 3 times for seamless loop */}
-                {[...content, ...content, ...content].map((item, index) => {
-                  if ("type" in item && item.type === "linkedin") {
-                    return (
-                      <LinkedInMessageCard
-                        key={`${item.id}-${index}`}
-                        message={item}
-                      />
-                    );
-                  } else {
-                    const tweet = item as Tweet;
-                    return (
-                      <TweetCard
-                        key={`${tweet.id}-${index}`}
-                        author={tweet.author}
-                        content={tweet.content}
-                        url={tweet.url}
-                        className="w-[300px] sm:w-[350px] h-[190px] shrink-0 rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:shadow-md hover:border-foreground/20 backdrop-blur-none"
-                      />
-                    );
-                  }
-                })}
+                {/* Two copies + translateX(-50%) = seamless loop; the
+                    duplicate is hidden from AT and keyboard */}
+                <div className="flex gap-6 pr-6">{renderCards("a")}</div>
+                <div
+                  className="flex gap-6 pr-6"
+                  aria-hidden="true"
+                  // @ts-expect-error - inert is valid in React 19
+                  inert=""
+                >
+                  {renderCards("b")}
+                </div>
               </>
             ) : (
               <div className="flex items-center justify-center w-full py-12">

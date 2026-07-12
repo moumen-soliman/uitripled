@@ -21,7 +21,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@uitripled/react-shadcn/ui/tabs";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -604,13 +604,15 @@ export default function AnimationDetailPageClient({
   ]);
 
   return (
+    <MotionConfig reducedMotion="user">
     <main className="flex h-full flex-1 flex-col overflow-hidden">
       <ScrollArea className="flex-1 h-full">
         <div className="flex flex-1 items-start justify-center gap-10 px-6 py-6 sm:px-10 md:py-10">
           <div className="w-full flex-1">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="mb-6"
           >
             <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -658,6 +660,7 @@ export default function AnimationDetailPageClient({
                 variant="outline"
                 size="sm"
                 onClick={handleCopyMarkdown}
+                aria-live="polite"
                 className="gap-2 mb-2 sm:mb-0 w-28 cursor-pointer"
               >
                 <AnimatePresence mode="wait" initial={false}>
@@ -665,9 +668,9 @@ export default function AnimationDetailPageClient({
                     <motion.span
                       key="copied"
                       className="flex items-center gap-2"
-                      initial={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      initial={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
                       animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                      exit={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      exit={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
                       transition={{ duration: 0.15 }}
                     >
                       <Check className="h-4 w-4 text-emerald-500" />
@@ -677,9 +680,9 @@ export default function AnimationDetailPageClient({
                     <motion.span
                       key="copy"
                       className="flex items-center gap-2"
-                      initial={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      initial={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
                       animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                      exit={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                      exit={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
                       transition={{ duration: 0.15 }}
                     >
                       <FileText className="h-4 w-4" />
@@ -709,15 +712,22 @@ export default function AnimationDetailPageClient({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-4 hidden items-center gap-2 text-xs text-muted-foreground/70 md:flex"
+              className="mt-4 hidden items-center gap-2 text-xs text-muted-foreground md:flex"
             >
               <span>Use</span>
-              <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+              <kbd
+                aria-hidden="true"
+                className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground"
+              >
                 <ArrowLeft className="h-3 w-3" />
               </kbd>
-              <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+              <kbd
+                aria-hidden="true"
+                className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground"
+              >
                 <ArrowRight className="h-3 w-3" />
               </kbd>
+              <span className="sr-only">the left and right arrow keys</span>
               <span>to navigate between components</span>
             </motion.div>
           </motion.div>
@@ -742,12 +752,12 @@ export default function AnimationDetailPageClient({
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-wrap items-center justify-between gap-4">
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
-                        <div className="flex items-center overflow-hidden rounded-md border border-border bg-muted/50 transition-all hover:ring-1 hover:ring-border">
+                        <div className="flex items-center overflow-hidden rounded-md border border-border bg-muted/50 transition-shadow hover:ring-1 hover:ring-border">
                           <Select
                             value={installMethod}
                             onValueChange={(v: "uitripled" | "shadcn") => setInstallMethod(v)}
                           >
-                            <SelectTrigger className="h-8 w-fit border-none bg-transparent px-2 text-[10px] font-medium transition-colors hover:bg-muted focus:ring-0 focus:ring-offset-0">
+                            <SelectTrigger className="h-8 w-fit border-none bg-transparent px-2 text-[10px] font-medium transition-colors hover:bg-muted">
                                <SelectValue />
                             </SelectTrigger>
                             <SelectContent align="start" className="min-w-[100px]">
@@ -757,6 +767,7 @@ export default function AnimationDetailPageClient({
                           </Select>
                           <div className="h-3 w-[1px] bg-border" />
                           <button
+                            type="button"
                             onClick={() =>
                               handleCopyInstall(
                                 installMethod === "uitripled"
@@ -765,10 +776,15 @@ export default function AnimationDetailPageClient({
                                 "npx"
                               )
                             }
-                            className="flex h-8 items-center gap-1 rounded-md px-2.5 py-1 font-mono text-[10px] transition-colors"
+                            className="flex h-8 cursor-pointer items-center gap-1 rounded-md px-2.5 py-1 font-mono text-[10px] transition-colors hover:bg-muted outline-none focus-visible:ring-2 focus-visible:ring-ring"
                             title="Copy install command"
                           >
-                            <span className="text-muted-foreground/70">
+                            <span className="sr-only" role="status">
+                              {copiedInstall === "npx"
+                                ? "Install command copied"
+                                : ""}
+                            </span>
+                            <span className="text-muted-foreground">
                               {installMethod === "uitripled" ? "add" : "add @uitripled/"}
                             </span>
                             <span className="font-bold text-foreground">
@@ -779,20 +795,28 @@ export default function AnimationDetailPageClient({
                                 {copiedInstall === "npx" ? (
                                   <motion.span
                                     key="check"
-                                    initial={{ opacity: 0, filter: "blur(2px)", scale: 0.5 }}
+                                    initial={{ opacity: 0, filter: "blur(4px)", scale: 0.25 }}
                                     animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                                    exit={{ opacity: 0, filter: "blur(2px)", scale: 0.5 }}
-                                    transition={{ duration: 0.1 }}
+                                    exit={{ opacity: 0, filter: "blur(4px)", scale: 0.25 }}
+                                    transition={{
+                                      type: "spring",
+                                      duration: 0.3,
+                                      bounce: 0,
+                                    }}
                                   >
                                     <Check className="h-3 w-3 text-emerald-500" />
                                   </motion.span>
                                 ) : (
                                   <motion.span
                                     key="copy"
-                                    initial={{ opacity: 0, filter: "blur(2px)", scale: 0.5 }}
+                                    initial={{ opacity: 0, filter: "blur(4px)", scale: 0.25 }}
                                     animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                                    exit={{ opacity: 0, filter: "blur(2px)", scale: 0.5 }}
-                                    transition={{ duration: 0.1 }}
+                                    exit={{ opacity: 0, filter: "blur(4px)", scale: 0.25 }}
+                                    transition={{
+                                      type: "spring",
+                                      duration: 0.3,
+                                      bounce: 0,
+                                    }}
                                   >
                                     <Copy className="cursor-pointer h-3 w-3 opacity-50" />
                                   </motion.span>
@@ -854,7 +878,10 @@ export default function AnimationDetailPageClient({
                       ) : !isAvailableInSelectedLibrary ? (
                         <div className="flex flex-col items-center justify-center gap-4 p-8 text-center">
                           <div className="rounded-full bg-muted p-4">
-                            <AlertTriangle className="h-8 w-8 text-muted-foreground" />
+                            <AlertTriangle
+                              aria-hidden="true"
+                              className="h-8 w-8 text-muted-foreground"
+                            />
                           </div>
                           <div className="space-y-2">
                             <h3 className="text-lg font-semibold">
@@ -980,7 +1007,10 @@ export default function AnimationDetailPageClient({
                     transition={{ delay: 0.05 }}
                     className="mb-3 flex gap-3 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-3 text-yellow-700/80 dark:text-yellow-200"
                   >
-                    <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-yellow-600 dark:text-yellow-300" />
+                    <AlertTriangle
+                      aria-hidden="true"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-yellow-600 dark:text-yellow-300"
+                    />
                     <div className="space-y-1 text-xs sm:text-sm">
                       <p className="font-semibold text-yellow-700 dark:text-yellow-200">
                         Heads up - this component is long ({codeLineCount}{" "}
@@ -1008,12 +1038,12 @@ export default function AnimationDetailPageClient({
                     className="rounded-lg border border-border p-4"
                   >
                     <div className="flex gap-3">
-                      <Info className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                      <Info aria-hidden="true" className="h-5 w-5 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
                         <h3 className="mb-1.5 text-sm font-semibold">
                           Live Editor - Colors & Theme
                         </h3>
-                        <p className="text-xs text-muted-foreground/80">
+                        <p className="text-xs text-muted-foreground">
                           The colors and theme are customizable via Tailwind CSS
                           classes. The default theme uses dark mode colors
                           defined in your{" "}
@@ -1034,5 +1064,6 @@ export default function AnimationDetailPageClient({
         </div>
       </ScrollArea>
     </main>
+    </MotionConfig>
   );
 }
