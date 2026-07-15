@@ -1,2 +1,0 @@
-- [availableIn carbon implies shadcnui + baseui](project_available_in_carbon.md) — registry convention: `availableIn: ["carbon"]` means the component is also in shadcnui and baseui
-- [Preserve visual identity when refining](feedback_preserve_visual_identity.md) — a11y/polish fixes must not change brand colors, badge placement, or designed shapes

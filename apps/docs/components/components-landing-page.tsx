@@ -18,7 +18,7 @@ const ComponentCard = ({ component }: { component: Component }) => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.2 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card/50 transition-all hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-md"
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
     >
       <Link
         href={`/components/${component.id}`}
