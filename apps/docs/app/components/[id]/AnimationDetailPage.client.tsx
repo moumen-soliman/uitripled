@@ -868,7 +868,7 @@ export default function AnimationDetailPageClient({
                       </div>
                     </div>
 
-                    <div className="relative flex min-h-[350px] items-center justify-center rounded-xl border border-border bg-background/50 py-6 md:min-h-[500px]">
+                    <div className="relative flex min-h-[350px] items-center justify-center rounded-xl border border-border bg-gradient-to-br from-muted/40 via-background to-primary/5 py-6 md:min-h-[500px]">
                       {isLoadingComponent ? (
                         <div className="flex flex-col items-center justify-center gap-4 p-8">
                           <p className="text-sm text-muted-foreground">
@@ -932,8 +932,8 @@ export default function AnimationDetailPageClient({
                                 selectedLibrary +
                                 (variantRefreshKeys[selectedVariant.id] || 0)
                               }
-                              initial={{ opacity: 0, scale: 0.95 }}
-                              animate={{ opacity: 1, scale: 1 }}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
                               transition={{ duration: 0.2 }}
                               className="flex items-center justify-center w-full h-full p-8"
                             >
@@ -944,8 +944,8 @@ export default function AnimationDetailPageClient({
                       ) : (
                         <motion.div
                           key={`${refreshKey}-${selectedLibrary}`}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
                           transition={{ duration: 0.2 }}
                           className="flex items-center justify-center w-full h-full p-8"
                         >

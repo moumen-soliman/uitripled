@@ -59,22 +59,22 @@ const nameSizeVariants = {
 const directionVariants = {
   top: {
     initial: { y: 20, opacity: 0, filter: "blur(4px)" },
-    animate: { y: -8, opacity: 1, filter: "blur(0px)" },
+    animate: { y: -8, opacity: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } },
     exit: { y: 20, opacity: 0, filter: "blur(4px)" },
   },
   bottom: {
     initial: { y: -20, opacity: 0, filter: "blur(4px)" },
-    animate: { y: 8, opacity: 1, filter: "blur(0px)" },
+    animate: { y: 8, opacity: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } },
     exit: { y: -20, opacity: 0, filter: "blur(4px)" },
   },
   left: {
     initial: { x: 20, opacity: 0, filter: "blur(4px)" },
-    animate: { x: -8, opacity: 1, filter: "blur(0px)" },
+    animate: { x: -8, opacity: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } },
     exit: { x: 20, opacity: 0, filter: "blur(4px)" },
   },
   right: {
     initial: { x: -20, opacity: 0, filter: "blur(4px)" },
-    animate: { x: 8, opacity: 1, filter: "blur(0px)" },
+    animate: { x: 8, opacity: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } },
     exit: { x: -20, opacity: 0, filter: "blur(4px)" },
   },
 };

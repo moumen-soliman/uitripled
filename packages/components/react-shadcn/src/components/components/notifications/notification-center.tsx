@@ -190,7 +190,7 @@ function NotificationBar({
       exit={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.95 }}
       transition={{ duration: prefersReducedMotion ? 0 : 0.3, ease: "easeOut" }}
     >
-      <Card className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/30 p-4 backdrop-blur">
+      <Card className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/80 p-4 backdrop-blur">
         <div
           aria-hidden="true"
           className={cn(

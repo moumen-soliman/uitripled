@@ -53,7 +53,7 @@ export function NewsletterSignupBlock() {
       />
 
       <div className="relative mx-auto max-w-4xl">
-        <Card className="overflow-hidden border-border/50 bg-card/50 shadow-xl backdrop-blur-sm">
+        <Card className="overflow-hidden border-border/50 bg-card/80 shadow-xl backdrop-blur-sm">
           <div className="grid gap-8 p-8 md:grid-cols-2 md:p-12">
             {/* Left side - Content */}
             <motion.div
