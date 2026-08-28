@@ -1,78 +1,149 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { MouseEvent, useMemo, useState } from "react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from "framer-motion";
+import { useCallback, useId, useMemo, type PointerEvent } from "react";
+
+import { cn } from "@/lib/utils";
+
+type SpotlightAction = {
+  label: string;
+  href?: string;
+  onClick?: () => void;
+};
 
 type DynamicSpotlightCTAProps = {
   text?: string;
+  eyebrow?: string | null;
+  description?: string | null;
+  action?: SpotlightAction | null;
+  /** Heading level for the CTA title. Defaults to 2 so the host page keeps its own h1. */
+  headingLevel?: 1 | 2 | 3;
+  /** Strength of the cursor glow, 0–1. */
   intensity?: number;
+  /** Spotlight radius in px. */
   radius?: number;
   showBlur?: boolean;
+  className?: string;
 };
 
 type Particle = {
-  left: string;
-  top: string;
+  left: number;
+  top: number;
   size: number;
   travel: number;
   duration: number;
   delay: number;
 };
 
+const PARTICLE_COUNT = 14;
+
+/** Exact ease-out curve, not an approximation of it. */
+const EASE_OUT: [number, number, number, number] = [0.2, 0, 0, 1];
+
+/**
+ * Deterministic PRNG. Particle positions must match between the server render
+ * and the client hydration pass, so `Math.random()` cannot be used here.
+ */
+function mulberry32(seed: number) {
+  let state = seed;
+  return () => {
+    state = (state + 0x6d2b79f5) | 0;
+    let t = Math.imul(state ^ (state >>> 15), 1 | state);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(max, Math.max(min, value));
+
 export function DynamicSpotlightCTA({
   text = "Unlock Your Motion Power",
+  eyebrow = "Live Spotlight",
+  description = "Move your cursor to cast a live spotlight across the headline and preview motion-ready surfaces.",
+  action = { label: "Get started" },
+  headingLevel = 2,
   intensity = 0.85,
   radius = 240,
   showBlur = true,
+  className,
 }: DynamicSpotlightCTAProps) {
-  const [mousePosition, setMousePosition] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
   const shouldReduceMotion = useReducedMotion();
+  const titleId = useId();
 
-  const particles = useMemo<Particle[]>(
-    () =>
-      Array.from({ length: 18 }).map(() => ({
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        size: Math.random() * 4 + 2,
-        travel: Math.random() * 72 - 36,
-        duration: Math.random() * 3 + 2,
-        delay: Math.random() * 2,
-      })),
-    []
+  const safeIntensity = clamp(intensity, 0, 1);
+  const safeRadius = clamp(radius, 80, 640);
+
+  const Heading = `h${headingLevel}` as "h1" | "h2" | "h3";
+
+  const particles = useMemo<Particle[]>(() => {
+    const random = mulberry32(0x5eed);
+    return Array.from({ length: PARTICLE_COUNT }, () => ({
+      left: random() * 100,
+      top: random() * 100,
+      size: random() * 3 + 2,
+      travel: random() * 64 - 32,
+      duration: random() * 3 + 2.5,
+      delay: random() * 2,
+    }));
+  }, []);
+
+  // Percentages, so the spotlight has a meaningful position before first paint
+  // and never depends on a measured box.
+  const pointerX = useMotionValue(50);
+  const pointerY = useMotionValue(50);
+
+  const springConfig = { stiffness: 300, damping: 30 };
+  const x = useSpring(pointerX, springConfig);
+  const y = useSpring(pointerY, springConfig);
+
+  // The beam: opaque at the cursor, gone at the edges.
+  const beamMask = useMotionTemplate`radial-gradient(circle ${safeRadius}px at ${x}% ${y}%, #000 0%, #000 32%, transparent 72%)`;
+  // Its inverse, used to wipe the shading veil away inside the beam.
+  const veilMask = useMotionTemplate`radial-gradient(circle ${safeRadius}px at ${x}% ${y}%, transparent 0%, transparent 32%, #000 72%)`;
+
+  const handlePointerMove = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      // Coarse pointers have no hover position to track, and reduced motion
+      // opts out of the moving spotlight entirely.
+      if (shouldReduceMotion || event.pointerType !== "mouse") return;
+      const rect = event.currentTarget.getBoundingClientRect();
+      pointerX.set(((event.clientX - rect.left) / rect.width) * 100);
+      pointerY.set(((event.clientY - rect.top) / rect.height) * 100);
+    },
+    [pointerX, pointerY, shouldReduceMotion]
   );
 
-  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    if (shouldReduceMotion) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    setMousePosition({ x, y });
-  };
+  const recenter = useCallback(() => {
+    pointerX.set(50);
+    pointerY.set(50);
+  }, [pointerX, pointerY]);
 
-  const handleMouseLeave = () => {
-    setMousePosition(null);
-  };
+  const enterTransition = { duration: 0.4, ease: EASE_OUT };
 
   return (
     <section
-      aria-labelledby="dynamic-spotlight-title"
-      className="relative w-full"
+      aria-labelledby={titleId}
+      className={cn("relative w-full", className)}
     >
       <div
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="relative h-[22rem] w-full overflow-hidden rounded-3xl border border-border/60 bg-card/80 shadow-[0_35px_120px_-40px_rgba(15,23,42,0.7)] backdrop-blur-xl"
+        onPointerMove={handlePointerMove}
+        onPointerLeave={recenter}
+        className="relative isolate min-h-[22rem] w-full overflow-hidden rounded-3xl border border-border bg-card px-6 py-16 shadow-[0_1px_2px_-1px_oklch(0_0_0/0.08),0_24px_64px_-32px_oklch(0_0_0/0.28)]"
       >
-        <div aria-hidden className="pointer-events-none absolute inset-0">
+        {/* Ambient wash */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
           <motion.div
-            className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/25 blur-[160px]"
+            className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-foreground blur-[140px]"
+            style={{ opacity: 0.06 }}
             animate={
-              shouldReduceMotion
-                ? undefined
-                : { opacity: [0.25, 0.55, 0.25], scale: [0.92, 1.08, 0.96] }
+              shouldReduceMotion ? undefined : { opacity: [0.04, 0.09, 0.04] }
             }
             transition={
               shouldReduceMotion
@@ -80,138 +151,158 @@ export function DynamicSpotlightCTA({
                 : { duration: 9, repeat: Infinity, ease: "easeInOut" }
             }
           />
-          <motion.div
-            className="absolute bottom-[-30%] right-[-15%] h-80 w-80 rounded-full bg-emerald-400/20 blur-[180px]"
-            animate={
-              shouldReduceMotion
-                ? undefined
-                : { opacity: [0.2, 0.45, 0.2], rotate: [0, 12, 0] }
-            }
-            transition={
-              shouldReduceMotion
-                ? undefined
-                : { duration: 12, repeat: Infinity, ease: "linear" }
-            }
-          />
           {showBlur && (
-            <div className="absolute inset-0 bg-gradient-to-br from-white/4 via-white/2 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] to-transparent" />
           )}
         </div>
 
-        <div className="relative flex h-full flex-col items-center justify-center px-6 text-center">
-          <motion.span
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.32em] text-[var(--muted-foreground)] backdrop-blur"
-            initial={{
-              opacity: shouldReduceMotion ? 1 : 0,
-              y: shouldReduceMotion ? 0 : 12,
-            }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          >
-            Live Spotlight
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          </motion.span>
-
-          <motion.h1
-            id="dynamic-spotlight-title"
-            initial={{
-              opacity: shouldReduceMotion ? 1 : 0,
-              y: shouldReduceMotion ? 0 : 18,
-            }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-2xl bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-4xl font-semibold text-foreground sm:text-5xl md:text-6xl"
-          >
-            {text}
-          </motion.h1>
-          <p className="mt-4 max-w-md text-sm text-[var(--muted-foreground)] sm:text-base">
-            Move your cursor to cast a live glassmorphic spotlight and preview
-            premium motion-ready surfaces.
-          </p>
-        </div>
-
-        <AnimatePresence>
-          {!shouldReduceMotion && mousePosition && (
-            <motion.div
-              key="spotlight"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: intensity }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="pointer-events-none absolute inset-0 mix-blend-screen"
-              style={{
-                background: `radial-gradient(circle ${radius}px at ${mousePosition.x}px ${mousePosition.y}px,
-                  rgba(255,255,255,0.45) 0%,
-                  rgba(255,255,255,0.2) 45%,
-                  rgba(255,255,255,0) 75%)`,
-              }}
-            >
-              <motion.div
-                animate={{
-                  background: [
-                    "radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)",
-                    "radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%)",
-                    "radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)",
-                  ],
-                }}
-                transition={{
-                  duration: 1.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute"
-                style={{
-                  left: mousePosition.x,
-                  top: mousePosition.y,
-                  width: `${radius * 1.6}px`,
-                  height: `${radius * 1.6}px`,
-                  transform: "translate(-50%, -50%)",
-                  filter: "blur(32px)",
-                }}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Drifting motes */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        >
           {particles.map((particle, index) => (
             <motion.span
               key={index}
-              className="absolute rounded-full bg-white/25"
+              className="absolute rounded-full bg-foreground/20"
               style={{
-                left: particle.left,
-                top: particle.top,
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
                 width: particle.size,
                 height: particle.size,
               }}
               animate={
                 shouldReduceMotion
                   ? undefined
-                  : {
-                      y: [0, particle.travel, 0],
-                      opacity: [0.1, 0.45, 0.1],
-                    }
+                  : { y: [0, particle.travel, 0], opacity: [0.1, 0.4, 0.1] }
               }
               transition={
                 shouldReduceMotion
-                  ? { duration: 0 }
+                  ? undefined
                   : {
                       duration: particle.duration,
                       repeat: Infinity,
                       delay: particle.delay,
+                      ease: "easeInOut",
                     }
               }
             />
           ))}
         </div>
 
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-          <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-emerald-300/50 to-transparent" />
-          <div className="absolute inset-y-0 right-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
+        {/* Shading veil, wiped away inside the beam. Neutral black in both
+            themes, so the beam always reads as light rather than as a tint. */}
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-[oklch(0_0_0/0.05)] dark:bg-[oklch(0_0_0/0.45)]"
+          style={{
+            WebkitMaskImage: veilMask,
+            maskImage: veilMask,
+            opacity: safeIntensity,
+          }}
+        />
+
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+          {eyebrow && (
+            <motion.span
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
+              initial={
+                shouldReduceMotion ? false : { opacity: 0, y: 8 }
+              }
+              animate={{ opacity: 1, y: 0 }}
+              transition={enterTransition}
+            >
+              {eyebrow}
+              <span aria-hidden className="size-1.5 rounded-full bg-foreground" />
+            </motion.span>
+          )}
+
+          <motion.div
+            className="relative"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...enterTransition, delay: 0.1 }}
+          >
+            {/* Base headline. Dimmed, but still measured well past the 3:1 that
+                large text needs, so nothing depends on the beam finding it. */}
+            <Heading
+              id={titleId}
+              className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-muted-foreground sm:text-5xl md:text-6xl"
+            >
+              {text}
+            </Heading>
+
+            {/* Same words at full contrast, revealed only inside the beam. */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 select-none"
+            >
+              <motion.span
+                className="block text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl"
+                style={{
+                  WebkitMaskImage: beamMask,
+                  maskImage: beamMask,
+                }}
+              >
+                {text}
+              </motion.span>
+            </span>
+          </motion.div>
+
+          {description && (
+            <motion.p
+              className="mt-5 max-w-md text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...enterTransition, delay: 0.2 }}
+            >
+              {description}
+            </motion.p>
+          )}
+
+          {action && (
+            <motion.div
+              className="mt-8"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...enterTransition, delay: 0.3 }}
+            >
+              <SpotlightCTAButton action={action} />
+            </motion.div>
+          )}
+        </div>
+
+        {/* Structural hairlines */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
         </div>
       </div>
     </section>
+  );
+}
+
+function SpotlightCTAButton({ action }: { action: SpotlightAction }) {
+  const className = cn(
+    "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-7 text-sm font-medium",
+    "bg-primary text-primary-foreground",
+    "transition-[opacity,scale] duration-150 ease-[cubic-bezier(0.2,0,0,1)]",
+    "hover:opacity-90 active:scale-[0.96]",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card",
+    "motion-reduce:transition-none motion-reduce:active:scale-100"
+  );
+
+  if (action.href) {
+    return (
+      <a href={action.href} onClick={action.onClick} className={className}>
+        {action.label}
+      </a>
+    );
+  }
+
+  return (
+    <button type="button" onClick={action.onClick} className={className}>
+      {action.label}
+    </button>
   );
 }

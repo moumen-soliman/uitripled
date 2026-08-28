@@ -9,7 +9,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Activity,
   BarChart3,
@@ -107,7 +108,20 @@ function formatNumber(num: number): string {
   return num.toString();
 }
 
-function StatusSection() {
+/**
+ * Gain/loss needs a pair that clears 4.5:1 on the card surface in both themes.
+ * `text-green-500` measured 2.22:1 and `text-red-500` 3.81:1 on white, which is
+ * below AA for the most important numbers in the component.
+ */
+const trendText = (v: number) =>
+  v >= 0
+    ? "text-emerald-700 dark:text-emerald-400"
+    : "text-red-700 dark:text-red-400";
+
+const signed = (v: number, digits = 2) =>
+  `${v >= 0 ? "+" : "-"}$${Math.abs(v).toFixed(digits)}`;
+
+function StatusSection({ reduce }: { reduce: boolean | null }) {
   const totalValue = mockStocks.reduce(
     (sum, stock) => sum + stock.price * 100,
     0
@@ -118,97 +132,72 @@ function StatusSection() {
   );
   const totalChangePercent = (totalChange / (totalValue - totalChange)) * 100;
 
+  const cards = [
+    {
+      label: "Total portfolio value",
+      icon: DollarSign,
+      value: `$${totalValue.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })}`,
+      note: "Based on current prices",
+      tone: "",
+    },
+    {
+      label: "Today's change",
+      icon: totalChange >= 0 ? TrendingUp : TrendingDown,
+      value: `${signed(totalChange)}`,
+      note: `${totalChangePercent >= 0 ? "+" : ""}${totalChangePercent.toFixed(2)}%`,
+      tone: trendText(totalChange),
+    },
+    {
+      label: "Active positions",
+      icon: BarChart3,
+      value: String(mockStocks.length),
+      note: "Stocks in portfolio",
+      tone: "",
+    },
+  ];
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <Card className="relative overflow-hidden">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-              Total Portfolio Value
-            </CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-xl sm:text-2xl font-bold">
-              $
-              {totalValue.toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
-            </div>
-            <p className="text-xs text-muted-foreground mt-1">
-              Based on current prices
-            </p>
-          </CardContent>
-        </Card>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
-      >
-        <Card className="relative overflow-hidden">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-              Today's Change
-            </CardTitle>
-            {totalChange >= 0 ? (
-              <TrendingUp className="h-4 w-4 text-green-500" />
-            ) : (
-              <TrendingDown className="h-4 w-4 text-red-500" />
-            )}
-          </CardHeader>
-          <CardContent>
-            <div
-              className={`text-xl sm:text-2xl font-bold ${totalChange >= 0 ? "text-green-500" : "text-red-500"}`}
-            >
-              {totalChange >= 0 ? "+" : ""}$
-              {totalChange.toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
-            </div>
-            <p
-              className={`text-xs mt-1 ${totalChange >= 0 ? "text-green-500" : "text-red-500"}`}
-            >
-              {totalChangePercent >= 0 ? "+" : ""}
-              {totalChangePercent.toFixed(2)}%
-            </p>
-          </CardContent>
-        </Card>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-      >
-        <Card className="relative overflow-hidden">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-              Active Positions
-            </CardTitle>
-            <BarChart3 className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-xl sm:text-2xl font-bold">
-              {mockStocks.length}
-            </div>
-            <p className="text-xs text-muted-foreground mt-1">
-              Stocks in portfolio
-            </p>
-          </CardContent>
-        </Card>
-      </motion.div>
+    <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {cards.map((card, index) => {
+        const Icon = card.icon;
+        return (
+          <motion.div
+            key={card.label}
+            initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={reduce ? { duration: 0 } : { duration: 0.4, delay: index * 0.1 }}
+          >
+            <Card className="h-full">
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-xs font-medium text-muted-foreground sm:text-sm">
+                  {card.label}
+                </CardTitle>
+                <Icon className={`size-4 ${card.tone || "text-muted-foreground"}`} aria-hidden />
+              </CardHeader>
+              <CardContent>
+                <div className={`text-xl font-bold tabular-nums sm:text-2xl ${card.tone}`}>
+                  {card.value}
+                </div>
+                <p className={`mt-1 text-xs tabular-nums ${card.tone || "text-muted-foreground"}`}>
+                  {card.note}
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
 
+/**
+ * Six bordered cards for six key/value pairs buried the numbers in chrome.
+ * A definition list groups them with space instead, so the price and change
+ * lead and the rest read as supporting detail.
+ */
 function StockDetails({
   stock,
   isOpen,
@@ -218,233 +207,193 @@ function StockDetails({
   isOpen: boolean;
   onClose: () => void;
 }) {
-  if (!stock) return null;
-
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl mx-4 sm:mx-auto">
-        <DialogHeader>
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-w-lg">
+        {stock && (
+          <>
+            <DialogHeader>
+              <div className="flex items-center gap-3">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground">
+                  <Building2 className="size-5" strokeWidth={1.5} aria-hidden />
+                </div>
+                <div className="min-w-0 text-left">
+                  <DialogTitle className="text-xl">{stock.symbol}</DialogTitle>
+                  <DialogDescription className="truncate">
+                    {stock.name}
+                  </DialogDescription>
+                </div>
+              </div>
+            </DialogHeader>
+
+            {/* Headline figures */}
+            <div className="mt-2 flex items-baseline gap-3">
+              <span className="text-3xl font-bold tabular-nums">
+                ${stock.price.toFixed(2)}
+              </span>
+              <span
+                className={`flex items-center gap-1 text-sm font-medium tabular-nums ${trendText(stock.change)}`}
+              >
+                {stock.change >= 0 ? (
+                  <TrendingUp className="size-4" aria-hidden />
+                ) : (
+                  <TrendingDown className="size-4" aria-hidden />
+                )}
+                {signed(stock.change)} ({stock.change >= 0 ? "+" : ""}
+                {stock.changePercent.toFixed(2)}%)
+              </span>
             </div>
-            <div className="min-w-0">
-              <DialogTitle className="text-xl sm:text-2xl truncate">
-                {stock.symbol}
-              </DialogTitle>
-              <DialogDescription className="truncate">
-                {stock.name}
-              </DialogDescription>
-            </div>
-          </div>
-        </DialogHeader>
 
-        <div className="space-y-4 sm:space-y-6 mt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-                  Current Price
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-xl sm:text-2xl font-bold">
-                  ${stock.price.toFixed(2)}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-                  Change
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div
-                  className={`text-xl sm:text-2xl font-bold ${stock.change >= 0 ? "text-green-500" : "text-red-500"}`}
-                >
-                  {stock.change >= 0 ? "+" : ""}${stock.change.toFixed(2)}
-                </div>
-                <div
-                  className={`text-xs sm:text-sm ${stock.change >= 0 ? "text-green-500" : "text-red-500"}`}
-                >
-                  {stock.change >= 0 ? "+" : ""}
-                  {stock.changePercent.toFixed(2)}%
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-                  Market Cap
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-lg sm:text-xl font-semibold">
+            <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6">
+              <div>
+                <dt className="text-xs text-muted-foreground">Market cap</dt>
+                <dd className="mt-0.5 text-base font-semibold tabular-nums">
                   ${stock.marketCap}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-                  Volume
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-lg sm:text-xl font-semibold">
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs text-muted-foreground">Volume</dt>
+                <dd className="mt-0.5 text-base font-semibold tabular-nums">
                   {formatNumber(stock.volume)}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-                  Sector
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Badge variant="outline">{stock.sector}</Badge>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
-                  P/E Ratio
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-lg sm:text-xl font-semibold">
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs text-muted-foreground">P/E ratio</dt>
+                <dd className="mt-0.5 text-base font-semibold tabular-nums">
                   {stock.peRatio}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs text-muted-foreground">Sector</dt>
+                <dd className="mt-0.5">
+                  <Badge variant="outline">{stock.sector}</Badge>
+                </dd>
+              </div>
+            </dl>
+          </>
+        )}
       </DialogContent>
     </Dialog>
   );
 }
 
-function DataTable({ onRowClick }: { onRowClick: (stock: Stock) => void }) {
+function DataTable({
+  onRowClick,
+  reduce,
+}: {
+  onRowClick: (stock: Stock) => void;
+  reduce: boolean | null;
+}) {
+  const th =
+    "py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap";
+
   return (
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-          <Activity className="h-4 w-4 sm:h-5 sm:w-5" />
-          Stock Holdings
+          <Activity className="size-5" aria-hidden />
+          Stock holdings
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0 sm:p-6">
-        <div className="overflow-x-auto -mx-4 sm:mx-0">
-          <div className="inline-block min-w-full align-middle px-4 sm:px-0">
-            <table className="w-full min-w-[800px]">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">
-                    Symbol
+        {/* Focusable so the horizontal scroll is reachable without a pointer */}
+        <div
+          role="region"
+          aria-label="Stock holdings table"
+          tabIndex={0}
+          className="overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+        >
+          <table className="w-full min-w-[720px] border-collapse">
+            <caption className="sr-only">
+              Your holdings, with price, daily change and key figures. Each row
+              has a button that opens full details.
+            </caption>
+            <thead>
+              <tr className="border-b border-border">
+                <th scope="col" className={`${th} text-left`}>Symbol</th>
+                <th scope="col" className={`${th} text-left`}>Name</th>
+                <th scope="col" className={`${th} text-right`}>Price</th>
+                <th scope="col" className={`${th} text-right`}>Change</th>
+                <th scope="col" className={`${th} hidden text-right md:table-cell`}>Volume</th>
+                <th scope="col" className={`${th} hidden text-right lg:table-cell`}>Market cap</th>
+                <th scope="col" className={`${th} hidden text-right lg:table-cell`}>Sector</th>
+                <th scope="col" className={`${th} text-right`}>
+                  <span className="sr-only">Details</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {mockStocks.map((stock, index) => (
+                <motion.tr
+                  key={stock.id}
+                  initial={reduce ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={reduce ? { duration: 0 } : { duration: 0.3, delay: index * 0.05 }}
+                  className="border-b border-border transition-colors last:border-b-0 hover:bg-muted/50 motion-reduce:transition-none"
+                >
+                  <th scope="row" className="px-3 py-3 text-left sm:px-4">
+                    <span className="text-sm font-semibold sm:text-base">
+                      {stock.symbol}
+                    </span>
                   </th>
-                  <th className="text-left py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">
-                    Name
-                  </th>
-                  <th className="text-right py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">
-                    Price
-                  </th>
-                  <th className="text-right py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap">
-                    Change
-                  </th>
-                  <th className="text-right py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap hidden md:table-cell">
-                    Volume
-                  </th>
-                  <th className="text-right py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap hidden lg:table-cell">
-                    Market Cap
-                  </th>
-                  <th className="text-right py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground whitespace-nowrap hidden lg:table-cell">
-                    Sector
-                  </th>
-                  <th className="text-right py-3 px-3 sm:px-4 text-xs sm:text-sm font-medium text-muted-foreground">
-                    <span className="sr-only">Actions</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {mockStocks.map((stock, index) => (
-                  <motion.tr
-                    key={stock.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="border-b border-border hover:bg-muted/50 cursor-pointer transition-colors"
-                    onClick={() => onRowClick(stock)}
-                  >
-                    <td className="py-3 px-3 sm:px-4">
-                      <div className="font-semibold text-sm sm:text-base">
-                        {stock.symbol}
-                      </div>
-                    </td>
-                    <td className="py-3 px-3 sm:px-4">
-                      <div className="text-xs sm:text-sm text-muted-foreground truncate max-w-[120px] sm:max-w-none">
-                        {stock.name}
-                      </div>
-                    </td>
-                    <td className="py-3 px-3 sm:px-4 text-right">
-                      <div className="font-semibold text-sm sm:text-base">
-                        ${stock.price.toFixed(2)}
-                      </div>
-                    </td>
-                    <td className="py-3 px-3 sm:px-4 text-right">
-                      <div
-                        className={`font-semibold flex items-center justify-end gap-1 text-sm sm:text-base ${stock.change >= 0 ? "text-green-500" : "text-red-500"}`}
-                      >
-                        {stock.change >= 0 ? (
-                          <TrendingUp className="h-3 w-3 flex-shrink-0" />
-                        ) : (
-                          <TrendingDown className="h-3 w-3 flex-shrink-0" />
-                        )}
-                        <span className="whitespace-nowrap">
-                          {stock.change >= 0 ? "+" : ""}$
-                          {stock.change.toFixed(2)}
-                        </span>
-                      </div>
-                      <div
-                        className={`text-xs ${stock.change >= 0 ? "text-green-500" : "text-red-500"}`}
-                      >
-                        {stock.changePercent >= 0 ? "+" : ""}
-                        {stock.changePercent.toFixed(2)}%
-                      </div>
-                    </td>
-                    <td className="py-3 px-3 sm:px-4 text-right hidden md:table-cell">
-                      <div className="text-xs sm:text-sm">
-                        {formatNumber(stock.volume)}
-                      </div>
-                    </td>
-                    <td className="py-3 px-3 sm:px-4 text-right hidden lg:table-cell">
-                      <div className="text-xs sm:text-sm">
-                        ${stock.marketCap}
-                      </div>
-                    </td>
-                    <td className="py-3 px-3 sm:px-4 text-right hidden lg:table-cell">
-                      <Badge variant="outline" className="text-xs">
-                        {stock.sector}
-                      </Badge>
-                    </td>
-                    <td className="py-3 px-3 sm:px-4 text-right">
-                      <ChevronRight className="h-4 w-4 text-muted-foreground ml-auto" />
-                    </td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                  <td className="px-3 py-3 sm:px-4">
+                    <div className="max-w-[140px] truncate text-xs text-muted-foreground sm:max-w-none sm:text-sm">
+                      {stock.name}
+                    </div>
+                  </td>
+                  <td className="px-3 py-3 text-right text-sm font-semibold tabular-nums sm:px-4 sm:text-base">
+                    ${stock.price.toFixed(2)}
+                  </td>
+                  <td className="px-3 py-3 text-right sm:px-4">
+                    <div
+                      className={`flex items-center justify-end gap-1 text-sm font-semibold tabular-nums sm:text-base ${trendText(stock.change)}`}
+                    >
+                      {stock.change >= 0 ? (
+                        <TrendingUp className="size-3 shrink-0" aria-hidden />
+                      ) : (
+                        <TrendingDown className="size-3 shrink-0" aria-hidden />
+                      )}
+                      <span className="whitespace-nowrap">
+                        {signed(stock.change)}
+                      </span>
+                    </div>
+                    <div className={`text-xs tabular-nums ${trendText(stock.change)}`}>
+                      {stock.changePercent >= 0 ? "+" : ""}
+                      {stock.changePercent.toFixed(2)}%
+                    </div>
+                  </td>
+                  <td className="hidden px-3 py-3 text-right text-xs tabular-nums sm:px-4 sm:text-sm md:table-cell">
+                    {formatNumber(stock.volume)}
+                  </td>
+                  <td className="hidden px-3 py-3 text-right text-xs tabular-nums sm:px-4 sm:text-sm lg:table-cell">
+                    ${stock.marketCap}
+                  </td>
+                  <td className="hidden px-3 py-3 text-right sm:px-4 lg:table-cell">
+                    <Badge variant="outline" className="text-xs">
+                      {stock.sector}
+                    </Badge>
+                  </td>
+                  <td className="px-3 py-3 text-right sm:px-4">
+                    {/*
+                      The row used to carry the only onClick, with no tabindex
+                      and no key handler, so the detail dialog could not be
+                      opened without a pointer. A real button restores that path
+                      and keeps the table semantics intact.
+                    */}
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="size-8"
+                      onClick={() => onRowClick(stock)}
+                      aria-label={`View details for ${stock.name}`}
+                    >
+                      <ChevronRight className="size-4" aria-hidden />
+                    </Button>
+                  </td>
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </CardContent>
     </Card>
@@ -454,38 +403,36 @@ function DataTable({ onRowClick }: { onRowClick: (stock: Stock) => void }) {
 export function StocksDashboard() {
   const [selectedStock, setSelectedStock] = useState<Stock | null>(null);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const handleRowClick = (stock: Stock) => {
     setSelectedStock(stock);
     setIsDetailsOpen(true);
   };
 
-  const handleCloseDetails = () => {
-    setIsDetailsOpen(false);
-  };
-
   return (
-    <div className="w-full px-3 sm:px-4 py-4 sm:py-8">
+    <div className="w-full px-3 py-4 sm:px-4 sm:py-8">
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={shouldReduceMotion ? { duration: 0 } : undefined}
           className="mb-6 sm:mb-8"
         >
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">
-            Stock Portfolio Dashboard
-          </h1>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            Track your investments and monitor market performance
+          <h2 className="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
+            Stock portfolio dashboard
+          </h2>
+          <p className="text-sm text-muted-foreground sm:text-base">
+            Track your investments and monitor market performance.
           </p>
         </motion.div>
 
-        <StatusSection />
-        <DataTable onRowClick={handleRowClick} />
+        <StatusSection reduce={shouldReduceMotion} />
+        <DataTable onRowClick={handleRowClick} reduce={shouldReduceMotion} />
         <StockDetails
           stock={selectedStock}
           isOpen={isDetailsOpen}
-          onClose={handleCloseDetails}
+          onClose={() => setIsDetailsOpen(false)}
         />
       </div>
     </div>

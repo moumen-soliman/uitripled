@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useRef } from "react";
 
@@ -52,6 +52,7 @@ const plans = [
 export function PricingSectionBaseui() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
@@ -61,9 +62,9 @@ export function PricingSectionBaseui() {
     >
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={shouldReduceMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
           className="mb-12 sm:mb-14 md:mb-16 text-center"
         >
           <h2
@@ -72,7 +73,7 @@ export function PricingSectionBaseui() {
           >
             Simple, transparent pricing
           </h2>
-          <p className="text-base sm:text-lg text-[var(--foreground)]/60 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Choose the plan that's right for you
           </p>
         </motion.div>
@@ -81,9 +82,9 @@ export function PricingSectionBaseui() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={shouldReduceMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.4, delay: index * 0.1 }}
               className="flex"
             >
               <div
@@ -92,7 +93,6 @@ export function PricingSectionBaseui() {
                     ? "border-foreground shadow-lg dark:border-foreground"
                     : "border-border hover:border-foreground/50 hover:shadow-md"
                 } bg-card text-card-foreground`}
-                role="article"
                 aria-label={`${plan.name} plan${
                   plan.popular ? ", most popular" : ""
                 }`}
@@ -125,7 +125,6 @@ export function PricingSectionBaseui() {
                 <div className="flex flex-1 flex-col justify-between gap-6 sm:gap-8 pb-6 sm:pb-8 px-4 sm:px-6">
                   <ul
                     className="space-y-2.5 sm:space-y-3"
-                    role="list"
                     aria-label={`${plan.name} plan features`}
                   >
                     {plan.features.map((feature) => (

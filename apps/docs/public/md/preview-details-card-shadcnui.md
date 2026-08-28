@@ -68,10 +68,7 @@ import { PreviewDetailsCard } from "@uitripled/react-shadcn/src/components/micro
 ### Technical Specifications
 
 **Dependencies**:
-- `framer-motion`
 - `react`
-
-This component uses **Framer Motion** for animations and motion effects.
 
 ## Customization
 

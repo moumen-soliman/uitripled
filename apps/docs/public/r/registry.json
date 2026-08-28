@@ -4925,7 +4925,6 @@
       "description": "Link card that reveals a smooth detail preview box on hover",
       "registryDependencies": [],
       "dependencies": [
-        "framer-motion",
         "react"
       ],
       "files": [

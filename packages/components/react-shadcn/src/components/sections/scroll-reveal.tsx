@@ -126,7 +126,7 @@ export function ScrollReveal({
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={shouldReduceMotion || isInView ? "visible" : "hidden"}
           className="mx-auto flex w-full max-w-5xl flex-col items-center text-center"
         >
           {/* Header section */}

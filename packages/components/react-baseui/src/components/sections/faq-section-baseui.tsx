@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { useId, useState } from "react";
 
@@ -34,24 +34,27 @@ const faqs = [
 
 export function FAQSectionBaseui() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const shouldReduceMotion = useReducedMotion();
   const baseId = useId();
 
   return (
     <div className="w-full px-4 py-16">
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+                animate={shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
           className="mb-12 text-center"
         >
           <motion.div
-            initial={{ scale: 0 }}
+            initial={shouldReduceMotion ? { scale: 1 } : { scale: 0 }}
             whileInView={{ scale: 1 }}
+            animate={shouldReduceMotion ? { scale: 1 } : undefined}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, type: "spring" }}
-            className="mb-4 inline-flex rounded-full bg-accent/10 p-3"
+            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.2, type: "spring", bounce: 0 }}
+            className="mb-4 inline-flex rounded-full bg-muted p-3"
             aria-hidden="true"
           >
             <HelpCircle
@@ -75,10 +78,11 @@ export function FAQSectionBaseui() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                animate={shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
               >
                 <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground shadow-sm">
                   <div className="flex flex-col space-y-1.5 p-6">
@@ -88,7 +92,7 @@ export function FAQSectionBaseui() {
                         setOpenIndex(openIndex === index ? null : index)
                       }
                       className="flex w-full items-center justify-between text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-ring"
-                      whileHover={{ x: 4 }}
+                      whileHover={shouldReduceMotion ? undefined : { x: 4 }}
                       aria-expanded={openIndex === index}
                       aria-controls={answerId}
                       id={questionId}
@@ -98,7 +102,7 @@ export function FAQSectionBaseui() {
                       </span>
                       <motion.div
                         animate={{ rotate: openIndex === index ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
                         aria-hidden="true"
                       >
                         <ChevronDown className="h-5 w-5 text-foreground/60" />
@@ -112,7 +116,7 @@ export function FAQSectionBaseui() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3, ease: "easeInOut" }}
                         role="region"
                         id={answerId}
                         aria-labelledby={questionId}

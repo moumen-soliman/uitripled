@@ -2,7 +2,7 @@
 
 > Production-ready UI components, blocks, and full pages available in shadcn/ui and Base UI, powered by Framer Motion. Copy-paste components — not an installable npm package.
 
-**Last Updated:** 2026-07-22T13:25:38.280Z
+**Last Updated:** 2026-08-27T22:59:15.617Z
 
 - Components come in **shadcn/ui**, **Base UI**, and **Carbon** variants (the suffix in the name indicates the style system, e.g. `-shadcnui`, `-baseui`, `-carbon`)
 - **Copy-paste model** — browse the docs, preview a component, then copy its code directly into your project
@@ -36738,10 +36738,7 @@ import { PreviewDetailsCard } from "@uitripled/react-shadcn/src/components/micro
 ### Technical Specifications
 
 **Dependencies**:
-- `framer-motion`
 - `react`
-
-This component uses **Framer Motion** for animations and motion effects.
 
 ## Customization
 

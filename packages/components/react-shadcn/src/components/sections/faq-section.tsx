@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { useId, useState } from "react";
 
@@ -35,35 +35,38 @@ const faqs = [
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const shouldReduceMotion = useReducedMotion();
   const baseId = useId();
 
   return (
     <div className="w-full px-4 py-16">
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+                animate={shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
           className="mb-12 text-center"
         >
           <motion.div
-            initial={{ scale: 0 }}
+            initial={shouldReduceMotion ? { scale: 1 } : { scale: 0 }}
             whileInView={{ scale: 1 }}
+            animate={shouldReduceMotion ? { scale: 1 } : undefined}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, type: "spring" }}
-            className="mb-4 inline-flex rounded-full bg-accent/10 p-3"
+            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.2, type: "spring", bounce: 0 }}
+            className="mb-4 inline-flex rounded-full bg-muted p-3"
             aria-hidden="true"
           >
             <HelpCircle
-              className="h-8 w-8 text-[var(--muted-foreground)]"
+              className="h-8 w-8 text-muted-foreground"
               aria-hidden="true"
             />
           </motion.div>
           <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
             Frequently Asked Questions
           </h2>
-          <p className="text-sm text-[var(--foreground)]/70 sm:text-base md:text-lg">
+          <p className="text-sm text-muted-foreground sm:text-base md:text-lg">
             Everything you need to know about our library
           </p>
         </motion.div>
@@ -76,20 +79,21 @@ export function FAQSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                animate={shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
               >
-                <Card className="overflow-hidden  bg-[var(--card-bg)]">
+                <Card className="overflow-hidden bg-card">
                   <CardHeader>
                     <motion.button
                       type="button"
                       onClick={() =>
                         setOpenIndex(openIndex === index ? null : index)
                       }
-                      className="flex w-full items-center justify-between text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-white/70"
-                      whileHover={{ x: 4 }}
+                      className="flex w-full items-center justify-between text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-ring"
+                      whileHover={shouldReduceMotion ? undefined : { x: 4 }}
                       aria-expanded={openIndex === index}
                       aria-controls={answerId}
                       id={questionId}
@@ -99,10 +103,10 @@ export function FAQSection() {
                       </span>
                       <motion.div
                         animate={{ rotate: openIndex === index ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
                         aria-hidden="true"
                       >
-                        <ChevronDown className="h-5 w-5 text-[var(--foreground)]/60" />
+                        <ChevronDown className="h-5 w-5 text-muted-foreground" />
                       </motion.div>
                     </motion.button>
                   </CardHeader>
@@ -113,13 +117,13 @@ export function FAQSection() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3, ease: "easeInOut" }}
                         role="region"
                         id={answerId}
                         aria-labelledby={questionId}
                       >
                         <CardContent className="pt-0">
-                          <p className="text-[var(--foreground)]/70">
+                          <p className="text-muted-foreground">
                             {faq.answer}
                           </p>
                         </CardContent>

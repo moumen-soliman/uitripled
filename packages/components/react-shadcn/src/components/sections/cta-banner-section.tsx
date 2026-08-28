@@ -104,7 +104,7 @@ export function CTABannerSection({
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={shouldReduceMotion || isInView ? "visible" : "hidden"}
             className="space-y-6 md:space-y-8 lg:space-y-12"
           >
             {/* Main CTA Card - Dashboard style */}
