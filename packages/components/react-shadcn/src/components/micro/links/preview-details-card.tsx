@@ -1,154 +1,136 @@
 "use client";
 
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-  type Transition,
-  type Variants,
-} from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { useId, useMemo, useState } from "react";
+import { useId } from "react";
 
-const previewHighlights = [
+import { cn } from "@/lib/utils";
+
+type PreviewHighlight = {
+  label: string;
+  value: string;
+};
+
+type PreviewDetailsCardProps = {
+  href?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  badge?: string | null;
+  highlights?: PreviewHighlight[];
+  className?: string;
+};
+
+const DEFAULT_HIGHLIGHTS: PreviewHighlight[] = [
   { label: "Owner", value: "Avery Nolan" },
   { label: "Status", value: "Sprint ready" },
   { label: "Last update", value: "4 hours ago" },
 ];
 
-export function PreviewDetailsCard() {
-  const [isActive, setIsActive] = useState(false);
-  const previewId = useId();
-  const descriptionId = useMemo(() => `${previewId}-description`, [previewId]);
-  const shouldReduceMotion = useReducedMotion();
-
-  const handleActivate = () => setIsActive(true);
-  const handleDeactivate = () => setIsActive(false);
-
-  const flyoutVariants: Variants = useMemo(
-    () => ({
-      hidden: {
-        opacity: 0,
-        y: shouldReduceMotion ? 0 : 12,
-        scale: shouldReduceMotion ? 1 : 0.96,
-      },
-      visible: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: shouldReduceMotion
-          ? { duration: 0 }
-          : { duration: 0.28, ease: [0.19, 1, 0.22, 1] },
-      },
-      exit: {
-        opacity: 0,
-        y: shouldReduceMotion ? 0 : 8,
-        scale: shouldReduceMotion ? 1 : 0.95,
-        transition: shouldReduceMotion
-          ? { duration: 0 }
-          : { duration: 0.2, ease: [0.4, 0, 0.2, 1] },
-      },
-    }),
-    [shouldReduceMotion]
-  );
-
-  const hoverMotion = shouldReduceMotion ? undefined : { scale: 1.02, y: -2 };
-  const hoverTransition = shouldReduceMotion
-    ? { duration: 0 }
-    : { type: "spring", stiffness: 420, damping: 34, mass: 0.7 };
+export function PreviewDetailsCard({
+  href = "#",
+  eyebrow = "Workspace",
+  title = "Preview Details Card",
+  description = "Hover or focus to surface key workspace traits before diving into the full view.",
+  badge = "Instant",
+  highlights = DEFAULT_HIGHLIGHTS,
+  className,
+}: PreviewDetailsCardProps) {
+  const titleId = useId();
 
   return (
-    <section
-      aria-labelledby={`${previewId}-title`}
-      aria-describedby={descriptionId}
-      className=""
+    <article
+      className={cn(
+        "group relative isolate w-full rounded-2xl border border-border bg-card p-6",
+        "shadow-[0_1px_2px_-1px_oklch(0_0_0/0.08),0_16px_40px_-24px_oklch(0_0_0/0.24)]",
+        "transition-[border-color,box-shadow] duration-200 ease-[cubic-bezier(0.2,0,0,1)]",
+        "hover:border-foreground/25",
+        // The ring lives on the card, because the link's own box is only the title.
+        "has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-ring has-[a:focus-visible]:ring-offset-2 has-[a:focus-visible]:ring-offset-background",
+        "motion-reduce:transition-none",
+        className
+      )}
     >
-      <div className="relative w-full">
-        <motion.a
-          href="#"
-          onClick={(event) => event.preventDefault()}
-          onMouseEnter={handleActivate}
-          onMouseLeave={handleDeactivate}
-          onFocus={handleActivate}
-          onBlur={handleDeactivate}
-          className="group relative inline-flex w-full flex-col gap-4 rounded-3xl border border-border/60 bg-card/80 px-7 py-6 text-[var(--muted-foreground)] backdrop-blur-2xl transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background hover:border-border"
-          layout
-          whileHover={hoverMotion}
-          transition={hoverTransition as Transition}
-        >
-          <div className="flex items-center justify-between text-xs uppercase tracking-[0.32em]">
-            <span className="inline-flex items-center gap-2 text-[var(--muted-foreground)]/70">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/15">
-                <Sparkles className="h-4 w-4 text-primary" aria-hidden />
-              </span>
-              Workspace
-            </span>
-            <ArrowUpRight
-              className="h-4 w-4 text-[var(--muted-foreground)]/70 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-              aria-hidden
-            />
-          </div>
-
-          <div className="space-y-2 text-left">
-            <h3
-              id={`${previewId}-title`}
-              className="text-xl font-semibold text-[var(--muted-foreground)] sm:text-2xl"
-            >
-              Preview Details Card
-            </h3>
-            <p
-              id={descriptionId}
-              className="text-sm leading-relaxed text-[var(--muted-foreground)]"
-            >
-              Hover or focus to surface key workspace traits before diving into
-              the full view.
-            </p>
-          </div>
-
-          <span className="sr-only">
-            Focus or hover to reveal the workspace summary panel that lists
-            owner, status, and freshness details.
+      <div className="flex items-center justify-between gap-3">
+        <span className="inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          <span className="flex size-8 items-center justify-center rounded-full bg-muted text-foreground">
+            <Sparkles className="size-4" strokeWidth={1.5} aria-hidden />
           </span>
-
-          <AnimatePresence initial={false}>
-            {isActive && (
-              <motion.div
-                key="preview"
-                id={previewId}
-                variants={flyoutVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="overflow-hidden rounded-2xl border border-border/60 bg-card/90 p-5 text-sm text-[var(--muted-foreground)] shadow-[0_25px_70px_-20px_rgba(15,23,42,0.5)]"
-                role="region"
-                aria-live="polite"
-              >
-                <div className="mb-4 flex items-center justify-between text-[11px] uppercase tracking-[0.36em] text-[var(--muted-foreground)]/70">
-                  Preview
-                  <span className="rounded-full bg-primary/15 px-3 py-1 text-[0.65rem] font-semibold text-primary/85">
-                    instant
-                  </span>
-                </div>
-                <ul className="space-y-3">
-                  {previewHighlights.map((item) => (
-                    <li
-                      key={item.label}
-                      className="flex items-center justify-between gap-3 text-sm text-[var(--muted-foreground)]/80"
-                    >
-                      <span className="text-[11px] uppercase tracking-[0.28em] text-[var(--muted-foreground)]/70">
-                        {item.label}
-                      </span>
-                      <span className="font-medium text-[var(--muted-foreground)]">
-                        {item.value}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.a>
+          {eyebrow}
+        </span>
+        <ArrowUpRight
+          className={cn(
+            "size-4 shrink-0 text-muted-foreground",
+            "transition-transform duration-200 ease-[cubic-bezier(0.2,0,0,1)]",
+            "group-hover:-translate-y-0.5 group-hover:translate-x-0.5",
+            "motion-reduce:transition-none motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0"
+          )}
+          aria-hidden
+        />
       </div>
-    </section>
+
+      <h3
+        id={titleId}
+        className="mt-5 text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+      >
+        {/* Stretched link: the whole card is clickable, but the accessible name
+            stays just the title. */}
+        <a
+          href={href}
+          className="after:absolute after:inset-0 after:rounded-2xl after:content-[''] focus-visible:outline-none"
+        >
+          {title}
+        </a>
+      </h3>
+
+      <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+        {description}
+      </p>
+
+      {/*
+        Always in the DOM, so assistive tech reads it without a live region and
+        without depending on a hover it cannot perform. Sighted users get the
+        reveal via a pure-CSS grid-row transition, which stays interruptible
+        mid-animation in a way an AnimatePresence mount cannot.
+      */}
+      <div
+        className={cn(
+          "grid grid-rows-[0fr] transition-[grid-template-rows,opacity] duration-[280ms] ease-[cubic-bezier(0.2,0,0,1)]",
+          "opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100",
+          "group-focus-within:grid-rows-[1fr] group-focus-within:opacity-100",
+          "motion-reduce:transition-none"
+        )}
+      >
+        <div className="overflow-hidden">
+          <div className="mt-5 border-t border-border pt-4">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Preview
+              </span>
+              {badge && (
+                <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-medium text-foreground">
+                  {badge}
+                </span>
+              )}
+            </div>
+
+            <dl className="mt-3 space-y-2.5">
+              {highlights.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-baseline justify-between gap-4"
+                >
+                  <dt className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                    {item.label}
+                  </dt>
+                  <dd className="text-sm font-medium text-foreground">
+                    {item.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }

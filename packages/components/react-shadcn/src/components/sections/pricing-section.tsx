@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -61,6 +61,7 @@ const plans = [
 export function PricingSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
@@ -70,9 +71,9 @@ export function PricingSection() {
     >
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={shouldReduceMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
           className="mb-12 sm:mb-14 md:mb-16 text-center"
         >
           <h2
@@ -81,7 +82,7 @@ export function PricingSection() {
           >
             Simple, transparent pricing
           </h2>
-          <p className="text-base sm:text-lg text-[var(--foreground)]/60 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Choose the plan that's right for you
           </p>
         </motion.div>
@@ -90,19 +91,18 @@ export function PricingSection() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={shouldReduceMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.4, delay: index * 0.1 }}
               className="flex"
             >
               <Card
                 className={cn(
-                  "relative flex h-full w-full flex-col overflow-hidden border transition-all duration-200",
+                  "relative flex h-full w-full flex-col overflow-hidden border transition-[border-color,box-shadow] duration-200",
                   plan.popular
                     ? "border-foreground shadow-lg dark:border-foreground"
                     : "border-border hover:border-foreground/50 hover:shadow-md"
                 )}
-                role="article"
                 aria-label={`${plan.name} plan${plan.popular ? ', most popular' : ''}`}
               >
                 {plan.popular && (
@@ -137,7 +137,6 @@ export function PricingSection() {
                 <CardContent className="flex flex-1 flex-col justify-between gap-6 sm:gap-8 pb-6 sm:pb-8 px-4 sm:px-6">
                   <ul
                     className="space-y-2.5 sm:space-y-3"
-                    role="list"
                     aria-label={`${plan.name} plan features`}
                   >
                     {plan.features.map((feature) => (
@@ -158,7 +157,7 @@ export function PricingSection() {
 
                   <Button
                     className={cn(
-                      "w-full font-medium transition-all text-sm sm:text-base",
+                      "w-full font-medium transition-colors text-sm sm:text-base",
                       plan.popular
                         ? "bg-foreground text-background hover:bg-foreground/90"
                         : "bg-background text-foreground border border-input hover:bg-accent hover:text-accent-foreground"

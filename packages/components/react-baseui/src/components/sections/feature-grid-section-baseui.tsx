@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Code, Globe, Lock, Shield, Sparkles, Zap } from "lucide-react";
 import { useRef } from "react";
 
@@ -40,6 +40,7 @@ const features = [
 export function FeatureGridSectionBaseui() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
@@ -51,9 +52,9 @@ export function FeatureGridSectionBaseui() {
 
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={shouldReduceMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
           className="mb-12 sm:mb-16 md:mb-20 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
@@ -70,9 +71,9 @@ export function FeatureGridSectionBaseui() {
             return (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                animate={shouldReduceMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.4, delay: index * 0.1 }}
                 className="flex"
               >
                 <div className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-border/40 bg-background/60 backdrop-blur-sm transition-all duration-300 hover:border-foreground/20 hover:shadow-lg hover:-translate-y-1">

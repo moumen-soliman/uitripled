@@ -1,27 +1,30 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export function HeroSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: shouldReduceMotion ? 1 : 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.15, delayChildren: 0.1 },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : { duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -33,7 +36,7 @@ export function HeroSection() {
       className="flex min-h-[500px] flex-col items-center justify-center px-4 py-16 text-center"
     >
       <motion.div variants={itemVariants} className="mb-4">
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-[var(--muted-foreground)]">
+        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-sm font-medium text-muted-foreground">
           <Sparkles className="h-4 w-4" />
           New Features Available
         </span>
@@ -45,14 +48,14 @@ export function HeroSection() {
       >
         Build Amazing
         <br />
-        <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-foreground to-foreground/55 bg-clip-text text-transparent">
           User Experiences
         </span>
       </motion.h1>
 
       <motion.p
         variants={itemVariants}
-        className="mb-8 max-w-2xl text-lg text-[var(--foreground)]/70"
+        className="mb-8 max-w-2xl text-lg text-muted-foreground"
       >
         Create stunning, animated interfaces with our collection of
         production-ready components. Built with React, Framer Motion, and
@@ -71,22 +74,22 @@ export function HeroSection() {
 
       <motion.div
         variants={itemVariants}
-        className="mt-12 flex items-center gap-8 text-sm text-[var(--foreground)]/60"
+        className="mt-12 flex items-center gap-8 text-sm text-muted-foreground"
       >
         <div>
-          <div className="text-2xl font-bold text-[var(--foreground)]">
+          <div className="text-2xl font-bold text-foreground">
             10k+
           </div>
           <div>Downloads</div>
         </div>
-        <div className="h-8 w-px bg-[var(--border)]" />
+        <div className="h-8 w-px bg-border" />
         <div>
-          <div className="text-2xl font-bold text-[var(--foreground)]">50+</div>
+          <div className="text-2xl font-bold text-foreground">50+</div>
           <div>Components</div>
         </div>
-        <div className="h-8 w-px bg-[var(--border)]" />
+        <div className="h-8 w-px bg-border" />
         <div>
-          <div className="text-2xl font-bold text-[var(--foreground)]">
+          <div className="text-2xl font-bold text-foreground">
             100%
           </div>
           <div>Open Source</div>

@@ -1736,7 +1736,9 @@
       "title": "Feature Comparison Table",
       "description": "Interactive pricing comparison table with animated checkmarks and plan highlights",
       "registryDependencies": [
-        "button"
+        "badge",
+        "button",
+        "card"
       ],
       "dependencies": [
         "framer-motion",
@@ -4925,7 +4927,6 @@
       "description": "Link card that reveals a smooth detail preview box on hover",
       "registryDependencies": [],
       "dependencies": [
-        "framer-motion",
         "react"
       ],
       "files": [
@@ -5662,7 +5663,10 @@
       "title": "Stocks Dashboard",
       "description": "Interactive stock portfolio dashboard with status cards, data table, and detailed stock information modal",
       "registryDependencies": [
-        "button"
+        "badge",
+        "button",
+        "card",
+        "dialog"
       ],
       "dependencies": [
         "framer-motion",
@@ -5728,7 +5732,9 @@
       "title": "Team Section Block",
       "description": "Animated team member cards with avatars, roles, and social links",
       "registryDependencies": [
-        "button"
+        "badge",
+        "button",
+        "card"
       ],
       "dependencies": [
         "framer-motion",

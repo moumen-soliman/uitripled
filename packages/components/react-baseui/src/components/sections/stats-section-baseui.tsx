@@ -140,7 +140,7 @@ export function StatsSectionBaseui() {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={shouldReduceMotion || isInView ? "visible" : "hidden"}
         className="mx-auto flex w-full max-w-6xl flex-col items-center text-center"
       >
         <motion.div className="space-y-5">
