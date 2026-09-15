@@ -133,6 +133,16 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
+  html, body {
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer utilities {

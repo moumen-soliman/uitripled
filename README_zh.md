@@ -155,7 +155,7 @@ pnpm install
 pnpm dev --filter=uitripled-docs
 ```
 
-在浏览器中打开 [http://localhost:3000](http://localhost:3000)。
+在浏览器中打开 [http://localhost:3001](http://localhost:3001)。
 
 ## 使用方式
 
